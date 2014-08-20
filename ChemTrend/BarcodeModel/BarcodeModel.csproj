@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AC9F432B-B496-412A-BD72-BB16C4EC5516}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BarcodeModel</RootNamespace>
+    <AssemblyName>BarcodeModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ADOHelper">
+      <HintPath>C:\hw\hw_1999\hwproj\hw\hw\bin\ADOHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ADO\BaseAdo.cs" />
+    <Compile Include="ADO\ModelAdo.cs" />
+    <Compile Include="ADO\Tablename.cs" />
+    <Compile Include="API\ApiException.cs" />
+    <Compile Include="API\ApiURL.cs" />
+    <Compile Include="API\BaseAPI.cs" />
+    <Compile Include="API\ModelAPI.cs" />
+    <Compile Include="MODEL\Barcode\LocationModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\BarcodeDestoryModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\BarcodePackingModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\BillDetailModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\BillModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\BarcodeCreateModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\BarcodeWarehouseModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\DestroyBarcodeModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\EnterWarehouseModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\MoveWarehouseModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\PackingBarcodeModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\PListCreateModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\ReceiveOutWarehouseModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\PackingModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\POLineModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\ReceiveDetailModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\ReceiveModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\RWBarcodeModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\RWHistoryModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\WOLineModel.cs" />
+    <Compile Include="MODEL\BaseSearchModel.cs" />
+    <Compile Include="MODEL\Sys\CompanyModel.cs" />
+    <Compile Include="MODEL\User\LoginHistoryModel.cs" />
+    <Compile Include="MODEL\User\LoginModel.cs" />
+    <Compile Include="MODEL\User\RightsModel.cs" />
+    <Compile Include="MODEL\User\RoleModel.cs" />
+    <Compile Include="MODEL\User\RoleRightsModel.cs" />
+    <Compile Include="MODEL\User\UserModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SysConfig.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MODEL\SearchModel\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

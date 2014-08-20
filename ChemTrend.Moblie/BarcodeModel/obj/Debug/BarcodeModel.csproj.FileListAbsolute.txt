@@ -1,0 +1,5 @@
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend.Moblie\BarcodeModel\bin\Debug\BarcodeModel.dll
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend.Moblie\BarcodeModel\bin\Debug\BarcodeModel.pdb
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend.Moblie\BarcodeModel\obj\Debug\ResolveAssemblyReference.cache
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend.Moblie\BarcodeModel\obj\Debug\BarcodeModel.dll
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend.Moblie\BarcodeModel\obj\Debug\BarcodeModel.pdb
