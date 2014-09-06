@@ -301,6 +301,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\repFG.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\repFG.Designer.cs">
+      <DependentUpon>repFG.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\repPackage.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -427,6 +433,9 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\repFG.resx">
+      <DependentUpon>repFG.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\repPackage.resx">
       <DependentUpon>repPackage.cs</DependentUpon>
     </EmbeddedResource>
@@ -468,7 +477,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\Bill\" />
-    <Folder Include="Forms\Product\" />
+    <Folder Include="Forms\FG\" />
     <Folder Include="Modules\" />
   </ItemGroup>
   <ItemGroup>

@@ -56,6 +56,8 @@
             this.barButtonItem23 = new DevExpress.XtraBars.BarButtonItem();
             this.bbtn_role = new DevExpress.XtraBars.BarButtonItem();
             this.bbtn_access = new DevExpress.XtraBars.BarButtonItem();
+            this.barListItem1 = new DevExpress.XtraBars.BarListItem();
+            this.bsi_timer = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -77,8 +79,6 @@
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_customer = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
-            this.barListItem1 = new DevExpress.XtraBars.BarListItem();
-            this.bsi_timer = new DevExpress.XtraBars.BarStaticItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -247,6 +247,7 @@
             this.barButtonItem15.Id = 17;
             this.barButtonItem15.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem15.LargeGlyph")));
             this.barButtonItem15.Name = "barButtonItem15";
+            this.barButtonItem15.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
             // barButtonItem16
             // 
@@ -340,6 +341,20 @@
             this.bbtn_access.Name = "bbtn_access";
             this.bbtn_access.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbtn_access.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtn_access_ItemClick);
+            // 
+            // barListItem1
+            // 
+            this.barListItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barListItem1.Caption = "barListItem1";
+            this.barListItem1.Id = 29;
+            this.barListItem1.Name = "barListItem1";
+            // 
+            // bsi_timer
+            // 
+            this.bsi_timer.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.bsi_timer.Id = 30;
+            this.bsi_timer.Name = "bsi_timer";
+            this.bsi_timer.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // ribbonPage1
             // 
@@ -509,20 +524,6 @@
             this.barButtonItem13.Id = 9;
             this.barButtonItem13.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem13.LargeGlyph")));
             this.barButtonItem13.Name = "barButtonItem13";
-            // 
-            // barListItem1
-            // 
-            this.barListItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.barListItem1.Caption = "barListItem1";
-            this.barListItem1.Id = 29;
-            this.barListItem1.Name = "barListItem1";
-            // 
-            // bsi_timer
-            // 
-            this.bsi_timer.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.bsi_timer.Id = 30;
-            this.bsi_timer.Name = "bsi_timer";
-            this.bsi_timer.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
             // frmMain
             // 
