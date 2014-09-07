@@ -326,3 +326,298 @@ select UR01.*,UR02002 from UR01 left join UR02 on UR02001=UR01006
 alter view viewBillDetails
 as
 SELECT * FROM RW04 inner join RW01 ON RW04004=RW01001
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+USE [BarcodeQP]
+GO
+/****** Object:  Table [dbo].[FG91]    Script Date: 09/07/2014 12:20:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[FG91](
+	[FG91001] [varchar](30) NULL,
+	[FG91002] [varchar](50) NULL,
+	[FG91003] [nvarchar](100) NULL,
+	[FG91004] [nvarchar](100) NULL,
+	[FG91005] [nvarchar](10) NULL,
+	[FG91006] [numeric](15, 3) NULL,
+	[FG91007] [varchar](50) NULL,
+	[FG91008] [varchar](10) NULL,
+	[FG91009] [varchar](10) NULL,
+	[FG91010] [datetime] NULL,
+	[FG91011] [datetime] NULL,
+	[FG91012] [varchar](50) NULL,
+	[FG91013] [nvarchar](100) NULL,
+	[FG91014] [varchar](50) NULL,
+	[FG91015] [varchar](10) NULL,
+	[FG91016] [varchar](10) NULL,
+	[FG91017] [varchar](10) NULL,
+	[FG91018] [nvarchar](100) NULL,
+	[FG91019] [nvarchar](100) NULL,
+	[FG91020] [varchar](50) NULL,
+	[FG91021] [nvarchar](100) NULL,
+	[FG91022] [varchar](50) NULL,
+	[FG91023] [nvarchar](100) NULL,
+	[FG91024] [varchar](50) NULL,
+	[FG91025] [nvarchar](100) NULL,
+	[FG91026] [varchar](50) NULL,
+	[FG91027] [varchar](50) NULL,
+	[FG91028] [varchar](50) NULL,
+	[FG91029] [nvarchar](100) NULL,
+	[FG91030] [varchar](50) NULL,
+	[FG91031] [varchar](50) NULL,
+	[FG91032] [int] NULL,
+	[FG91033] [varchar](50) NULL,
+	[FG91034] [varchar](50) NULL,
+	[FG91035] [varchar](255) NULL,
+	[FG91036] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[FG12]    Script Date: 09/07/2014 12:20:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[FG12](
+	[FG12001] [int] NULL,
+	[FG12002] [datetime] NULL,
+	[FG12003] [varchar](50) NULL,
+	[FG12004] [nvarchar](50) NULL,
+	[FG12005] [varchar](50) NULL,
+	[FG12006] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[FG11]    Script Date: 09/07/2014 12:20:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[FG11](
+	[FG11001] [varchar](30) NULL,
+	[FG11002] [datetime] NULL,
+	[FG11003] [varchar](50) NULL,
+	[FG11004] [nvarchar](50) NULL,
+	[FG11005] [int] NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[FG10]    Script Date: 09/07/2014 12:20:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[FG10](
+	[FG10001] [int] NULL,
+	[FG10002] [datetime] NULL,
+	[FG10003] [varchar](50) NULL,
+	[FG10004] [nvarchar](50) NULL,
+	[FG10005] [varchar](50) NULL,
+	[FG10006] [varchar](50) NULL,
+	[FG10007] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[FG09]    Script Date: 09/07/2014 12:20:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[FG09](
+	[FG09001] [int] NULL,
+	[FG09002] [int] NULL,
+	[FG09003] [varchar](50) NULL,
+	[FG09004] [datetime] NULL,
+	[FG09005] [varchar](50) NULL,
+	[FG09006] [nvarchar](50) NULL,
+	[FG09007] [varchar](50) NULL,
+	[FG09008] [nvarchar](50) NULL,
+	[FG09009] [numeric](15, 3) NULL,
+	[FG09010] [nvarchar](10) NULL,
+	[FG09011] [numeric](15, 3) NULL,
+	[FG09012] [numeric](15, 3) NULL,
+	[FG09013] [numeric](15, 3) NULL,
+	[FG09014] [numeric](15, 3) NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[FG08]    Script Date: 09/07/2014 12:20:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[FG08](
+	[FG08001] [varchar](30) NULL,
+	[FG08002] [datetime] NULL,
+	[FG08003] [varchar](50) NULL,
+	[FG08004] [nvarchar](50) NULL,
+	[FG08005] [datetime] NULL,
+	[FG08006] [int] NULL,
+	[FG08007] [nvarchar](100) NULL,
+	[FG08008] [int] NULL,
+	[FG08009] [varchar](50) NULL,
+	[FG08010] [nvarchar](50) NULL,
+	[FG08011] [varchar](50) NULL,
+	[FG08012] [nvarchar](50) NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[FG07]    Script Date: 09/07/2014 12:20:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[FG07](
+	[FG07001] [varchar](30) NULL,
+	[FG07002] [datetime] NULL,
+	[FG07003] [varchar](50) NULL,
+	[FG07004] [nvarchar](50) NULL,
+	[FG07005] [int] NULL,
+	[FG07006] [varchar](50) NULL,
+	[FG07007] [int] NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[FG04]    Script Date: 09/07/2014 12:20:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[FG04](
+	[FG04001] [int] NULL,
+	[FG04002] [datetime] NULL,
+	[FG04003] [varchar](50) NULL,
+	[FG04004] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[FG03]    Script Date: 09/07/2014 12:20:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[FG03](
+	[FG03001] [varchar](30) NULL,
+	[FG03002] [datetime] NULL,
+	[FG03003] [varchar](50) NULL,
+	[FG03004] [nvarchar](50) NULL,
+	[FG03005] [varchar](50) NULL,
+	[FG03006] [nvarchar](50) NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[FG02]    Script Date: 09/07/2014 12:20:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[FG02](
+	[FG02001] [int] NULL,
+	[FG02002] [varchar](50) NULL,
+	[FG02003] [datetime] NULL,
+	[FG02004] [varchar](50) NULL,
+	[FG02005] [nvarchar](50) NULL,
+	[FG02006] [varchar](50) NULL,
+	[FG02007] [nvarchar](50) NULL,
+	[FG02008] [varchar](50) NULL,
+	[FG02009] [nvarchar](50) NULL,
+	[FG02010] [varchar](50) NULL,
+	[FG02011] [nvarchar](100) NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[FG01]    Script Date: 09/07/2014 12:20:14 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[FG01](
+	[FG01001] [varchar](30) NULL,
+	[FG01002] [varchar](50) NULL,
+	[FG01003] [nvarchar](100) NULL,
+	[FG01004] [nvarchar](100) NULL,
+	[FG01005] [nvarchar](10) NULL,
+	[FG01006] [numeric](15, 3) NULL,
+	[FG01007] [varchar](50) NULL,
+	[FG01008] [varchar](10) NULL,
+	[FG01009] [varchar](10) NULL,
+	[FG01010] [datetime] NULL,
+	[FG01011] [datetime] NULL,
+	[FG01012] [varchar](50) NULL,
+	[FG01013] [nvarchar](100) NULL,
+	[FG01014] [varchar](50) NULL,
+	[FG01015] [varchar](10) NULL,
+	[FG01016] [varchar](10) NULL,
+	[FG01017] [varchar](10) NULL,
+	[FG01018] [nvarchar](100) NULL,
+	[FG01019] [nvarchar](100) NULL,
+	[FG01020] [varchar](50) NULL,
+	[FG01021] [nvarchar](100) NULL,
+	[FG01022] [varchar](50) NULL,
+	[FG01023] [nvarchar](100) NULL,
+	[FG01024] [varchar](50) NULL,
+	[FG01025] [nvarchar](100) NULL,
+	[FG01026] [varchar](50) NULL,
+	[FG01027] [varchar](50) NULL,
+	[FG01028] [varchar](50) NULL,
+	[FG01029] [nvarchar](100) NULL,
+	[FG01030] [varchar](50) NULL,
+	[FG01031] [varchar](50) NULL,
+	[FG01032] [int] NULL,
+	[FG01033] [varchar](50) NULL,
+	[FG01034] [varchar](50) NULL,
+	[FG01035] [varchar](255) NULL,
+	[FG01036] [varchar](50) NULL
+) ON [PRIMARY]
+GO
+SET ANSI_PADDING OFF
+GO
