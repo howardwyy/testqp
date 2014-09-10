@@ -34,18 +34,19 @@
             this.barButtonItem_stockbarcode = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.bbtn_stock_totakestock = new DevExpress.XtraBars.BarButtonItem();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.bbtn_stock_number = new DevExpress.XtraBars.BarButtonItem();
             this.barStaticItem_statusBar = new DevExpress.XtraBars.BarStaticItem();
             this.bbtn_stock_packing = new DevExpress.XtraBars.BarButtonItem();
             this.bbtn_warehouse = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             this.bbtn_stock_receiving = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbtn_item_fg = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem11 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem12 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem14 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem15 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem16 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbtn_item_package = new DevExpress.XtraBars.BarButtonItem();
+            this.bbtn_item_bill = new DevExpress.XtraBars.BarButtonItem();
+            this.bbtn_item_reciver = new DevExpress.XtraBars.BarButtonItem();
+            this.bbtn_item_invoice = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem17 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem18 = new DevExpress.XtraBars.BarButtonItem();
             this.bbtn_sys_user = new DevExpress.XtraBars.BarButtonItem();
@@ -58,6 +59,7 @@
             this.bbtn_access = new DevExpress.XtraBars.BarButtonItem();
             this.barListItem1 = new DevExpress.XtraBars.BarListItem();
             this.bsi_timer = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -79,7 +81,10 @@
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_customer = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbtn_item_business = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,12 +103,12 @@
             this.bbtn_warehouse,
             this.barButtonItem8,
             this.bbtn_stock_receiving,
-            this.barButtonItem10,
+            this.bbtn_item_fg,
             this.barButtonItem11,
-            this.barButtonItem12,
-            this.barButtonItem14,
-            this.barButtonItem15,
-            this.barButtonItem16,
+            this.bbtn_item_package,
+            this.bbtn_item_bill,
+            this.bbtn_item_reciver,
+            this.bbtn_item_invoice,
             this.barButtonItem17,
             this.barButtonItem18,
             this.bbtn_sys_user,
@@ -115,9 +120,11 @@
             this.bbtn_role,
             this.bbtn_access,
             this.barListItem1,
-            this.bsi_timer});
+            this.bsi_timer,
+            this.barButtonItem1,
+            this.bbtn_item_business});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 31;
+            this.ribbon.MaxItemId = 34;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -147,12 +154,20 @@
             // 
             // bbtn_stock_totakestock
             // 
+            this.bbtn_stock_totakestock.ActAsDropDown = true;
+            this.bbtn_stock_totakestock.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown;
             this.bbtn_stock_totakestock.Caption = "盘点管理";
+            this.bbtn_stock_totakestock.DropDownControl = this.popupMenu1;
             this.bbtn_stock_totakestock.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtn_stock_totakestock.Glyph")));
             this.bbtn_stock_totakestock.Id = 6;
             this.bbtn_stock_totakestock.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbtn_stock_totakestock.LargeGlyph")));
             this.bbtn_stock_totakestock.Name = "bbtn_stock_totakestock";
             this.bbtn_stock_totakestock.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtn_stock_totakestock_ItemClick);
+            // 
+            // popupMenu1
+            // 
+            this.popupMenu1.Name = "popupMenu1";
+            this.popupMenu1.Ribbon = this.ribbon;
             // 
             // bbtn_stock_number
             // 
@@ -208,13 +223,14 @@
             this.bbtn_stock_receiving.Name = "bbtn_stock_receiving";
             this.bbtn_stock_receiving.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtn_stock_receiving_ItemClick);
             // 
-            // barButtonItem10
+            // bbtn_item_fg
             // 
-            this.barButtonItem10.Caption = "条码管理";
-            this.barButtonItem10.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.Glyph")));
-            this.barButtonItem10.Id = 13;
-            this.barButtonItem10.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem10.LargeGlyph")));
-            this.barButtonItem10.Name = "barButtonItem10";
+            this.bbtn_item_fg.Caption = "条码管理";
+            this.bbtn_item_fg.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_fg.Glyph")));
+            this.bbtn_item_fg.Id = 13;
+            this.bbtn_item_fg.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_fg.LargeGlyph")));
+            this.bbtn_item_fg.Name = "bbtn_item_fg";
+            this.bbtn_item_fg.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtn_item_fg_ItemClick);
             // 
             // barButtonItem11
             // 
@@ -224,38 +240,41 @@
             this.barButtonItem11.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem11.LargeGlyph")));
             this.barButtonItem11.Name = "barButtonItem11";
             // 
-            // barButtonItem12
+            // bbtn_item_package
             // 
-            this.barButtonItem12.Caption = "装箱管理";
-            this.barButtonItem12.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem12.Glyph")));
-            this.barButtonItem12.Id = 15;
-            this.barButtonItem12.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem12.LargeGlyph")));
-            this.barButtonItem12.Name = "barButtonItem12";
+            this.bbtn_item_package.Caption = "装箱管理";
+            this.bbtn_item_package.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_package.Glyph")));
+            this.bbtn_item_package.Id = 15;
+            this.bbtn_item_package.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_package.LargeGlyph")));
+            this.bbtn_item_package.Name = "bbtn_item_package";
+            this.bbtn_item_package.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtn_item_package_ItemClick);
             // 
-            // barButtonItem14
+            // bbtn_item_bill
             // 
-            this.barButtonItem14.Caption = "单据号";
-            this.barButtonItem14.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem14.Glyph")));
-            this.barButtonItem14.Id = 16;
-            this.barButtonItem14.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem14.LargeGlyph")));
-            this.barButtonItem14.Name = "barButtonItem14";
+            this.bbtn_item_bill.Caption = "单据号";
+            this.bbtn_item_bill.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_bill.Glyph")));
+            this.bbtn_item_bill.Id = 16;
+            this.bbtn_item_bill.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_bill.LargeGlyph")));
+            this.bbtn_item_bill.Name = "bbtn_item_bill";
+            this.bbtn_item_bill.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtn_item_bill_ItemClick);
             // 
-            // barButtonItem15
+            // bbtn_item_reciver
             // 
-            this.barButtonItem15.Caption = "收发单";
-            this.barButtonItem15.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem15.Glyph")));
-            this.barButtonItem15.Id = 17;
-            this.barButtonItem15.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem15.LargeGlyph")));
-            this.barButtonItem15.Name = "barButtonItem15";
-            this.barButtonItem15.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.bbtn_item_reciver.Caption = "收发单";
+            this.bbtn_item_reciver.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_reciver.Glyph")));
+            this.bbtn_item_reciver.Id = 17;
+            this.bbtn_item_reciver.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_reciver.LargeGlyph")));
+            this.bbtn_item_reciver.Name = "bbtn_item_reciver";
+            this.bbtn_item_reciver.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             // 
-            // barButtonItem16
+            // bbtn_item_invoice
             // 
-            this.barButtonItem16.Caption = "发货单";
-            this.barButtonItem16.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem16.Glyph")));
-            this.barButtonItem16.Id = 18;
-            this.barButtonItem16.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem16.LargeGlyph")));
-            this.barButtonItem16.Name = "barButtonItem16";
+            this.bbtn_item_invoice.Caption = "发货单";
+            this.bbtn_item_invoice.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_invoice.Glyph")));
+            this.bbtn_item_invoice.Id = 18;
+            this.bbtn_item_invoice.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_invoice.LargeGlyph")));
+            this.bbtn_item_invoice.Name = "bbtn_item_invoice";
+            this.bbtn_item_invoice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtn_item_invoice_ItemClick);
             // 
             // barButtonItem17
             // 
@@ -356,6 +375,12 @@
             this.bsi_timer.Name = "bsi_timer";
             this.bsi_timer.TextAlignment = System.Drawing.StringAlignment.Near;
             // 
+            // barButtonItem1
+            // 
+            this.barButtonItem1.Caption = "barButtonItem1";
+            this.barButtonItem1.Id = 31;
+            this.barButtonItem1.Name = "barButtonItem1";
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -401,10 +426,10 @@
             // 
             // ribbonPageGroup4
             // 
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem10);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem14);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem15);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem16);
+            this.ribbonPageGroup4.ItemLinks.Add(this.bbtn_item_fg);
+            this.ribbonPageGroup4.ItemLinks.Add(this.bbtn_item_bill);
+            this.ribbonPageGroup4.ItemLinks.Add(this.bbtn_item_reciver);
+            this.ribbonPageGroup4.ItemLinks.Add(this.bbtn_item_invoice);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.ShowCaptionButton = false;
             this.ribbonPageGroup4.Text = "成品管理";
@@ -412,7 +437,8 @@
             // ribbonPageGroup5
             // 
             this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem11);
-            this.ribbonPageGroup5.ItemLinks.Add(this.barButtonItem12);
+            this.ribbonPageGroup5.ItemLinks.Add(this.bbtn_item_package);
+            this.ribbonPageGroup5.ItemLinks.Add(this.bbtn_item_business);
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.ShowCaptionButton = false;
             this.ribbonPageGroup5.Text = "其它";
@@ -525,6 +551,23 @@
             this.barButtonItem13.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem13.LargeGlyph")));
             this.barButtonItem13.Name = "barButtonItem13";
             // 
+            // bbtn_item_business
+            // 
+            this.bbtn_item_business.Caption = "交易历史";
+            this.bbtn_item_business.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_business.Glyph")));
+            this.bbtn_item_business.Id = 33;
+            this.bbtn_item_business.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_business.LargeGlyph")));
+            this.bbtn_item_business.Name = "bbtn_item_business";
+            this.bbtn_item_business.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtn_item_business_ItemClick);
+            // 
+            // barButtonItem6
+            // 
+            this.barButtonItem6.Caption = "历史交易";
+            this.barButtonItem6.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.Glyph")));
+            this.barButtonItem6.Id = 32;
+            this.barButtonItem6.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.LargeGlyph")));
+            this.barButtonItem6.Name = "barButtonItem6";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -541,6 +584,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -572,15 +616,15 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.BarButtonItem barButtonItem_customer;
         private DevExpress.XtraBars.BarButtonItem bbtn_stock_receiving;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem10;
+        private DevExpress.XtraBars.BarButtonItem bbtn_item_fg;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarButtonItem barButtonItem11;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem12;
+        private DevExpress.XtraBars.BarButtonItem bbtn_item_package;
         private DevExpress.XtraBars.BarButtonItem barButtonItem13;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem14;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem15;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem16;
+        private DevExpress.XtraBars.BarButtonItem bbtn_item_bill;
+        private DevExpress.XtraBars.BarButtonItem bbtn_item_reciver;
+        private DevExpress.XtraBars.BarButtonItem bbtn_item_invoice;
         private DevExpress.XtraBars.BarButtonItem barButtonItem17;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
         private DevExpress.XtraBars.BarButtonItem barButtonItem18;
@@ -598,5 +642,9 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
         private DevExpress.XtraBars.BarListItem barListItem1;
         private DevExpress.XtraBars.BarStaticItem bsi_timer;
+        private DevExpress.XtraBars.PopupMenu popupMenu1;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem bbtn_item_business;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem6;
     }
 }

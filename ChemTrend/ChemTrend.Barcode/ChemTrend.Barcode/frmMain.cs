@@ -17,6 +17,7 @@ using ChemTrend.Barcode.Data;
 using ChemTrend.Barcode.Utils;
 using BarcodeModel.MODEL.User;
 using BarcodeModel.API;
+using ChemTrend.Barcode.Forms.FG;
 
 namespace ChemTrend.Barcode
 {
@@ -210,8 +211,7 @@ namespace ChemTrend.Barcode
 
         private void bbtn_role_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenWindow(typeof(frmRoles).ToString());
-
+            OpenWindow(typeof(frmRoles).ToString()); 
         }
 
 
@@ -350,6 +350,35 @@ namespace ChemTrend.Barcode
             apiHistory.Delete(hisID);
 
                 
+        }
+
+        private void bbtn_item_fg_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenWindow(typeof(frmFG).ToString());
+        }
+
+        private void bbtn_item_bill_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenWindow(typeof(frmFGBill).ToString());
+        }
+
+        private void bbtn_item_invoice_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+            OpenWindow(typeof(frmFGInvoice).ToString());
+        }
+
+        private void bbtn_item_package_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+            OpenWindow(typeof(frmFGPackage).ToString());
+        }
+
+
+        private void bbtn_item_business_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenWindow(typeof(frmFGBusiness).ToString());
+
         }
 
     }
