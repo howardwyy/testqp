@@ -13,7 +13,6 @@ namespace BarcodeModel.MODEL.Barcode.FG
     [Tablename(TableName = "FG08", PrimaryKey = "FG08001")]
     public class InvoiceModel : BaseSearchModel
     {
-        
         //FG08001	varchar(30)	主键	主键
         [Columname(Name = "FG08001")]
         public string ID { get; set; }

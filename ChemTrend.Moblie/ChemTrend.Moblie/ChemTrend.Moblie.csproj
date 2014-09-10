@@ -108,11 +108,35 @@
     <Compile Include="Forms\Else\frmHelp.Designer.cs">
       <DependentUpon>frmHelp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Product\frmCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Product\frmCheck.Designer.cs">
+      <DependentUpon>frmCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Product\frmDelivery.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Product\frmDelivery.Designer.cs">
       <DependentUpon>frmDelivery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Product\frmEnterWH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Product\frmEnterWH.Designer.cs">
+      <DependentUpon>frmEnterWH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Product\frmMoveWH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Product\frmMoveWH.Designer.cs">
+      <DependentUpon>frmMoveWH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Product\frmPackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Product\frmPackage.Designer.cs">
+      <DependentUpon>frmPackage.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Product\frmProductMain.cs">
       <SubType>Form</SubType>
@@ -200,8 +224,20 @@
     <EmbeddedResource Include="Forms\Else\frmHelp.resx">
       <DependentUpon>frmHelp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Product\frmCheck.resx">
+      <DependentUpon>frmCheck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Product\frmDelivery.resx">
       <DependentUpon>frmDelivery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Product\frmEnterWH.resx">
+      <DependentUpon>frmEnterWH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Product\frmMoveWH.resx">
+      <DependentUpon>frmMoveWH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Product\frmPackage.resx">
+      <DependentUpon>frmPackage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Product\frmProductMain.resx">
       <DependentUpon>frmProductMain.cs</DependentUpon>

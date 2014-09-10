@@ -34,7 +34,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbox_barcode = new System.Windows.Forms.TextBox();
             this.lbl_barcode = new System.Windows.Forms.Label();
+            this.dg_list = new System.Windows.Forms.DataGrid();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbox_search
@@ -44,6 +47,7 @@
             this.pbox_search.Location = new System.Drawing.Point(208, 1);
             this.pbox_search.Name = "pbox_search";
             this.pbox_search.Size = new System.Drawing.Size(24, 24);
+            this.pbox_search.Click += new System.EventHandler(this.pbox_search_Click);
             // 
             // panel3
             // 
@@ -72,6 +76,7 @@
             this.tbox_barcode.Name = "tbox_barcode";
             this.tbox_barcode.Size = new System.Drawing.Size(120, 21);
             this.tbox_barcode.TabIndex = 1;
+            this.tbox_barcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbox_barcode_KeyDown);
             // 
             // lbl_barcode
             // 
@@ -80,18 +85,40 @@
             this.lbl_barcode.Size = new System.Drawing.Size(58, 16);
             this.lbl_barcode.Text = "条码：";
             // 
+            // dg_list
+            // 
+            this.dg_list.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.dg_list.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dg_list.Location = new System.Drawing.Point(0, 0);
+            this.dg_list.Name = "dg_list";
+            this.dg_list.Size = new System.Drawing.Size(240, 250);
+            this.dg_list.TabIndex = 1;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.dg_list);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Location = new System.Drawing.Point(0, 70);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(240, 250);
+            // 
             // frmCheck
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(240, 320);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel3);
+            this.KeyPreview = true;
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "frmCheck";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmCheck_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCheck_KeyDown);
             this.Controls.SetChildIndex(this.panel3, 0);
+            this.Controls.SetChildIndex(this.panel6, 0);
             this.panel3.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -103,6 +130,8 @@
         private System.Windows.Forms.TextBox tbox_barcode;
         private System.Windows.Forms.Label lbl_barcode;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGrid dg_list;
+        private System.Windows.Forms.Panel panel6;
 
     }
 }

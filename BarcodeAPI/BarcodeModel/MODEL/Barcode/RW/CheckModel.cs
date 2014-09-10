@@ -1,9 +1,12 @@
 ﻿using BarcodeModel.ADO;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace BarcodeModel.MODEL.Barcode.RW
 {
@@ -30,9 +33,35 @@ namespace BarcodeModel.MODEL.Barcode.RW
         [Columname(Name = "RW12005")]
         public string PlanID { get; set; }
         //RW12006	varchar(50)		条码ID
-        [Columname(Name = "RW12005")]
+        [Columname(Name = "RW12006")]
         public string BarcodeID { get; set; }
 
+        public override BaseSearchModel Insert()
+        {
+            if (String.IsNullOrEmpty(BarcodeID))
+                throw new Exception("请扫描或输入待入库的条码标签");
+            else
+            {
+                using (TransactionScope ts = new TransactionScope())
+                {
+                    string sql = @"INSERT INTO [RW12]([RW12002],[RW12003],[RW12004],[RW12005],[RW12006])
+     VALUES
+           (GETDATE() ,@UserID ,@UserName,@PlanID,@Barcode);";
+
+                    ModelAdo<CheckModel> adoRW = new ModelAdo<CheckModel>();
+                    int count = adoRW.ExecuteSql(sql, new SqlParameter("@UserID", this.LoginUserID),
+                        new SqlParameter("@UserName", this.LoginUserName),
+                        new SqlParameter("@PlanID", ""),
+                        new SqlParameter("@Barcode", this.BarcodeID));
+                    if (count == 0)
+                    {
+                        throw new Exception("插入失败");
+                    }
+                    ts.Complete();
+                    return this;
+                }
+            }
+        }
 
     }
  

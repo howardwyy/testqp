@@ -50,6 +50,7 @@
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.ucPager = new ChemTrend.Barcode.Controls.ucPager();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -96,7 +97,6 @@
             this.nbitem_move = new DevExpress.XtraNavBar.NavBarItem();
             this.nbi_customer = new DevExpress.XtraNavBar.NavBarItem();
             this.nbitem_packing = new DevExpress.XtraNavBar.NavBarItem();
-            this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraScrollableControl1.SuspendLayout();
             this.xtraScrollableControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -350,6 +350,14 @@
             this.gridColumn16.Visible = true;
             this.gridColumn16.VisibleIndex = 15;
             this.gridColumn16.Width = 96;
+            // 
+            // gridColumn3
+            // 
+            this.gridColumn3.Caption = "物料名称";
+            this.gridColumn3.FieldName = "StockName";
+            this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.Visible = true;
+            this.gridColumn3.VisibleIndex = 5;
             // 
             // panelControl3
             // 
@@ -812,14 +820,6 @@
             this.nbitem_packing.Name = "nbitem_packing";
             this.nbitem_packing.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbitem_packing.SmallImage")));
             this.nbitem_packing.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbitem_packing_LinkClicked);
-            // 
-            // gridColumn3
-            // 
-            this.gridColumn3.Caption = "物料名称";
-            this.gridColumn3.FieldName = "StockName";
-            this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 5;
             // 
             // frmBarcode
             // 

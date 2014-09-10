@@ -150,5 +150,6 @@ namespace BarcodeModel.API
         {
             this.SendRequest(this.ApiURL + "/" + id, "DELETE");
         }
+
     }
 }

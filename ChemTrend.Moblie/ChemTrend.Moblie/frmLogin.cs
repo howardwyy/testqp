@@ -23,36 +23,54 @@ namespace ChemTrend.Moblie
         {
             InitializeComponent();
         }
+        protected override void OnKeyPress(KeyPressEventArgs e)
+        {
+            MessageBox.Show(e.KeyChar +" / key");
+        }
+
+        protected override void OnClick(EventArgs e)
+        {
+            this.Focus();
+            base.OnClick(e);
+        }
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            string EncryptPwd = DESEncryptUtil.Encrypt(this.tbox_Pwd.Text);
-            string EncryptUserName = DESEncryptUtil.Encrypt(this.tbox_Name.Text);
-
-            LoginModel lm = new LoginModel()
+            try
             {
-                LoginName = tbox_Name.Text,
-                Password = EncryptPwd,
-            };
-            ModelAPI<LoginModel> api = new ModelAPI<LoginModel>();
-            LoginModel resultModel = api.Insert<LoginModel>(lm);
-            if (resultModel.LoginSuccess)
-            {
-                BaseAPI.AccessToken = resultModel.Token;
-                //存储当前登陆用户信息
-                string AFileName = IniFilesUtil.GetAppRunPath() + "/" + AppConfig.IniFilePath;
-                IniFilesUtil iniFilesUtil = new IniFilesUtil(AFileName);
+                string EncryptPwd = DESEncryptUtil.Encrypt(this.tbox_Pwd.Text);
+                string EncryptUserName = DESEncryptUtil.Encrypt(this.tbox_Name.Text);
 
-                iniFilesUtil.IniWriteValue(AppConfig.Section.Login.ToString(), AppConfig.Ident.UserName.ToString(), EncryptUserName);
-                iniFilesUtil.IniWriteValue(AppConfig.Section.Login.ToString(), AppConfig.Ident.Password.ToString(), EncryptPwd);
-                iniFilesUtil.IniWriteValue(AppConfig.Section.Login.ToString(), AppConfig.Ident.ID.ToString(), resultModel.UserID);
-                iniFilesUtil.IniWriteValue(AppConfig.Section.Login.ToString(), AppConfig.Ident.HisID.ToString(), resultModel.loginHistoryModel.ID);
-                frmStockMain fStockMain = new frmStockMain();
-                fStockMain.Show();
+                LoginModel lm = new LoginModel()
+                {
+                    LoginName = tbox_Name.Text,
+                    Password = EncryptPwd,
+                };
+                ModelAPI<LoginModel> api = new ModelAPI<LoginModel>();
+                LoginModel resultModel = api.Insert<LoginModel>(lm);
+                if (resultModel.LoginSuccess)
+                {
+                    BaseAPI.AccessToken = resultModel.Token;
+                    //存储当前登陆用户信息
+                    string AFileName = IniFilesUtil.GetAppRunPath() + "/" + AppConfig.IniFilePath;
+                    IniFilesUtil iniFilesUtil = new IniFilesUtil(AFileName);
+                    BaseAPI.AccessToken = resultModel.Token;
+
+                    iniFilesUtil.IniWriteValue(AppConfig.Section.UserName.ToString(), AppConfig.Ident.UserName.ToString(), EncryptUserName);
+                    iniFilesUtil.IniWriteValue(AppConfig.Section.Password.ToString(), AppConfig.Ident.Password.ToString(), EncryptPwd);
+                    iniFilesUtil.IniWriteValue(AppConfig.Section.ID.ToString(), AppConfig.Ident.ID.ToString(), resultModel.UserID);
+                    iniFilesUtil.IniWriteValue(AppConfig.Section.HisID.ToString(), AppConfig.Ident.HisID.ToString(), resultModel.loginHistoryModel.ID);
+                    frmStockMain fStockMain = new frmStockMain();
+                    fStockMain.Show();
+                }
+                else
+                {
+                    MessageBox.Show(resultModel.ErrorMsg);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show(resultModel.ErrorMsg);
+                MessageBox.Show(ex.Message);
             }
 
         }

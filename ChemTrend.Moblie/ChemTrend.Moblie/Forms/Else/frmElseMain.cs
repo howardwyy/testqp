@@ -32,7 +32,7 @@ namespace ChemTrend.Moblie.Forms.Else
             //存储当前登陆用户信息
             string AFileName = IniFilesUtil.GetAppRunPath() + "/" + AppConfig.IniFilePath;
             IniFilesUtil iniFilesUtil = new IniFilesUtil(AFileName);  
-            string hisID = iniFilesUtil.IniReadValue(AppConfig.Section.Login.ToString(), AppConfig.Ident.HisID.ToString());
+            string hisID = iniFilesUtil.IniReadValue(AppConfig.Section.HisID.ToString(), AppConfig.Ident.HisID.ToString());
             ModelAPI<LoginHistoryModel> apiHistory = new ModelAPI<LoginHistoryModel>();
             apiHistory.Delete(hisID,null);
             Application.Exit();

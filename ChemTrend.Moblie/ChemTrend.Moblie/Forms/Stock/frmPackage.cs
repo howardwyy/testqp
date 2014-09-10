@@ -17,7 +17,11 @@ namespace ChemTrend.Moblie.Forms.Stock
 
         public string PackingID { get; set; }
         public string[] Barcodes { get; set; }
-        private List<string> listBarcode { set; get; }
+        private List<RWBarcodeModel> listBarcode = new List<RWBarcodeModel>();
+
+        //应用于保存，条码信息
+        private DataTable dt = new DataTable();
+
         public frmPackage()
         {
             InitializeComponent();
@@ -35,46 +39,87 @@ namespace ChemTrend.Moblie.Forms.Stock
         }
         private void ucAction_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(PackingID))
+            if (string.IsNullOrEmpty(this.tbox_package.Text))
             {
                 this.tbox_package.Text = "";
+                this.tbox_package.Focus();
                 MessageBox.Show("请扫描或录入装箱条码！");
                 return;
             }
             else if (listBarcode.Count <= 0)
             {
                 this.tbox_barcode.Text = "";
+                this.tbox_barcode.Focus();
                 MessageBox.Show("请扫描或录入条码！");
                 return;
             }
-            ModelAPI<PackingBarcodeModel> apiPB = new ModelAPI<PackingBarcodeModel>();
-            PackingBarcodeModel pbModel = new PackingBarcodeModel()
+            List<string> barcodeList = new List<string>();
+            foreach (RWBarcodeModel rw in listBarcode) {
+                barcodeList.Add(rw.ID);
+            }
+            try
             {
-                PackingID = this.PackingID,
-                Barcodes = listBarcode.ToArray(),
-                Status = (int)AppConfig.Packing.使用中
-            };
-            apiPB.Insert(pbModel);
+                ModelAPI<PackingBarcodeModel> apiPB = new ModelAPI<PackingBarcodeModel>();
+                PackingBarcodeModel pbModel = new PackingBarcodeModel()
+                {
+                    PackingID = this.tbox_package.Text,
+                    Barcodes = barcodeList.ToArray(),
+                    Status = (int)AppConfig.Packing.使用中
+                };
+                apiPB.Insert(pbModel);
+                ResetData();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
+
         }
 
+        private void ResetData() {
 
+            this.tbox_package.Focus();
+            this.tbox_package.Text = "";
+            this.tbox_barcode.Text = "";
+            this.dt.Clear();
+        }
 
 
         private void InitData()
         {
-            listBarcode = new List<string>();
-            lv_barcode.View = View.Details;
-            // Display check boxes.
-            lv_barcode.CheckBoxes = false;
-            // Select the item and subitems when selection is made.
-            lv_barcode.FullRowSelect = true;
-            this.lv_barcode.Columns.Add("条码", (int)this.lv_barcode.Width * 3 / 8, HorizontalAlignment.Center);
-            this.lv_barcode.Columns.Add("物料", (int)this.lv_barcode.Width * 3 / 8, HorizontalAlignment.Center);
-            this.lv_barcode.Columns.Add("负责人", (int)this.lv_barcode.Width * 2 / 8, HorizontalAlignment.Center);
 
-            this.lv_barcode.BeginUpdate();
+            dg_list.DataSource = dt;
 
-            this.lv_barcode.EndUpdate();
+            dt.Columns.Add("条码", typeof(string));
+            dt.Columns.Add("物料", typeof(string));
+            dt.Columns.Add("负责人", typeof(string));
+            DataGridTableStyle ts = new DataGridTableStyle();
+            ts.MappingName = dt.TableName;
+
+            //分别对列进行渲染，其中前三列用for循环实现，对列宽进行设定，值为75
+            int numColumns = dt.Columns.Count;
+            for (int i = 0; i < numColumns - 1; i++)
+            {
+                DataGridColumnStyle aColumnTextColumnStyle = new DataGridTextBoxColumn();//定义该列用textbox来进行渲染
+                aColumnTextColumnStyle.HeaderText = dt.Columns[i].ColumnName; ;  //列头
+                aColumnTextColumnStyle.MappingName = dt.Columns[i].ColumnName; //映射数据源的列名，很重要，否则无数据显示
+                aColumnTextColumnStyle.Width = 85; //在这里就可以对列宽进行设置了
+                ts.GridColumnStyles.Add(aColumnTextColumnStyle);
+                this.dg_list.TableStyles.Add(ts);
+            }
+            //第四列进行列宽设定，这一列为单独设置，定义列宽为200
+            DataGridColumnStyle newStyle = new DataGridTextBoxColumn();
+            newStyle.HeaderText = dt.Columns[2].ColumnName; ;  //列头
+            newStyle.MappingName = dt.Columns[2].ColumnName;
+            newStyle.Width = 160;
+            ts.GridColumnStyles.Add(newStyle);
+            this.dg_list.TableStyles.Add(ts);
+
+
+
+
         }
 
         private void pbox_search_package_Click(object sender, EventArgs e)
@@ -93,55 +138,68 @@ namespace ChemTrend.Moblie.Forms.Stock
 
         private void pbox_search_barcode_Click(object sender, EventArgs e)
         {
-            ModelAPI<RWBarcodeModel> apiBarcode = new ModelAPI<RWBarcodeModel>();
-            RWBarcodeModel searchModel = new RWBarcodeModel()
+            findBarcod();
+        }
+
+
+        private void findBarcod()
+        {
+            if (tbox_barcode.Text.Length >= 1)
             {
-                ID = tbox_barcode.Text
-            };
-            RWBarcodeModel model = apiBarcode.GetModel(searchModel);
-            tbox_barcode.Text = model.Bill;
-            if (!string.IsNullOrEmpty(model.BoxID))
-            {
-                MessageBox.Show("该条码已经存在装箱！");
-            }
-            else
-            {
-                listBarcode.Add(model.ID);
-                addItem(model);
+                ModelAPI<RWBarcodeModel> apiBarcode = new ModelAPI<RWBarcodeModel>();
+                RWBarcodeModel searchModel = new RWBarcodeModel()
+                {
+                    ID = tbox_barcode.Text
+                };
+                RWBarcodeModel model = apiBarcode.GetModel(searchModel);
+                if (model != null)
+                {
+                    tbox_barcode.Text = model.Bill;
+                    if (!string.IsNullOrEmpty(model.BoxID))
+                    {
+                        MessageBox.Show("该条码已经存在装箱！");
+                    }
+                    else
+                    {
+                        addItem(model);
+                    }
+                    tbox_barcode.Text = "";
+                    tbox_barcode.Focus();
+                }
             }
         }
 
 
         private void addItem(RWBarcodeModel model)
         {
-            this.lv_barcode.BeginUpdate();
-            ListViewItem lvi = new ListViewItem("");
-            lvi.SubItems.Add(model.ID);
-            lvi.SubItems.Add(model.StockCode);
-            lvi.SubItems.Add(model.StockName);
-            this.lv_barcode.Items.Add(lvi);
-            this.lv_barcode.EndUpdate();
+
+            //在做完了这些之后，我们对新建的datatable中的列分别加入数据，例如我们在项目中所添加的：
+            DataRow newRow = dt.NewRow();
+            newRow["条码"] = model.ID;
+            newRow["物料"] = model.StockCode;
+            newRow["负责人"] = model.LastUserName;
+            dt.Rows.Add(newRow);
+
+            //加入到条码集合列表
+            listBarcode.Add(model);
         }
-        private void lv_barcode_ItemActivate(object sender, EventArgs e)
+
+        private void tbox_package_KeyDown(object sender, KeyEventArgs e)
         {
-            if (lv_barcode.SelectedIndices.Count >= 1)
-            {
-                int index = lv_barcode.SelectedIndices[0];
-
-                ModelAPI<RWBarcodeModel> apiBarcode = new ModelAPI<RWBarcodeModel>();
-                RWBarcodeModel searchModel = new RWBarcodeModel()
-                {
-                    ID = listBarcode[index]
-                };
-                RWBarcodeModel model = apiBarcode.GetModel(searchModel);
-                tbox_barcode.Text = model.Bill;
-
-                frmDetails details = new frmDetails();
-                details.barcode = model;
-                details.Show();
+            if (e.KeyCode == Keys.Enter) {
+                tbox_barcode.Text = "";
+                tbox_barcode.Focus();
             }
-
         }
+
+        private void tbox_barcode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) {
+                findBarcod();
+            }
+        }
+
+
     }
 }
 

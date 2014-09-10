@@ -45,3 +45,13 @@ F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.Stock.frmReceiveDetails.resources
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Report.repReceive.resources
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.Stock.frmReceiving.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Report.repFG.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.FG.frmFG.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.FG.frmFGBill.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.FG.frmFGCustomer.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.FG.frmFGHistory.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.FG.frmFGInvoice.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.FG.frmFGNew.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.FG.frmFGSuggest.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.FG.frmFGInvoiceNew.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.FG.frmFGPackage.resources

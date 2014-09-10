@@ -75,7 +75,7 @@
             this.tbox_Name.Name = "tbox_Name";
             this.tbox_Name.Size = new System.Drawing.Size(100, 21);
             this.tbox_Name.TabIndex = 4;
-            this.tbox_Name.Text = "IPHONE";
+            this.tbox_Name.Text = "PHONE";
             // 
             // tbox_Pwd
             // 
@@ -83,7 +83,7 @@
             this.tbox_Pwd.Name = "tbox_Pwd";
             this.tbox_Pwd.Size = new System.Drawing.Size(100, 21);
             this.tbox_Pwd.TabIndex = 5;
-            this.tbox_Pwd.Text = "1";
+            this.tbox_Pwd.Text = "123456";
             // 
             // frmLogin
             // 

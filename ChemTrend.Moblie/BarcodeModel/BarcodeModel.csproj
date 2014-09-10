@@ -62,7 +62,16 @@
     <Compile Include="API\ApiURL.cs" />
     <Compile Include="API\BaseAPI.cs" />
     <Compile Include="API\ModelAPI.cs" />
+    <Compile Include="MODEL\Barcode\FG\CheckModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\FGBarcodeModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\Operation\DeliveryBarcodeModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\Operation\EnterWarehouseModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\Operation\MoveWarehouseModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\Operation\PackingBarcodeModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\CheckModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\BarcodeWarehouse.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\EnterWarehouseModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\MoveWarehouseModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\PackingBarcodeModel.cs" />
     <Compile Include="MODEL\Barcode\RW\PackingModel.cs" />
     <Compile Include="MODEL\Barcode\RW\RWBarcodeModel.cs" />

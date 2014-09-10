@@ -37,7 +37,12 @@ namespace ChemTrend.Moblie.Data
         public enum Section 
         {
             Login,
-            System
+            System,
+
+            UserName,
+            Password,
+            HisID,
+            ID
         }
         public enum Ident 
         {
@@ -45,9 +50,19 @@ namespace ChemTrend.Moblie.Data
             Password,
             HisID,
             ID
-        } 
+        }
 
 
+        //历史记录中条码状态值
+        public enum BarcodeRemark
+        {
+            创建条码 = 1,
+            条码移库 = 2,
+            条码出库 = 3,
+            条码入库 = 4,
+            条码销毁 = 5,
+            条码装箱 = 6
+        }
         public enum Bill 
         {
             创建条码,

@@ -34,7 +34,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pbox_out = new System.Windows.Forms.PictureBox();
+            this.pbox_delivery = new System.Windows.Forms.PictureBox();
             this.pbox_check = new System.Windows.Forms.PictureBox();
             this.pbox_package = new System.Windows.Forms.PictureBox();
             this.pbox_move = new System.Windows.Forms.PictureBox();
@@ -81,14 +81,15 @@
             this.label1.Text = "入库";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // pbox_out
+            // pbox_delivery
             // 
-            this.pbox_out.BackColor = System.Drawing.Color.Transparent;
-            this.pbox_out.Image = ((System.Drawing.Image)(resources.GetObject("pbox_out.Image")));
-            this.pbox_out.Location = new System.Drawing.Point(18, 143);
-            this.pbox_out.Name = "pbox_out";
-            this.pbox_out.Size = new System.Drawing.Size(40, 40);
-            this.pbox_out.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbox_delivery.BackColor = System.Drawing.Color.Transparent;
+            this.pbox_delivery.Image = ((System.Drawing.Image)(resources.GetObject("pbox_delivery.Image")));
+            this.pbox_delivery.Location = new System.Drawing.Point(18, 143);
+            this.pbox_delivery.Name = "pbox_delivery";
+            this.pbox_delivery.Size = new System.Drawing.Size(40, 40);
+            this.pbox_delivery.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbox_delivery.Click += new System.EventHandler(this.pbox_delivery_Click);
             // 
             // pbox_check
             // 
@@ -98,6 +99,7 @@
             this.pbox_check.Name = "pbox_check";
             this.pbox_check.Size = new System.Drawing.Size(40, 40);
             this.pbox_check.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbox_check.Click += new System.EventHandler(this.pbox_check_Click);
             // 
             // pbox_package
             // 
@@ -107,6 +109,7 @@
             this.pbox_package.Name = "pbox_package";
             this.pbox_package.Size = new System.Drawing.Size(40, 40);
             this.pbox_package.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbox_package.Click += new System.EventHandler(this.pbox_package_Click);
             // 
             // pbox_move
             // 
@@ -116,6 +119,7 @@
             this.pbox_move.Name = "pbox_move";
             this.pbox_move.Size = new System.Drawing.Size(40, 40);
             this.pbox_move.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbox_move.Click += new System.EventHandler(this.pbox_move_Click);
             // 
             // pbox_inwarehouse
             // 
@@ -125,6 +129,7 @@
             this.pbox_inwarehouse.Name = "pbox_inwarehouse";
             this.pbox_inwarehouse.Size = new System.Drawing.Size(40, 40);
             this.pbox_inwarehouse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbox_inwarehouse.Click += new System.EventHandler(this.pbox_inwarehouse_Click);
             // 
             // frmProductMain
             // 
@@ -136,7 +141,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pbox_out);
+            this.Controls.Add(this.pbox_delivery);
             this.Controls.Add(this.pbox_check);
             this.Controls.Add(this.pbox_package);
             this.Controls.Add(this.pbox_move);
@@ -149,7 +154,7 @@
             this.Controls.SetChildIndex(this.pbox_move, 0);
             this.Controls.SetChildIndex(this.pbox_package, 0);
             this.Controls.SetChildIndex(this.pbox_check, 0);
-            this.Controls.SetChildIndex(this.pbox_out, 0);
+            this.Controls.SetChildIndex(this.pbox_delivery, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label3, 0);
@@ -166,7 +171,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pbox_out;
+        private System.Windows.Forms.PictureBox pbox_delivery;
         private System.Windows.Forms.PictureBox pbox_check;
         private System.Windows.Forms.PictureBox pbox_package;
         private System.Windows.Forms.PictureBox pbox_move;

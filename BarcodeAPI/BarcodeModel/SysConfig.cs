@@ -13,7 +13,7 @@ namespace BarcodeModel
         public static string CompanyCode { get { return ConfigurationManager.AppSettings["CompanyCode"]; } }
         public static string APIDomain { get { return ConfigurationManager.AppSettings["APIDomain"]; } }
         public static string PageSize { get { return ConfigurationManager.AppSettings["PageSize"]; } }
-        public string[] Companys { get { return new string[] { "02" ,"03"}; } }
+        public string[] Companys { get { return new string[] { "31" ,"32"}; } }
 
     }
 }

@@ -57,7 +57,7 @@
             this.xtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(627, 364);
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(634, 362);
             this.xtraScrollableControl1.TabIndex = 1;
             // 
             // panelControl1
@@ -66,7 +66,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(627, 313);
+            this.panelControl1.Size = new System.Drawing.Size(634, 311);
             this.panelControl1.TabIndex = 1;
             // 
             // gc_barcode_history
@@ -76,7 +76,7 @@
             this.gc_barcode_history.Location = new System.Drawing.Point(2, 2);
             this.gc_barcode_history.MainView = this.gv_barcode_history;
             this.gc_barcode_history.Name = "gc_barcode_history";
-            this.gc_barcode_history.Size = new System.Drawing.Size(623, 309);
+            this.gc_barcode_history.Size = new System.Drawing.Size(630, 307);
             this.gc_barcode_history.TabIndex = 2;
             this.gc_barcode_history.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_barcode_history});
@@ -150,16 +150,16 @@
             // 
             this.panel1.Controls.Add(this.sbtn_close);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 313);
+            this.panel1.Location = new System.Drawing.Point(0, 311);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(627, 51);
+            this.panel1.Size = new System.Drawing.Size(634, 51);
             this.panel1.TabIndex = 0;
             // 
             // sbtn_close
             // 
             this.sbtn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.sbtn_close.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_close.Image")));
-            this.sbtn_close.Location = new System.Drawing.Point(540, 16);
+            this.sbtn_close.Location = new System.Drawing.Point(547, 16);
             this.sbtn_close.Name = "sbtn_close";
             this.sbtn_close.Size = new System.Drawing.Size(75, 23);
             this.sbtn_close.TabIndex = 9;
@@ -176,7 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 364);
+            this.ClientSize = new System.Drawing.Size(634, 362);
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmBarcodeHistory";
             this.ShowIcon = false;

@@ -124,6 +124,66 @@
     <Compile Include="Data\AppConfig.cs" />
     <Compile Include="Data\ComboBoxEditData.cs" />
     <Compile Include="Data\Customer.cs" />
+    <Compile Include="Forms\FG\frmFG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFG.Designer.cs">
+      <DependentUpon>frmFG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGBill.Designer.cs">
+      <DependentUpon>frmFGBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGCustomer.Designer.cs">
+      <DependentUpon>frmFGCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGHistory.Designer.cs">
+      <DependentUpon>frmFGHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGInvoice.Designer.cs">
+      <DependentUpon>frmFGInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGInvoiceNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGInvoiceNew.Designer.cs">
+      <DependentUpon>frmFGInvoiceNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGNew.Designer.cs">
+      <DependentUpon>frmFGNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGPackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGPackage.Designer.cs">
+      <DependentUpon>frmFGPackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGSuggest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGSuggest.Designer.cs">
+      <DependentUpon>frmFGSuggest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGWH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGWH.Designer.cs">
+      <DependentUpon>frmFGWH.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Print\frmCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -346,6 +406,36 @@
     <EmbeddedResource Include="Controls\ucPager.resx">
       <DependentUpon>ucPager.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFG.resx">
+      <DependentUpon>frmFG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGBill.resx">
+      <DependentUpon>frmFGBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGCustomer.resx">
+      <DependentUpon>frmFGCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGHistory.resx">
+      <DependentUpon>frmFGHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGInvoice.resx">
+      <DependentUpon>frmFGInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGInvoiceNew.resx">
+      <DependentUpon>frmFGInvoiceNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGNew.resx">
+      <DependentUpon>frmFGNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGPackage.resx">
+      <DependentUpon>frmFGPackage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGSuggest.resx">
+      <DependentUpon>frmFGSuggest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGWH.resx">
+      <DependentUpon>frmFGWH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Print\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -477,7 +567,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\Bill\" />
-    <Folder Include="Forms\FG\" />
     <Folder Include="Modules\" />
   </ItemGroup>
   <ItemGroup>
