@@ -110,15 +110,19 @@ namespace BarcodeModel.MODEL.Barcode.FG
         //FG01033	varchar(50)		工单号
         [Columname(Name = "FG01033")]
         public int WO { get; set; }
-        //FG01034	varchar(50)		公司代码
-        [Columname(Name = "FG01034")]
-        public string CompanyCode { get; set; }
-        //FG01035	varchar(255)		供应商batch
-        [Columname(Name = "FG01035")]
-        public string SupplierBatch { get; set; }
-        //FG01036	varchar(50)		Batch ID
-        [Columname(Name = "FG01036")]
+
+        //FG01036	varchar(50)		公司代码
+        [Columname(Name = "FG01037")]
         public string BatchID { get; set; }
+
+        [Columname(Name = "FG01034")]
+        public DateTime ProductDate { get; set; }
+
+        [Columname(Name = "FG01035")]
+        public DateTime LifeDate { get; set; }
+
+        [Columname(Name = "FG01036")]
+        public string PageCode { get; set; }
 
     }
 }

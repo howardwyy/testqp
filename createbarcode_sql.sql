@@ -281,7 +281,89 @@ RW12005	varchar(50),
 RW12006	varchar(50)
 )
 
----------------------
+---------------------drop table FG01
+create table FG01
+(
+FG01001	varchar(30) primary key,
+FG01002	varchar(50),
+FG01003	nvarchar(100),
+FG01004	nvarchar(100),
+FG01005	nvarchar(10),
+FG01006	numeric(15,3),
+FG01007	varchar(50),
+FG01008	varchar(10),
+FG01009	varchar(10),
+FG01010	datetime,
+FG01011	datetime,
+FG01012	varchar(50),
+FG01013	nvarchar(100),
+FG01014	varchar(50),
+FG01015	varchar(10),
+FG01016	varchar(10),
+FG01017	varchar(10),
+FG01018	nvarchar(100),
+FG01019	nvarchar(100),
+FG01020	varchar(50),
+FG01021	nvarchar(100),
+FG01022	varchar(50),
+FG01023	nvarchar(100),
+FG01024	varchar(50),
+FG01025	nvarchar(100),
+FG01026	varchar(50),
+FG01027	varchar(50),
+FG01028	varchar(50),
+FG01029	nvarchar(100),
+FG01030	varchar(50),
+FG01031	varchar(50),
+FG01032	int,
+FG01033	varchar(50),
+FG01034	datetime,
+FG01035	datetime,
+FG01036	varchar(30),
+FG01037 varchar(3)
+)
+--drop table FG91
+create table FG91
+(
+FG91001	varchar(30) primary key,
+FG91002	varchar(50),
+FG91003	nvarchar(100),
+FG91004	nvarchar(100),
+FG91005	nvarchar(10),
+FG91006	numeric(15,3),
+FG91007	varchar(50),
+FG91008	varchar(10),
+FG91009	varchar(10),
+FG91010	datetime,
+FG91011	datetime,
+FG91012	varchar(50),
+FG91013	nvarchar(100),
+FG91014	varchar(50),
+FG91015	varchar(10),
+FG91016	varchar(10),
+FG91017	varchar(10),
+FG91018	nvarchar(100),
+FG91019	nvarchar(100),
+FG91020	varchar(50),
+FG91021	nvarchar(100),
+FG91022	varchar(50),
+FG91023	nvarchar(100),
+FG91024	varchar(50),
+FG91025	nvarchar(100),
+FG91026	varchar(50),
+FG91027	varchar(50),
+FG91028	varchar(50),
+FG91029	nvarchar(100),
+FG91030	varchar(50),
+FG91031	varchar(50),
+FG91032	int,
+FG91033	varchar(50),
+FG91034	datetime,
+FG91035	datetime,
+FG91036	varchar(30),
+FG91037 varchar(3)
+)
+--------------------
 create proc [dbo].[PROC_GETID]
 @TABLE VARCHAR(50),
 @NEWID VARCHAR(50) OUTPUT
@@ -343,56 +425,6 @@ SELECT * FROM RW04 inner join RW01 ON RW04004=RW01001
 
 
 
-USE [BarcodeQP]
-GO
-/****** Object:  Table [dbo].[FG91]    Script Date: 09/07/2014 12:20:14 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
-CREATE TABLE [dbo].[FG91](
-	[FG91001] [varchar](30) NULL,
-	[FG91002] [varchar](50) NULL,
-	[FG91003] [nvarchar](100) NULL,
-	[FG91004] [nvarchar](100) NULL,
-	[FG91005] [nvarchar](10) NULL,
-	[FG91006] [numeric](15, 3) NULL,
-	[FG91007] [varchar](50) NULL,
-	[FG91008] [varchar](10) NULL,
-	[FG91009] [varchar](10) NULL,
-	[FG91010] [datetime] NULL,
-	[FG91011] [datetime] NULL,
-	[FG91012] [varchar](50) NULL,
-	[FG91013] [nvarchar](100) NULL,
-	[FG91014] [varchar](50) NULL,
-	[FG91015] [varchar](10) NULL,
-	[FG91016] [varchar](10) NULL,
-	[FG91017] [varchar](10) NULL,
-	[FG91018] [nvarchar](100) NULL,
-	[FG91019] [nvarchar](100) NULL,
-	[FG91020] [varchar](50) NULL,
-	[FG91021] [nvarchar](100) NULL,
-	[FG91022] [varchar](50) NULL,
-	[FG91023] [nvarchar](100) NULL,
-	[FG91024] [varchar](50) NULL,
-	[FG91025] [nvarchar](100) NULL,
-	[FG91026] [varchar](50) NULL,
-	[FG91027] [varchar](50) NULL,
-	[FG91028] [varchar](50) NULL,
-	[FG91029] [nvarchar](100) NULL,
-	[FG91030] [varchar](50) NULL,
-	[FG91031] [varchar](50) NULL,
-	[FG91032] [int] NULL,
-	[FG91033] [varchar](50) NULL,
-	[FG91034] [varchar](50) NULL,
-	[FG91035] [varchar](255) NULL,
-	[FG91036] [varchar](50) NULL
-) ON [PRIMARY]
-GO
-SET ANSI_PADDING OFF
-GO
 /****** Object:  Table [dbo].[FG12]    Script Date: 09/07/2014 12:20:14 ******/
 SET ANSI_NULLS ON
 GO
@@ -569,54 +601,6 @@ CREATE TABLE [dbo].[FG02](
 	[FG02009] [nvarchar](50) NULL,
 	[FG02010] [varchar](50) NULL,
 	[FG02011] [nvarchar](100) NULL
-) ON [PRIMARY]
-GO
-SET ANSI_PADDING OFF
-GO
-/****** Object:  Table [dbo].[FG01]    Script Date: 09/07/2014 12:20:14 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
-CREATE TABLE [dbo].[FG01](
-	[FG01001] [varchar](30) NULL,
-	[FG01002] [varchar](50) NULL,
-	[FG01003] [nvarchar](100) NULL,
-	[FG01004] [nvarchar](100) NULL,
-	[FG01005] [nvarchar](10) NULL,
-	[FG01006] [numeric](15, 3) NULL,
-	[FG01007] [varchar](50) NULL,
-	[FG01008] [varchar](10) NULL,
-	[FG01009] [varchar](10) NULL,
-	[FG01010] [datetime] NULL,
-	[FG01011] [datetime] NULL,
-	[FG01012] [varchar](50) NULL,
-	[FG01013] [nvarchar](100) NULL,
-	[FG01014] [varchar](50) NULL,
-	[FG01015] [varchar](10) NULL,
-	[FG01016] [varchar](10) NULL,
-	[FG01017] [varchar](10) NULL,
-	[FG01018] [nvarchar](100) NULL,
-	[FG01019] [nvarchar](100) NULL,
-	[FG01020] [varchar](50) NULL,
-	[FG01021] [nvarchar](100) NULL,
-	[FG01022] [varchar](50) NULL,
-	[FG01023] [nvarchar](100) NULL,
-	[FG01024] [varchar](50) NULL,
-	[FG01025] [nvarchar](100) NULL,
-	[FG01026] [varchar](50) NULL,
-	[FG01027] [varchar](50) NULL,
-	[FG01028] [varchar](50) NULL,
-	[FG01029] [nvarchar](100) NULL,
-	[FG01030] [varchar](50) NULL,
-	[FG01031] [varchar](50) NULL,
-	[FG01032] [int] NULL,
-	[FG01033] [varchar](50) NULL,
-	[FG01034] [varchar](50) NULL,
-	[FG01035] [varchar](255) NULL,
-	[FG01036] [varchar](50) NULL
 ) ON [PRIMARY]
 GO
 SET ANSI_PADDING OFF
