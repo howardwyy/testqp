@@ -8,7 +8,7 @@ using BarcodeModel.ADO;
 namespace BarcodeModel.MODEL.Barcode.WORP
 {
     [Tablename(TableName = "WK03", PrimaryKey = "WK03001")]
-    public class MappingModel
+    public class MappingModel : BaseSearchModel
     {
         [Columname(Name = "WK03001")]
         public int ID { get; set; }
