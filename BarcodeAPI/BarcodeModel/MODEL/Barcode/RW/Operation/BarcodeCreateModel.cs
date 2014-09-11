@@ -59,15 +59,24 @@ namespace BarcodeModel.MODEL.Barcode.RW.Operation
                 {
                     using (TransactionScope ts = new TransactionScope())
                     {
+                        BaseAdo ba = new BaseAdo();
+                        string sql = @"
+declare @dj varchar(30)
+exec PROC_GETID 'RW03',@dj output
+select @dj t";
+                        DataSet dsdj = ba.GetDataSet(sql);
+                        string dj = "";
+                        if (dsdj != null && dsdj.Tables[0].Rows.Count > 0)
+                            dj = dsdj.Tables[0].Rows[0][0] + "";
                         int count = 0;
                         foreach (POLineModel item in this.POLineModels)
                         {
                             item.LoginUserID = this.LoginUserID;
                             item.LoginUserName = this.LoginUserName;
+                            item.Danju = dj;
                             item.Insert();
                             count += item.BarcodeQTY;
                         }
-                        BaseAdo ba = new BaseAdo();
                         DataSet ds = ba.GetDataSet("select top " + count + " RW01001 from RW01 order by RW01001 desc");
                         if (ds != null && ds.Tables[0].Rows.Count > 0)
                         {

@@ -60,6 +60,7 @@ namespace BarcodeModel.MODEL.Barcode.RW
         public int BarcodeQTY { get; set; }
 
         public string Remark { get; set; }
+        public string Danju { get; set; }//单据号，创建时候用
         //供应商的batch [Columname(Name = "RW01035")]
         public string SupplierBatch { get; set; }
 
@@ -87,7 +88,7 @@ namespace BarcodeModel.MODEL.Barcode.RW
                 }
                 else
                 {
-                    int  p = (int)(item.QTYRECEINING / item.UNITQTY);
+                    int p = (int)(item.QTYRECEINING / item.UNITQTY);
                     if (p * item.UNITQTY == item.QTYRECEINING)
                     {
                         item.BarcodeQTY = p;
@@ -200,11 +201,9 @@ namespace BarcodeModel.MODEL.Barcode.RW
         public override BarcodeModel.MODEL.BaseSearchModel Insert()
         {
             string sql = @"
-declare @dj varchar(30)
 declare @bid varchar(30)
 declare @hid int
 declare @i int
-exec PROC_GETID 'RW03',@dj output
 	
 insert into RW03(RW03001,RW03002,RW03003,RW03004,RW03005,RW03006,RW03007,RW03008)
 values(@dj,getdate(),@userid,@username,'','','',N'创建条码')
@@ -239,7 +238,8 @@ end
                 new SqlParameter("@remark", this.Remark),
                 new SqlParameter("@company", this.Company),
                 new SqlParameter("@SupplierBatch", this.SupplierBatch),
-                new SqlParameter("@printcount", this.BarcodeQTY));
+                new SqlParameter("@printcount", this.BarcodeQTY),
+                new SqlParameter("@dj", this.Danju));
             return this;
         }
     }
