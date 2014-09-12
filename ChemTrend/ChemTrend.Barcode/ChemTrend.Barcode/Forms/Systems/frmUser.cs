@@ -15,6 +15,7 @@ using BarcodeModel.MODEL.User;
 using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraEditors.Controls;
 using ChemTrend.Barcode.Utils;
+using BarcodeModel.MODEL.User.Operation;
 
 namespace ChemTrend.Barcode.Forms.Systems
 {
@@ -22,8 +23,8 @@ namespace ChemTrend.Barcode.Forms.Systems
     {
 
         ModelAPI<UserModel> apiUser = new ModelAPI<UserModel>();
-        public int actionType = 0;
         public UserModel userModel = null;
+        public int actionType = 0;
         public RoleModel searchModel { get; set; }
         public frmUser()
         {
@@ -66,11 +67,13 @@ namespace ChemTrend.Barcode.Forms.Systems
                 case (int)AppConfig.ActionType.Insert:
                     sbtn_create.Visible = true;
                     sbtn_update.Visible = false;
+                    sbtn_reset.Visible = false;
                     lue_roles.Properties.NullText = "请选择用户角色";
                     break;
                 case (int)AppConfig.ActionType.Update:
                     sbtn_create.Visible = false;
                     sbtn_update.Visible = Visible;
+                    sbtn_reset.Visible = Visible;
                     if (userModel != null)
                     {
                         if (userModel.Password != null)
@@ -167,6 +170,24 @@ namespace ChemTrend.Barcode.Forms.Systems
         private void sbtn_close_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void sbtn_reset_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ModelAPI<ResetUserStatus> resetApi = new ModelAPI<ResetUserStatus>();
+                string[] ids = { userModel.ID };
+                ResetUserStatus resetUserModel = new ResetUserStatus()
+                {
+                    ids = ids
+                };
+                resetApi.Insert(resetUserModel);
+            }
+            catch (Exception ex)
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
+            }
         }
 
 

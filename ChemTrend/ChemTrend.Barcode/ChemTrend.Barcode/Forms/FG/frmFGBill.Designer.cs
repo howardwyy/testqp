@@ -95,7 +95,7 @@
             this.cbox_remark.Properties.Items.AddRange(new object[] {
             "创建条码",
             "条码移库",
-            "条码出库 ",
+            "条码出库",
             "条码入库"});
             this.cbox_remark.Size = new System.Drawing.Size(100, 20);
             this.cbox_remark.TabIndex = 27;
@@ -431,6 +431,7 @@
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmFGBill";
             this.Text = "成品单据号管理";
+            this.Load += new System.EventHandler(this.frmFGBill_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cbox_remark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_username.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_bill.Properties)).EndInit();

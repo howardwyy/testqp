@@ -50,6 +50,8 @@
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.sbtn_customer = new DevExpress.XtraEditors.SimpleButton();
+            this.sbtn_no = new DevExpress.XtraEditors.SimpleButton();
             this.sbtn_save = new DevExpress.XtraEditors.SimpleButton();
             this.te_username = new DevExpress.XtraEditors.TextEdit();
             this.te_bill = new DevExpress.XtraEditors.TextEdit();
@@ -59,8 +61,6 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.sbtn_wo = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.gc_bill)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
@@ -276,8 +276,8 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.simpleButton1);
-            this.groupBox1.Controls.Add(this.sbtn_wo);
+            this.groupBox1.Controls.Add(this.sbtn_customer);
+            this.groupBox1.Controls.Add(this.sbtn_no);
             this.groupBox1.Controls.Add(this.sbtn_save);
             this.groupBox1.Controls.Add(this.te_username);
             this.groupBox1.Controls.Add(this.te_bill);
@@ -293,6 +293,24 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "发货建议";
+            // 
+            // sbtn_customer
+            // 
+            this.sbtn_customer.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_customer.Image")));
+            this.sbtn_customer.Location = new System.Drawing.Point(526, 20);
+            this.sbtn_customer.Name = "sbtn_customer";
+            this.sbtn_customer.Size = new System.Drawing.Size(26, 23);
+            this.sbtn_customer.TabIndex = 31;
+            this.sbtn_customer.Click += new System.EventHandler(this.sbtn_customer_Click);
+            // 
+            // sbtn_no
+            // 
+            this.sbtn_no.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_no.Image")));
+            this.sbtn_no.Location = new System.Drawing.Point(205, 21);
+            this.sbtn_no.Name = "sbtn_no";
+            this.sbtn_no.Size = new System.Drawing.Size(26, 23);
+            this.sbtn_no.TabIndex = 30;
+            this.sbtn_no.Click += new System.EventHandler(this.sbtn_no_Click);
             // 
             // sbtn_save
             // 
@@ -313,7 +331,7 @@
             // 
             // te_bill
             // 
-            this.te_bill.Location = new System.Drawing.Point(95, 54);
+            this.te_bill.Location = new System.Drawing.Point(99, 22);
             this.te_bill.Name = "te_bill";
             this.te_bill.Size = new System.Drawing.Size(100, 20);
             this.te_bill.TabIndex = 24;
@@ -332,7 +350,7 @@
             // de_start
             // 
             this.de_start.EditValue = null;
-            this.de_start.Location = new System.Drawing.Point(95, 21);
+            this.de_start.Location = new System.Drawing.Point(99, 53);
             this.de_start.Name = "de_start";
             this.de_start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -362,7 +380,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(16, 56);
+            this.labelControl2.Location = new System.Drawing.Point(20, 24);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(36, 14);
             this.labelControl2.TabIndex = 12;
@@ -370,27 +388,11 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(16, 24);
+            this.labelControl1.Location = new System.Drawing.Point(20, 56);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(60, 14);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "发货日期：";
-            // 
-            // sbtn_wo
-            // 
-            this.sbtn_wo.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_wo.Image")));
-            this.sbtn_wo.Location = new System.Drawing.Point(201, 53);
-            this.sbtn_wo.Name = "sbtn_wo";
-            this.sbtn_wo.Size = new System.Drawing.Size(26, 23);
-            this.sbtn_wo.TabIndex = 30;
-            // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(526, 20);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(26, 23);
-            this.simpleButton1.TabIndex = 31;
             // 
             // frmFGSuggest
             // 
@@ -455,7 +457,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraGrid.Columns.GridColumn col_details_num;
         private DevExpress.XtraEditors.SimpleButton sbtn_save;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton sbtn_wo;
+        private DevExpress.XtraEditors.SimpleButton sbtn_customer;
+        private DevExpress.XtraEditors.SimpleButton sbtn_no;
     }
 }

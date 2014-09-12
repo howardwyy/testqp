@@ -94,6 +94,7 @@ namespace ChemTrend.Barcode.Forms.Systems
             catch (ApiException ex)
             {
                 MessageBox.Show(ex.ApiExceptionMessage.ExceptionMessage);
+
                 return 0;
             }
         }
@@ -162,7 +163,6 @@ namespace ChemTrend.Barcode.Forms.Systems
 
         private void gv_users_DoubleClick(object sender, EventArgs e)
         {
-
             int rowId = gv_users.GetFocusedDataSourceRowIndex();
 
             if (listUser != null && rowId >= 0)

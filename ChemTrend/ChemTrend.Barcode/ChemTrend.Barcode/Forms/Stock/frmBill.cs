@@ -26,7 +26,6 @@ namespace ChemTrend.Barcode.Forms.Stock
         public frmBill()
         {
             InitializeComponent();
-            InitView();
         }
 
         private void InitView()
@@ -37,6 +36,7 @@ namespace ChemTrend.Barcode.Forms.Stock
 
         private void frmBill_Load(object sender, EventArgs e)
         {
+            InitView();
             InitData();
         }
 

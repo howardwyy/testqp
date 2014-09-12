@@ -45,10 +45,12 @@
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbox_orderno = new DevExpress.XtraEditors.ComboBoxEdit();
             this.te_suppliername = new DevExpress.XtraEditors.TextEdit();
+            this.sbtn_create = new DevExpress.XtraEditors.SimpleButton();
             this.te_supplier = new DevExpress.XtraEditors.TextEdit();
             this.te_po = new DevExpress.XtraEditors.TextEdit();
             this.lue_company = new DevExpress.XtraEditors.LookUpEdit();
@@ -59,8 +61,6 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.sbtn_warehousecode = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.sbtn_create = new DevExpress.XtraEditors.SimpleButton();
-            this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraScrollableControl1.SuspendLayout();
             this.xtraScrollableControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_poline)).BeginInit();
@@ -252,6 +252,14 @@
             this.gridColumn13.VisibleIndex = 12;
             this.gridColumn13.Width = 79;
             // 
+            // gridColumn15
+            // 
+            this.gridColumn15.Caption = "供应商批号";
+            this.gridColumn15.FieldName = "SupplierBatch";
+            this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.Visible = true;
+            this.gridColumn15.VisibleIndex = 13;
+            // 
             // repositoryItemCheckEdit1
             // 
             this.repositoryItemCheckEdit1.AutoHeight = false;
@@ -299,6 +307,17 @@
             this.te_suppliername.Name = "te_suppliername";
             this.te_suppliername.Size = new System.Drawing.Size(238, 20);
             this.te_suppliername.TabIndex = 27;
+            // 
+            // sbtn_create
+            // 
+            this.sbtn_create.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.sbtn_create.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_create.Image")));
+            this.sbtn_create.Location = new System.Drawing.Point(877, 84);
+            this.sbtn_create.Name = "sbtn_create";
+            this.sbtn_create.Size = new System.Drawing.Size(75, 23);
+            this.sbtn_create.TabIndex = 18;
+            this.sbtn_create.Text = "生成条码";
+            this.sbtn_create.Click += new System.EventHandler(this.sbtn_create_Click);
             // 
             // te_supplier
             // 
@@ -384,25 +403,6 @@
             this.labelControl1.Size = new System.Drawing.Size(48, 14);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "订单号：";
-            // 
-            // sbtn_create
-            // 
-            this.sbtn_create.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.sbtn_create.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_create.Image")));
-            this.sbtn_create.Location = new System.Drawing.Point(877, 84);
-            this.sbtn_create.Name = "sbtn_create";
-            this.sbtn_create.Size = new System.Drawing.Size(75, 23);
-            this.sbtn_create.TabIndex = 18;
-            this.sbtn_create.Text = "生成条码";
-            this.sbtn_create.Click += new System.EventHandler(this.sbtn_create_Click);
-            // 
-            // gridColumn15
-            // 
-            this.gridColumn15.Caption = "供应商批号";
-            this.gridColumn15.FieldName = "SupplierBatch";
-            this.gridColumn15.Name = "gridColumn15";
-            this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 13;
             // 
             // frmBarcodeNew
             // 

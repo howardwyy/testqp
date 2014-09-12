@@ -180,6 +180,7 @@
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmFGHistory";
             this.Text = "成品条码历史记录";
+            this.Load += new System.EventHandler(this.frmFGHistory_Load);
             this.panel1.ResumeLayout(false);
             this.xtraScrollableControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

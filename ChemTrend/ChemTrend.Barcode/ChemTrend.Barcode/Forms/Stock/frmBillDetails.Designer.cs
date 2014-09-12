@@ -57,6 +57,7 @@
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
             this.xtraScrollableControl1.Size = new System.Drawing.Size(526, 320);
             this.xtraScrollableControl1.TabIndex = 0;
+            this.xtraScrollableControl1.Click += new System.EventHandler(this.xtraScrollableControl1_Click);
             // 
             // panelControl1
             // 
@@ -66,6 +67,7 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(526, 269);
             this.panelControl1.TabIndex = 1;
+            this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
             // 
             // gc_bill_detail
             // 
@@ -78,6 +80,7 @@
             this.gc_bill_detail.TabIndex = 2;
             this.gc_bill_detail.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_bill_detail});
+            this.gc_bill_detail.Click += new System.EventHandler(this.gc_bill_detail_Click);
             // 
             // gv_bill_detail
             // 
@@ -139,6 +142,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(526, 51);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // sbtn_close
             // 

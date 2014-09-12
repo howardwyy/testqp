@@ -632,6 +632,15 @@ namespace BarcodeModel.ADO
                 return null;
         }
 
-
+        /// <summary>
+        /// 清空整张表数据
+        /// </summary>
+        /// <returns></returns>
+        public int CleanTable()
+        {
+            string sql = "delete from {0}";
+            sql = string.Format(sql, this.TableName);
+            return this.ExecuteSql(sql);
+        }
     }
 }

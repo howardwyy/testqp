@@ -90,7 +90,6 @@ namespace ChemTrend.Barcode.Forms.FG
 
         private void frmWarehouseBarcode_Load(object sender, EventArgs e)
         {
-            InitData();
         }
 
         private void InitData()
@@ -105,6 +104,13 @@ namespace ChemTrend.Barcode.Forms.FG
             listWarehouse = apiWarehouse.GetList(searchModel);
             gc_warehouse.DataSource = listWarehouse;
             this.gv_warehouse.FocusedRowHandle = 0;
+
+        }
+
+
+        private void frmFGWH_Load(object sender, EventArgs e)
+        {
+            InitData();
 
         }
     }

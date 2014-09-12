@@ -33,6 +33,7 @@
             this.gv_customer = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gc_check = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.col_no = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_code = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
@@ -40,7 +41,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.sbtn_close = new DevExpress.XtraEditors.SimpleButton();
             this.sbtn_sure = new DevExpress.XtraEditors.SimpleButton();
-            this.col_no = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gc_customer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_customer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
@@ -89,6 +89,14 @@
             this.repositoryItemCheckEdit1.AutoHeight = false;
             this.repositoryItemCheckEdit1.Caption = "Check";
             this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
+            // 
+            // col_no
+            // 
+            this.col_no.Caption = "建议单号";
+            this.col_no.Name = "col_no";
+            this.col_no.Visible = true;
+            this.col_no.VisibleIndex = 1;
+            this.col_no.Width = 134;
             // 
             // col_code
             // 
@@ -146,6 +154,7 @@
             this.sbtn_close.Size = new System.Drawing.Size(60, 26);
             this.sbtn_close.TabIndex = 11;
             this.sbtn_close.Text = "关闭";
+            this.sbtn_close.Click += new System.EventHandler(this.sbtn_close_Click);
             // 
             // sbtn_sure
             // 
@@ -157,14 +166,7 @@
             this.sbtn_sure.Size = new System.Drawing.Size(60, 26);
             this.sbtn_sure.TabIndex = 10;
             this.sbtn_sure.Text = "确认";
-            // 
-            // col_no
-            // 
-            this.col_no.Caption = "建议单号";
-            this.col_no.Name = "col_no";
-            this.col_no.Visible = true;
-            this.col_no.VisibleIndex = 1;
-            this.col_no.Width = 134;
+            this.sbtn_sure.Click += new System.EventHandler(this.sbtn_sure_Click);
             // 
             // frmFGSuggestChoice
             // 
@@ -174,6 +176,7 @@
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmFGSuggestChoice";
             this.Text = "单号选择";
+            this.Load += new System.EventHandler(this.frmFGSuggestChoice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gc_customer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_customer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();

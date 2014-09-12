@@ -57,5 +57,7 @@ namespace BarcodeModel.MODEL.User
                 return 0;
         }
 
+       
+
     }
 }

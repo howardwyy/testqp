@@ -83,7 +83,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 130);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(790, 397);
+            this.panelControl2.Size = new System.Drawing.Size(728, 397);
             this.panelControl2.TabIndex = 1;
             // 
             // panelControl4
@@ -92,7 +92,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(2, 2);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(786, 393);
+            this.panelControl4.Size = new System.Drawing.Size(724, 393);
             this.panelControl4.TabIndex = 1;
             // 
             // gc_woline
@@ -104,7 +104,7 @@
             this.gc_woline.Name = "gc_woline";
             this.gc_woline.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gc_woline.Size = new System.Drawing.Size(782, 389);
+            this.gc_woline.Size = new System.Drawing.Size(720, 389);
             this.gc_woline.TabIndex = 0;
             this.gc_woline.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_woline});
@@ -250,7 +250,7 @@
             this.xtraScrollableControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl2.Location = new System.Drawing.Point(0, 0);
             this.xtraScrollableControl2.Name = "xtraScrollableControl2";
-            this.xtraScrollableControl2.Size = new System.Drawing.Size(790, 527);
+            this.xtraScrollableControl2.Size = new System.Drawing.Size(728, 527);
             this.xtraScrollableControl2.TabIndex = 6;
             // 
             // panelControl1
@@ -260,7 +260,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(790, 130);
+            this.panelControl1.Size = new System.Drawing.Size(728, 130);
             this.panelControl1.TabIndex = 0;
             // 
             // groupBox2
@@ -278,7 +278,7 @@
             this.groupBox2.Size = new System.Drawing.Size(323, 111);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "原材料信息";
+            this.groupBox2.Text = "发货单信息";
             // 
             // te_remark
             // 
@@ -366,7 +366,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 527);
+            this.ClientSize = new System.Drawing.Size(728, 527);
             this.Controls.Add(this.xtraScrollableControl2);
             this.Name = "frmFGInvoiceNew";
             this.Text = "新建发货清单";

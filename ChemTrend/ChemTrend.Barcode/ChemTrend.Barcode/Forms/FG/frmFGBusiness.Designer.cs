@@ -48,9 +48,6 @@
             this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
             this.gc_packing_details = new DevExpress.XtraGrid.GridControl();
             this.gv_packing_details = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dxvp_barcode = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.dxvp_count = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -61,6 +58,9 @@
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.dxvp_barcode = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.dxvp_count = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.cbox_status.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_packingcode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_create_end.Properties.CalendarTimeProperties)).BeginInit();
@@ -116,6 +116,7 @@
             this.sbtn_query.Size = new System.Drawing.Size(75, 23);
             this.sbtn_query.TabIndex = 23;
             this.sbtn_query.Text = "查询";
+            this.sbtn_query.Click += new System.EventHandler(this.sbtn_query_Click);
             // 
             // de_create_end
             // 
@@ -157,8 +158,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.cbox_status);
             this.groupBox1.Controls.Add(this.labelControl6);
             this.groupBox1.Controls.Add(this.te_packingcode);
@@ -169,9 +171,9 @@
             this.groupBox1.Controls.Add(this.sbtn_print);
             this.groupBox1.Controls.Add(this.labelControl2);
             this.groupBox1.Controls.Add(this.labelControl1);
-            this.groupBox1.Location = new System.Drawing.Point(14, 12);
+            this.groupBox1.Location = new System.Drawing.Point(10, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(722, 107);
+            this.groupBox1.Size = new System.Drawing.Size(728, 107);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询信息";
@@ -274,14 +276,6 @@
             this.gv_packing_details.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gv_packing_details.OptionsView.ShowGroupPanel = false;
             // 
-            // xtraScrollableControl1
-            // 
-            this.xtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraScrollableControl1.Location = new System.Drawing.Point(0, 0);
-            this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(748, 457);
-            this.xtraScrollableControl1.TabIndex = 5;
-            // 
             // gridColumn4
             // 
             this.gridColumn4.Caption = "仓库";
@@ -356,6 +350,14 @@
             this.gridColumn14.Visible = true;
             this.gridColumn14.VisibleIndex = 10;
             // 
+            // xtraScrollableControl1
+            // 
+            this.xtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraScrollableControl1.Location = new System.Drawing.Point(0, 0);
+            this.xtraScrollableControl1.Name = "xtraScrollableControl1";
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(748, 457);
+            this.xtraScrollableControl1.TabIndex = 5;
+            // 
             // frmFGBusiness
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -365,6 +367,7 @@
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmFGBusiness";
             this.Text = "历史交易";
+            this.Load += new System.EventHandler(this.frmFGBusiness_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cbox_status.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_packingcode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_create_end.Properties.CalendarTimeProperties)).EndInit();

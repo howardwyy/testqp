@@ -31,24 +31,31 @@ namespace ChemTrend.Barcode.Forms.Stock
         private void sbtn_warehousecode_Click(object sender, EventArgs e)
         {
             GetTips();
-
         }
 
         private void GetTips()
         {
             if (!String.IsNullOrEmpty(cbox_orderno.Text))
             {
-                cbox_orderno.Properties.Items.Clear();
-                string tips = cbox_orderno.Text;
-                POLineModel returnModel = apiPOLine.GetModelByID(tips);
-                if (returnModel != null && returnModel.POS != null)
+                try
                 {
-                    for (int i = 0; i < returnModel.POS.Count(); i++)
+
+                    cbox_orderno.Properties.Items.Clear();
+                    string tips = cbox_orderno.Text;
+                    POLineModel returnModel = apiPOLine.GetModelByID(tips);
+                    if (returnModel != null && returnModel.POS != null)
                     {
-                        cbox_orderno.Properties.Items.Add(returnModel.POS[i]);
+                        for (int i = 0; i < returnModel.POS.Count(); i++)
+                        {
+                            cbox_orderno.Properties.Items.Add(returnModel.POS[i]);
+                        }
                     }
+                    cbox_orderno.ShowPopup();
                 }
-                cbox_orderno.ShowPopup();
+                catch (Exception ex)
+                {
+                    DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
+                }
             }
         }
 
@@ -143,7 +150,7 @@ namespace ChemTrend.Barcode.Forms.Stock
 
                 DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
             }
-          
+
         }
 
         private void frmBarcodeNew_Load(object sender, EventArgs e)

@@ -110,11 +110,11 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(16, 109);
+            this.labelControl7.Location = new System.Drawing.Point(5, 109);
             this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(60, 14);
+            this.labelControl7.Size = new System.Drawing.Size(72, 14);
             this.labelControl7.TabIndex = 37;
-            this.labelControl7.Text = "发货数量：";
+            this.labelControl7.Text = "未发货数量：";
             // 
             // te_unit
             // 
@@ -246,11 +246,11 @@
             // 
             this.sbtn_create.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.sbtn_create.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_create.Image")));
-            this.sbtn_create.Location = new System.Drawing.Point(631, 100);
+            this.sbtn_create.Location = new System.Drawing.Point(579, 100);
             this.sbtn_create.Name = "sbtn_create";
-            this.sbtn_create.Size = new System.Drawing.Size(75, 23);
+            this.sbtn_create.Size = new System.Drawing.Size(120, 23);
             this.sbtn_create.TabIndex = 23;
-            this.sbtn_create.Text = "确认发货";
+            this.sbtn_create.Text = "新建发货建议单";
             this.sbtn_create.Click += new System.EventHandler(this.sbtn_create_Click);
             // 
             // sbtn_close
@@ -500,6 +500,7 @@
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmFGInvoice";
             this.Text = "发货清单";
+            this.Load += new System.EventHandler(this.frmFGInvoice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.te_qty_cur.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_qty_surplus.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_unit.Properties)).EndInit();

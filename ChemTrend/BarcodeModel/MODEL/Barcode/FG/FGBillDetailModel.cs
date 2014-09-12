@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BarcodeModel.MODEL.Barcode.RW
+namespace BarcodeModel.MODEL.Barcode.FG
 {
     /// <summary>
     /// 成品单据明细表

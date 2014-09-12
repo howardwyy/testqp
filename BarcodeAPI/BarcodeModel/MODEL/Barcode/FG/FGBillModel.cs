@@ -14,29 +14,29 @@ namespace BarcodeModel.MODEL.Barcode.RW
     [Tablename(TableName = "FG03", PrimaryKey = "FG03001")]
     public class FGBillModel : BaseSearchModel
     {
-        // GF03001	varchar(30)	主键	主键
-        [Columname(Name = "GF03001")]
+        // FG03001	varchar(30)	主键	主键
+        [Columname(Name = "FG03001")]
         public string ID { get; set; }
-        //GF03002	datetime		操作时间
-        [Columname(Name = "GF03002")]
+        //FG03002	datetime		操作时间
+        [Columname(Name = "FG03002")]
         public DateTime CreateTime { get; set; }
-        //GF03003	varchar(50)		操作人id
-        [Columname(Name = "GF03003")]
+        //FG03003	varchar(50)		操作人id
+        [Columname(Name = "FG03003")]
         public string UserId { get; set; }
-        //GF03004	nvarchar(50)		操作人name
-        [Columname(Name = "GF03004")]
+        //FG03004	nvarchar(50)		操作人name
+        [Columname(Name = "FG03004")]
         public string UserName { get; set; }
-        //GF03005	varchar(50)		flowkey
-        [Columname(Name = "GF03005")]
+        //FG03005	varchar(50)		flowkey
+        [Columname(Name = "FG03005")]
         public string Flowkey { get; set; }
-        //GF03006	varchar(50)		flowdesc
-        [Columname(Name = "GF03006")]
+        //FG03006	varchar(50)		flowdesc
+        [Columname(Name = "FG03006")]
         public string FlowName { get; set; }
-        //GF03007	varchar(50)		领料单id
-        [Columname(Name = "GF03007")]
+        //FG03007	varchar(50)		领料单id
+        [Columname(Name = "FG03007")]
         public string RequisitionId { get; set; }
-        //GF03008	varchar(50)		操作备注
-        [Columname(Name = "GF03008")]
+        //FG03008	varchar(50)		操作备注
+        [Columname(Name = "FG03008")]
         public string Remark { get; set; }
 
         //应用于查询，搜索功能，开始时间；
@@ -46,34 +46,34 @@ namespace BarcodeModel.MODEL.Barcode.RW
 
         public override List<BaseSearchModel> GetALL(bool enableSearch = false)
         {
-            ModelAdo<BillModel> adoBill = new ModelAdo<BillModel>();
+            ModelAdo<FGBillModel> adoBill = new ModelAdo<FGBillModel>();
             List<SqlParameter> listParam = new List<SqlParameter>();
             StringBuilder sbWhere = new StringBuilder();
             sbWhere.Append(" 1=1 ");
             if (!BeginTime.Equals(DateTime.MinValue) && !EndTime.Equals(DateTime.MinValue))
             {
-                sbWhere.Append(" AND GF03002 BETWEEN  @BeginTime AND @EndTime ");
+                sbWhere.Append(" AND FG03002 BETWEEN  @BeginTime AND @EndTime ");
                 listParam.Add(new SqlParameter("@BeginTime", BeginTime));
                 listParam.Add(new SqlParameter("@EndTime", EndTime));
             }
             if (!string.IsNullOrEmpty(this.ID))
             {
-                sbWhere.Append(" AND GF03001 = @ID");
+                sbWhere.Append(" AND FG03001 = @ID");
                 listParam.Add(new SqlParameter("@ID", ID));
             }
             if (!string.IsNullOrEmpty(this.UserName))
             {
-                sbWhere.Append(" AND GF03004=@UserName");
+                sbWhere.Append(" AND FG03004=@UserName");
                 listParam.Add(new SqlParameter("@UserName", UserName));
             }
 
             if (!string.IsNullOrEmpty(this.Remark))
             {
-                sbWhere.Append(" AND GF03008=@Remark");
+                sbWhere.Append(" AND FG03008=@Remark");
                 listParam.Add(new SqlParameter("@Remark", Remark));
             }
 
-            return adoBill.GetList(sbWhere.ToString(), " GF03002 DESC ", "*", listParam.ToArray()).ConvertAll<BaseSearchModel>(m => m as BaseSearchModel);
+            return adoBill.GetList(sbWhere.ToString(), " FG03002 DESC ", "*", listParam.ToArray()).ConvertAll<BaseSearchModel>(m => m as BaseSearchModel);
         }
     }
 }

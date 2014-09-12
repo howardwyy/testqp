@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFG));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.te_batch = new DevExpress.XtraEditors.TextEdit();
@@ -643,6 +643,7 @@
             this.gv_barcode.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gv_barcode.OptionsSelection.ShowCheckBoxSelectorInGroupRow = DevExpress.Utils.DefaultBoolean.True;
             this.gv_barcode.OptionsView.ShowGroupPanel = false;
+            this.gv_barcode.DoubleClick += new System.EventHandler(this.gv_barcode_DoubleClick);
             // 
             // gridColumn1
             // 
@@ -744,9 +745,9 @@
             // 
             this.gc_barcode.Cursor = System.Windows.Forms.Cursors.Default;
             this.gc_barcode.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.gc_barcode.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.gc_barcode.Location = new System.Drawing.Point(2, 2);
             this.gc_barcode.MainView = this.gv_barcode;
             this.gc_barcode.Name = "gc_barcode";
@@ -842,6 +843,7 @@
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmFG";
             this.Text = "成品条码管理";
+            this.Load += new System.EventHandler(this.frmFG_Load);
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

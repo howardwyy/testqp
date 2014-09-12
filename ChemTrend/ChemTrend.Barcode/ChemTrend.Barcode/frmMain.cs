@@ -18,6 +18,7 @@ using ChemTrend.Barcode.Utils;
 using BarcodeModel.MODEL.User;
 using BarcodeModel.API;
 using ChemTrend.Barcode.Forms.FG;
+using ChemTrend.Barcode.Forms.Work;
 
 namespace ChemTrend.Barcode
 {
@@ -43,7 +44,7 @@ namespace ChemTrend.Barcode
         public string Password { get; set; }
         private void InitViews()
         {
-             //获取当前登陆用户信息,退出处理
+            //获取当前登陆用户信息,退出处理
             string AFileName = System.Environment.CurrentDirectory + "/" + AppConfig.IniFilePath;
             IniFilesUtil iniFilesUtil = new IniFilesUtil(AFileName);
             hisID = iniFilesUtil.ReadString(AppConfig.Section.Login.ToString(), AppConfig.Ident.HisID.ToString(), "");
@@ -211,7 +212,7 @@ namespace ChemTrend.Barcode
 
         private void bbtn_role_ItemClick(object sender, ItemClickEventArgs e)
         {
-            OpenWindow(typeof(frmRoles).ToString()); 
+            OpenWindow(typeof(frmRoles).ToString());
         }
 
 
@@ -318,7 +319,7 @@ namespace ChemTrend.Barcode
         }
         #endregion
 
-       
+
 
         private void bbtn_exit_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -326,7 +327,6 @@ namespace ChemTrend.Barcode
             {
 
                 destroyLogin();
-               
                 // 关闭所有的线程
                 this.Dispose();
                 this.Close();
@@ -341,15 +341,30 @@ namespace ChemTrend.Barcode
             destroyLogin();
         }
 
-        private void destroyLogin() {
-            //获取当前登陆用户信息,退出处理
-            string AFileName = System.Environment.CurrentDirectory + "/" + AppConfig.IniFilePath;
-            IniFilesUtil iniFilesUtil = new IniFilesUtil(AFileName);
-            string hisID = iniFilesUtil.ReadString(AppConfig.Section.Login.ToString(), AppConfig.Ident.HisID.ToString(), "");
-            ModelAPI<LoginHistoryModel> apiHistory = new ModelAPI<LoginHistoryModel>();
-            apiHistory.Delete(hisID);
+        private void destroyLogin()
+        {
+            try
+            {
 
-                
+                //获取当前登陆用户信息,退出处理
+                string AFileName = System.Environment.CurrentDirectory + "/" + AppConfig.IniFilePath;
+                IniFilesUtil iniFilesUtil = new IniFilesUtil(AFileName);
+                string hisID = iniFilesUtil.ReadString(AppConfig.Section.Login.ToString(), AppConfig.Ident.HisID.ToString(), "");
+                ModelAPI<LoginHistoryModel> apiHistory = new ModelAPI<LoginHistoryModel>();
+                apiHistory.Delete(hisID);
+            }
+            catch (Exception ex)
+            {
+                if (DevExpress.XtraEditors.XtraMessageBox.Show("退出程序异常？", "继续退出", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+                {
+                    // 关闭所有的线程
+                    this.Dispose();
+                    this.Close();
+
+                }
+            }
+
+
         }
 
         private void bbtn_item_fg_ItemClick(object sender, ItemClickEventArgs e)
@@ -378,6 +393,34 @@ namespace ChemTrend.Barcode
         private void bbtn_item_business_ItemClick(object sender, ItemClickEventArgs e)
         {
             OpenWindow(typeof(frmFGBusiness).ToString());
+
+        }
+
+        private void bbtn_stock_check_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenWindow(typeof(frmToTakeStock).ToString());
+
+        }
+
+        private void bbtn_item_work_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenWindow(typeof(frmWork).ToString());
+        }
+
+        private void bbtn_item_workreport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenWindow(typeof(frmWorkReport).ToString());
+        }
+
+        private void bbtn_item_mapping_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenWindow(typeof(frmWorkMappings).ToString());
+
+        }
+
+        private void bbtn_item_suggest_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenWindow(typeof(frmFGSuggest).ToString());
 
         }
 

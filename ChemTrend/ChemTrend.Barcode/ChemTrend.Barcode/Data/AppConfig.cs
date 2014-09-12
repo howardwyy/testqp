@@ -67,6 +67,10 @@ namespace ChemTrend.Barcode.Data
             使用中 = 2,
             使用完 = 3
         }
+
+     
+
+
         //构建条码状态信息
         public static List<ComboBoxEditData> GetPackingStatus()
         {
@@ -82,6 +86,45 @@ namespace ChemTrend.Barcode.Data
                 list.Add(item);
             }
             return list;
+        }
+
+        /// <summary>
+        ///  工单使用状态值
+        /// </summary>
+        public enum Working //1.未启动；2.启用中；3，已完成
+        {
+            未启动 = 1,
+            启用中 = 2,
+            已完成 = 3
+        }
+        /// <summary>
+        /// 构建工单状态信息
+        /// </summary>
+        /// <returns></returns>
+        public static List<ComboBoxEditData> GetWorkStatus()
+        {
+            List<ComboBoxEditData> list = new List<ComboBoxEditData>();
+            Type enumType = typeof(Working);
+            foreach (string str in Enum.GetNames(enumType))
+            {
+                ComboBoxEditData item = new ComboBoxEditData()
+                {
+                    Value = Enum.Format(enumType, Enum.Parse(enumType, str), "d"),
+                    Text = str
+                };
+                list.Add(item);
+
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 计算类型(1、计算 2固定)
+        /// </summary>
+        public enum WorkMapping
+        {
+            计算 = 1,
+            固定 = 2
         }
 
         //领料单状态(1已申请 2部分发货 3关闭)

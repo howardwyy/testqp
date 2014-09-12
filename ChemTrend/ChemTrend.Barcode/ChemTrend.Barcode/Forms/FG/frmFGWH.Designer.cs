@@ -189,6 +189,7 @@
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmFGWH";
             this.Text = "成品仓库/库位";
+            this.Load += new System.EventHandler(this.frmFGWH_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gc_warehouse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_warehouse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();

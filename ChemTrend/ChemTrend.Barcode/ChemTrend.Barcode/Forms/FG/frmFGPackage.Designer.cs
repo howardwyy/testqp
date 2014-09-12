@@ -372,6 +372,7 @@
             this.gv_packing.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gv_packing.OptionsView.ColumnAutoWidth = false;
             this.gv_packing.OptionsView.ShowGroupPanel = false;
+            this.gv_packing.DoubleClick += new System.EventHandler(this.gv_packing_DoubleClick);
             // 
             // gridColumn1
             // 
@@ -589,6 +590,7 @@
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmFGPackage";
             this.Text = "成品装箱管理";
+            this.Load += new System.EventHandler(this.frmFGPackage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();

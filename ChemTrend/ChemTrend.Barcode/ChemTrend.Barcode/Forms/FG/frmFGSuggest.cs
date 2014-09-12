@@ -27,5 +27,32 @@ namespace ChemTrend.Barcode.Forms.FG
         {
 
         }
+
+        private void sbtn_no_Click(object sender, EventArgs e)
+        {
+            frmFGSuggestChoice frmFGSuggestChoice = new frmFGSuggestChoice();
+            frmFGSuggestChoice.StartPosition = FormStartPosition.CenterParent;
+            DialogResult result = frmFGSuggestChoice.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                InitData();
+            }
+        }
+
+        private void InitData()
+        {
+
+        }
+
+        private void sbtn_customer_Click(object sender, EventArgs e)
+        {
+            frmFGCustomer frmFGCustomer = new frmFGCustomer();
+            frmFGCustomer.StartPosition = FormStartPosition.CenterParent;
+            DialogResult result = frmFGCustomer.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                InitData();
+            }
+        }
     }
 }

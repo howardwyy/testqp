@@ -10,9 +10,12 @@ using System.Transactions;
 
 namespace BarcodeModel.MODEL.Barcode.FG.Operation
 {
-    //创建成品条码
+    /// <summary>
+    /// 创建成品条码
+    /// </summary>
     public class CreateFGModel : BaseSearchModel
     {
+
 
         private static Object lockobj = new object();
         public WOModel[] WOModels { get; set; }
@@ -23,36 +26,7 @@ namespace BarcodeModel.MODEL.Barcode.FG.Operation
         //应用于返回结果，处理打印功能
         //public RWBarcodeModel[] RWBarcodeModels { get; set; }
         public string[] ReturnIDS { get; set; }
-        //public override BaseSearchModel Insert()
-        //{
-        //    using (TransactionScope ts = new TransactionScope())
-        //    {
-        //        //创建单据号
-        //        ModelAdo<BillModel> adoBill = new ModelAdo<BillModel>();
-        //        BillModel billModel = new BillModel()
-        //        {
-        //            CreateTime = DateTime.Now,
-        //            UserId = "",
-        //            UserName = "",
-        //            Flowkey = "",
-        //            FlowName = "",
-        //            RequisitionId = "",
-        //            Remark = BillRemark
-        //        };
-        //        adoBill.Insert(billModel);
 
-        //        List<RWBarcodeModel> listBarcode = new List<RWBarcodeModel>();
-        //        foreach (POLineModel item in POLineModels)
-        //        {
-        //            item.billModel = billModel;
-        //            item.Insert();
-        //            listBarcode.AddRange(item.RWBarcodeModels);
-        //        }
-        //        this.RWBarcodeModels = listBarcode.ToArray();
-        //        ts.Complete();
-        //    }
-        //    return this;
-        //}
         public override BarcodeModel.MODEL.BaseSearchModel Insert()
         {
             lock (lockobj)

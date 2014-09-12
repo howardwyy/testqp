@@ -34,12 +34,12 @@
             this.gc_check = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.col_code = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.sbtn_close = new DevExpress.XtraEditors.SimpleButton();
             this.sbtn_sure = new DevExpress.XtraEditors.SimpleButton();
-            this.col_name = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gc_customer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_customer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
@@ -58,7 +58,7 @@
             this.gc_customer.Name = "gc_customer";
             this.gc_customer.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gc_customer.Size = new System.Drawing.Size(458, 403);
+            this.gc_customer.Size = new System.Drawing.Size(458, 374);
             this.gc_customer.TabIndex = 1;
             this.gc_customer.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_customer});
@@ -97,6 +97,13 @@
             this.col_code.VisibleIndex = 1;
             this.col_code.Width = 96;
             // 
+            // col_name
+            // 
+            this.col_name.Caption = "客户名称";
+            this.col_name.Name = "col_name";
+            this.col_name.Visible = true;
+            this.col_name.VisibleIndex = 2;
+            // 
             // xtraScrollableControl1
             // 
             this.xtraScrollableControl1.Controls.Add(this.panelControl1);
@@ -104,7 +111,7 @@
             this.xtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(462, 454);
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(462, 425);
             this.xtraScrollableControl1.TabIndex = 3;
             // 
             // panelControl1
@@ -113,7 +120,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(462, 407);
+            this.panelControl1.Size = new System.Drawing.Size(462, 378);
             this.panelControl1.TabIndex = 2;
             // 
             // panel1
@@ -121,7 +128,7 @@
             this.panel1.Controls.Add(this.sbtn_close);
             this.panel1.Controls.Add(this.sbtn_sure);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 407);
+            this.panel1.Location = new System.Drawing.Point(0, 378);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(462, 47);
             this.panel1.TabIndex = 1;
@@ -136,6 +143,7 @@
             this.sbtn_close.Size = new System.Drawing.Size(60, 26);
             this.sbtn_close.TabIndex = 11;
             this.sbtn_close.Text = "关闭";
+            this.sbtn_close.Click += new System.EventHandler(this.sbtn_close_Click);
             // 
             // sbtn_sure
             // 
@@ -147,22 +155,17 @@
             this.sbtn_sure.Size = new System.Drawing.Size(60, 26);
             this.sbtn_sure.TabIndex = 10;
             this.sbtn_sure.Text = "确认";
-            // 
-            // col_name
-            // 
-            this.col_name.Caption = "客户名称";
-            this.col_name.Name = "col_name";
-            this.col_name.Visible = true;
-            this.col_name.VisibleIndex = 2;
+            this.sbtn_sure.Click += new System.EventHandler(this.sbtn_sure_Click);
             // 
             // frmFGCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 454);
+            this.ClientSize = new System.Drawing.Size(462, 425);
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmFGCustomer";
             this.Text = "客户选择";
+            this.Load += new System.EventHandler(this.frmFGCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gc_customer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_customer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();

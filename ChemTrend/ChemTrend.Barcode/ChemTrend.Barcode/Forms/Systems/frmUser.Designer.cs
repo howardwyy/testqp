@@ -56,6 +56,7 @@
             this.dxvp_username = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.dxvp_loginname = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.dxvp_role = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.sbtn_reset = new DevExpress.XtraEditors.SimpleButton();
             this.xtraScrollableControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
@@ -262,6 +263,7 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.sbtn_reset);
             this.panelControl1.Controls.Add(this.sbtn_close);
             this.panelControl1.Controls.Add(this.sbtn_update);
             this.panelControl1.Controls.Add(this.sbtn_create);
@@ -306,6 +308,18 @@
             this.sbtn_create.TabIndex = 7;
             this.sbtn_create.Text = "创建";
             this.sbtn_create.Click += new System.EventHandler(this.sbtn_create_Click);
+            // 
+            // sbtn_reset
+            // 
+            this.sbtn_reset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.sbtn_reset.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_reset.Image")));
+            this.sbtn_reset.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
+            this.sbtn_reset.Location = new System.Drawing.Point(177, 9);
+            this.sbtn_reset.Name = "sbtn_reset";
+            this.sbtn_reset.Size = new System.Drawing.Size(109, 26);
+            this.sbtn_reset.TabIndex = 10;
+            this.sbtn_reset.Text = "重置登录状态";
+            this.sbtn_reset.Click += new System.EventHandler(this.sbtn_reset_Click);
             // 
             // frmUser
             // 
@@ -369,5 +383,6 @@
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxvp_role;
         private DevExpress.XtraEditors.TextEdit te_id;
         private System.Windows.Forms.Label label5;
+        private DevExpress.XtraEditors.SimpleButton sbtn_reset;
     }
 }

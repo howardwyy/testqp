@@ -63,6 +63,11 @@ namespace BarcodeModel.MODEL.Barcode.RW
             }
         }
 
+        public override int CleanTable()
+        {
+            return base.CleanTable();
+        }
+
     }
  
 }

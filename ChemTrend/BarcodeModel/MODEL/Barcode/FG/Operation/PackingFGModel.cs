@@ -10,7 +10,9 @@ using System.Transactions;
 
 namespace BarcodeModel.MODEL.Barcode.FG.Operation
 {
-    //成品装箱操作
+    /// <summary>
+    /// 成品装箱操作
+    /// </summary>
     public class PackingFGModel : BaseSearchModel
     {
         public string PackingID { get; set; }

@@ -29,5 +29,25 @@ namespace ChemTrend.Barcode.Forms.Stock
         {
             this.gc_bill_detail.DataSource = listBillDetails;
         }
+
+        private void panelControl1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void gc_bill_detail_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void xtraScrollableControl1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

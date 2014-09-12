@@ -142,6 +142,7 @@
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(692, 104);
             this.panelControl1.TabIndex = 0;
+            this.panelControl1.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControl1_Paint);
             // 
             // col_createtime
             // 
@@ -342,6 +343,7 @@
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmFGNew";
             this.Text = "创建成品条码";
+            this.Load += new System.EventHandler(this.frmFGNew_Load);
             ((System.ComponentModel.ISupportInitialize)(this.te_stock.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

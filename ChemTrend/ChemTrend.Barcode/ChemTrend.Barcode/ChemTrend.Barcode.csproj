@@ -136,6 +136,18 @@
     <Compile Include="Forms\FG\frmFGBill.Designer.cs">
       <DependentUpon>frmFGBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FG\frmFGBusiness.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGBusiness.Designer.cs">
+      <DependentUpon>frmFGBusiness.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGCheck.Designer.cs">
+      <DependentUpon>frmFGCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FG\frmFGCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,17 +178,41 @@
     <Compile Include="Forms\FG\frmFGNew.Designer.cs">
       <DependentUpon>frmFGNew.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FG\frmFGNew2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGNew2.Designer.cs">
+      <DependentUpon>frmFGNew2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FG\frmFGPackage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FG\frmFGPackage.Designer.cs">
       <DependentUpon>frmFGPackage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FG\frmFGPackageChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGPackageChoice.Designer.cs">
+      <DependentUpon>frmFGPackageChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGStock.Designer.cs">
+      <DependentUpon>frmFGStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FG\frmFGSuggest.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FG\frmFGSuggest.Designer.cs">
       <DependentUpon>frmFGSuggest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGSuggestChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGSuggestChoice.Designer.cs">
+      <DependentUpon>frmFGSuggestChoice.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FG\frmFGWH.cs">
       <SubType>Form</SubType>
@@ -341,6 +377,36 @@
     <Compile Include="Forms\Systems\frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Work\frmWork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Work\frmWork.Designer.cs">
+      <DependentUpon>frmWork.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Work\frmWorkDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Work\frmWorkDetails.Designer.cs">
+      <DependentUpon>frmWorkDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Work\frmWorkMapping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Work\frmWorkMapping.Designer.cs">
+      <DependentUpon>frmWorkMapping.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Work\frmWorkMappings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Work\frmWorkMappings.Designer.cs">
+      <DependentUpon>frmWorkMappings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Work\frmWorkReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Work\frmWorkReport.Designer.cs">
+      <DependentUpon>frmWorkReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -367,6 +433,18 @@
     <Compile Include="Report\repFG.Designer.cs">
       <DependentUpon>repFG.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\repFGInvoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\repFGInvoice.Designer.cs">
+      <DependentUpon>repFGInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\repFGPackage.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\repFGPackage.Designer.cs">
+      <DependentUpon>repFGPackage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\repPackage.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -391,6 +469,12 @@
     <Compile Include="Report\repStock.Designer.cs">
       <DependentUpon>repStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\repFGSuggest.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\repFGSuggest.Designer.cs">
+      <DependentUpon>repFGSuggest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\repWarehouse.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -412,6 +496,12 @@
     <EmbeddedResource Include="Forms\FG\frmFGBill.resx">
       <DependentUpon>frmFGBill.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGBusiness.resx">
+      <DependentUpon>frmFGBusiness.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGCheck.resx">
+      <DependentUpon>frmFGCheck.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FG\frmFGCustomer.resx">
       <DependentUpon>frmFGCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -427,11 +517,23 @@
     <EmbeddedResource Include="Forms\FG\frmFGNew.resx">
       <DependentUpon>frmFGNew.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGNew2.resx">
+      <DependentUpon>frmFGNew2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FG\frmFGPackage.resx">
       <DependentUpon>frmFGPackage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGPackageChoice.resx">
+      <DependentUpon>frmFGPackageChoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGStock.resx">
+      <DependentUpon>frmFGStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FG\frmFGSuggest.resx">
       <DependentUpon>frmFGSuggest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGSuggestChoice.resx">
+      <DependentUpon>frmFGSuggestChoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FG\frmFGWH.resx">
       <DependentUpon>frmFGWH.cs</DependentUpon>
@@ -514,6 +616,21 @@
     <EmbeddedResource Include="Forms\Systems\frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Work\frmWork.resx">
+      <DependentUpon>frmWork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Work\frmWorkDetails.resx">
+      <DependentUpon>frmWorkDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Work\frmWorkMapping.resx">
+      <DependentUpon>frmWorkMapping.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Work\frmWorkMappings.resx">
+      <DependentUpon>frmWorkMappings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Work\frmWorkReport.resx">
+      <DependentUpon>frmWorkReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
@@ -526,6 +643,12 @@
     <EmbeddedResource Include="Report\repFG.resx">
       <DependentUpon>repFG.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\repFGInvoice.resx">
+      <DependentUpon>repFGInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\repFGPackage.resx">
+      <DependentUpon>repFGPackage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\repPackage.resx">
       <DependentUpon>repPackage.cs</DependentUpon>
     </EmbeddedResource>
@@ -537,6 +660,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\repStock.resx">
       <DependentUpon>repStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\repFGSuggest.resx">
+      <DependentUpon>repFGSuggest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\repWarehouse.resx">
       <DependentUpon>repWarehouse.cs</DependentUpon>

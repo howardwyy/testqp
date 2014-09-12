@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFGStock));
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.gc_stock = new DevExpress.XtraGrid.GridControl();
@@ -36,21 +37,22 @@
             this.col_stockname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_num = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_unit = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.col_customer = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_yxq = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_dsc = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_decstr = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_type = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_dept = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.sbtn_query = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.ck_hfg = new DevExpress.XtraEditors.CheckEdit();
             this.ck_fg = new DevExpress.XtraEditors.CheckEdit();
             this.te_stock = new DevExpress.XtraEditors.TextEdit();
             this.sbtn_create = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.sbtn_query = new DevExpress.XtraEditors.SimpleButton();
+            this.dxvp_stock = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.xtraScrollableControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_stock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_stock)).BeginInit();
@@ -60,6 +62,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ck_hfg.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ck_fg.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_stock.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxvp_stock)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraScrollableControl1
@@ -142,15 +145,6 @@
             this.col_unit.Visible = true;
             this.col_unit.VisibleIndex = 3;
             // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.groupBox1);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(832, 116);
-            this.panelControl1.TabIndex = 0;
-            // 
             // col_customer
             // 
             this.col_customer.Caption = "归属客户";
@@ -193,6 +187,15 @@
             this.col_dept.Visible = true;
             this.col_dept.VisibleIndex = 9;
             // 
+            // panelControl1
+            // 
+            this.panelControl1.Controls.Add(this.groupBox1);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(832, 116);
+            this.panelControl1.TabIndex = 0;
+            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -210,7 +213,29 @@
             this.groupBox1.Size = new System.Drawing.Size(808, 81);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "条码信息";
+            this.groupBox1.Text = "物料信息";
+            // 
+            // sbtn_query
+            // 
+            this.sbtn_query.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.sbtn_query.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_query.Image")));
+            this.sbtn_query.Location = new System.Drawing.Point(495, 45);
+            this.sbtn_query.Name = "sbtn_query";
+            this.sbtn_query.Size = new System.Drawing.Size(75, 23);
+            this.sbtn_query.TabIndex = 28;
+            this.sbtn_query.Text = "查询";
+            this.sbtn_query.Click += new System.EventHandler(this.sbtn_query_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
+            this.simpleButton1.Location = new System.Drawing.Point(603, 45);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton1.TabIndex = 27;
+            this.simpleButton1.Text = "删除设置";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // ck_hfg
             // 
@@ -244,6 +269,7 @@
             this.sbtn_create.Size = new System.Drawing.Size(75, 23);
             this.sbtn_create.TabIndex = 18;
             this.sbtn_create.Text = "保存设置";
+            this.sbtn_create.Click += new System.EventHandler(this.sbtn_create_Click);
             // 
             // labelControl2
             // 
@@ -253,26 +279,6 @@
             this.labelControl2.TabIndex = 12;
             this.labelControl2.Text = "物料查询：";
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(603, 45);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton1.TabIndex = 27;
-            this.simpleButton1.Text = "删除设置";
-            // 
-            // sbtn_query
-            // 
-            this.sbtn_query.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.sbtn_query.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_query.Image")));
-            this.sbtn_query.Location = new System.Drawing.Point(495, 45);
-            this.sbtn_query.Name = "sbtn_query";
-            this.sbtn_query.Size = new System.Drawing.Size(75, 23);
-            this.sbtn_query.TabIndex = 28;
-            this.sbtn_query.Text = "查询";
-            // 
             // frmFGStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -281,6 +287,7 @@
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmFGStock";
             this.Text = "物料管理";
+            this.Load += new System.EventHandler(this.frmFGStock_Load);
             this.xtraScrollableControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gc_stock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_stock)).EndInit();
@@ -291,6 +298,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ck_hfg.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ck_fg.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_stock.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxvp_stock)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -319,5 +327,6 @@
         private DevExpress.XtraEditors.SimpleButton sbtn_create;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SimpleButton sbtn_query;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxvp_stock;
     }
 }

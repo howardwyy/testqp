@@ -36,5 +36,6 @@ namespace BarcodeModel.MODEL.User
         [Columname(Name = "UR01008")]
         public bool Enable { get; set; }
 
+
     }
 }

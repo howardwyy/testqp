@@ -128,5 +128,15 @@ namespace BarcodeModel.MODEL
         {
             return Type.GetType(name);
         }
+
+
+        /// <summary>
+        /// 清空表数据
+        /// </summary>
+        /// <returns></returns>
+        public virtual int CleanTable()
+        {
+            return this.GetADO().CleanTable();
+        }
     }
 }

@@ -18,9 +18,19 @@ namespace ChemTrend.Barcode.Forms.FG
             InitializeComponent();
         }
 
-        private void sbtn_create_Click(object sender, EventArgs e)
+        private void frmFGInvoice_Load(object sender, EventArgs e)
         {
 
         }
+
+        private void sbtn_create_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void InitData()
+        {
+        }
+
     }
 }
