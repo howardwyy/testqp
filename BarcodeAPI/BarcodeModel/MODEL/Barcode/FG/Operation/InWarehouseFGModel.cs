@@ -10,9 +10,13 @@ using System.Transactions;
 
 namespace BarcodeModel.MODEL.Barcode.FG.Operation
 {
+<<<<<<< HEAD
     /// <summary>
     /// 成品入库操作
     /// </summary>
+=======
+    //成品入库操作
+>>>>>>> origin/master
     public class InWarehouseFGModel : BaseSearchModel
     {
         public string Warehouse { get; set; }

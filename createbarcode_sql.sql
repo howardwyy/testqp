@@ -364,6 +364,48 @@ FG91036	varchar(30),
 FG91037 varchar(3)
 )
 --------------------
+create table WK01
+(
+WK01001	varchar(30) primary key,
+WK01002	varchar(30),
+WK01003	nvarchar(50),
+WK01004	numeric(15,3),
+WK01005	datetime,
+WK01006	datetime,
+WK01007	float,
+WK01008	int
+)
+create table WK02
+(
+WK02001	int primary key identity(1000,1),
+WK02002	varchar(30),
+WK02003	varchar(30),
+WK02004	nvarchar(50),
+WK02005	varchar(5),
+WK02006	datetime,
+WK02007	datetime,
+WK02008	numeric(15,3),
+WK02009	numeric(15,3),
+WK02010	varchar(30),
+WK02011	int
+)
+--drop table WK03
+create table WK03
+(
+WK03001	int primary key identity(1000,1),
+WK03002	varchar(30),
+WK03003	nvarchar(50),
+WK03004	varchar(5),
+WK03005	int,
+WK03006	int,
+WK03007	int,
+WK03008	int,
+WK03009	int,
+WK03010	float
+)
+
+
+-----------------------
 create proc [dbo].[PROC_GETID]
 @TABLE VARCHAR(50),
 @NEWID VARCHAR(50) OUTPUT
