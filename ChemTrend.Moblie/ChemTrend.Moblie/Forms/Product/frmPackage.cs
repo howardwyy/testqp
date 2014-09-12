@@ -125,24 +125,98 @@ namespace ChemTrend.Moblie.Forms.Product
 
         }
 
-        private void pbox_search_barcode_Click(object sender, EventArgs e)
+        private void FindBarcod()
+        {
+            if (tbox_barcode.Text.Length >= 1)
+            {
+                ModelAPI<FGBarcodeModel> apiBarcode = new ModelAPI<FGBarcodeModel>();
+                FGBarcodeModel searchModel = new FGBarcodeModel()
+                {
+                    ID = tbox_barcode.Text
+                };
+                FGBarcodeModel model = apiBarcode.GetModel(searchModel);
+                if (model != null)
+                {
+                    tbox_barcode.Text = model.Bill;
+                    if (!string.IsNullOrEmpty(model.BoxID))
+                    {
+                        MessageBox.Show("该条码已经存在装箱！");
+                    }
+                    else
+                    {
+                        AddItem(model);
+                    }
+                    tbox_barcode.Text = "";
+                    tbox_barcode.Focus();
+                }
+            }
+        }
+
+
+        private void AddItem(FGBarcodeModel model)
         {
 
+            //在做完了这些之后，我们对新建的datatable中的列分别加入数据，例如我们在项目中所添加的：
+            DataRow newRow = dt.NewRow();
+            newRow["条码"] = model.ID;
+            newRow["物料"] = model.StockCode;
+            newRow["负责人"] = model.LastUserName;
+            dt.Rows.Add(newRow);
+
+            //加入到条码集合列表
+            listBarcode.Add(model);
+        }
+
+        /// <summary>
+        /// 核查装箱条码
+        /// </summary>
+        private void CheckPackage()
+        {
+            try
+            {
+                ModelAPI<FGPackageModel> apiPackage = new ModelAPI<FGPackageModel>();
+                FGPackageModel model = apiPackage.GetModelByID(this.tbox_package.Text, null);
+                if (model.Status == (int)AppConfig.Packing.使用完)
+                {
+                    MessageBox.Show("该装箱条码已经使用完！");
+                    this.tbox_package.Text = "";
+                    this.tbox_package.Focus();
+                }
+                else
+                {
+                    this.PackingID = model.ID;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void pbox_search_barcode_Click(object sender, EventArgs e)
+        {
+            FindBarcod();
         }
 
         private void pbox_search_package_Click(object sender, EventArgs e)
         {
-
+            CheckPackage();
         }
 
         private void tbox_barcode_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                CheckPackage();
+            }
         }
 
         private void tbox_package_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                FindBarcod();
+            }
         }
 
     }

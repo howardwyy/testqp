@@ -93,6 +93,7 @@
             this.dg_list.Name = "dg_list";
             this.dg_list.Size = new System.Drawing.Size(240, 250);
             this.dg_list.TabIndex = 1;
+            this.dg_list.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dg_list_KeyPress);
             // 
             // panel6
             // 

@@ -15,9 +15,9 @@ namespace BarcodeModel
 
         public static string DBConnection { get { return ""; } }
         public static string CompanyCode { get { return ""; } }
-        public static string APIDomain { get { return "http://192.168.1.119/"; } }
+        public static string APIDomain { get { return "http://192.168.0.105/"; } }
         public static string PageSize { get { return ""; } }
-        public string[] Companys { get { return new string[] { "02", "03" }; } }
+        public string[] Companys { get { return new string[] { "31", "32" }; } }
 
     }
 }

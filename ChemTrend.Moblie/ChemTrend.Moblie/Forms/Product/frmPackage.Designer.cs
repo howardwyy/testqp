@@ -55,6 +55,7 @@
             this.pbox_search_barcode.Location = new System.Drawing.Point(208, 2);
             this.pbox_search_barcode.Name = "pbox_search_barcode";
             this.pbox_search_barcode.Size = new System.Drawing.Size(24, 24);
+            this.pbox_search_barcode.Click += new System.EventHandler(this.pbox_search_barcode_Click);
             // 
             // pbox_search_package
             // 
@@ -63,6 +64,7 @@
             this.pbox_search_package.Location = new System.Drawing.Point(208, 1);
             this.pbox_search_package.Name = "pbox_search_package";
             this.pbox_search_package.Size = new System.Drawing.Size(24, 24);
+            this.pbox_search_package.Click += new System.EventHandler(this.pbox_search_package_Click);
             // 
             // panel3
             // 
@@ -91,6 +93,7 @@
             this.tbox_barcode.Name = "tbox_barcode";
             this.tbox_barcode.Size = new System.Drawing.Size(120, 21);
             this.tbox_barcode.TabIndex = 1;
+            this.tbox_barcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbox_barcode_KeyDown);
             // 
             // label2
             // 
@@ -105,6 +108,7 @@
             this.tbox_package.Name = "tbox_package";
             this.tbox_package.Size = new System.Drawing.Size(120, 21);
             this.tbox_package.TabIndex = 1;
+            this.tbox_package.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbox_package_KeyDown);
             // 
             // panel2
             // 
@@ -163,6 +167,7 @@
             this.Name = "frmPackage";
             this.Text = "frmPackage";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmPackage_Load);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.panel3, 0);
             this.Controls.SetChildIndex(this.panel6, 0);

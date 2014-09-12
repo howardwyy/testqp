@@ -21,6 +21,11 @@ namespace ChemTrend.Moblie.Forms.Task
             base.mTitle.Text = "工时汇报";
             base.mMenuBotton.setCurrent(ucMenuBotton.curTask);
         }
+
+        private void pbox_inwarehouse_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

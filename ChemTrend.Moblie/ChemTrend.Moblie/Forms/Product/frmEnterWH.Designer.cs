@@ -95,6 +95,7 @@
             this.pbox_barcode_add.Location = new System.Drawing.Point(208, 2);
             this.pbox_barcode_add.Name = "pbox_barcode_add";
             this.pbox_barcode_add.Size = new System.Drawing.Size(24, 24);
+            this.pbox_barcode_add.Click += new System.EventHandler(this.pbox_barcode_add_Click);
             // 
             // tbox_barcode
             // 
@@ -104,6 +105,7 @@
             this.tbox_barcode.Name = "tbox_barcode";
             this.tbox_barcode.Size = new System.Drawing.Size(120, 21);
             this.tbox_barcode.TabIndex = 1;
+            this.tbox_barcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbox_barcode_KeyDown);
             // 
             // label1
             // 
@@ -166,6 +168,7 @@
             this.tbox_warehouse.Name = "tbox_warehouse";
             this.tbox_warehouse.Size = new System.Drawing.Size(60, 21);
             this.tbox_warehouse.TabIndex = 1;
+            this.tbox_warehouse.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbox_warehouse_KeyDown);
             // 
             // panel_order
             // 

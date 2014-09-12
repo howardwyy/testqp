@@ -169,6 +169,13 @@ namespace ChemTrend.Moblie.Forms.Stock
 
         }
 
+        private void dg_list_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int index = ((DataGrid)sender).CurrentCell.RowNumber;
+
+            MessageBox.Show("你选中的行号为：" + Convert.ToInt32(index));
+        }
+
     }
 }
 

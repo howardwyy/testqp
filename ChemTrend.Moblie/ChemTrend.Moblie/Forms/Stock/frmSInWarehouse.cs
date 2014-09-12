@@ -85,7 +85,7 @@ namespace ChemTrend.Moblie.Forms.Stock
             findBarcode();
 
         }
-    
+
 
         private void InitData()
         {
@@ -130,7 +130,8 @@ namespace ChemTrend.Moblie.Forms.Stock
 
         }
 
-        private void findBarcode() {
+        private void findBarcode()
+        {
             if (string.IsNullOrEmpty(tbox_barcode.Text))
             {
                 MessageBox.Show("条码标签不能为空。");
@@ -153,8 +154,15 @@ namespace ChemTrend.Moblie.Forms.Stock
                     RWBarcodeModel model = apiBarcode.GetModel(searchModel);
                     if (model != null)
                     {
-                        addItem(model);
-                        barcodes.Add(tbox_barcode.Text);
+                        if (string.IsNullOrEmpty(model.Warehouse))
+                        {
+                            addItem(model);
+                            barcodes.Add(tbox_barcode.Text);
+                        }
+                        else
+                        {
+                            MessageBox.Show(tbox_barcode.Text + "\n该条码标签已入库！");
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -166,7 +174,8 @@ namespace ChemTrend.Moblie.Forms.Stock
         }
         private void tbox_barcode_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) {
+            if (e.KeyCode == Keys.Enter)
+            {
                 findBarcode();
             }
         }

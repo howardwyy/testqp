@@ -68,6 +68,7 @@
     <Compile Include="MODEL\Barcode\FG\Operation\EnterWarehouseModel.cs" />
     <Compile Include="MODEL\Barcode\FG\Operation\MoveWarehouseModel.cs" />
     <Compile Include="MODEL\Barcode\FG\Operation\PackingBarcodeModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\FGPackageModel.cs" />
     <Compile Include="MODEL\Barcode\RW\CheckModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\BarcodeWarehouse.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\EnterWarehouseModel.cs" />
