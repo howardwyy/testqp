@@ -1,7 +1,6 @@
 ﻿using BarcodeModel.ADO;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,57 +43,12 @@ namespace BarcodeModel.MODEL.Barcode.FG
         //FG08010	nvarchar(50)		from warehouse name
         [Columname(Name = "FG08010")]
         public string fromWHName { get; set; }
-        //FG08011	varchar(50)		CustomerCode
+        //FG08011	varchar(50)		to warehouse
         [Columname(Name = "FG08011")]
-        public string CustomerCode { get; set; }
-        //FG08012	nvarchar(50)		CustomerName
+        public string toWHID { get; set; }
+        //FG08012	nvarchar(50)		to warehouse name
         [Columname(Name = "FG08012")]
-        public string CustomerName { get; set; }
-        
-        //应用于查询，搜索功能，领料单，开始时间；
-        public DateTime BeginInvoiceTime { get; set; }
-        //应用于查询，搜索功能，领料单，结束时间；
-        public DateTime EndInvoiceTime { get; set; }
-        //是否用分页
-        public bool doPager { set; get; }
+        public string toWHName { get; set; }
 
-         public override List<BaseSearchModel> GetALL(bool enableSearch = false)
-        {
-            ModelAdo<InvoiceModel> ado = new ModelAdo<InvoiceModel>();
-            List<SqlParameter> listParam = new List<SqlParameter>();
-            StringBuilder sbWhere = new StringBuilder();
-            sbWhere.Append(" 1=1 ");
-            if (!BeginInvoiceTime.Equals(DateTime.MinValue) && !EndInvoiceTime.Equals(DateTime.MinValue))
-            {
-                sbWhere.Append(" AND FG08002 BETWEEN  @BeginInvoiceTime AND @EndInvoiceTime ");
-                listParam.Add(new SqlParameter("@BeginInvoiceTime", BeginInvoiceTime));
-                listParam.Add(new SqlParameter("@EndInvoiceTime", EndInvoiceTime));
-
-            }
-
-            if (!String.IsNullOrEmpty(this.ID))
-            {
-                sbWhere.Append(" AND FG08001 = @ID");
-                listParam.Add(new SqlParameter("@ID", ID));
-            }
-            if (Status >= 1)
-            {
-                sbWhere.Append(" AND FG08008 = @Status ");
-                listParam.Add(new SqlParameter("@Status", this.Status));
-            }
-            List<BaseSearchModel> models = null;
-            if (this.doPager)
-            {
-                int count = 0;
-                ado.PageSize = this.PageSize;
-                models = ado.GetList(this.PageIndex, sbWhere.ToString(), " FG08001 DESC  ", out count, "*", listParam.ToArray()).ConvertAll<BaseSearchModel>(m => m as BaseSearchModel);
-                base.totalCount = count;
-            }
-            else
-            {
-                models = ado.GetList(sbWhere.ToString(), " FG08001 DESC  ", "*", listParam.ToArray()).ConvertAll<BaseSearchModel>(m => m as BaseSearchModel);
-            }
-            return models;
-        }
     }
 }

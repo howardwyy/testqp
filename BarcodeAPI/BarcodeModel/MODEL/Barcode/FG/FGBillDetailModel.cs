@@ -10,24 +10,24 @@ namespace BarcodeModel.MODEL.Barcode.RW
     /// <summary>
     /// 成品单据明细表
     /// </summary>
-    [Tablename(TableName = "FG04", PrimaryKey = "FG04001", ViewName = "viewFGBillDetails")]
+    [Tablename(TableName = "GF04", PrimaryKey = "GF04001", ViewName = "viewFGBillDetails")]
     public class FGBillDetailModel : BaseSearchModel
     {
 
-        //FG04001	int	主键	主键
-        [Columname(Name = "FG04001")]
+        //GF04001	int	主键	主键
+        [Columname(Name = "GF04001")]
         public int ID { set; get; }
-        //FG04002	datetime		操作时间
-        [Columname(Name = "FG04002")]
+        //GF04002	datetime		操作时间
+        [Columname(Name = "GF04002")]
         public DateTime CreateTime { set; get; }
-        //FG04003	varchar(50)		单据ID
-        [Columname(Name = "FG04003")]
+        //GF04003	varchar(50)		单据ID
+        [Columname(Name = "GF04003")]
         public string BillID { set; get; }
-        //FG04004	varchar(50)		条码ID
-        [Columname(Name = "FG04004")]
+        //GF04004	varchar(50)		条码ID
+        [Columname(Name = "GF04004")]
         public string BarcodeID { set; get; }
-        //FG04005	varchar(50)		操作备注
-        [Columname(Name = "FG04005")]
+        //GF04005	varchar(50)		操作备注
+        [Columname(Name = "GF04005")]
         public string Remark { set; get; }
         //FG01002	varchar(50)		物料stockcode
         [Columname(Name = "FG01002", canInsert = false, canUpdate = false)]

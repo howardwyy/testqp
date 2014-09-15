@@ -7,13 +7,10 @@ using System.Threading.Tasks;
 
 namespace BarcodeModel.MODEL.Barcode
 {
-    /// <summary>
-    /// 物料
-    /// </summary>
     [Tablename(TableName = "view_Stock", PrimaryKey = "SC01001", ViewName = "view_Stock", IsScalaDB = true)]
-    public class StockModel : BaseSearchModel
+    public class StockModel
     {
-        [Columname(Name = "SC01001")]
+        [Columname(Name="SC01001")]
         public string StockCode { get; set; }
 
         [Columname(Name = "SC01002")]

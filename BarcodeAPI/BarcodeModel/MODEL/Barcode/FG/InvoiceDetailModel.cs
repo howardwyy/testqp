@@ -20,7 +20,7 @@ namespace BarcodeModel.MODEL.Barcode.FG
         [Columname(Name = "FG09002")]
         public int LineNum { get; set; }
         //FG09003	varchar(50)		发货单ID
-        [Columname(Name = "FG09003")]
+        [Columname(Name = "FG09002")]
         public string InvoiceID { get; set; }
         //FG09004	datetime	
         [Columname(Name = "FG09004")]

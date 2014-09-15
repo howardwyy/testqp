@@ -13,6 +13,7 @@ namespace BarcodeModel.MODEL.Barcode.FG.Operation
     /// <summary>
     /// 成品入库操作
     /// </summary>
+    //成品入库操作
     public class InWarehouseFGModel : BaseSearchModel
     {
         public string Warehouse { get; set; }

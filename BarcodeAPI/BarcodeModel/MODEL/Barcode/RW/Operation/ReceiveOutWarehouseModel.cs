@@ -13,7 +13,7 @@ namespace BarcodeModel.MODEL.Barcode.RW.Operation
     /// <summary>
     /// 领料出库
     /// </summary>
-    public class ReceiveOutWarehouseModel : BaseSearchModel
+    class ReceiveOutWarehouseModel : BaseSearchModel
     {
         //仓库号
         public string Warehouse { get; set; }
@@ -77,22 +77,9 @@ end
 
 if @result='YES'
 begin
-    declare @calcstatus int 
+    Update RW08 set RW08008=@ReceiveStatus where RW08001=@ReceiveID
 
     Update RW09 set RW09005=@userid,RW09006=@username,RW09011=@ReceivedCount, RW09012=@ReceiveSurplusCount where RW09001=@ReceiveLine
-
-    set @calcstatus=2
-    select @calcstatus=SUM(RW09012) from RW09 where RW09003=@ReceiveID
-    if @calcstatus>0
-    begin
-	    set @ReceiveStatus=2
-    end
-    else
-    begin
-	    set @ReceiveStatus=3
-    end
-
-    Update RW08 set RW08008=@ReceiveStatus where RW08001=@ReceiveID
 
     insert into RW10(RW10002,RW10003,RW10004,RW10005,RW10006,RW10007)
     select getdate(),@userid,@username,@ReceiveID,@ReceiveLine,RW01001 from RW01 where RW01001 IN ([BIDS])
@@ -100,7 +87,7 @@ begin
     exec PROC_GETID 'RW03',@dj output
 	
     insert into RW03(RW03001,RW03002,RW03003,RW03004,RW03005,RW03006,RW03007,RW03008)
-    values(@dj,getdate(),@userid,@username,'','',@ReceiveID,@Remark)
+    values(@dj,getdate(),@userid,@username,'','','',@Remark)
 
     insert into RW02(RW02002,RW02003,RW02004,RW02005,RW02010,RW02011)
     select RW01001,getdate(),@userid,@username,@dj,N'领料单['+ @ReceiveID +'];移库到'+@whstr from RW01 where RW01001 IN ([BIDS])

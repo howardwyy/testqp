@@ -32,7 +32,7 @@ namespace BarcodeModel.MODEL.Barcode.RW
         //FG03006	varchar(50)		flowdesc
         [Columname(Name = "FG03006")]
         public string FlowName { get; set; }
-        //FG03007	varchar(50)		发货单id
+        //FG03007	varchar(50)		领料单id
         [Columname(Name = "FG03007")]
         public string RequisitionId { get; set; }
         //FG03008	varchar(50)		操作备注
