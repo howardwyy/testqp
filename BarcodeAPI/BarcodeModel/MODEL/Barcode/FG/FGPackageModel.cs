@@ -29,7 +29,6 @@ namespace BarcodeModel.MODEL.Barcode.FG
         //FG07004	nvarchar(50)		操作人name
         [Columname(Name = "FG07004")]
         public string UserName { get; set; }
-
         //FG07005	int		类型(1一次性 2多次)
         [Columname(Name = "FG07005")]
         public int Type { get; set; }
