@@ -375,13 +375,14 @@ WK01006	datetime,
 WK01007	float,
 WK01008	int
 )
+--drop table WK02
 create table WK02
 (
 WK02001	int primary key identity(1000,1),
 WK02002	varchar(30),
 WK02003	varchar(30),
 WK02004	nvarchar(50),
-WK02005	varchar(5),
+WK02005	numeric(15,3),
 WK02006	datetime,
 WK02007	datetime,
 WK02008	numeric(15,3),
@@ -396,10 +397,10 @@ WK03001	int primary key identity(1000,1),
 WK03002	varchar(30),
 WK03003	nvarchar(50),
 WK03004	varchar(5),
-WK03005	int,
-WK03006	int,
-WK03007	int,
-WK03008	int,
+WK03005	varchar(5),
+WK03006	varchar(5),
+WK03007	varchar(5),
+WK03008	varchar(5),
 WK03009	int,
 WK03010	float
 )
