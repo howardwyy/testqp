@@ -64,7 +64,9 @@
     <Compile Include="API\ModelAPI.cs" />
     <Compile Include="MODEL\Barcode\FG\CheckModel.cs" />
     <Compile Include="MODEL\Barcode\FG\FGBarcodeModel.cs" />
-    <Compile Include="MODEL\Barcode\FG\Operation\DeliveryBarcodeModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\InvoiceDetailModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\InvoiceModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\Operation\InvoicingFGModel.cs" />
     <Compile Include="MODEL\Barcode\FG\Operation\EnterWarehouseModel.cs" />
     <Compile Include="MODEL\Barcode\FG\Operation\MoveWarehouseModel.cs" />
     <Compile Include="MODEL\Barcode\FG\Operation\PackingBarcodeModel.cs" />
@@ -74,7 +76,10 @@
     <Compile Include="MODEL\Barcode\RW\Operation\EnterWarehouseModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\MoveWarehouseModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\PackingBarcodeModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\ReceiveOutWarehouseModel.cs" />
     <Compile Include="MODEL\Barcode\RW\PackingModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\ReceiveDetailModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\ReceiveModel.cs" />
     <Compile Include="MODEL\Barcode\RW\RWBarcodeModel.cs" />
     <Compile Include="BaseSearchModel.cs" />
     <Compile Include="json\Converter.cs" />

@@ -31,6 +31,13 @@
             DevExpress.XtraPrinting.BarCode.Code128Generator code128Generator1 = new DevExpress.XtraPrinting.BarCode.Code128Generator();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrPanel1 = new DevExpress.XtraReports.UI.XRPanel();
+            this.xlbl_remark = new DevExpress.XtraReports.UI.XRLabel();
+            this.xlbl_unitqty = new DevExpress.XtraReports.UI.XRLabel();
+            this.xlbl_batch = new DevExpress.XtraReports.UI.XRLabel();
+            this.xlbl_checktime = new DevExpress.XtraReports.UI.XRLabel();
+            this.xlbl_time1 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xlbl_stockname = new DevExpress.XtraReports.UI.XRLabel();
+            this.xlbl_stockcode = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
@@ -42,13 +49,6 @@
             this.xrLabel1 = new DevExpress.XtraReports.UI.XRLabel();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
-            this.xlbl_stockcode = new DevExpress.XtraReports.UI.XRLabel();
-            this.xlbl_stockname = new DevExpress.XtraReports.UI.XRLabel();
-            this.xlbl_time1 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xlbl_checktime = new DevExpress.XtraReports.UI.XRLabel();
-            this.xlbl_batch = new DevExpress.XtraReports.UI.XRLabel();
-            this.xlbl_unitqty = new DevExpress.XtraReports.UI.XRLabel();
-            this.xlbl_remark = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -83,6 +83,55 @@
             this.xrPanel1.LocationFloat = new DevExpress.Utils.PointFloat(83.75002F, 10.00001F);
             this.xrPanel1.Name = "xrPanel1";
             this.xrPanel1.SizeF = new System.Drawing.SizeF(485.4167F, 307.7083F);
+            // 
+            // xlbl_remark
+            // 
+            this.xlbl_remark.LocationFloat = new DevExpress.Utils.PointFloat(110F, 239.9583F);
+            this.xlbl_remark.Name = "xlbl_remark";
+            this.xlbl_remark.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xlbl_remark.SizeF = new System.Drawing.SizeF(350.4167F, 23.00002F);
+            // 
+            // xlbl_unitqty
+            // 
+            this.xlbl_unitqty.LocationFloat = new DevExpress.Utils.PointFloat(110F, 216.9583F);
+            this.xlbl_unitqty.Name = "xlbl_unitqty";
+            this.xlbl_unitqty.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xlbl_unitqty.SizeF = new System.Drawing.SizeF(139.5833F, 23F);
+            // 
+            // xlbl_batch
+            // 
+            this.xlbl_batch.LocationFloat = new DevExpress.Utils.PointFloat(110F, 193.9583F);
+            this.xlbl_batch.Name = "xlbl_batch";
+            this.xlbl_batch.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xlbl_batch.SizeF = new System.Drawing.SizeF(139.5833F, 23F);
+            // 
+            // xlbl_checktime
+            // 
+            this.xlbl_checktime.LocationFloat = new DevExpress.Utils.PointFloat(360.4167F, 56.00001F);
+            this.xlbl_checktime.Name = "xlbl_checktime";
+            this.xlbl_checktime.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xlbl_checktime.SizeF = new System.Drawing.SizeF(100F, 23F);
+            // 
+            // xlbl_time1
+            // 
+            this.xlbl_time1.LocationFloat = new DevExpress.Utils.PointFloat(110F, 56.00001F);
+            this.xlbl_time1.Name = "xlbl_time1";
+            this.xlbl_time1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xlbl_time1.SizeF = new System.Drawing.SizeF(100F, 23F);
+            // 
+            // xlbl_stockname
+            // 
+            this.xlbl_stockname.LocationFloat = new DevExpress.Utils.PointFloat(110F, 33.00002F);
+            this.xlbl_stockname.Name = "xlbl_stockname";
+            this.xlbl_stockname.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xlbl_stockname.SizeF = new System.Drawing.SizeF(222.9167F, 23F);
+            // 
+            // xlbl_stockcode
+            // 
+            this.xlbl_stockcode.LocationFloat = new DevExpress.Utils.PointFloat(110F, 10.00001F);
+            this.xlbl_stockcode.Name = "xlbl_stockcode";
+            this.xlbl_stockcode.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xlbl_stockcode.SizeF = new System.Drawing.SizeF(222.9167F, 23F);
             // 
             // xrLabel7
             // 
@@ -130,7 +179,7 @@
             this.xrBarCode1.LocationFloat = new DevExpress.Utils.PointFloat(9.999974F, 95.95833F);
             this.xrBarCode1.Name = "xrBarCode1";
             this.xrBarCode1.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 10, 0, 0, 100F);
-            this.xrBarCode1.SizeF = new System.Drawing.SizeF(370.625F, 86.54167F);
+            this.xrBarCode1.SizeF = new System.Drawing.SizeF(320F, 80F);
             this.xrBarCode1.Symbology = code128Generator1;
             // 
             // xrLine1
@@ -168,55 +217,6 @@
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            // 
-            // xlbl_stockcode
-            // 
-            this.xlbl_stockcode.LocationFloat = new DevExpress.Utils.PointFloat(110F, 10.00001F);
-            this.xlbl_stockcode.Name = "xlbl_stockcode";
-            this.xlbl_stockcode.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xlbl_stockcode.SizeF = new System.Drawing.SizeF(222.9167F, 23F);
-            // 
-            // xlbl_stockname
-            // 
-            this.xlbl_stockname.LocationFloat = new DevExpress.Utils.PointFloat(110F, 33.00002F);
-            this.xlbl_stockname.Name = "xlbl_stockname";
-            this.xlbl_stockname.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xlbl_stockname.SizeF = new System.Drawing.SizeF(222.9167F, 23F);
-            // 
-            // xlbl_time1
-            // 
-            this.xlbl_time1.LocationFloat = new DevExpress.Utils.PointFloat(110F, 56.00001F);
-            this.xlbl_time1.Name = "xlbl_time1";
-            this.xlbl_time1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xlbl_time1.SizeF = new System.Drawing.SizeF(100F, 23F);
-            // 
-            // xlbl_checktime
-            // 
-            this.xlbl_checktime.LocationFloat = new DevExpress.Utils.PointFloat(360.4167F, 56.00001F);
-            this.xlbl_checktime.Name = "xlbl_checktime";
-            this.xlbl_checktime.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xlbl_checktime.SizeF = new System.Drawing.SizeF(100F, 23F);
-            // 
-            // xlbl_batch
-            // 
-            this.xlbl_batch.LocationFloat = new DevExpress.Utils.PointFloat(110F, 193.9583F);
-            this.xlbl_batch.Name = "xlbl_batch";
-            this.xlbl_batch.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xlbl_batch.SizeF = new System.Drawing.SizeF(139.5833F, 23F);
-            // 
-            // xlbl_unitqty
-            // 
-            this.xlbl_unitqty.LocationFloat = new DevExpress.Utils.PointFloat(110F, 216.9583F);
-            this.xlbl_unitqty.Name = "xlbl_unitqty";
-            this.xlbl_unitqty.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xlbl_unitqty.SizeF = new System.Drawing.SizeF(139.5833F, 23F);
-            // 
-            // xlbl_remark
-            // 
-            this.xlbl_remark.LocationFloat = new DevExpress.Utils.PointFloat(110F, 239.9583F);
-            this.xlbl_remark.Name = "xlbl_remark";
-            this.xlbl_remark.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xlbl_remark.SizeF = new System.Drawing.SizeF(350.4167F, 23.00002F);
             // 
             // repFG
             // 

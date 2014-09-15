@@ -39,25 +39,25 @@
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.gv_wo = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.col_wo = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_stockname = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_stockspec = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_stockcode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_unit = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_unitqty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_planqty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_acqty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_barcodeqty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.col_company = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_productdate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_bill = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_lifedate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_pagecode = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_remark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gc_wo = new DevExpress.XtraGrid.GridControl();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.xtraScrollableControl2 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.col_productdate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_bill = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_stockname = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_stockspec = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_unitqty = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_lifedate = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_pagecode = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_unit = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.cbox_wo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_company.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -182,6 +182,22 @@
             this.col_wo.Visible = true;
             this.col_wo.VisibleIndex = 3;
             // 
+            // col_stockname
+            // 
+            this.col_stockname.Caption = "物料名称";
+            this.col_stockname.FieldName = "StockName";
+            this.col_stockname.Name = "col_stockname";
+            this.col_stockname.Visible = true;
+            this.col_stockname.VisibleIndex = 1;
+            // 
+            // col_stockspec
+            // 
+            this.col_stockspec.Caption = "物料描述";
+            this.col_stockspec.FieldName = "StockSpec";
+            this.col_stockspec.Name = "col_stockspec";
+            this.col_stockspec.Visible = true;
+            this.col_stockspec.VisibleIndex = 2;
+            // 
             // col_stockcode
             // 
             this.col_stockcode.Caption = "物料编号";
@@ -189,6 +205,22 @@
             this.col_stockcode.Name = "col_stockcode";
             this.col_stockcode.Visible = true;
             this.col_stockcode.VisibleIndex = 6;
+            // 
+            // col_unit
+            // 
+            this.col_unit.Caption = "单位";
+            this.col_unit.FieldName = "Unit";
+            this.col_unit.Name = "col_unit";
+            this.col_unit.Visible = true;
+            this.col_unit.VisibleIndex = 4;
+            // 
+            // col_unitqty
+            // 
+            this.col_unitqty.Caption = "单位数量";
+            this.col_unitqty.FieldName = "UnitQty";
+            this.col_unitqty.Name = "col_unitqty";
+            this.col_unitqty.Visible = true;
+            this.col_unitqty.VisibleIndex = 5;
             // 
             // col_planqty
             // 
@@ -227,6 +259,38 @@
             this.col_company.Name = "col_company";
             this.col_company.Visible = true;
             this.col_company.VisibleIndex = 10;
+            // 
+            // col_productdate
+            // 
+            this.col_productdate.Caption = "产品日期";
+            this.col_productdate.FieldName = "ProductDate";
+            this.col_productdate.Name = "col_productdate";
+            this.col_productdate.Visible = true;
+            this.col_productdate.VisibleIndex = 11;
+            // 
+            // col_bill
+            // 
+            this.col_bill.Caption = "单据号";
+            this.col_bill.FieldName = "Danju";
+            this.col_bill.Name = "col_bill";
+            this.col_bill.Visible = true;
+            this.col_bill.VisibleIndex = 12;
+            // 
+            // col_lifedate
+            // 
+            this.col_lifedate.Caption = "保质期";
+            this.col_lifedate.FieldName = "LifeDate";
+            this.col_lifedate.Name = "col_lifedate";
+            this.col_lifedate.Visible = true;
+            this.col_lifedate.VisibleIndex = 13;
+            // 
+            // col_pagecode
+            // 
+            this.col_pagecode.Caption = "PageCode";
+            this.col_pagecode.FieldName = "PageCode";
+            this.col_pagecode.Name = "col_pagecode";
+            this.col_pagecode.Visible = true;
+            this.col_pagecode.VisibleIndex = 14;
             // 
             // col_remark
             // 
@@ -278,70 +342,6 @@
             this.xtraScrollableControl1.Size = new System.Drawing.Size(806, 561);
             this.xtraScrollableControl1.TabIndex = 1;
             // 
-            // col_productdate
-            // 
-            this.col_productdate.Caption = "产品日期";
-            this.col_productdate.FieldName = "ProductDate";
-            this.col_productdate.Name = "col_productdate";
-            this.col_productdate.Visible = true;
-            this.col_productdate.VisibleIndex = 11;
-            // 
-            // col_bill
-            // 
-            this.col_bill.Caption = "单据号";
-            this.col_bill.FieldName = "Danju";
-            this.col_bill.Name = "col_bill";
-            this.col_bill.Visible = true;
-            this.col_bill.VisibleIndex = 12;
-            // 
-            // col_stockname
-            // 
-            this.col_stockname.Caption = "物料名称";
-            this.col_stockname.FieldName = "StockName";
-            this.col_stockname.Name = "col_stockname";
-            this.col_stockname.Visible = true;
-            this.col_stockname.VisibleIndex = 1;
-            // 
-            // col_stockspec
-            // 
-            this.col_stockspec.Caption = "物料描述";
-            this.col_stockspec.FieldName = "StockSpec";
-            this.col_stockspec.Name = "col_stockspec";
-            this.col_stockspec.Visible = true;
-            this.col_stockspec.VisibleIndex = 2;
-            // 
-            // col_unitqty
-            // 
-            this.col_unitqty.Caption = "单位数量";
-            this.col_unitqty.FieldName = "UnitQty";
-            this.col_unitqty.Name = "col_unitqty";
-            this.col_unitqty.Visible = true;
-            this.col_unitqty.VisibleIndex = 5;
-            // 
-            // col_lifedate
-            // 
-            this.col_lifedate.Caption = "保质期";
-            this.col_lifedate.FieldName = "LifeDate";
-            this.col_lifedate.Name = "col_lifedate";
-            this.col_lifedate.Visible = true;
-            this.col_lifedate.VisibleIndex = 13;
-            // 
-            // col_pagecode
-            // 
-            this.col_pagecode.Caption = "PageCode";
-            this.col_pagecode.FieldName = "PageCode";
-            this.col_pagecode.Name = "col_pagecode";
-            this.col_pagecode.Visible = true;
-            this.col_pagecode.VisibleIndex = 14;
-            // 
-            // col_unit
-            // 
-            this.col_unit.Caption = "单位";
-            this.col_unit.FieldName = "Unit";
-            this.col_unit.Name = "col_unit";
-            this.col_unit.Visible = true;
-            this.col_unit.VisibleIndex = 4;
-            // 
             // frmFGNew2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -349,6 +349,7 @@
             this.ClientSize = new System.Drawing.Size(806, 561);
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmFGNew2";
+            this.ShowIcon = false;
             this.Text = "创建成品条码";
             this.Load += new System.EventHandler(this.frmFGNew2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.cbox_wo.Properties)).EndInit();

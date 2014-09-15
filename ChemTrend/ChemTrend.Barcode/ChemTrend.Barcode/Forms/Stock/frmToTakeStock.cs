@@ -45,34 +45,8 @@ namespace ChemTrend.Barcode.Forms.Stock
 
         private void sbtn_print_Click(object sender, EventArgs e)
         {
-            CheckModel searchCheckModel = new CheckModel()
-            {
-                BarcodeID = "RW0100000082"
-            };
 
-            CheckModel checkModel = apiCheck.GetModel(searchCheckModel);
-            if (checkModel != null)
-            {
-                MessageBox.Show("该条码已经盘点过了！");
-            }
-            else
-            {
-                ModelAPI<RWBarcodeModel> apiBarcode = new ModelAPI<RWBarcodeModel>();
-                RWBarcodeModel searchModel = new RWBarcodeModel()
-                {
-                    ID = "RW0100000082"
-                };
-                RWBarcodeModel model = apiBarcode.GetModel(searchModel);
-                if (model != null)
-                {
-                    MessageBox.Show(model.ID);
-                }
-                //searchCheckModel.PlanID = "";
-                //searchCheckModel.BarcodeID = tbox_barcode.Text;
-                //searchCheckModel.CreateTime = System.DateTime.Now;
-                //apiCheck.Insert(searchCheckModel);
-
-            }
+            InitData();
         }
 
         private void sbtn_reset_Click(object sender, EventArgs e)

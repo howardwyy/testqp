@@ -31,13 +31,21 @@ namespace ChemTrend.Barcode.Forms.Stock
 
         private void sbtn_query_Click(object sender, EventArgs e)
         {
-            WOLineModel searchModel = new WOLineModel()
+            try
             {
-                WO = cbox_wo.Text,
-                Company = lue_company.Text
-            };
-            listWOLine = apiWOLine.GetList(searchModel);
-            gc_woline.DataSource = listWOLine;
+                WOLineModel searchModel = new WOLineModel()
+                {
+                    WO = cbox_wo.Text,
+                    Company = lue_company.Text
+                };
+                listWOLine = apiWOLine.GetList(searchModel);
+                gc_woline.DataSource = listWOLine;
+            }
+            catch (Exception ex)
+            {
+
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
+            }
         }
 
         private void sbtn_wo_Click(object sender, EventArgs e)
@@ -49,17 +57,26 @@ namespace ChemTrend.Barcode.Forms.Stock
         {
             if (!String.IsNullOrEmpty(cbox_wo.Text))
             {
-                cbox_wo.Properties.Items.Clear();
-                string tips = cbox_wo.Text;
-                WOLineModel returnModel = apiWOLine.GetModelByID(tips);
-                if (returnModel != null)
+                try
                 {
-                    for (int i = 0; i < returnModel.WOS.Count(); i++)
+
+                    cbox_wo.Properties.Items.Clear();
+                    string tips = cbox_wo.Text;
+                    ModelAPI<GetWOTipsModel> apiTips = new ModelAPI<GetWOTipsModel>();
+                    GetWOTipsModel returnModel = apiTips.GetModelByID(tips);
+                    if (returnModel != null && returnModel.WOS != null)
                     {
-                        cbox_wo.Properties.Items.Add(returnModel.WOS[i]);
+                        for (int i = 0; i < returnModel.WOS.Count(); i++)
+                        {
+                            cbox_wo.Properties.Items.Add(returnModel.WOS[i]);
+                        }
                     }
+                    cbox_wo.ShowPopup();
                 }
-                cbox_wo.ShowPopup();
+                catch (Exception ex)
+                {
+                    DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
+                }
             }
         }
 
@@ -108,9 +125,7 @@ namespace ChemTrend.Barcode.Forms.Stock
                     List<XtraReport> reports = new List<XtraReport>();
 
 
-                    repReceive report = new repReceive();
-                    report.receiveModel = receiveModel;
-                    report.RDModels = listRDetails;
+                    repReceive report = new repReceive(listRDetails,receiveModel);
                     report.CreateDocument();
                     reports.Add(report);
 
@@ -127,10 +142,21 @@ namespace ChemTrend.Barcode.Forms.Stock
         {
             de_hopetime.DateTime = System.DateTime.Now;
 
-            ModelAPI<CompanyModel> apiCompany = new ModelAPI<CompanyModel>();
-            CompanyModel companyModel = apiCompany.GetModelByID("Companys"); ;
-            lue_company.Properties.DataSource = companyModel.Companys;
-            lue_company.ItemIndex = 0;
+            try
+            {
+
+                ModelAPI<CompanyModel> apiCompany = new ModelAPI<CompanyModel>();
+                CompanyModel companyModel = apiCompany.GetModelByID("Companys"); ;
+                lue_company.Properties.DataSource = companyModel.Companys;
+                lue_company.ItemIndex = 0;
+            }
+
+            catch (Exception ex)
+            {
+
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
+            }
+
         }
     }
 }

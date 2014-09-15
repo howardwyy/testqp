@@ -9,16 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BarcodeModel.API;
-using BarcodeModel.MODEL.Barcode.FG.Operation;
 using BarcodeModel.MODEL.Barcode.RW;
 using ChemTrend.Barcode.Data;
-using BarcodeModel.MODEL.Barcode.RW.Operation;
 using DevExpress.XtraReports.UI;
 using ChemTrend.Barcode.Forms.Report;
 using ChemTrend.Barcode.Forms.Print;
 using BarcodeModel.MODEL.Barcode.FG;
 using ChemTrend.Barcode.Report;
 using BarcodeModel.MODEL.Sys;
+using BarcodeModel.MODEL.Barcode.FG.Operation;
 
 namespace ChemTrend.Barcode.Forms.FG
 {
@@ -127,6 +126,7 @@ namespace ChemTrend.Barcode.Forms.FG
                 WOModel woModel = apiWO.GetModel(searchWOModel);
                 if (woModel != null)
                 {
+                    woModel.ProductDate = System.DateTime.Now;
                     listWO.Add(woModel);
                     gc_wo.RefreshDataSource();
                 }
@@ -151,8 +151,8 @@ namespace ChemTrend.Barcode.Forms.FG
                     {
                         cbox_wo.Properties.Items.Add(returnModel.WOS[i]);
                     }
+                    cbox_wo.ShowPopup();
                 }
-                cbox_wo.ShowPopup();
             }
         }
 

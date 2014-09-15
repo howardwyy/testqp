@@ -43,12 +43,19 @@ namespace BarcodeModel.MODEL.Barcode.FG
         //FG08010	nvarchar(50)		from warehouse name
         [Columname(Name = "FG08010")]
         public string fromWHName { get; set; }
-        //FG08011	varchar(50)		to warehouse
+        //FG08011	varchar(50)		CustomerCode
         [Columname(Name = "FG08011")]
-        public string toWHID { get; set; }
-        //FG08012	nvarchar(50)		to warehouse name
+        public string CustomerCode { get; set; }
+        //FG08012	nvarchar(50)		CustomerName
         [Columname(Name = "FG08012")]
-        public string toWHName { get; set; }
+        public string CustomerName { get; set; }
 
+
+        //应用于查询，搜索功能，领料单，开始时间；
+        public DateTime BeginInvoiceTime { get; set; }
+        //应用于查询，搜索功能，领料单，结束时间；
+        public DateTime EndInvoiceTime { get; set; }
+        //是否用分页
+        public bool doPager { set; get; }
     }
 }

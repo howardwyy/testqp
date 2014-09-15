@@ -118,24 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pbox_search_package.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pbox_search_bill.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAHiSURBVEhLrVbbTsJAEN3//w+D3EIQJBANXgJiUN8QbDFK
-        IKXcQukt8DbuWeymJeou2CYnTHan58zMzmxhxJ/lckmGYZBpmqkAXODEw1arFfV6PVosFmIxDYALnOBm
-        4/GYHMch13Vps9mkAnCBE9xsOp2mQvpTcJZl7QWgpooeUYVhKKCTLTjBzWzbVgqA0LZnVG/cCMBWiUAA
-        3FoCvu/Ra9+g89yFAGys/ZX10QL9gUm5QkUAtrbAbDZTlghkqQp4nktBEFD4jd1uS4b5LjOAjbVoH76H
-        Z4ISIXh2mAHIR6MJtdpdaneeOJ6p8/hC180WFUs1AdhYwx584DuZWAkRKTCfzxMlQlS1epOy+Qrli5cS
-        IC6V6wKw43vwbVzd8RYO5MFDANzsUADp3t536CxToky2LJErVKUA7PgefFsPXVHWqLN+FYCD63o8K1wb
-        uD5c3jE+P+QhP4OqwL6LfLkPX89Ltq0UwMWkmuRACCTbFGuqORAl0hE4tU3BzXA9qzLYCxhHD5q+AK/v
-        4G0oDh4YaE6ytgBq7awdGg4/OT6Erbp9URVUR6tEEZnPMwFU5CKgUwTwkuq84nMgM1iv11pR6UQeFxDf
-        ZHyh0K9RWlGU//kFFzjBzfDXYrvdiklME+DE8wVtDFjpxtwbjwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="pbox_search_barcode.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAHiSURBVEhLrVbbTsJAEN3//w+D3EIQJBANXgJiUN8QbDFK
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAHiSURBVEhLrVbbTsJAEN3//w+D3EIQJBANXgJiUN8QbDFK
         IKXcQukt8DbuWeymJeou2CYnTHan58zMzmxhxJ/lckmGYZBpmqkAXODEw1arFfV6PVosFmIxDYALnOBm
         4/GYHMch13Vps9mkAnCBE9xsOp2mQvpTcJZl7QWgpooeUYVhKKCTLTjBzWzbVgqA0LZnVG/cCMBWiUAA
         3FoCvu/Ra9+g89yFAGys/ZX10QL9gUm5QkUAtrbAbDZTlghkqQp4nktBEFD4jd1uS4b5LjOAjbVoH76H

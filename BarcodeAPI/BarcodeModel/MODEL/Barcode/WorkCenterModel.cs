@@ -10,10 +10,10 @@ namespace BarcodeModel.MODEL.Barcode
     /// <summary>
     /// 工作中心
     /// </summary>
-    [Tablename(TableName = "view_Stock", PrimaryKey = "SC01001", ViewName = "view_Stock", IsScalaDB = true)]
-    public class WorkCenterModel
+    [Tablename(TableName = "MP50", PrimaryKey = "MP50001", ViewName = "view_WorkCenter", IsScalaDB = true)]
+    public class WorkCenterModel:BaseSearchModel
     {
-        [Columname(Name="MP50001")]
+        [Columname(Name = "MP50001")]
         public string WorkcenterCode { get; set; }
 
         [Columname(Name = "MP50002")]

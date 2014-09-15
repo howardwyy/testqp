@@ -46,17 +46,20 @@ namespace ChemTrend.Barcode.Forms.Stock
 
         private void frmReceiving_Load(object sender, EventArgs e)
         {
-            this.te_wo.Text = rdModel.ReceiveID;
-            this.te_qty.Text = rdModel.ReceiveCount.ToString();
-            this.te_qtyed.Text = rdModel.ReceivedCount.ToString();
-            this.te_qty_surplus.Text = rdModel.ReceivedSurplusCount.ToString();
-            this.te_unit.Text = rdModel.ReceiveUnit;
-            this.te_stockcode.Text = rdModel.StockCode;
-            this.te_stockname.Text = rdModel.StockName;
+            if (rdModel != null)
+            {
+                this.te_wo.Text = rdModel.ReceiveID;
+                this.te_qty.Text = rdModel.ReceiveCount.ToString();
+                this.te_qtyed.Text = rdModel.ReceivedCount.ToString();
+                this.te_qty_surplus.Text = rdModel.ReceivedSurplusCount.ToString();
+                this.te_unit.Text = rdModel.ReceiveUnit;
+                this.te_stockcode.Text = rdModel.StockCode;
+                this.te_stockname.Text = rdModel.StockName;
 
-            decimal.TryParse(rdModel.ReceivedSurplusCount.ToString(), out ReceiveSurplusCount);
+                decimal.TryParse(rdModel.ReceivedSurplusCount.ToString(), out ReceiveSurplusCount);
 
-            InitData();
+                InitData();
+            }
         }
 
         private void InitData()
@@ -98,6 +101,7 @@ namespace ChemTrend.Barcode.Forms.Stock
             {
                 ModelAPI<ReceiveOutWarehouseModel> apiROW = new ModelAPI<ReceiveOutWarehouseModel>();
                 ReceiveOutWarehouseModel rowModel = new ReceiveOutWarehouseModel();
+                rowModel.Remark = AppConfig.BarcodeRemark.条码出库.ToString();
                 rowModel.ReceiveID = rdModel.ReceiveID;
                 rowModel.ReceiveLine = rdModel.ID.ToString();
                 rowModel.ReceivedCount = rdModel.ReceivedCount + ReceivingCount;
@@ -115,6 +119,7 @@ namespace ChemTrend.Barcode.Forms.Stock
                     rowModel.ReceiveStatus = "2";
                     rowModel.Warehouse = locationModel.Warehouse;
                     rowModel.Bin = locationModel.Location;
+                    
 
                     //条码信息
                     List<string> Barcodes = new List<string>();
@@ -128,11 +133,11 @@ namespace ChemTrend.Barcode.Forms.Stock
                         rowModel.Barcodes = Barcodes.ToArray();
 
                         apiROW.Insert(rowModel);
+                        DialogResult = DialogResult.OK;
                     }
                     else
                     {
                         DevExpress.XtraEditors.XtraMessageBox.Show("请选择条码信息！", "确认", MessageBoxButtons.OK);
-
                     }
                 }
                 else
@@ -161,24 +166,30 @@ namespace ChemTrend.Barcode.Forms.Stock
         {
             if (e.ControllerRow >= 0)
             {
-
                 RWBarcodeModel curBarcode = listBarcode[gv_barcode.GetDataSourceRowIndex(e.ControllerRow)];
                 if (gv_barcode.IsRowSelected(e.ControllerRow))
                 {
-                    if (ReceiveSurplusCount >= ReceivingCount)
+                    if (ReceiveSurplusCount > ReceivingCount)
                     {
-                        ReceivingCount += curBarcode.StockUnitQty;
-                        if (ReceiveSurplusCount > ReceivingCount)
-                        {
-                            gv_barcode.SelectRow(e.ControllerRow);
-                        }
-                        te_qty_cur.Text = ReceivingCount.ToString();
+                        //ReceivingCount += curBarcode.StockUnitQty;
+                        //if (ReceiveSurplusCount > ReceivingCount)
+                        //{
+                        //    gv_barcode.SelectRow(e.ControllerRow);
+                        //}
+                        //te_qty_cur.Text = ReceivingCount.ToString();
                     }
                     else
                     {
                         DevExpress.XtraEditors.XtraMessageBox.Show("领料操作已经完成，不能再次领料！", "确认", MessageBoxButtons.OK);
                         gv_barcode.UnselectRow(e.ControllerRow);
                     }
+
+                    ReceivingCount += curBarcode.StockUnitQty;
+                    if (ReceiveSurplusCount > ReceivingCount)
+                    {
+                        gv_barcode.SelectRow(e.ControllerRow);
+                    }
+                    te_qty_cur.Text = ReceivingCount.ToString();
                 }
                 else
                 {

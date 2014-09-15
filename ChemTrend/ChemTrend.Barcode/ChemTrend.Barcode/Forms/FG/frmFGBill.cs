@@ -33,15 +33,15 @@ namespace ChemTrend.Barcode.Forms.FG
             InitView();
             InitData();
         }
-         
+
         private void InitView()
         {
             de_start.Text = DateTimeUtil.GetFirstDayOfMonth();
             de_end.Text = DateTimeUtil.GetLastDayOfMonth();
         }
 
-      
-         private void InitData()
+
+        private void InitData()
         {
             try
             {
@@ -76,31 +76,38 @@ namespace ChemTrend.Barcode.Forms.FG
             {
                 DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
             }
-            
+
         }
 
-         private void InitDetailData()
-         {
-             gc_bill_detail.DataSource = null;
-             listBillDetail = apiBillDetail.GetList(searchDetailModel);
-             gc_bill_detail.DataSource = listBillDetail;
-         }
+        private void InitDetailData()
+        {
+            try
+            {
+                listBillDetail = apiBillDetail.GetList(searchDetailModel);
+                gc_bill_detail.DataSource = listBillDetail;
+            }
+            catch (Exception ex)
+            {
 
-         private void gv_bill_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
-         {
-             FGBillModel curModel = listBill[gv_bill.GetDataSourceRowIndex(e.RowHandle)];
-             searchDetailModel = new FGBillDetailModel()
-             {
-                 BillID = curModel.ID
-             };
-             InitDetailData();
-         }
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
+            }
+        }
 
-         private void sbtn_query_Click(object sender, EventArgs e)
-         {
+        private void gv_bill_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
+        {
+            FGBillModel curModel = listBill[gv_bill.GetDataSourceRowIndex(e.RowHandle)];
+            searchDetailModel = new FGBillDetailModel()
+            {
+                BillID = curModel.ID
+            };
+            InitDetailData();
+        }
 
-             InitData();
-         }
+        private void sbtn_query_Click(object sender, EventArgs e)
+        {
+
+            InitData();
+        }
 
     }
 }

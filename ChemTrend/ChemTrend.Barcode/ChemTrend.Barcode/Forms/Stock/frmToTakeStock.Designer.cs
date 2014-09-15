@@ -30,7 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmToTakeStock));
             this.xtraScrollableControl2 = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.gc_check = new DevExpress.XtraGrid.GridControl();
+            this.gv_check = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.col_id = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_checktime = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_username = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_remark = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_barcodeid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.sbtn_reset = new DevExpress.XtraEditors.SimpleButton();
@@ -50,16 +57,12 @@
             this.sbtn_warehousecode = new DevExpress.XtraEditors.SimpleButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.gc_check = new DevExpress.XtraGrid.GridControl();
-            this.gv_bill_detail = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.序号 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.xtraScrollableControl2.SuspendLayout();
-            this.xtraScrollableControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_check)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_check)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -67,10 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gc_check)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gv_bill_detail)).BeginInit();
+            this.xtraScrollableControl1.SuspendLayout();
             this.SuspendLayout();
             // 
             // xtraScrollableControl2
@@ -83,14 +83,80 @@
             this.xtraScrollableControl2.Size = new System.Drawing.Size(691, 513);
             this.xtraScrollableControl2.TabIndex = 0;
             // 
-            // xtraScrollableControl1
+            // panelControl2
             // 
-            this.xtraScrollableControl1.Controls.Add(this.xtraScrollableControl2);
-            this.xtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.xtraScrollableControl1.Location = new System.Drawing.Point(0, 0);
-            this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(691, 513);
-            this.xtraScrollableControl1.TabIndex = 1;
+            this.panelControl2.Controls.Add(this.gc_check);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl2.Location = new System.Drawing.Point(0, 127);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(691, 386);
+            this.panelControl2.TabIndex = 4;
+            // 
+            // gc_check
+            // 
+            this.gc_check.Cursor = System.Windows.Forms.Cursors.Default;
+            this.gc_check.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gc_check.Location = new System.Drawing.Point(2, 2);
+            this.gc_check.MainView = this.gv_check;
+            this.gc_check.Name = "gc_check";
+            this.gc_check.Size = new System.Drawing.Size(687, 382);
+            this.gc_check.TabIndex = 3;
+            this.gc_check.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gv_check});
+            // 
+            // gv_check
+            // 
+            this.gv_check.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.col_id,
+            this.col_checktime,
+            this.col_username,
+            this.col_remark,
+            this.col_barcodeid});
+            this.gv_check.GridControl = this.gc_check;
+            this.gv_check.Name = "gv_check";
+            this.gv_check.OptionsView.ShowGroupPanel = false;
+            // 
+            // col_id
+            // 
+            this.col_id.Caption = "序号";
+            this.col_id.FieldName = "ID";
+            this.col_id.Name = "col_id";
+            this.col_id.Visible = true;
+            this.col_id.VisibleIndex = 0;
+            // 
+            // col_checktime
+            // 
+            this.col_checktime.Caption = "盘点时间";
+            this.col_checktime.DisplayFormat.FormatString = "yyyy-MM-dd HH:mm:ss";
+            this.col_checktime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.col_checktime.FieldName = "CreateTime";
+            this.col_checktime.Name = "col_checktime";
+            this.col_checktime.Visible = true;
+            this.col_checktime.VisibleIndex = 1;
+            // 
+            // col_username
+            // 
+            this.col_username.Caption = "操作人";
+            this.col_username.FieldName = "UserName";
+            this.col_username.Name = "col_username";
+            this.col_username.Visible = true;
+            this.col_username.VisibleIndex = 2;
+            // 
+            // col_remark
+            // 
+            this.col_remark.Caption = "备注";
+            this.col_remark.FieldName = "Remark";
+            this.col_remark.Name = "col_remark";
+            this.col_remark.Visible = true;
+            this.col_remark.VisibleIndex = 4;
+            // 
+            // col_barcodeid
+            // 
+            this.col_barcodeid.Caption = "条码号";
+            this.col_barcodeid.FieldName = "BarcodeID";
+            this.col_barcodeid.Name = "col_barcodeid";
+            this.col_barcodeid.Visible = true;
+            this.col_barcodeid.VisibleIndex = 3;
             // 
             // panelControl1
             // 
@@ -211,6 +277,7 @@
             this.sbtn_print.Size = new System.Drawing.Size(75, 23);
             this.sbtn_print.TabIndex = 18;
             this.sbtn_print.Text = "查询";
+            this.sbtn_print.Click += new System.EventHandler(this.sbtn_print_Click);
             // 
             // textBox4
             // 
@@ -273,78 +340,14 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "仓库：";
             // 
-            // panelControl2
+            // xtraScrollableControl1
             // 
-            this.panelControl2.Controls.Add(this.gc_check);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 127);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(691, 386);
-            this.panelControl2.TabIndex = 4;
-            // 
-            // gc_check
-            // 
-            this.gc_check.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gc_check.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gc_check.Location = new System.Drawing.Point(2, 2);
-            this.gc_check.MainView = this.gv_bill_detail;
-            this.gc_check.Name = "gc_check";
-            this.gc_check.Size = new System.Drawing.Size(687, 382);
-            this.gc_check.TabIndex = 3;
-            this.gc_check.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gv_bill_detail});
-            // 
-            // gv_bill_detail
-            // 
-            this.gv_bill_detail.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.序号,
-            this.gridColumn5,
-            this.gridColumn17,
-            this.gridColumn18,
-            this.gridColumn4});
-            this.gv_bill_detail.GridControl = this.gc_check;
-            this.gv_bill_detail.Name = "gv_bill_detail";
-            this.gv_bill_detail.OptionsView.ShowGroupPanel = false;
-            // 
-            // 序号
-            // 
-            this.序号.Caption = "序号";
-            this.序号.FieldName = "ID";
-            this.序号.Name = "序号";
-            this.序号.Visible = true;
-            this.序号.VisibleIndex = 0;
-            // 
-            // gridColumn5
-            // 
-            this.gridColumn5.Caption = "盘点时间";
-            this.gridColumn5.FieldName = "CreateTime";
-            this.gridColumn5.Name = "gridColumn5";
-            this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 1;
-            // 
-            // gridColumn17
-            // 
-            this.gridColumn17.Caption = "操作人";
-            this.gridColumn17.FieldName = "UserName";
-            this.gridColumn17.Name = "gridColumn17";
-            this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 2;
-            // 
-            // gridColumn18
-            // 
-            this.gridColumn18.Caption = "备注";
-            this.gridColumn18.FieldName = "Remark";
-            this.gridColumn18.Name = "gridColumn18";
-            this.gridColumn18.Visible = true;
-            this.gridColumn18.VisibleIndex = 4;
-            // 
-            // gridColumn4
-            // 
-            this.gridColumn4.Caption = "条码号";
-            this.gridColumn4.FieldName = "BarcodeID";
-            this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
+            this.xtraScrollableControl1.Controls.Add(this.xtraScrollableControl2);
+            this.xtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.xtraScrollableControl1.Location = new System.Drawing.Point(0, 0);
+            this.xtraScrollableControl1.Name = "xtraScrollableControl1";
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(691, 513);
+            this.xtraScrollableControl1.TabIndex = 1;
             // 
             // frmToTakeStock
             // 
@@ -356,7 +359,10 @@
             this.Text = "盘点对比";
             this.Load += new System.EventHandler(this.frmToTakeStock_Load);
             this.xtraScrollableControl2.ResumeLayout(false);
-            this.xtraScrollableControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gc_check)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gv_check)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -365,10 +371,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gc_check)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gv_bill_detail)).EndInit();
+            this.xtraScrollableControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -398,11 +401,11 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraGrid.GridControl gc_check;
-        private DevExpress.XtraGrid.Views.Grid.GridView gv_bill_detail;
-        private DevExpress.XtraGrid.Columns.GridColumn 序号;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn18;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn4;
+        private DevExpress.XtraGrid.Views.Grid.GridView gv_check;
+        private DevExpress.XtraGrid.Columns.GridColumn col_id;
+        private DevExpress.XtraGrid.Columns.GridColumn col_checktime;
+        private DevExpress.XtraGrid.Columns.GridColumn col_username;
+        private DevExpress.XtraGrid.Columns.GridColumn col_remark;
+        private DevExpress.XtraGrid.Columns.GridColumn col_barcodeid;
     }
 }

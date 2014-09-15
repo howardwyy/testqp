@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace BarcodeModel.MODEL.Barcode.FG
 {
+    /// <summary>
+    /// 发货单中SOLine
+    /// </summary>
     [Tablename(TableName = "view_SOLine", PrimaryKey = "OR01001", ViewName = "view_SOLine", IsScalaDB = true)]
-    public class SOLineModel
+    public class SOLineModel:BaseSearchModel
     {
         [Columname(Name="OR01001")]
         public string OrderNumber { get; set; }
@@ -29,7 +32,7 @@ namespace BarcodeModel.MODEL.Barcode.FG
         public string Unit { get; set; }
         
         [Columname(Name="OR03011")]
-        public string OrderQty { get; set; }
+        public decimal OrderQty { get; set; }
         
         [Columname(Name="OR01003")]
         public string CustomerCode { get; set; }
@@ -43,7 +46,7 @@ namespace BarcodeModel.MODEL.Barcode.FG
         [Columname(Name="OR01015")]
         public DateTime OrderDate { get; set; }
 
-        [Columname(Name = "OR01008")]
+        [Columname(Name = "OR03008")]
         public decimal Price { get; set; }
     }
 }

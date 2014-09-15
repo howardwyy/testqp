@@ -52,12 +52,16 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.sbtn_delete = new DevExpress.XtraEditors.SimpleButton();
             this.sbtn_update = new DevExpress.XtraEditors.SimpleButton();
-            this.te_query = new DevExpress.XtraEditors.TextEdit();
+            this.te_code = new DevExpress.XtraEditors.TextEdit();
             this.sbtn_create = new DevExpress.XtraEditors.SimpleButton();
             this.sbtn_select = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.te_workcenter = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.te_name = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.dxvp_query)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
@@ -68,10 +72,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.te_query.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_code.Properties)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.xtraScrollableControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_workcenter.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_name.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // repositoryItemCheckEdit3
@@ -266,7 +272,7 @@
             // 
             this.labelControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.labelControl1.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
-            this.labelControl1.Location = new System.Drawing.Point(27, 28);
+            this.labelControl1.Location = new System.Drawing.Point(27, 27);
             this.labelControl1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(60, 14);
@@ -297,14 +303,14 @@
             this.sbtn_update.Text = "修改";
             this.sbtn_update.Click += new System.EventHandler(this.sbtn_update_Click);
             // 
-            // te_query
+            // te_code
             // 
-            this.te_query.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.te_query.Location = new System.Drawing.Point(93, 22);
-            this.te_query.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.te_query.Name = "te_query";
-            this.te_query.Size = new System.Drawing.Size(100, 20);
-            this.te_query.TabIndex = 8;
+            this.te_code.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.te_code.Location = new System.Drawing.Point(107, 24);
+            this.te_code.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.te_code.Name = "te_code";
+            this.te_code.Size = new System.Drawing.Size(100, 20);
+            this.te_code.TabIndex = 8;
             // 
             // sbtn_create
             // 
@@ -333,10 +339,14 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.labelControl3);
+            this.groupBox1.Controls.Add(this.te_name);
+            this.groupBox1.Controls.Add(this.labelControl2);
+            this.groupBox1.Controls.Add(this.te_workcenter);
             this.groupBox1.Controls.Add(this.labelControl1);
             this.groupBox1.Controls.Add(this.sbtn_delete);
             this.groupBox1.Controls.Add(this.sbtn_update);
-            this.groupBox1.Controls.Add(this.te_query);
+            this.groupBox1.Controls.Add(this.te_code);
             this.groupBox1.Controls.Add(this.sbtn_create);
             this.groupBox1.Controls.Add(this.sbtn_select);
             this.groupBox1.Location = new System.Drawing.Point(5, 3);
@@ -365,6 +375,48 @@
             this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
             this.repositoryItemCheckEdit1.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Inactive;
             // 
+            // labelControl2
+            // 
+            this.labelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelControl2.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
+            this.labelControl2.Location = new System.Drawing.Point(27, 56);
+            this.labelControl2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(75, 14);
+            this.labelControl2.TabIndex = 25;
+            this.labelControl2.Text = "WorkCenter：";
+            this.labelControl2.UseMnemonic = false;
+            // 
+            // te_workcenter
+            // 
+            this.te_workcenter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.te_workcenter.Location = new System.Drawing.Point(107, 53);
+            this.te_workcenter.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.te_workcenter.Name = "te_workcenter";
+            this.te_workcenter.Size = new System.Drawing.Size(100, 20);
+            this.te_workcenter.TabIndex = 24;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelControl3.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
+            this.labelControl3.Location = new System.Drawing.Point(274, 27);
+            this.labelControl3.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(60, 14);
+            this.labelControl3.TabIndex = 27;
+            this.labelControl3.Text = "成品料号：";
+            this.labelControl3.UseMnemonic = false;
+            // 
+            // te_name
+            // 
+            this.te_name.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.te_name.Location = new System.Drawing.Point(354, 24);
+            this.te_name.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.te_name.Name = "te_name";
+            this.te_name.Size = new System.Drawing.Size(100, 20);
+            this.te_name.TabIndex = 26;
+            // 
             // frmWorkMappings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -385,11 +437,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.te_query.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_code.Properties)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.xtraScrollableControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_workcenter.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_name.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -415,7 +469,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SimpleButton sbtn_delete;
         private DevExpress.XtraEditors.SimpleButton sbtn_update;
-        private DevExpress.XtraEditors.TextEdit te_query;
+        private DevExpress.XtraEditors.TextEdit te_code;
         private DevExpress.XtraEditors.SimpleButton sbtn_create;
         private DevExpress.XtraEditors.SimpleButton sbtn_select;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -424,5 +478,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn col_end_bom_index;
         private DevExpress.XtraGrid.Columns.GridColumn col_type;
         private DevExpress.XtraGrid.Columns.GridColumn col_hours;
+        private DevExpress.XtraEditors.LabelControl labelControl3;
+        private DevExpress.XtraEditors.TextEdit te_name;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private DevExpress.XtraEditors.TextEdit te_workcenter;
     }
 }

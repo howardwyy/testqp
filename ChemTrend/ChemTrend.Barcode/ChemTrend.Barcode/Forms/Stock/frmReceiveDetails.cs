@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BarcodeModel.MODEL.Barcode.RW;
+using BarcodeModel.API;
 
 namespace ChemTrend.Barcode.Forms.Stock
 {
     public partial class frmReceiveDetails : DevExpress.XtraEditors.XtraForm
     {
-        public List<ReceiveDetailModel> listRDetails { set; get; }
+        public ReceiveModel focuseReceive { set; get; }
+        private List<ReceiveDetailModel> listRDetails { set; get; }
         public frmReceiveDetails()
         {
             InitializeComponent();
@@ -22,7 +24,26 @@ namespace ChemTrend.Barcode.Forms.Stock
 
         private void frmReceiveDetails_Load(object sender, EventArgs e)
         {
-            this.gc_receive_detail.DataSource = listRDetails;
+            InitData();
+        }
+        private void InitData() {
+            try
+            {
+                ModelAPI<ReceiveDetailModel> apiReceiveDetails = new ModelAPI<ReceiveDetailModel>();
+                ReceiveDetailModel searchReceiveDetail = new ReceiveDetailModel();
+                searchReceiveDetail.ReceiveID = focuseReceive.ID;
+                listRDetails = apiReceiveDetails.GetList(searchReceiveDetail);
+                if (listRDetails.Count >= 1)
+                {
+                    this.gc_receive_detail.DataSource = listRDetails;
+                    this.gc_receive_detail.RefreshDataSource();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
+            }
         }
 
         private void sbtn_close_Click(object sender, EventArgs e)
@@ -46,6 +67,9 @@ namespace ChemTrend.Barcode.Forms.Stock
                     frmReceiving.StartPosition = FormStartPosition.CenterParent;
                     frmReceiving.rdModel = model;
                     DialogResult result = frmReceiving.ShowDialog();
+                    if (result == DialogResult.OK) {
+                        InitData();
+                    }
                 }
                 else
                 {

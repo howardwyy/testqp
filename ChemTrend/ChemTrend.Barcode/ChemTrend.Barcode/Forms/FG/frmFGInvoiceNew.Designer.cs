@@ -57,6 +57,8 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.sbtn_query = new DevExpress.XtraEditors.SimpleButton();
+            this.col_customername = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_customercode = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -83,7 +85,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 130);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(728, 397);
+            this.panelControl2.Size = new System.Drawing.Size(767, 397);
             this.panelControl2.TabIndex = 1;
             // 
             // panelControl4
@@ -92,7 +94,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(2, 2);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(724, 393);
+            this.panelControl4.Size = new System.Drawing.Size(763, 393);
             this.panelControl4.TabIndex = 1;
             // 
             // gc_woline
@@ -104,7 +106,7 @@
             this.gc_woline.Name = "gc_woline";
             this.gc_woline.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gc_woline.Size = new System.Drawing.Size(720, 389);
+            this.gc_woline.Size = new System.Drawing.Size(759, 389);
             this.gc_woline.TabIndex = 0;
             this.gc_woline.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_woline});
@@ -117,6 +119,8 @@
             this.col_unit,
             this.col_planqty,
             this.col_number,
+            this.col_customercode,
+            this.col_customername,
             this.col_wo,
             this.col_company});
             this.gv_woline.GridControl = this.gc_woline;
@@ -148,7 +152,7 @@
             // 
             // col_unit
             // 
-            this.col_unit.Caption = "物料单位";
+            this.col_unit.Caption = "单位";
             this.col_unit.FieldName = "Unit";
             this.col_unit.Name = "col_unit";
             this.col_unit.OptionsColumn.AllowEdit = false;
@@ -158,8 +162,8 @@
             // 
             // col_planqty
             // 
-            this.col_planqty.Caption = "请领数量";
-            this.col_planqty.FieldName = "PlanQTY";
+            this.col_planqty.Caption = "数量";
+            this.col_planqty.FieldName = "OrderQty";
             this.col_planqty.Name = "col_planqty";
             this.col_planqty.Visible = true;
             this.col_planqty.VisibleIndex = 6;
@@ -168,7 +172,7 @@
             // col_number
             // 
             this.col_number.Caption = "行号";
-            this.col_number.FieldName = "Number";
+            this.col_number.FieldName = "LineNumber";
             this.col_number.Name = "col_number";
             this.col_number.OptionsColumn.AllowEdit = false;
             this.col_number.Visible = true;
@@ -177,8 +181,8 @@
             // 
             // col_wo
             // 
-            this.col_wo.Caption = "WO";
-            this.col_wo.FieldName = "WO";
+            this.col_wo.Caption = "订单号";
+            this.col_wo.FieldName = "OrderNumber";
             this.col_wo.Name = "col_wo";
             this.col_wo.OptionsColumn.AllowEdit = false;
             this.col_wo.Visible = true;
@@ -192,7 +196,7 @@
             this.col_company.Name = "col_company";
             this.col_company.OptionsColumn.AllowEdit = false;
             this.col_company.Visible = true;
-            this.col_company.VisibleIndex = 7;
+            this.col_company.VisibleIndex = 9;
             this.col_company.Width = 118;
             // 
             // repositoryItemCheckEdit1
@@ -226,6 +230,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbox_wo.Size = new System.Drawing.Size(129, 20);
             this.cbox_wo.TabIndex = 30;
+            this.cbox_wo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbox_wo_KeyUp);
             // 
             // sbtn_wo
             // 
@@ -234,6 +239,7 @@
             this.sbtn_wo.Name = "sbtn_wo";
             this.sbtn_wo.Size = new System.Drawing.Size(26, 23);
             this.sbtn_wo.TabIndex = 29;
+            this.sbtn_wo.Click += new System.EventHandler(this.sbtn_wo_Click);
             // 
             // labelControl2
             // 
@@ -250,7 +256,7 @@
             this.xtraScrollableControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl2.Location = new System.Drawing.Point(0, 0);
             this.xtraScrollableControl2.Name = "xtraScrollableControl2";
-            this.xtraScrollableControl2.Size = new System.Drawing.Size(728, 527);
+            this.xtraScrollableControl2.Size = new System.Drawing.Size(767, 527);
             this.xtraScrollableControl2.TabIndex = 6;
             // 
             // panelControl1
@@ -260,7 +266,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(728, 130);
+            this.panelControl1.Size = new System.Drawing.Size(767, 130);
             this.panelControl1.TabIndex = 0;
             // 
             // groupBox2
@@ -273,9 +279,9 @@
             this.groupBox2.Controls.Add(this.labelControl3);
             this.groupBox2.Controls.Add(this.sbtn_create_print);
             this.groupBox2.Controls.Add(this.labelControl5);
-            this.groupBox2.Location = new System.Drawing.Point(386, 12);
+            this.groupBox2.Location = new System.Drawing.Point(379, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(323, 111);
+            this.groupBox2.Size = new System.Drawing.Size(330, 111);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "发货单信息";
@@ -346,7 +352,7 @@
             this.groupBox1.Controls.Add(this.labelControl2);
             this.groupBox1.Location = new System.Drawing.Point(14, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(323, 111);
+            this.groupBox1.Size = new System.Drawing.Size(334, 111);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "物料信息";
@@ -362,14 +368,32 @@
             this.sbtn_query.Text = "查询";
             this.sbtn_query.Click += new System.EventHandler(this.sbtn_query_Click);
             // 
+            // col_customername
+            // 
+            this.col_customername.Caption = "客户名称";
+            this.col_customername.FieldName = "CustomerName";
+            this.col_customername.Name = "col_customername";
+            this.col_customername.Visible = true;
+            this.col_customername.VisibleIndex = 8;
+            // 
+            // col_customercode
+            // 
+            this.col_customercode.Caption = "客户编号";
+            this.col_customercode.FieldName = "CustomerCode";
+            this.col_customercode.Name = "col_customercode";
+            this.col_customercode.Visible = true;
+            this.col_customercode.VisibleIndex = 7;
+            // 
             // frmFGInvoiceNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 527);
+            this.ClientSize = new System.Drawing.Size(767, 527);
             this.Controls.Add(this.xtraScrollableControl2);
             this.Name = "frmFGInvoiceNew";
+            this.ShowIcon = false;
             this.Text = "新建发货清单";
+            this.Load += new System.EventHandler(this.frmFGInvoiceNew_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
@@ -424,5 +448,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.SimpleButton sbtn_query;
+        private DevExpress.XtraGrid.Columns.GridColumn col_customercode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_customername;
     }
 }

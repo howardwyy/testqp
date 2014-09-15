@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace BarcodeModel.MODEL.Barcode.RW
 {
-    [Tablename(TableName = "view_WO", PrimaryKey = "MP65001", IsScalaDB = true, ViewName = "view_WO")]
+    [Tablename(TableName = "view_WOLine", PrimaryKey = "MP65001", IsScalaDB = true, ViewName = "view_WOLine")]
     public class WOLineModel : BaseSearchModel
     {
         [Columname(Name = "StockCode")]
@@ -45,7 +45,7 @@ namespace BarcodeModel.MODEL.Barcode.RW
         {
             ModelAdo<WOLineModel> modelAdo = new ModelAdo<WOLineModel>();
             List<string> pos = new List<string>();
-            string strSql = "select top  10  T.MP65001 as PO   from (select distinct(MP65001) from view_WO where  charindex(@tips,MP65001)>0) T";
+            string strSql = "select top  10  T.MP64001 as PO   from (select distinct(MP64001) from view_WO where  charindex(@tips,MP65001)>0) T";
             DataSet ds = modelAdo.GetDataSet(strSql, new SqlParameter("@tips", id));
             if (ds != null && ds.Tables[0].Rows.Count > 0)
             {

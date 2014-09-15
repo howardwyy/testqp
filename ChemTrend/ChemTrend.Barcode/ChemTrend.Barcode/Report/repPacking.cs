@@ -17,8 +17,9 @@ namespace ChemTrend.Barcode.Report
 
         private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
+            if(model !=null){
             this.xbarcode.Text = model.ID ;
-            this.xlbl_code.Text = model.ID;
+            }
         }
 
     }

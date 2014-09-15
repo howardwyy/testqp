@@ -1,6 +1,7 @@
 ﻿using BarcodeModel.ADO;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -125,8 +126,100 @@ namespace BarcodeModel.MODEL.Barcode.FG
         //FG01038	int		LifeDate
         [Columname(Name = "FG01038")]
         public int LifeDate { get; set; }
+
+        //应用于查询，搜索功能，入库，开始时间；
+        public DateTime BeginTimeInWH { get; set; }
+        //应用于查询，搜索功能，入库，结束时间；
+        public DateTime EndTimeInWH { get; set; }
+
+        //应用于查询，搜索功能，出库，开始时间；
+        public DateTime BeginTimeOutWH { get; set; }
+        //应用于查询，搜索功能，出库，结束时间；
+        public DateTime EndTimeOutWH { get; set; }
+
+
+        //应用于查询，搜索功能，生产日期，开始时间；
+        public DateTime BeginCreateTime { get; set; }
+        //应用于查询，搜索功能，生产日期，结束时间；
+        public DateTime EndCreateTime { get; set; }
+
+
+        //是否用分页
         public bool doPager { get; set; }
 
+        public override List<BaseSearchModel> GetALL(bool enableSearch = false)
+        {
+            ModelAdo<FGBarcodeModel> adoBarcode = new ModelAdo<FGBarcodeModel>();
+            List<SqlParameter> listParam = new List<SqlParameter>();
+            StringBuilder sbWhere = new StringBuilder();
+            sbWhere.Append(" 1=1 ");
+            if (!BeginTimeInWH.Equals(DateTime.MinValue) && !EndTimeInWH.Equals(DateTime.MinValue))
+            {
+                sbWhere.Append(" AND FG01010 BETWEEN  @BeginTimeInWH AND @EndTimeInWH ");
+                listParam.Add(new SqlParameter("@BeginTimeInWH", BeginTimeInWH));
+                listParam.Add(new SqlParameter("@EndTimeInWH", EndTimeInWH));
+
+            }
+            if (!BeginTimeOutWH.Equals(DateTime.MinValue) && !EndTimeOutWH.Equals(DateTime.MinValue))
+            {
+                sbWhere.Append(" AND FG01011 BETWEEN  @BeginTimeOutWH AND @EndTimeOutWH ");
+                listParam.Add(new SqlParameter("@BeginTimeOutWH", BeginTimeOutWH));
+                listParam.Add(new SqlParameter("@EndTimeOutWH", EndTimeOutWH));
+
+            }
+
+            if (!BeginCreateTime.Equals(DateTime.MinValue) && !EndCreateTime.Equals(DateTime.MinValue))
+            {
+                sbWhere.Append(" AND FG01034 BETWEEN  @BeginCreateTime AND @EndCreateTime ");
+                listParam.Add(new SqlParameter("@BeginCreateTime", BeginCreateTime));
+                listParam.Add(new SqlParameter("@EndCreateTime", EndCreateTime));
+
+            }
+            if (!String.IsNullOrEmpty(this.WO))
+            {
+                sbWhere.Append(" AND FG01033 = @WO");
+                listParam.Add(new SqlParameter("@WO", WO));
+            }
+            if (!String.IsNullOrEmpty(this.StockCode))
+            {
+                sbWhere.Append(" AND FG01002 = @StockCode");
+                listParam.Add(new SqlParameter("@StockCode", StockCode));
+                
+            }
+            if (!String.IsNullOrEmpty(this.StockBatch))
+            {
+                sbWhere.Append(" AND FG01007 = @StockBatch");
+                listParam.Add(new SqlParameter("@StockBatch", StockBatch));
+            }
+            if (!String.IsNullOrEmpty(this.ID))
+            {
+                sbWhere.Append(" AND FG01001 = @ID");
+                listParam.Add(new SqlParameter("@ID", ID));
+            }
+            if (!String.IsNullOrEmpty(this.BoxID))
+            {
+                sbWhere.Append(" AND FG01031 = @BoxID ");
+                listParam.Add(new SqlParameter("@BoxID", this.BoxID));
+            }
+            if (Status >= 1)
+            {
+                sbWhere.Append(" AND FG01032 = @Status ");
+                listParam.Add(new SqlParameter("@Status", this.Status));
+            }
+            List<BaseSearchModel> models = null;
+            if (this.doPager)
+            {
+                int count = 0;
+                adoBarcode.PageSize = this.PageSize;
+                models = adoBarcode.GetList(this.PageIndex, sbWhere.ToString(), " FG01001 DESC  ", out count, "*", listParam.ToArray()).ConvertAll<BaseSearchModel>(m => m as BaseSearchModel);
+                base.totalCount = count;
+            }
+            else
+            {
+                models = adoBarcode.GetList(sbWhere.ToString(), " FG01001 DESC  ", "*", listParam.ToArray()).ConvertAll<BaseSearchModel>(m => m as BaseSearchModel);
+            }
+            return models;
+        }
 
     }
 }

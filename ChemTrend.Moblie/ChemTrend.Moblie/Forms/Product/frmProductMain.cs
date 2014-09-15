@@ -54,7 +54,7 @@ namespace ChemTrend.Moblie.Forms.Product
 
         private void pbox_delivery_Click(object sender, EventArgs e)
         {
-            frmDelivery delivery = new frmDelivery();
+            frmInvoice delivery = new frmInvoice();
             delivery.Show();
         }
 

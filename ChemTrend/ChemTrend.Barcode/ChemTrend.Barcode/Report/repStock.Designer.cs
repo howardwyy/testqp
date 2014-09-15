@@ -198,7 +198,7 @@
             this.xbarcode.LocationFloat = new DevExpress.Utils.PointFloat(46.25002F, 87.41671F);
             this.xbarcode.Name = "xbarcode";
             this.xbarcode.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 10, 0, 0, 100F);
-            this.xbarcode.SizeF = new System.Drawing.SizeF(318.75F, 78.20834F);
+            this.xbarcode.SizeF = new System.Drawing.SizeF(320F, 80F);
             this.xbarcode.StylePriority.UseTextAlignment = false;
             this.xbarcode.Symbology = code128Generator1;
             this.xbarcode.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;

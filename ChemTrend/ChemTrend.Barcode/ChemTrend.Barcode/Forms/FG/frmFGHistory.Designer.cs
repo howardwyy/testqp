@@ -54,16 +54,16 @@
             // 
             this.panel1.Controls.Add(this.sbtn_close);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 311);
+            this.panel1.Location = new System.Drawing.Point(0, 317);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(634, 51);
+            this.panel1.Size = new System.Drawing.Size(754, 51);
             this.panel1.TabIndex = 0;
             // 
             // sbtn_close
             // 
             this.sbtn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.sbtn_close.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_close.Image")));
-            this.sbtn_close.Location = new System.Drawing.Point(547, 16);
+            this.sbtn_close.Location = new System.Drawing.Point(667, 16);
             this.sbtn_close.Name = "sbtn_close";
             this.sbtn_close.Size = new System.Drawing.Size(75, 23);
             this.sbtn_close.TabIndex = 9;
@@ -77,7 +77,7 @@
             this.xtraScrollableControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl1.Location = new System.Drawing.Point(0, 0);
             this.xtraScrollableControl1.Name = "xtraScrollableControl1";
-            this.xtraScrollableControl1.Size = new System.Drawing.Size(634, 362);
+            this.xtraScrollableControl1.Size = new System.Drawing.Size(754, 368);
             this.xtraScrollableControl1.TabIndex = 2;
             // 
             // panelControl1
@@ -86,7 +86,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(634, 311);
+            this.panelControl1.Size = new System.Drawing.Size(754, 317);
             this.panelControl1.TabIndex = 1;
             // 
             // gc_barcode_history
@@ -96,7 +96,7 @@
             this.gc_barcode_history.Location = new System.Drawing.Point(2, 2);
             this.gc_barcode_history.MainView = this.gv_barcode_history;
             this.gc_barcode_history.Name = "gc_barcode_history";
-            this.gc_barcode_history.Size = new System.Drawing.Size(630, 307);
+            this.gc_barcode_history.Size = new System.Drawing.Size(750, 313);
             this.gc_barcode_history.TabIndex = 2;
             this.gc_barcode_history.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_barcode_history});
@@ -122,6 +122,7 @@
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 3;
+            this.gridColumn1.Width = 119;
             // 
             // gridColumn2
             // 
@@ -130,6 +131,7 @@
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 4;
+            this.gridColumn2.Width = 119;
             // 
             // gridColumn5
             // 
@@ -140,7 +142,7 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 5;
-            this.gridColumn5.Width = 117;
+            this.gridColumn5.Width = 197;
             // 
             // gridColumn17
             // 
@@ -149,6 +151,7 @@
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
             this.gridColumn17.VisibleIndex = 0;
+            this.gridColumn17.Width = 59;
             // 
             // gridColumn18
             // 
@@ -157,6 +160,7 @@
             this.gridColumn18.Name = "gridColumn18";
             this.gridColumn18.Visible = true;
             this.gridColumn18.VisibleIndex = 1;
+            this.gridColumn18.Width = 119;
             // 
             // gridColumn4
             // 
@@ -165,6 +169,7 @@
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.Width = 119;
             // 
             // 序号
             // 
@@ -176,7 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 362);
+            this.ClientSize = new System.Drawing.Size(754, 368);
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmFGHistory";
             this.Text = "成品条码历史记录";

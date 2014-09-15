@@ -83,9 +83,9 @@
             // 
             this.panelControl2.Controls.Add(this.panelControl4);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(0, 104);
+            this.panelControl2.Location = new System.Drawing.Point(0, 100);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(713, 428);
+            this.panelControl2.Size = new System.Drawing.Size(713, 432);
             this.panelControl2.TabIndex = 1;
             // 
             // panelControl4
@@ -94,7 +94,7 @@
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(2, 2);
             this.panelControl4.Name = "panelControl4";
-            this.panelControl4.Size = new System.Drawing.Size(709, 424);
+            this.panelControl4.Size = new System.Drawing.Size(709, 428);
             this.panelControl4.TabIndex = 1;
             // 
             // gc_receive
@@ -104,7 +104,7 @@
             this.gc_receive.Location = new System.Drawing.Point(2, 2);
             this.gc_receive.MainView = this.gv_receive;
             this.gc_receive.Name = "gc_receive";
-            this.gc_receive.Size = new System.Drawing.Size(705, 420);
+            this.gc_receive.Size = new System.Drawing.Size(705, 424);
             this.gc_receive.TabIndex = 0;
             this.gc_receive.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_receive});
@@ -209,7 +209,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(713, 104);
+            this.panelControl1.Size = new System.Drawing.Size(713, 100);
             this.panelControl1.TabIndex = 0;
             // 
             // groupBox1
@@ -228,7 +228,7 @@
             this.groupBox1.Controls.Add(this.labelControl1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(689, 86);
+            this.groupBox1.Size = new System.Drawing.Size(689, 82);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "领料单查询";
@@ -237,7 +237,7 @@
             // 
             this.sbtn_receiving_create.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.sbtn_receiving_create.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_receiving_create.Image")));
-            this.sbtn_receiving_create.Location = new System.Drawing.Point(571, 52);
+            this.sbtn_receiving_create.Location = new System.Drawing.Point(571, 48);
             this.sbtn_receiving_create.Name = "sbtn_receiving_create";
             this.sbtn_receiving_create.Size = new System.Drawing.Size(103, 23);
             this.sbtn_receiving_create.TabIndex = 24;
@@ -248,7 +248,7 @@
             // 
             this.sbtn_query.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.sbtn_query.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_query.Image")));
-            this.sbtn_query.Location = new System.Drawing.Point(363, 52);
+            this.sbtn_query.Location = new System.Drawing.Point(363, 48);
             this.sbtn_query.Name = "sbtn_query";
             this.sbtn_query.Size = new System.Drawing.Size(75, 23);
             this.sbtn_query.TabIndex = 23;
@@ -291,7 +291,7 @@
             // 
             this.sbtn_print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.sbtn_print.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_print.Image")));
-            this.sbtn_print.Location = new System.Drawing.Point(452, 52);
+            this.sbtn_print.Location = new System.Drawing.Point(452, 48);
             this.sbtn_print.Name = "sbtn_print";
             this.sbtn_print.Size = new System.Drawing.Size(103, 23);
             this.sbtn_print.TabIndex = 18;

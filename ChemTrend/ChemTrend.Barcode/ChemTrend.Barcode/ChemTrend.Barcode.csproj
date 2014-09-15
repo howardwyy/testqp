@@ -172,6 +172,12 @@
     <Compile Include="Forms\FG\frmFGInvoiceNew.Designer.cs">
       <DependentUpon>frmFGInvoiceNew.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FG\frmFGInvoicing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGInvoicing.Designer.cs">
+      <DependentUpon>frmFGInvoicing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FG\frmFGNew.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,12 @@
     </Compile>
     <Compile Include="Forms\FG\frmFGWH.Designer.cs">
       <DependentUpon>frmFGWH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGInvoiceDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FG\frmFGInvoiceDetails.Designer.cs">
+      <DependentUpon>frmFGInvoiceDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Print\frmCustomer.cs">
       <SubType>Form</SubType>
@@ -514,6 +526,9 @@
     <EmbeddedResource Include="Forms\FG\frmFGInvoiceNew.resx">
       <DependentUpon>frmFGInvoiceNew.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGInvoicing.resx">
+      <DependentUpon>frmFGInvoicing.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FG\frmFGNew.resx">
       <DependentUpon>frmFGNew.cs</DependentUpon>
     </EmbeddedResource>
@@ -537,6 +552,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FG\frmFGWH.resx">
       <DependentUpon>frmFGWH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FG\frmFGInvoiceDetails.resx">
+      <DependentUpon>frmFGInvoiceDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Print\frmCustomer.resx">
       <DependentUpon>frmCustomer.cs</DependentUpon>

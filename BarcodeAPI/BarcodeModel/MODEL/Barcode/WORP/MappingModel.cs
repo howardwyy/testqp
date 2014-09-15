@@ -43,5 +43,6 @@ namespace BarcodeModel.MODEL.Barcode.WORP
         //WK03010	decimal		固定时间(HOURS)
         [Columname(Name = "WK03010")]
         public decimal Hours { get; set; }
+
     }
 }

@@ -23,7 +23,7 @@ namespace ChemTrend.Barcode.Forms.Systems
     {
 
         ModelAPI<UserModel> apiUser = new ModelAPI<UserModel>();
-        public UserModel userModel = null;
+        public UserModel userModel { get; set; }
         public int actionType = 0;
         public RoleModel searchModel { get; set; }
         public frmUser()

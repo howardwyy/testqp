@@ -31,3 +31,4 @@ F:\vs-workspace\ChemTrend.Barcode\ChemTrend.Moblie\ChemTrend.Moblie\obj\Debug\Ch
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend.Moblie\ChemTrend.Moblie\obj\Debug\ChemTrend.Moblie.Forms.Product.frmEnterWH.resources
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend.Moblie\ChemTrend.Moblie\obj\Debug\ChemTrend.Moblie.Forms.Product.frmMoveWH.resources
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend.Moblie\ChemTrend.Moblie\obj\Debug\ChemTrend.Moblie.Forms.Product.frmPackage.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend.Moblie\ChemTrend.Moblie\obj\Debug\ChemTrend.Moblie.Forms.Stock.frmReceiving.resources

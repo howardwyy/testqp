@@ -35,9 +35,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.te_batch = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.te_supplierbatch = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.te_po = new DevExpress.XtraEditors.TextEdit();
+            this.te_wo = new DevExpress.XtraEditors.TextEdit();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
             this.te_stockname = new DevExpress.XtraEditors.TextEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
@@ -47,9 +45,9 @@
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.te_barcode = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
-            this.dateEdit5 = new DevExpress.XtraEditors.DateEdit();
+            this.de_createtime_end = new DevExpress.XtraEditors.DateEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.dateEdit6 = new DevExpress.XtraEditors.DateEdit();
+            this.de_createtime_start = new DevExpress.XtraEditors.DateEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.de_outwh_end = new DevExpress.XtraEditors.DateEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -101,16 +99,15 @@
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.te_batch.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.te_supplierbatch.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.te_po.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_wo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_stockname.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_stockcode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbox_status.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_barcode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit5.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit6.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit6.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_createtime_end.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_createtime_end.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_createtime_start.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_createtime_start.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_outwh_end.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_outwh_end.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_outwh_begin.Properties.CalendarTimeProperties)).BeginInit();
@@ -151,9 +148,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.te_batch);
             this.groupBox1.Controls.Add(this.labelControl13);
-            this.groupBox1.Controls.Add(this.te_supplierbatch);
-            this.groupBox1.Controls.Add(this.labelControl12);
-            this.groupBox1.Controls.Add(this.te_po);
+            this.groupBox1.Controls.Add(this.te_wo);
             this.groupBox1.Controls.Add(this.labelControl11);
             this.groupBox1.Controls.Add(this.te_stockname);
             this.groupBox1.Controls.Add(this.labelControl10);
@@ -163,9 +158,9 @@
             this.groupBox1.Controls.Add(this.labelControl8);
             this.groupBox1.Controls.Add(this.te_barcode);
             this.groupBox1.Controls.Add(this.labelControl7);
-            this.groupBox1.Controls.Add(this.dateEdit5);
+            this.groupBox1.Controls.Add(this.de_createtime_end);
             this.groupBox1.Controls.Add(this.labelControl5);
-            this.groupBox1.Controls.Add(this.dateEdit6);
+            this.groupBox1.Controls.Add(this.de_createtime_start);
             this.groupBox1.Controls.Add(this.labelControl6);
             this.groupBox1.Controls.Add(this.de_outwh_end);
             this.groupBox1.Controls.Add(this.labelControl3);
@@ -200,35 +195,20 @@
             this.labelControl13.TabIndex = 32;
             this.labelControl13.Text = "批次：";
             // 
-            // te_supplierbatch
+            // te_wo
             // 
-            this.te_supplierbatch.Location = new System.Drawing.Point(600, 86);
-            this.te_supplierbatch.Name = "te_supplierbatch";
-            this.te_supplierbatch.Size = new System.Drawing.Size(135, 20);
-            this.te_supplierbatch.TabIndex = 31;
-            // 
-            // labelControl12
-            // 
-            this.labelControl12.Location = new System.Drawing.Point(522, 89);
-            this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(72, 14);
-            this.labelControl12.TabIndex = 30;
-            this.labelControl12.Text = "供应商批次：";
-            // 
-            // te_po
-            // 
-            this.te_po.Location = new System.Drawing.Point(329, 117);
-            this.te_po.Name = "te_po";
-            this.te_po.Size = new System.Drawing.Size(135, 20);
-            this.te_po.TabIndex = 29;
+            this.te_wo.Location = new System.Drawing.Point(329, 117);
+            this.te_wo.Name = "te_wo";
+            this.te_wo.Size = new System.Drawing.Size(135, 20);
+            this.te_wo.TabIndex = 29;
             // 
             // labelControl11
             // 
             this.labelControl11.Location = new System.Drawing.Point(264, 120);
             this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(60, 14);
+            this.labelControl11.Size = new System.Drawing.Size(48, 14);
             this.labelControl11.TabIndex = 28;
-            this.labelControl11.Text = "采购编号：";
+            this.labelControl11.Text = "工单号：";
             // 
             // te_stockname
             // 
@@ -292,18 +272,18 @@
             this.labelControl7.TabIndex = 20;
             this.labelControl7.Text = "条码：";
             // 
-            // dateEdit5
+            // de_createtime_end
             // 
-            this.dateEdit5.EditValue = null;
-            this.dateEdit5.Location = new System.Drawing.Point(686, 18);
-            this.dateEdit5.Name = "dateEdit5";
-            this.dateEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.de_createtime_end.EditValue = null;
+            this.de_createtime_end.Location = new System.Drawing.Point(686, 18);
+            this.de_createtime_end.Name = "de_createtime_end";
+            this.de_createtime_end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit5.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.de_createtime_end.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit5.Size = new System.Drawing.Size(128, 20);
-            this.dateEdit5.TabIndex = 19;
-            this.dateEdit5.Visible = false;
+            this.de_createtime_end.Size = new System.Drawing.Size(128, 20);
+            this.de_createtime_end.TabIndex = 19;
+            this.de_createtime_end.Visible = false;
             // 
             // labelControl5
             // 
@@ -314,26 +294,26 @@
             this.labelControl5.Text = "-";
             this.labelControl5.Visible = false;
             // 
-            // dateEdit6
+            // de_createtime_start
             // 
-            this.dateEdit6.EditValue = null;
-            this.dateEdit6.Location = new System.Drawing.Point(540, 18);
-            this.dateEdit6.Name = "dateEdit6";
-            this.dateEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.de_createtime_start.EditValue = null;
+            this.de_createtime_start.Location = new System.Drawing.Point(540, 18);
+            this.de_createtime_start.Name = "de_createtime_start";
+            this.de_createtime_start.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit6.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.de_createtime_start.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit6.Size = new System.Drawing.Size(128, 20);
-            this.dateEdit6.TabIndex = 17;
-            this.dateEdit6.Visible = false;
+            this.de_createtime_start.Size = new System.Drawing.Size(128, 20);
+            this.de_createtime_start.TabIndex = 17;
+            this.de_createtime_start.Visible = false;
             // 
             // labelControl6
             // 
             this.labelControl6.Location = new System.Drawing.Point(473, 21);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(48, 14);
+            this.labelControl6.Size = new System.Drawing.Size(60, 14);
             this.labelControl6.TabIndex = 16;
-            this.labelControl6.Text = "有效期：";
+            this.labelControl6.Text = "生产日期：";
             this.labelControl6.Visible = false;
             // 
             // de_outwh_end
@@ -571,7 +551,7 @@
             // gridColumn8
             // 
             this.gridColumn8.Caption = "单位";
-            this.gridColumn8.FieldName = "StockUnit";
+            this.gridColumn8.FieldName = "UnitQty";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
@@ -581,7 +561,7 @@
             // gridColumn7
             // 
             this.gridColumn7.Caption = "数量";
-            this.gridColumn7.FieldName = "StockUnitQty";
+            this.gridColumn7.FieldName = "Unit";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
@@ -678,7 +658,7 @@
             // gridColumn11
             // 
             this.gridColumn11.Caption = "库位";
-            this.gridColumn11.FieldName = "Location";
+            this.gridColumn11.FieldName = "Bin";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.OptionsColumn.AllowEdit = false;
             this.gridColumn11.Visible = true;
@@ -688,7 +668,7 @@
             // gridColumn12
             // 
             this.gridColumn12.Caption = "单据号";
-            this.gridColumn12.FieldName = "Bill";
+            this.gridColumn12.FieldName = "LastBillID";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.OptionsColumn.AllowEdit = false;
             this.gridColumn12.Visible = true;
@@ -697,8 +677,8 @@
             // 
             // gridColumn13
             // 
-            this.gridColumn13.Caption = "订单号";
-            this.gridColumn13.FieldName = "SO";
+            this.gridColumn13.Caption = "工单号";
+            this.gridColumn13.FieldName = "WO";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.OptionsColumn.AllowEdit = false;
             this.gridColumn13.Visible = true;
@@ -707,8 +687,8 @@
             // 
             // gridColumn14
             // 
-            this.gridColumn14.Caption = "行次";
-            this.gridColumn14.FieldName = "POLine";
+            this.gridColumn14.Caption = "生产日期";
+            this.gridColumn14.FieldName = "CreateTime";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.OptionsColumn.AllowEdit = false;
             this.gridColumn14.Visible = true;
@@ -717,8 +697,8 @@
             // 
             // gridColumn15
             // 
-            this.gridColumn15.Caption = "供应商批次";
-            this.gridColumn15.FieldName = "SupplierBatch";
+            this.gridColumn15.Caption = "客户";
+            this.gridColumn15.FieldName = "CustomerName";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.OptionsColumn.AllowEdit = false;
             this.gridColumn15.Visible = true;
@@ -848,16 +828,15 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.te_batch.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.te_supplierbatch.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.te_po.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_wo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_stockname.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_stockcode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbox_status.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_barcode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit5.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit6.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit6.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_createtime_end.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_createtime_end.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_createtime_start.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.de_createtime_start.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_outwh_end.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_outwh_end.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_outwh_begin.Properties.CalendarTimeProperties)).EndInit();
@@ -891,9 +870,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.TextEdit te_batch;
         private DevExpress.XtraEditors.LabelControl labelControl13;
-        private DevExpress.XtraEditors.TextEdit te_supplierbatch;
-        private DevExpress.XtraEditors.LabelControl labelControl12;
-        private DevExpress.XtraEditors.TextEdit te_po;
+        private DevExpress.XtraEditors.TextEdit te_wo;
         private DevExpress.XtraEditors.LabelControl labelControl11;
         private DevExpress.XtraEditors.TextEdit te_stockname;
         private DevExpress.XtraEditors.LabelControl labelControl10;
@@ -903,9 +880,9 @@
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.TextEdit te_barcode;
         private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.DateEdit dateEdit5;
+        private DevExpress.XtraEditors.DateEdit de_createtime_end;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.DateEdit dateEdit6;
+        private DevExpress.XtraEditors.DateEdit de_createtime_start;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.DateEdit de_outwh_end;
         private DevExpress.XtraEditors.LabelControl labelControl3;

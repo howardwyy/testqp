@@ -70,3 +70,5 @@ F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.FG.frmFGNew2.resources
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.Work.frmWorkMapping.resources
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.Work.frmWorkMappings.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.FG.frmFGInvoicing.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.FG.frmFGInvoiceDetails.resources

@@ -32,8 +32,8 @@ namespace BarcodeModel.MODEL.Barcode.FG.Operation
             string sql = @"
 declare @id varchar(30)
 exec PROC_GETID 'FG08',@id output
-insert into FG08(FG08001,FG08002,FG08003,FG08004,FG08005,FG08006,FG08007,FG08008)
-values(@id,getdate(),@userid,@username,@HopeTime,@isUrgent,@Remark,1)
+insert into FG08(FG08001,FG08002,FG08003,FG08004,FG08005,FG08006,FG08007,FG08008,FG08011,FG08012)
+values(@id,getdate(),@userid,@username,@HopeTime,@isUrgent,@Remark,1,@CustomerCode,@CustomerName)
 ";
             List<SqlParameter> list = new List<SqlParameter>();
             list.Add(new SqlParameter("@userid", this.LoginUserID));
@@ -41,6 +41,8 @@ values(@id,getdate(),@userid,@username,@HopeTime,@isUrgent,@Remark,1)
             list.Add(new SqlParameter("@HopeTime", this.HopeTime));
             list.Add(new SqlParameter("@isUrgent", this.isUrgent));
             list.Add(new SqlParameter("@Remark", this.Remark));
+            list.Add(new SqlParameter("@CustomerCode", SOLines[0].CustomerCode));
+            list.Add(new SqlParameter("@CustomerName", SOLines[0].CustomerName));
             StringBuilder sb = new StringBuilder();
             sb.Append(sql);
 

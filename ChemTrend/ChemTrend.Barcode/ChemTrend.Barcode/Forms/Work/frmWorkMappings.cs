@@ -51,6 +51,21 @@ namespace ChemTrend.Barcode.Forms.Work
         {
             try
             {
+                searchModel = new MappingModel()
+                {
+                };
+                if (!string.IsNullOrEmpty(te_code.Text))
+                {
+                    searchModel.FGCode = te_code.Text;
+                }
+                if (!string.IsNullOrEmpty(te_name.Text))
+                {
+                    searchModel.FGName = te_name.Text;
+                }
+                if (!string.IsNullOrEmpty(te_workcenter.Text))
+                {
+                    searchModel.WorkCenter = te_workcenter.Text;
+                }
                 searchModel.PageIndex = ucPager.PageCurrent;
                 searchModel.PageSize = ucPager.PageSize;
                 listMapping = apiMapping.GetList(searchModel);
@@ -73,7 +88,7 @@ namespace ChemTrend.Barcode.Forms.Work
         }
         private void sbtn_select_Click(object sender, EventArgs e)
         {
-
+            InitData();
         }
 
         private void sbtn_create_Click(object sender, EventArgs e)

@@ -114,17 +114,23 @@
     <Compile Include="Forms\Product\frmCheck.Designer.cs">
       <DependentUpon>frmCheck.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Product\frmDelivery.cs">
+    <Compile Include="Forms\Product\frmInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Product\frmDelivery.Designer.cs">
-      <DependentUpon>frmDelivery.cs</DependentUpon>
+    <Compile Include="Forms\Product\frmInvoice.Designer.cs">
+      <DependentUpon>frmInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Product\frmEnterWH.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Product\frmEnterWH.Designer.cs">
       <DependentUpon>frmEnterWH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Product\frmInvoicing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Product\frmInvoicing.Designer.cs">
+      <DependentUpon>frmInvoicing.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Product\frmMoveWH.cs">
       <SubType>Form</SubType>
@@ -173,6 +179,12 @@
     </Compile>
     <Compile Include="Forms\Stock\frmPackage.Designer.cs">
       <DependentUpon>frmPackage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Stock\frmReceiving.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Stock\frmReceiving.Designer.cs">
+      <DependentUpon>frmReceiving.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Stock\frmSInWarehouse.cs">
       <SubType>Form</SubType>
@@ -227,11 +239,14 @@
     <EmbeddedResource Include="Forms\Product\frmCheck.resx">
       <DependentUpon>frmCheck.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Product\frmDelivery.resx">
-      <DependentUpon>frmDelivery.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Product\frmInvoice.resx">
+      <DependentUpon>frmInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Product\frmEnterWH.resx">
       <DependentUpon>frmEnterWH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Product\frmInvoicing.resx">
+      <DependentUpon>frmInvoicing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Product\frmMoveWH.resx">
       <DependentUpon>frmMoveWH.cs</DependentUpon>
@@ -256,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Stock\frmPackage.resx">
       <DependentUpon>frmPackage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Stock\frmReceiving.resx">
+      <DependentUpon>frmReceiving.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Stock\frmSInWarehouse.resx">
       <DependentUpon>frmSInWarehouse.cs</DependentUpon>

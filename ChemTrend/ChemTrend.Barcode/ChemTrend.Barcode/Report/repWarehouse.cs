@@ -17,9 +17,11 @@ namespace ChemTrend.Barcode.Forms.Report
 
         private void Detail_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            xlbl_locationName.Text = warehouse.LocationName;
-            xbarcode.Text = warehouse.Warehouse + "--" + warehouse.Location;
-            xlbl_code.Text = warehouse.Warehouse + "--" + warehouse.Location;
+            if (warehouse != null)
+            {
+                xlbl_locationName.Text = warehouse.LocationName;
+                xbarcode.Text = warehouse.Warehouse + "--" + warehouse.Location;
+            }
         }
 
     }

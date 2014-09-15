@@ -252,7 +252,7 @@
             // 
             // col_requisitionid
             // 
-            this.col_requisitionid.Caption = "领料单";
+            this.col_requisitionid.Caption = "发货单";
             this.col_requisitionid.FieldName = "RequisitionId";
             this.col_requisitionid.Name = "col_requisitionid";
             this.col_requisitionid.Visible = true;
@@ -413,6 +413,7 @@
             this.gv_bill.OptionsBehavior.Editable = false;
             this.gv_bill.OptionsView.ColumnAutoWidth = false;
             this.gv_bill.OptionsView.ShowGroupPanel = false;
+            this.gv_bill.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gv_bill_RowClick);
             // 
             // col_billid
             // 

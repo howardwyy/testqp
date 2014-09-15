@@ -42,7 +42,7 @@ namespace ChemTrend.Barcode.Forms.FG
         private void InitValidationRules()
         {
 
-         
+
         }
 
         private void InitData()
@@ -134,8 +134,8 @@ namespace ChemTrend.Barcode.Forms.FG
             if (!String.IsNullOrEmpty(te_stockname.Text))
             {
                 searchModel.StockName = te_stockname.Text;
-            } 
-           
+            }
+
             if (status >= 1)
             {
                 searchModel.Status = status;
@@ -191,19 +191,19 @@ namespace ChemTrend.Barcode.Forms.FG
             int[] selectRows = gv_barcode.GetSelectedRows();
             if (check_selected(selectRows))
             {
+
+                List<string> ids = new List<string>();
+                foreach (int row in selectRows)
+                {
+                    FGBarcodeModel model = listBarcode[gv_barcode.GetDataSourceRowIndex(row)];
+                    if (!check_destory(model))
+                    {
+                        return;
+                    }
+                    ids.Add(model.ID);
+                }
                 if (DevExpress.XtraEditors.XtraMessageBox.Show("是否确认报废选中信息？", "退出", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
-                    List<string> ids = new List<string>();
-                    foreach (int row in selectRows)
-                    {
-                        FGBarcodeModel model = listBarcode[gv_barcode.GetDataSourceRowIndex(row)];
-                        if (!check_destory(model))
-                        {
-                            return;
-                        }
-                        ids.Add(model.ID);
-                    }
-
                     try
                     {
                         ModelAPI<DestoryFGModel> apiDestory = new ModelAPI<DestoryFGModel>();
@@ -220,12 +220,12 @@ namespace ChemTrend.Barcode.Forms.FG
                     {
                         DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
                     }
-                  
+
                 }
             }
         }
 
-        
+
 
         private void nbitem_inwarehouse_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
@@ -387,7 +387,7 @@ namespace ChemTrend.Barcode.Forms.FG
 
                 DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
             }
-           
+
         }
 
     }

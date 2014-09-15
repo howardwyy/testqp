@@ -65,6 +65,7 @@
             this.bbtn_item_work = new DevExpress.XtraBars.BarButtonItem();
             this.bbtn_item_workreport = new DevExpress.XtraBars.BarButtonItem();
             this.bbtn_item_suggest = new DevExpress.XtraBars.BarButtonItem();
+            this.bbtn_item_mapping = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -88,7 +89,6 @@
             this.barButtonItem_customer = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
-            this.bbtn_item_mapping = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
@@ -435,7 +435,17 @@
             this.bbtn_item_suggest.Id = 40;
             this.bbtn_item_suggest.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_suggest.LargeGlyph")));
             this.bbtn_item_suggest.Name = "bbtn_item_suggest";
+            this.bbtn_item_suggest.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbtn_item_suggest.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtn_item_suggest_ItemClick);
+            // 
+            // bbtn_item_mapping
+            // 
+            this.bbtn_item_mapping.Caption = "工序Mapping";
+            this.bbtn_item_mapping.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_mapping.Glyph")));
+            this.bbtn_item_mapping.Id = 41;
+            this.bbtn_item_mapping.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_mapping.LargeGlyph")));
+            this.bbtn_item_mapping.Name = "bbtn_item_mapping";
+            this.bbtn_item_mapping.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtn_item_mapping_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -625,15 +635,6 @@
             this.barButtonItem6.Id = 32;
             this.barButtonItem6.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.LargeGlyph")));
             this.barButtonItem6.Name = "barButtonItem6";
-            // 
-            // bbtn_item_mapping
-            // 
-            this.bbtn_item_mapping.Caption = "工序Mapping";
-            this.bbtn_item_mapping.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_mapping.Glyph")));
-            this.bbtn_item_mapping.Id = 41;
-            this.bbtn_item_mapping.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbtn_item_mapping.LargeGlyph")));
-            this.bbtn_item_mapping.Name = "bbtn_item_mapping";
-            this.bbtn_item_mapping.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbtn_item_mapping_ItemClick);
             // 
             // frmMain
             // 

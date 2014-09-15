@@ -66,12 +66,16 @@
     <Compile Include="MODEL\Barcode\FG\InvoiceModel.cs" />
     <Compile Include="MODEL\Barcode\FG\Operation\CleanFGCheckModel.cs" />
     <Compile Include="MODEL\Barcode\FG\Operation\CreateFGModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\Operation\CreateInvoiceModel.cs" />
     <Compile Include="MODEL\Barcode\FG\Operation\DestoryFGModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\Operation\GetONTipsModel.cs" />
     <Compile Include="MODEL\Barcode\FG\Operation\GetWOTipsModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\Operation\InvoicingFGModel.cs" />
     <Compile Include="MODEL\Barcode\FG\Operation\InWarehouseFGModel.cs" />
     <Compile Include="MODEL\Barcode\FG\Operation\MoveWarehouseFGModel.cs" />
     <Compile Include="MODEL\Barcode\FG\Operation\PackingFGModel.cs" />
     <Compile Include="MODEL\Barcode\FG\Operation\SOOutWarehouseModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\SOLineModel.cs" />
     <Compile Include="MODEL\Barcode\FG\SuggestModel.cs" />
     <Compile Include="MODEL\Barcode\FG\WOModel.cs" />
     <Compile Include="MODEL\Barcode\LocationModel.cs" />
@@ -85,6 +89,7 @@
     <Compile Include="MODEL\Barcode\RW\Operation\CleanCheckModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\DestroyBarcodeModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\EnterWarehouseModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\GetWOTipsModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\MoveWarehouseModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\PackingBarcodeModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\PListCreateModel.cs" />
@@ -96,6 +101,8 @@
     <Compile Include="MODEL\Barcode\RW\RWBarcodeModel.cs" />
     <Compile Include="MODEL\Barcode\RW\RWHistoryModel.cs" />
     <Compile Include="MODEL\Barcode\RW\WOLineModel.cs" />
+    <Compile Include="MODEL\Barcode\StockModel.cs" />
+    <Compile Include="MODEL\Barcode\WorkCenterModel.cs" />
     <Compile Include="MODEL\Barcode\WORP\MappingModel.cs" />
     <Compile Include="MODEL\BaseSearchModel.cs" />
     <Compile Include="MODEL\Sys\CompanyModel.cs" />

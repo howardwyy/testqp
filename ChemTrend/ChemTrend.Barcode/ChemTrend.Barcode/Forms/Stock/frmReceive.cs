@@ -41,13 +41,25 @@ namespace ChemTrend.Barcode.Forms.Stock
 
         private void InitData()
         {
-            ReceiveModel searchModel = new ReceiveModel()
+            try
             {
-                BeginTimeReceiveTime = de_begin.DateTime,
-                EndTimeReceiveTime = de_end.DateTime
-            };
-            listReceive = apiReceive.GetList(searchModel);
-            this.gc_receive.DataSource = listReceive;
+                ReceiveModel searchModel = new ReceiveModel()
+                {
+                    BeginTimeReceiveTime = de_begin.DateTime,
+                    EndTimeReceiveTime = de_end.DateTime
+                };
+                if (!string.IsNullOrEmpty(tbox_barcode.Text)) {
+                    searchModel.ID = tbox_barcode.Text;
+                }
+                listReceive = apiReceive.GetList(searchModel);
+                this.gc_receive.DataSource = listReceive;
+            }
+
+            catch (Exception ex)
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
+            }
+           
 
 
             col_status.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -67,7 +79,7 @@ namespace ChemTrend.Barcode.Forms.Stock
             int state = int.Parse(arg.ToString());
             if (state == (int)AppConfig.IsCheck.是)
                 return AppConfig.IsCheck.是.ToString();
-            return AppConfig.IsCheck.否.ToString(); 
+            return AppConfig.IsCheck.否.ToString();
         }
 
         private string formatBase_EventHandler(string format, object arg, IFormatProvider formatProvider)
@@ -87,32 +99,37 @@ namespace ChemTrend.Barcode.Forms.Stock
             int[] selectRows = gv_receive.GetSelectedRows();
             if (check_selected(selectRows))
             {
-                ModelAPI<ReceiveDetailModel> apiReceiveDetails = new ModelAPI<ReceiveDetailModel>();
-                ReceiveDetailModel searchReceiveDetail = new ReceiveDetailModel();
-                List<XtraReport> reports = new List<XtraReport>();
-                foreach (int row in selectRows)
+                try
                 {
+                    List<XtraReport> reports = new List<XtraReport>();
+                    foreach (int row in selectRows)
+                    {
+                        ModelAPI<ReceiveDetailModel> apiReceiveDetails = new ModelAPI<ReceiveDetailModel>();
+                        ReceiveDetailModel searchReceiveDetail = new ReceiveDetailModel();
+                        ReceiveModel model = listReceive[gv_receive.GetDataSourceRowIndex(row)];
+                        searchReceiveDetail.ReceiveID = model.ID;
+                        List<ReceiveDetailModel> listRDetails = apiReceiveDetails.GetList(searchReceiveDetail);
+                        repReceive report = new repReceive(listRDetails, model);
+                        report.CreateDocument();
+                        reports.Add(report);
+                    }
+                    frmMutiPrint mutiPrint = new frmMutiPrint();
+                    mutiPrint.reports = reports;
+                    mutiPrint.Show();
 
-                    ReceiveModel model = listReceive[gv_receive.GetDataSourceRowIndex(row)];
-                    repReceive report = new repReceive();
-                    report.receiveModel = model;
-                    searchReceiveDetail.ReceiveID = model.ID;
-                    List<ReceiveDetailModel> listRDetails = apiReceiveDetails.GetList(searchReceiveDetail);
-
-                    report.RDModels = listRDetails;
-                    report.CreateDocument();
-                    reports.Add(report);
                 }
-                frmMutiPrint mutiPrint = new frmMutiPrint();
-                mutiPrint.reports = reports;
-                mutiPrint.Show();
+                catch (Exception ex)
+                {
+                    DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
+                }
+
 
             }
         }
 
         private void sbtn_query_Click(object sender, EventArgs e)
         {
-
+            InitData();
         }
 
         private void frmReceive_Load(object sender, EventArgs e)
@@ -125,17 +142,11 @@ namespace ChemTrend.Barcode.Forms.Stock
         private void gv_receive_DoubleClick(object sender, EventArgs e)
         {
             ReceiveModel focuseReceive = gv_receive.GetFocusedRow() as ReceiveModel;
-            ModelAPI<ReceiveDetailModel> apiReceiveDetails = new ModelAPI<ReceiveDetailModel>();
-            ReceiveDetailModel searchReceiveDetail = new ReceiveDetailModel();
-            searchReceiveDetail.ReceiveID = focuseReceive.ID;
-            List<ReceiveDetailModel> listRDetails = apiReceiveDetails.GetList(searchReceiveDetail);
-            if (listRDetails.Count >= 1)
-            {
-                frmReceiveDetails frmRDetails = new frmReceiveDetails();
-                frmRDetails.StartPosition = FormStartPosition.CenterParent;
-                frmRDetails.listRDetails = listRDetails;
-                DialogResult result = frmRDetails.ShowDialog();
-            }
+
+            frmReceiveDetails frmRDetails = new frmReceiveDetails();
+            frmRDetails.StartPosition = FormStartPosition.CenterParent;
+            frmRDetails.focuseReceive = focuseReceive;
+            DialogResult result = frmRDetails.ShowDialog();
         }
 
         private bool check_selected(int[] rows)

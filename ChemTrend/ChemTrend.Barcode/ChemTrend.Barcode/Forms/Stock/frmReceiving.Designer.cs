@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReceiving));
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
@@ -118,9 +118,9 @@
             // 
             this.gc_barcode.Cursor = System.Windows.Forms.Cursors.Default;
             this.gc_barcode.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.gc_barcode.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.gc_barcode.Location = new System.Drawing.Point(290, 2);
             this.gc_barcode.MainView = this.gv_barcode;
             this.gc_barcode.Name = "gc_barcode";
@@ -447,7 +447,7 @@
             // 
             this.te_stockcode.Location = new System.Drawing.Point(306, 21);
             this.te_stockcode.Name = "te_stockcode";
-            this.te_stockcode.Size = new System.Drawing.Size(100, 20);
+            this.te_stockcode.Size = new System.Drawing.Size(278, 20);
             this.te_stockcode.TabIndex = 28;
             // 
             // labelControl1

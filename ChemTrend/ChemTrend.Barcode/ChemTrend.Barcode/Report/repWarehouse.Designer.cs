@@ -31,7 +31,6 @@
             DevExpress.XtraPrinting.BarCode.Code128Generator code128Generator1 = new DevExpress.XtraPrinting.BarCode.Code128Generator();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrPanel1 = new DevExpress.XtraReports.UI.XRPanel();
-            this.xlbl_code = new DevExpress.XtraReports.UI.XRLabel();
             this.xlbl_locationName = new DevExpress.XtraReports.UI.XRLabel();
             this.xbarcode = new DevExpress.XtraReports.UI.XRBarCode();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
@@ -52,30 +51,21 @@
             // xrPanel1
             // 
             this.xrPanel1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xlbl_code,
             this.xlbl_locationName,
             this.xbarcode});
             this.xrPanel1.LocationFloat = new DevExpress.Utils.PointFloat(130.8333F, 10.00001F);
             this.xrPanel1.Name = "xrPanel1";
             this.xrPanel1.SizeF = new System.Drawing.SizeF(378.125F, 234.7916F);
             // 
-            // xlbl_code
-            // 
-            this.xlbl_code.LocationFloat = new DevExpress.Utils.PointFloat(35.83324F, 188.9167F);
-            this.xlbl_code.Name = "xlbl_code";
-            this.xlbl_code.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xlbl_code.SizeF = new System.Drawing.SizeF(321.8751F, 23F);
-            this.xlbl_code.StylePriority.UseTextAlignment = false;
-            this.xlbl_code.Text = "xlbl_code";
-            this.xlbl_code.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
             // xlbl_locationName
             // 
             this.xlbl_locationName.BookmarkParent = this.xrPanel1;
-            this.xlbl_locationName.LocationFloat = new DevExpress.Utils.PointFloat(35.83324F, 31.79165F);
+            this.xlbl_locationName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xlbl_locationName.LocationFloat = new DevExpress.Utils.PointFloat(35.83323F, 34.91666F);
             this.xlbl_locationName.Name = "xlbl_locationName";
             this.xlbl_locationName.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xlbl_locationName.SizeF = new System.Drawing.SizeF(321.8751F, 23F);
+            this.xlbl_locationName.SizeF = new System.Drawing.SizeF(321.8751F, 30.29166F);
+            this.xlbl_locationName.StylePriority.UseFont = false;
             this.xlbl_locationName.StylePriority.UseTextAlignment = false;
             this.xlbl_locationName.Text = "xlbl_locationName";
             this.xlbl_locationName.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -83,10 +73,10 @@
             // xbarcode
             // 
             this.xbarcode.AutoModule = true;
-            this.xbarcode.LocationFloat = new DevExpress.Utils.PointFloat(35.8333F, 78.75001F);
+            this.xbarcode.LocationFloat = new DevExpress.Utils.PointFloat(35.83323F, 76.66667F);
             this.xbarcode.Name = "xbarcode";
             this.xbarcode.Padding = new DevExpress.XtraPrinting.PaddingInfo(10, 10, 0, 0, 100F);
-            this.xbarcode.SizeF = new System.Drawing.SizeF(321.8751F, 93.83333F);
+            this.xbarcode.SizeF = new System.Drawing.SizeF(320F, 80F);
             this.xbarcode.StylePriority.UseTextAlignment = false;
             this.xbarcode.Symbology = code128Generator1;
             this.xbarcode.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
@@ -125,6 +115,5 @@
         private DevExpress.XtraReports.UI.XRBarCode xbarcode;
         private DevExpress.XtraReports.UI.XRPanel xrPanel1;
         private DevExpress.XtraReports.UI.XRLabel xlbl_locationName;
-        private DevExpress.XtraReports.UI.XRLabel xlbl_code;
     }
 }
