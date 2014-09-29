@@ -84,11 +84,21 @@ select * from OR033200
 
 select * from OR013200
 
+select * from view_POLine
 
+insert into BarcodeQP.dbo.WK02(WK02002,WK02003,WK02004,WK02005,WK02009,WK02011)
+select MP65001,StockCode,StockName,convert(numeric(15,2),PlanQty*9970.000000),convert(numeric(15,2),PlanQty*9970.000000),1 from view_WOLine where MP65001='3091000237' Order by MP65001,MP65003
+select *,convert(numeric(15,2),PlanQty*9970.000000) from view_WOLine where MP65001='3091000237' Order by MP65001,MP65003
+select * from view_WO where MP64001='3091000237'
 
-
-
-drop view view_WO
+select * from WK02
 select * from MP643200
 
 select * from SY243200
+
+
+select row_number() over a,* from view_WOLine order by MP65001,MP65003
+
+
+
+select * from view_SOLine where OR03005='C10269'

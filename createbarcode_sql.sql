@@ -383,9 +383,9 @@ WK02002	varchar(30),
 WK02003	varchar(30),
 WK02004	nvarchar(50),
 WK02005	numeric(15,3),
-WK02006	datetime,
-WK02007	datetime,
-WK02008	numeric(15,3),
+WK02006	varchar(5),
+WK02007	varchar(5),
+WK02008	datetime,
 WK02009	numeric(15,3),
 WK02010	varchar(30),
 WK02011	int
@@ -648,3 +648,7 @@ CREATE TABLE [dbo].[FG02](
 GO
 SET ANSI_PADDING OFF
 GO
+
+
+select * from WK01
+SELECT * FROM WK02
