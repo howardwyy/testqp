@@ -26,6 +26,12 @@ namespace ChemTrend.Moblie.Forms.Task
         {
 
         }
+
+        private void pbox_woreport_Click(object sender, EventArgs e)
+        {
+            frmTaskReport frmReport = new frmTaskReport();
+            frmReport.Show();
+        }
     }
 }
 

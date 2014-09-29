@@ -122,6 +122,7 @@
       <DependentUpon>ucPager.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\AppConfig.cs" />
+    <Compile Include="Data\BarcodeInfo.cs" />
     <Compile Include="Data\ComboBoxEditData.cs" />
     <Compile Include="Data\Customer.cs" />
     <Compile Include="Forms\FG\frmFG.cs">
@@ -244,6 +245,12 @@
     <Compile Include="Forms\Print\frmMutiPrint.Designer.cs">
       <DependentUpon>frmMutiPrint.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Print\frmStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Print\frmStock.Designer.cs">
+      <DependentUpon>frmStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Print\frmWarehouse.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +263,12 @@
     </Compile>
     <Compile Include="Forms\Print\frmWarehouseAll.Designer.cs">
       <DependentUpon>frmWarehouseAll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Print\frmWorkCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Print\frmWorkCenter.Designer.cs">
+      <DependentUpon>frmWorkCenter.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Stock\frmBarcode.cs">
       <SubType>Form</SubType>
@@ -475,11 +488,11 @@
     <Compile Include="Report\repReceive.Designer.cs">
       <DependentUpon>repReceive.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report\repStock.cs">
+    <Compile Include="Report\repRW.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Report\repStock.Designer.cs">
-      <DependentUpon>repStock.cs</DependentUpon>
+    <Compile Include="Report\repRW.Designer.cs">
+      <DependentUpon>repRW.cs</DependentUpon>
     </Compile>
     <Compile Include="Report\repFGSuggest.cs">
       <SubType>Component</SubType>
@@ -487,11 +500,23 @@
     <Compile Include="Report\repFGSuggest.Designer.cs">
       <DependentUpon>repFGSuggest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\repStock.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\repStock.Designer.cs">
+      <DependentUpon>repStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\repWarehouse.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\repWarehouse.Designer.cs">
       <DependentUpon>repWarehouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\repWorkCenter.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\repWorkCenter.Designer.cs">
+      <DependentUpon>repWorkCenter.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\BaseFormatter.cs" />
     <Compile Include="Utils\CustomValidation.cs" />
@@ -562,11 +587,17 @@
     <EmbeddedResource Include="Forms\Print\frmMutiPrint.resx">
       <DependentUpon>frmMutiPrint.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Print\frmStock.resx">
+      <DependentUpon>frmStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Print\frmWarehouse.resx">
       <DependentUpon>frmWarehouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Print\frmWarehouseAll.resx">
       <DependentUpon>frmWarehouseAll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Print\frmWorkCenter.resx">
+      <DependentUpon>frmWorkCenter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Stock\frmBarcode.resx">
       <DependentUpon>frmBarcode.cs</DependentUpon>
@@ -676,14 +707,20 @@
     <EmbeddedResource Include="Report\repReceive.resx">
       <DependentUpon>repReceive.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report\repStock.resx">
-      <DependentUpon>repStock.cs</DependentUpon>
+    <EmbeddedResource Include="Report\repRW.resx">
+      <DependentUpon>repRW.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\repFGSuggest.resx">
       <DependentUpon>repFGSuggest.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\repStock.resx">
+      <DependentUpon>repStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\repWarehouse.resx">
       <DependentUpon>repWarehouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\repWorkCenter.resx">
+      <DependentUpon>repWorkCenter.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

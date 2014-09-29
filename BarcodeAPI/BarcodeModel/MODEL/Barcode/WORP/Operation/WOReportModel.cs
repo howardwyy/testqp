@@ -43,7 +43,8 @@ namespace BarcodeModel.MODEL.Barcode.WORP.Operation
                             HadDeQTY = 0,
                             StockCode = item.StockCode,
                             StockName = item.StockName,
-                            Workorder = item.WO
+                            Workorder = item.WO,
+                            DeDate = System.DateTime.Now,
                         };
                         adoReport.Insert(modelReport);
                     }

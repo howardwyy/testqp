@@ -73,6 +73,7 @@ namespace ChemTrend.Barcode.Forms.FG
         {
             try
             {
+                searchModel.doPager = true;
                 searchModel.PageIndex = ucPager.PageCurrent;
                 searchModel.PageSize = ucPager.PageSize;
                 listBarcode = apiBarcode.GetList(searchModel);
@@ -145,12 +146,12 @@ namespace ChemTrend.Barcode.Forms.FG
 
         private void sbtn_print_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void sbtn_close_Click(object sender, EventArgs e)
         {
-
+            PrintBarcode();
         }
 
         private void bbi_stock_create_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -165,6 +166,12 @@ namespace ChemTrend.Barcode.Forms.FG
         }
 
         private void nbitem_print_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            PrintBarcode();
+
+        }
+
+        private void PrintBarcode()
         {
             int[] selectRows = gv_barcode.GetSelectedRows();
             if (check_selected(selectRows))
@@ -183,7 +190,6 @@ namespace ChemTrend.Barcode.Forms.FG
                 mutiPrint.Show();
 
             }
-
         }
 
         private void nbi_destroy_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)

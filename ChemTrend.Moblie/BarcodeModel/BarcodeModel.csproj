@@ -67,10 +67,11 @@
     <Compile Include="MODEL\Barcode\FG\InvoiceDetailModel.cs" />
     <Compile Include="MODEL\Barcode\FG\InvoiceModel.cs" />
     <Compile Include="MODEL\Barcode\FG\Operation\InvoicingFGModel.cs" />
-    <Compile Include="MODEL\Barcode\FG\Operation\EnterWarehouseModel.cs" />
-    <Compile Include="MODEL\Barcode\FG\Operation\MoveWarehouseModel.cs" />
-    <Compile Include="MODEL\Barcode\FG\Operation\PackingBarcodeModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\Operation\InWarehouseFGModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\Operation\MoveWarehouseFGModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\Operation\PackingFGModel.cs" />
     <Compile Include="MODEL\Barcode\FG\FGPackageModel.cs" />
+    <Compile Include="MODEL\Barcode\LocationModel.cs" />
     <Compile Include="MODEL\Barcode\RW\CheckModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\BarcodeWarehouse.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\EnterWarehouseModel.cs" />
@@ -92,6 +93,9 @@
     <Compile Include="json\JsonTokens.cs" />
     <Compile Include="json\JsonWriter.cs" />
     <Compile Include="json\SerializeIncludingBaseAttribute.cs" />
+    <Compile Include="MODEL\Barcode\WORP\Operation\WOLineReportModel.cs" />
+    <Compile Include="MODEL\Barcode\WORP\Operation\WOReportModel.cs" />
+    <Compile Include="MODEL\Barcode\WORP\ReportModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SysConfig.cs" />
     <Compile Include="MODEL\Sys\CompanyModel.cs" />

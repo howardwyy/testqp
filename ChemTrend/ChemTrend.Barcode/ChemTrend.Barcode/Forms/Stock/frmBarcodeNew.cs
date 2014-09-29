@@ -42,15 +42,22 @@ namespace ChemTrend.Barcode.Forms.Stock
 
                     cbox_orderno.Properties.Items.Clear();
                     string tips = cbox_orderno.Text;
-                    POLineModel returnModel = apiPOLine.GetModelByID(tips);
+                    string company = lue_company.Text;
+                    ModelAPI<GetPOTipsModel> apiPOTips = new ModelAPI<GetPOTipsModel>();
+                    GetPOTipsModel searchModel = new GetPOTipsModel()
+                    {
+                        company = company,
+                        tips = tips
+                    };
+                    GetPOTipsModel returnModel = apiPOTips.Insert(searchModel);
                     if (returnModel != null && returnModel.POS != null)
                     {
                         for (int i = 0; i < returnModel.POS.Count(); i++)
                         {
                             cbox_orderno.Properties.Items.Add(returnModel.POS[i]);
                         }
+                        cbox_orderno.ShowPopup();
                     }
-                    cbox_orderno.ShowPopup();
                 }
                 catch (Exception ex)
                 {
@@ -127,7 +134,7 @@ namespace ChemTrend.Barcode.Forms.Stock
                             List<XtraReport> reports = new List<XtraReport>();
                             foreach (RWBarcodeModel model in RWBarcodeModels)
                             {
-                                repStock report = new repStock();
+                                repRW report = new repRW();
                                 report.model = model;
                                 report.CreateDocument();
                                 reports.Add(report);

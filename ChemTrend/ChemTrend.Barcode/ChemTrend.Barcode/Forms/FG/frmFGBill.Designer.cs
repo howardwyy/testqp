@@ -92,11 +92,6 @@
             this.cbox_remark.Name = "cbox_remark";
             this.cbox_remark.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbox_remark.Properties.Items.AddRange(new object[] {
-            "创建条码",
-            "条码移库",
-            "条码出库",
-            "条码入库"});
             this.cbox_remark.Size = new System.Drawing.Size(100, 20);
             this.cbox_remark.TabIndex = 27;
             // 

@@ -50,6 +50,7 @@ select @dj t";
                             item.LoginUserID = this.LoginUserID;
                             item.LoginUserName = this.LoginUserName;
                             item.Danju = dj;
+                            item.WorkOrder = item.WorkOrder;
                             item.Insert();
                             count += item.BarcodeQty;
                         }

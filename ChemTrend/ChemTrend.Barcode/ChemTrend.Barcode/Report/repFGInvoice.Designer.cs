@@ -57,10 +57,10 @@
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
-            this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
-            this.xcbox_isurgent = new DevExpress.XtraReports.UI.XRCheckBox();
             this.xlbl_customer = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
+            this.xcbox_isurgent = new DevExpress.XtraReports.UI.XRCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -286,7 +286,7 @@
             this.xrLabel4.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel4.StylePriority.UseTextAlignment = false;
             this.xrLabel4.Text = "发货日期：";
-            this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrLabel3
             // 
@@ -306,7 +306,7 @@
             this.xrLabel2.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel2.StylePriority.UseTextAlignment = false;
             this.xrLabel2.Text = "发货单号：";
-            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             // 
             // xrLabel1
             // 
@@ -355,19 +355,6 @@
             this.ReportFooter.HeightF = 103.125F;
             this.ReportFooter.Name = "ReportFooter";
             // 
-            // xrLine2
-            // 
-            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 32.29163F);
-            this.xrLine2.Name = "xrLine2";
-            this.xrLine2.SizeF = new System.Drawing.SizeF(752F, 10F);
-            // 
-            // xcbox_isurgent
-            // 
-            this.xcbox_isurgent.LocationFloat = new DevExpress.Utils.PointFloat(576.1458F, 59.99997F);
-            this.xcbox_isurgent.Name = "xcbox_isurgent";
-            this.xcbox_isurgent.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xcbox_isurgent.Text = "是否加急";
-            // 
             // xlbl_customer
             // 
             this.xlbl_customer.LocationFloat = new DevExpress.Utils.PointFloat(133.4376F, 59.99997F);
@@ -386,7 +373,20 @@
             this.xrLabel6.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel6.StylePriority.UseTextAlignment = false;
             this.xrLabel6.Text = "客户：";
-            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.xrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
+            // 
+            // xrLine2
+            // 
+            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 32.29163F);
+            this.xrLine2.Name = "xrLine2";
+            this.xrLine2.SizeF = new System.Drawing.SizeF(752F, 10F);
+            // 
+            // xcbox_isurgent
+            // 
+            this.xcbox_isurgent.LocationFloat = new DevExpress.Utils.PointFloat(576.1458F, 59.99997F);
+            this.xcbox_isurgent.Name = "xcbox_isurgent";
+            this.xcbox_isurgent.SizeF = new System.Drawing.SizeF(100F, 23F);
+            this.xcbox_isurgent.Text = "是否加急";
             // 
             // repFGInvoice
             // 

@@ -31,6 +31,7 @@ namespace ChemTrend.Moblie.Forms.Product
             base.ucAction.Visible = true;
             base.ucAction.initString("提交");
             base.ucAction.Click += new EventHandler(ucAction_Click);
+            this.tbox_warehouse.Focus();
             InitData();
         }
 
@@ -49,17 +50,19 @@ namespace ChemTrend.Moblie.Forms.Product
             try
             {
 
-                ModelAPI<EnterWarehouseModel> apiWarehouse = new ModelAPI<EnterWarehouseModel>();
+                ModelAPI<InWarehouseFGModel> apiWarehouse = new ModelAPI<InWarehouseFGModel>();
 
-                EnterWarehouseModel enterWarehouse = new EnterWarehouseModel()
+                InWarehouseFGModel enterWarehouse = new InWarehouseFGModel()
                 {
                     Barcodes = barcodes.ToArray(),
                     Warehouse = tbox_warehouse.Text,
-                    Remark = AppConfig.BarcodeRemark.条码入库.ToString(),
-                    Bin = tbox_bin.Text
+                    Bin = tbox_bin.Text,
+                    Remark = AppConfig.BarcodeRemark.条码入库.ToString()
                 };
                 apiWarehouse.Insert(enterWarehouse);
                 ResetData();
+                MessageBox.Show("入库成功！");
+
 
             }
             catch (Exception ex)
@@ -76,15 +79,18 @@ namespace ChemTrend.Moblie.Forms.Product
 
             dg_list.DataSource = dt;
 
-            dt.Columns.Add("条码", typeof(string));
-            dt.Columns.Add("物料", typeof(string));
-            dt.Columns.Add("负责人", typeof(string));
+
+            dt.Columns.Add("条码号", typeof(string));
+            dt.Columns.Add("物料号", typeof(string));
+            dt.Columns.Add("数量", typeof(string));
+            dt.Columns.Add("批次", typeof(string)); 
+
             DataGridTableStyle ts = new DataGridTableStyle();
             ts.MappingName = dt.TableName;
 
             //分别对列进行渲染，其中前三列用for循环实现，对列宽进行设定，值为75
             int numColumns = dt.Columns.Count;
-            for (int i = 0; i < numColumns - 1; i++)
+            for (int i = 0; i < numColumns; i++)
             {
                 DataGridColumnStyle aColumnTextColumnStyle = new DataGridTextBoxColumn();//定义该列用textbox来进行渲染
                 aColumnTextColumnStyle.HeaderText = dt.Columns[i].ColumnName; ;  //列头
@@ -92,14 +98,28 @@ namespace ChemTrend.Moblie.Forms.Product
                 aColumnTextColumnStyle.Width = 85; //在这里就可以对列宽进行设置了
                 ts.GridColumnStyles.Add(aColumnTextColumnStyle);
                 this.dg_list.TableStyles.Add(ts);
-            }
-            //第四列进行列宽设定，这一列为单独设置，定义列宽为200
-            DataGridColumnStyle newStyle = new DataGridTextBoxColumn();
-            newStyle.HeaderText = dt.Columns[2].ColumnName; ;  //列头
-            newStyle.MappingName = dt.Columns[2].ColumnName;
-            newStyle.Width = 160;
-            ts.GridColumnStyles.Add(newStyle);
-            this.dg_list.TableStyles.Add(ts);
+            } 
+
+        }
+
+        private void AddItem(FGBarcodeModel model)
+        {
+
+            //在做完了这些之后，我们对新建的datatable中的列分别加入数据，例如我们在项目中所添加的：
+            DataRow newRow = dt.NewRow();
+
+            newRow["条码号"] = model.ID;
+            newRow["物料号"] = model.StockCode;
+            newRow["数量"] = model.UnitQty + "";
+            newRow["批次"] = model.StockBatch;
+            dt.Rows.Add(newRow);
+
+
+            //加入到条码集合列表
+            barcodes.Add(model.ID);
+
+            this.tbox_barcode.Text = "";
+            this.tbox_barcode.Focus();
 
         }
 
@@ -110,21 +130,10 @@ namespace ChemTrend.Moblie.Forms.Product
             tbox_bin.Text = "";
             tbox_warehouse.Text = "";
             tbox_barcode.Text = "";
-            tbox_barcode.Focus();
+            this.tbox_warehouse.Focus();
         }
 
-        private void AddItem(FGBarcodeModel model)
-        {
-
-            //在做完了这些之后，我们对新建的datatable中的列分别加入数据，例如我们在项目中所添加的：
-            DataRow newRow = dt.NewRow();
-            newRow["条码"] = model.ID;
-            newRow["物料"] = model.StockCode;
-            newRow["负责人"] = model.LastUserName;
-            dt.Rows.Add(newRow);
-
-        }
-
+      
         private void FindBarcode()
         {
             if (string.IsNullOrEmpty(tbox_barcode.Text))
@@ -149,8 +158,14 @@ namespace ChemTrend.Moblie.Forms.Product
                     FGBarcodeModel model = apiBarcode.GetModel(searchModel);
                     if (model != null)
                     {
-                        AddItem(model);
-                        barcodes.Add(tbox_barcode.Text);
+                        if (string.IsNullOrEmpty(model.Warehouse))
+                        {
+                            AddItem(model);
+                        }
+                        else
+                        {
+                            MessageBox.Show(tbox_barcode.Text + "\n该条码标签已入库！");
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -183,9 +198,8 @@ namespace ChemTrend.Moblie.Forms.Product
                 {
                     this.tbox_warehouse.Text = WH[0];
                     this.tbox_bin.Text = WH[1];
-
-                    this.tbox_warehouse.Focus();
-                    this.tbox_warehouse.SelectionStart = this.tbox_warehouse.Text.Length;
+                    this.tbox_barcode.Text = "";
+                    this.tbox_barcode.Focus();
                 }
             }
         }

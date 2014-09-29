@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmWork));
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.ucPager = new ChemTrend.Barcode.Controls.ucPager();
@@ -41,6 +41,8 @@
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.te_wo = new DevExpress.XtraEditors.TextEdit();
+            this.sbtn_test = new DevExpress.XtraEditors.SimpleButton();
             this.te_stockcode = new DevExpress.XtraEditors.TextEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.cbox_status = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -54,8 +56,11 @@
             this.col_batch = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_wh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_bin = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_remark = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gc_barcode = new DevExpress.XtraGrid.GridControl();
+            this.col_deqty = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_dedate = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_haddeQTY = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_HadDe = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gc_work = new DevExpress.XtraGrid.GridControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.xtraScrollableControl2 = new DevExpress.XtraEditors.XtraScrollableControl();
@@ -68,10 +73,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.te_stockname.Properties)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.te_wo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_stockcode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbox_status.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_work)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gc_barcode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_work)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -172,6 +178,8 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.te_wo);
+            this.groupBox1.Controls.Add(this.sbtn_test);
             this.groupBox1.Controls.Add(this.te_po);
             this.groupBox1.Controls.Add(this.labelControl11);
             this.groupBox1.Controls.Add(this.te_stockname);
@@ -189,6 +197,24 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询";
+            // 
+            // te_wo
+            // 
+            this.te_wo.Location = new System.Drawing.Point(524, 16);
+            this.te_wo.Name = "te_wo";
+            this.te_wo.Size = new System.Drawing.Size(135, 20);
+            this.te_wo.TabIndex = 31;
+            // 
+            // sbtn_test
+            // 
+            this.sbtn_test.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.sbtn_test.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_test.Image")));
+            this.sbtn_test.Location = new System.Drawing.Point(665, 15);
+            this.sbtn_test.Name = "sbtn_test";
+            this.sbtn_test.Size = new System.Drawing.Size(75, 23);
+            this.sbtn_test.TabIndex = 30;
+            this.sbtn_test.Text = "测试数据";
+            this.sbtn_test.Click += new System.EventHandler(this.sbtn_test_Click);
             // 
             // te_stockcode
             // 
@@ -255,23 +281,23 @@
             // 
             // col_status
             // 
-            this.col_status.Caption = "状态";
-            this.col_status.FieldName = "Status";
+            this.col_status.Caption = "物料号";
+            this.col_status.FieldName = "StockName";
             this.col_status.Name = "col_status";
             this.col_status.OptionsColumn.AllowEdit = false;
             this.col_status.Visible = true;
             this.col_status.VisibleIndex = 2;
-            this.col_status.Width = 49;
+            this.col_status.Width = 84;
             // 
             // col_workno
             // 
-            this.col_workno.Caption = "工单号";
+            this.col_workno.Caption = "编号";
             this.col_workno.FieldName = "ID";
             this.col_workno.Name = "col_workno";
             this.col_workno.OptionsColumn.AllowEdit = false;
             this.col_workno.Visible = true;
             this.col_workno.VisibleIndex = 1;
-            this.col_workno.Width = 100;
+            this.col_workno.Width = 52;
             // 
             // gv_work
             // 
@@ -281,8 +307,11 @@
             this.col_batch,
             this.col_wh,
             this.col_bin,
-            this.col_remark});
-            this.gv_work.GridControl = this.gc_barcode;
+            this.col_deqty,
+            this.col_dedate,
+            this.col_haddeQTY,
+            this.col_HadDe});
+            this.gv_work.GridControl = this.gc_work;
             this.gv_work.Name = "gv_work";
             this.gv_work.OptionsSelection.CheckBoxSelectorColumnWidth = 35;
             this.gv_work.OptionsSelection.MultiSelect = true;
@@ -292,55 +321,83 @@
             // 
             // col_batch
             // 
-            this.col_batch.Caption = "批次";
-            this.col_batch.FieldName = "StockBatch";
+            this.col_batch.Caption = "WorkCenter";
+            this.col_batch.FieldName = "WorkCenter";
             this.col_batch.Name = "col_batch";
             this.col_batch.OptionsColumn.AllowEdit = false;
             this.col_batch.Visible = true;
-            this.col_batch.VisibleIndex = 3;
-            this.col_batch.Width = 42;
+            this.col_batch.VisibleIndex = 6;
+            this.col_batch.Width = 85;
             // 
             // col_wh
             // 
-            this.col_wh.Caption = "仓库";
-            this.col_wh.FieldName = "Warehouse";
+            this.col_wh.Caption = "WorkOrder";
+            this.col_wh.FieldName = "Workorder";
             this.col_wh.Name = "col_wh";
             this.col_wh.OptionsColumn.AllowEdit = false;
             this.col_wh.Visible = true;
-            this.col_wh.VisibleIndex = 4;
-            this.col_wh.Width = 42;
+            this.col_wh.VisibleIndex = 7;
+            this.col_wh.Width = 85;
             // 
             // col_bin
             // 
-            this.col_bin.Caption = "库位";
-            this.col_bin.FieldName = "Location";
+            this.col_bin.Caption = "BOMOP";
+            this.col_bin.FieldName = "BOMOP";
             this.col_bin.Name = "col_bin";
             this.col_bin.OptionsColumn.AllowEdit = false;
             this.col_bin.Visible = true;
-            this.col_bin.VisibleIndex = 5;
-            this.col_bin.Width = 41;
+            this.col_bin.VisibleIndex = 8;
+            this.col_bin.Width = 84;
             // 
-            // col_remark
+            // col_deqty
             // 
-            this.col_remark.Caption = "备注";
-            this.col_remark.Name = "col_remark";
-            this.col_remark.Visible = true;
-            this.col_remark.VisibleIndex = 6;
-            this.col_remark.Width = 96;
+            this.col_deqty.Caption = "扣料数量";
+            this.col_deqty.FieldName = "DeQTY";
+            this.col_deqty.Name = "col_deqty";
+            this.col_deqty.Visible = true;
+            this.col_deqty.VisibleIndex = 3;
+            this.col_deqty.Width = 91;
             // 
-            // gc_barcode
+            // col_dedate
             // 
-            this.gc_barcode.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gc_barcode.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.RelationName = "Level1";
-            this.gc_barcode.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
-            this.gc_barcode.Location = new System.Drawing.Point(2, 2);
-            this.gc_barcode.MainView = this.gv_work;
-            this.gc_barcode.Name = "gc_barcode";
-            this.gc_barcode.Size = new System.Drawing.Size(766, 402);
-            this.gc_barcode.TabIndex = 1;
-            this.gc_barcode.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.col_dedate.Caption = "上次扣料时间";
+            this.col_dedate.FieldName = "DeDate";
+            this.col_dedate.Name = "col_dedate";
+            this.col_dedate.Visible = true;
+            this.col_dedate.VisibleIndex = 5;
+            this.col_dedate.Width = 72;
+            // 
+            // col_haddeQTY
+            // 
+            this.col_haddeQTY.Caption = "已扣料数量";
+            this.col_haddeQTY.FieldName = "HadDeQTY";
+            this.col_haddeQTY.Name = "col_haddeQTY";
+            this.col_haddeQTY.Visible = true;
+            this.col_haddeQTY.VisibleIndex = 4;
+            this.col_haddeQTY.Width = 72;
+            // 
+            // col_HadDe
+            // 
+            this.col_HadDe.Caption = "HadDe";
+            this.col_HadDe.FieldName = "HadDe";
+            this.col_HadDe.Name = "col_HadDe";
+            this.col_HadDe.Visible = true;
+            this.col_HadDe.VisibleIndex = 9;
+            this.col_HadDe.Width = 88;
+            // 
+            // gc_work
+            // 
+            this.gc_work.Cursor = System.Windows.Forms.Cursors.Default;
+            this.gc_work.Dock = System.Windows.Forms.DockStyle.Fill;
+            gridLevelNode2.RelationName = "Level1";
+            this.gc_work.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode2});
+            this.gc_work.Location = new System.Drawing.Point(2, 2);
+            this.gc_work.MainView = this.gv_work;
+            this.gc_work.Name = "gc_work";
+            this.gc_work.Size = new System.Drawing.Size(766, 402);
+            this.gc_work.TabIndex = 1;
+            this.gc_work.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_work});
             // 
             // panelControl1
@@ -355,7 +412,7 @@
             // 
             // panelControl2
             // 
-            this.panelControl2.Controls.Add(this.gc_barcode);
+            this.panelControl2.Controls.Add(this.gc_work);
             this.panelControl2.Controls.Add(this.panelControl3);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(2, 107);
@@ -389,7 +446,7 @@
             this.Controls.Add(this.xtraScrollableControl3);
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmWork";
-            this.Text = "工单管理";
+            this.Text = "扣料记录";
             this.Load += new System.EventHandler(this.frmWork_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
@@ -401,10 +458,11 @@
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.te_wo.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_stockcode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbox_status.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_work)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gc_barcode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gc_work)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
@@ -440,11 +498,16 @@
         private DevExpress.XtraGrid.Columns.GridColumn col_batch;
         private DevExpress.XtraGrid.Columns.GridColumn col_wh;
         private DevExpress.XtraGrid.Columns.GridColumn col_bin;
-        private DevExpress.XtraGrid.Columns.GridColumn col_remark;
-        private DevExpress.XtraGrid.GridControl gc_barcode;
+        private DevExpress.XtraGrid.Columns.GridColumn col_deqty;
+        private DevExpress.XtraGrid.GridControl gc_work;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl2;
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl3;
+        private DevExpress.XtraGrid.Columns.GridColumn col_dedate;
+        private DevExpress.XtraGrid.Columns.GridColumn col_haddeQTY;
+        private DevExpress.XtraGrid.Columns.GridColumn col_HadDe;
+        private DevExpress.XtraEditors.TextEdit te_wo;
+        private DevExpress.XtraEditors.SimpleButton sbtn_test;
     }
 }

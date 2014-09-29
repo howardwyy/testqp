@@ -18,13 +18,13 @@ namespace BarcodeModel.MODEL.Barcode.FG
 
         public string StockUnit { get; set; }
 
-        public decimal StockUnitQty { get; set; }
+        public decimal UnitQty { get; set; }
 
         public string StockBatch { get; set; }
 
         public string Warehouse { get; set; }
 
-        public string Location { get; set; }
+        public string Bin { get; set; }
 
         public DateTime WarehouseInTime { get; set; }
 

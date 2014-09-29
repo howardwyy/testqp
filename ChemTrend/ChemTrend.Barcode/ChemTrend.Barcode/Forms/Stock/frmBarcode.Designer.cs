@@ -185,6 +185,7 @@
             this.gc_barcode.TabIndex = 1;
             this.gc_barcode.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_barcode});
+            this.gc_barcode.Click += new System.EventHandler(this.gc_barcode_Click);
             // 
             // gv_barcode
             // 

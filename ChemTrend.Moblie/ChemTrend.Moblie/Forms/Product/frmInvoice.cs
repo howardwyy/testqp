@@ -27,10 +27,10 @@ namespace ChemTrend.Moblie.Forms.Product
         {
             base.mTitle.Text = "发往客户";
             base.ucAction.Visible = true;
-            base.ucAction.initString("提交");
+            base.ucAction.initString("发货");
 
             base.ucAction.Click += new EventHandler(ucAction_Click);
-
+            this.tbox_invoice.Focus();
 
             InitData();
 

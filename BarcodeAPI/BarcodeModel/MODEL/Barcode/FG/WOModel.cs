@@ -74,7 +74,7 @@ insert into FG02(FG02002,FG02003,FG02004,FG02005,FG02010,FG02011)
 values(@bid,getdate(),@userid,@username,@dj,N'创建条码标签')
 
 insert into FG01(FG01001,FG01002,FG01003,FG01004,FG01005,FG01006,FG01012,FG01013,FG01014,FG01015,FG01018,FG01024,FG01025,FG01027,FG01032,FG01037,FG01033,FG01034,FG01035,FG01036,FG01038)
-values(@bid,@stock,@stockname,@stockspec,@unit,@qty,'','','','',@remark,@userid,@username,@dj,1,@company,'',@productdate,@lifedate,@pagecode,@lifeday)
+values(@bid,@stock,@stockname,@stockspec,@unit,@qty,'','','','',@remark,@userid,@username,@dj,1,@company,@workorder,@productdate,@lifedate,@pagecode,@lifeday)
 
 insert into FG04(FG04002,FG04003,FG04004,FG04005) values(getdate(),@dj,@bid,N'创建条码')
 
@@ -84,6 +84,7 @@ end
             BaseAdo ba = new BaseAdo();
             ba.ExecuteSql(sql, new SqlParameter("@userid", this.LoginUserID),
                 new SqlParameter("@username", this.LoginUserName),
+                new SqlParameter("@workorder", this.WorkOrder),
                 new SqlParameter("@stock", this.StockCode),
                 new SqlParameter("@stockname", this.StockName),
                 new SqlParameter("@stockspec", this.StockSpec),

@@ -32,7 +32,6 @@ F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.frmMain.resources
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.Report.repPackage.resources
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Report.repPacking.resources
-F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.Report.repStock.resources
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.Report.repWarehouse.resources
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Properties.Resources.resources
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.csproj.GenerateResource.Cache
@@ -72,3 +71,8 @@ F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.Work.frmWorkMappings.resources
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.FG.frmFGInvoicing.resources
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.FG.frmFGInvoiceDetails.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.Print.frmWorkCenter.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Report.repWorkCenter.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.Print.frmStock.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Forms.Report.repRW.resources
+F:\vs-workspace\ChemTrend.Barcode\ChemTrend\ChemTrend.Barcode\ChemTrend.Barcode\obj\Debug\ChemTrend.Barcode.Report.repStock.resources

@@ -77,9 +77,9 @@ namespace ChemTrend.Barcode.Forms.FG
         {
             try
             {
-                ModelAPI<InvoicingFGModel> apiROW = new ModelAPI<InvoicingFGModel>();
+                ModelAPI<InvoicingFGModel> apiInvoicing = new ModelAPI<InvoicingFGModel>();
                 InvoicingFGModel invoicingModel = new InvoicingFGModel();
-                invoicingModel.Remark = AppConfig.BarcodeRemark.条码出库.ToString();
+                invoicingModel.Remark = AppConfig.BarcodeRemark.发货出库.ToString();
                 invoicingModel.InvoiceID = IDModel.InvoiceID;
                 invoicingModel.InvoiceLine = IDModel.ID.ToString();
                 invoicingModel.InvoicedCount = IDModel.InvoicedCount + InvoicingCount;
@@ -99,7 +99,7 @@ namespace ChemTrend.Barcode.Forms.FG
                     }
                     invoicingModel.Barcodes = Barcodes.ToArray();
 
-                    apiROW.Insert(invoicingModel);
+                    apiInvoicing.Insert(invoicingModel);
                     DialogResult = DialogResult.OK;
                 }
                 else

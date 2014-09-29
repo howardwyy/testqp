@@ -16,6 +16,7 @@ using DevExpress.XtraReports.UI;
 using ChemTrend.Barcode.Forms.Print;
 using ChemTrend.Barcode.Report;
 using BarcodeModel.MODEL.Sys;
+using BarcodeModel.MODEL.Barcode.FG.Operation;
 
 namespace ChemTrend.Barcode.Forms.Stock
 {
@@ -62,16 +63,22 @@ namespace ChemTrend.Barcode.Forms.Stock
 
                     cbox_wo.Properties.Items.Clear();
                     string tips = cbox_wo.Text;
-                    ModelAPI<GetWOTipsModel> apiTips = new ModelAPI<GetWOTipsModel>();
-                    GetWOTipsModel returnModel = apiTips.GetModelByID(tips);
+                    string company = lue_company.Text;
+                    ModelAPI<GetWOTipsModel> apiWOTips = new ModelAPI<GetWOTipsModel>();
+                    GetWOTipsModel searchModel = new GetWOTipsModel()
+                    {
+                        company = company,
+                        tips = tips
+                    };
+                    GetWOTipsModel returnModel = apiWOTips.Insert(searchModel);
                     if (returnModel != null && returnModel.WOS != null)
                     {
                         for (int i = 0; i < returnModel.WOS.Count(); i++)
                         {
                             cbox_wo.Properties.Items.Add(returnModel.WOS[i]);
                         }
+                        cbox_wo.ShowPopup();
                     }
-                    cbox_wo.ShowPopup();
                 }
                 catch (Exception ex)
                 {

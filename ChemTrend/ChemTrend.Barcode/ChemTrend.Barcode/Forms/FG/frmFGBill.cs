@@ -12,6 +12,7 @@ using BarcodeModel.API;
 using BarcodeModel.MODEL.Barcode.FG;
 using ChemTrend.Barcode.Utils;
 using BarcodeModel.MODEL.Barcode.RW;
+using ChemTrend.Barcode.Data;
 
 namespace ChemTrend.Barcode.Forms.FG
 {
@@ -38,6 +39,11 @@ namespace ChemTrend.Barcode.Forms.FG
         {
             de_start.Text = DateTimeUtil.GetFirstDayOfMonth();
             de_end.Text = DateTimeUtil.GetLastDayOfMonth();
+            List<ComboBoxEditData> status = AppConfig.GetBarcodeRemarkStatus();
+            foreach (ComboBoxEditData item in status)
+            {
+                cbox_remark.Properties.Items.Add(item.Text);
+            }
         }
 
 

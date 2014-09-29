@@ -143,9 +143,15 @@ namespace ChemTrend.Barcode.Forms.FG
             {
                 cbox_wo.Properties.Items.Clear();
                 string tips = cbox_wo.Text;
+                string company = lue_company.Text;
                 ModelAPI<GetWOTipsModel> apiWOTips = new ModelAPI<GetWOTipsModel>();
-                GetWOTipsModel returnModel = apiWOTips.GetModelByID(tips);
-                if (returnModel != null)
+                GetWOTipsModel searchModel = new GetWOTipsModel()
+                {
+                    company = company,
+                    tips = tips
+                };
+                GetWOTipsModel returnModel = apiWOTips.Insert(searchModel);
+                if (returnModel != null && returnModel.WOS != null)
                 {
                     for (int i = 0; i < returnModel.WOS.Count(); i++)
                     {

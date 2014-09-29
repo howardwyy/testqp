@@ -22,9 +22,10 @@ namespace ChemTrend.Barcode.Report
             this.xlbl_batch.Text = model.StockBatch;
             this.xlbl_unitqty.Text = "数量：(" + model.UnitQty + ")";
             this.xlbl_checktime.Text = "";
-            this.xlbl_time1.Text = model.EXPTime.ToString("yyyy-MM-DD");
+            this.xlbl_time1.Text = model.EXPTime.ToString("yyyy-MM-dd");
             this.xlbl_remark.Text = model.Remark1;
             this.xrBarCode1.Text = model.ID;
+            this.xlbl_orderno.Text = model.WO;
         }
 
     }

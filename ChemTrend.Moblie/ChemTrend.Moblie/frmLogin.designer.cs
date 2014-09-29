@@ -35,6 +35,7 @@
             this.btn_Login = new System.Windows.Forms.Button();
             this.tbox_Name = new System.Windows.Forms.TextBox();
             this.tbox_Pwd = new System.Windows.Forms.TextBox();
+            this.btn_cancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -62,7 +63,7 @@
             // 
             this.btn_Login.BackColor = System.Drawing.Color.OrangeRed;
             this.btn_Login.ForeColor = System.Drawing.Color.White;
-            this.btn_Login.Location = new System.Drawing.Point(130, 229);
+            this.btn_Login.Location = new System.Drawing.Point(157, 229);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Size = new System.Drawing.Size(72, 25);
             this.btn_Login.TabIndex = 3;
@@ -85,12 +86,24 @@
             this.tbox_Pwd.TabIndex = 5;
             this.tbox_Pwd.Text = "123456";
             // 
+            // btn_cancel
+            // 
+            this.btn_cancel.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_cancel.ForeColor = System.Drawing.Color.White;
+            this.btn_cancel.Location = new System.Drawing.Point(79, 229);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(72, 25);
+            this.btn_cancel.TabIndex = 9;
+            this.btn_cancel.Text = "取 消";
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(240, 320);
+            this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.tbox_Pwd);
             this.Controls.Add(this.tbox_Name);
             this.Controls.Add(this.btn_Login);
@@ -115,5 +128,6 @@
         private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.TextBox tbox_Name;
         private System.Windows.Forms.TextBox tbox_Pwd;
+        private System.Windows.Forms.Button btn_cancel;
     }
 }

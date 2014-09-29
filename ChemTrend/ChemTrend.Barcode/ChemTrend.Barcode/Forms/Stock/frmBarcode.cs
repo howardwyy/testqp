@@ -38,7 +38,8 @@ namespace ChemTrend.Barcode.Forms.Stock
             {
                 SearchOrderBy = "RW01001 DESC",
                 PageIndex = ucPager.PageCurrent,
-                PageSize = pageSize
+                PageSize = pageSize,
+                doPager =  true
             };
             InitData();
             InitValidationRules();
@@ -69,6 +70,7 @@ namespace ChemTrend.Barcode.Forms.Stock
         {
             try
             {
+                searchModel.doPager = true;
                 searchModel.PageIndex = ucPager.PageCurrent;
                 searchModel.PageSize = ucPager.PageSize;
                 listBarcode = apiBarcode.GetList(searchModel);
@@ -163,7 +165,7 @@ namespace ChemTrend.Barcode.Forms.Stock
                 foreach (int row in selectRows)
                 {
                     RWBarcodeModel model = listBarcode[gv_barcode.GetDataSourceRowIndex(row)];
-                    repStock report = new repStock();
+                    repRW report = new repRW();
                     report.model = model;
                     report.CreateDocument();
                     reports.Add(report);
@@ -388,6 +390,11 @@ namespace ChemTrend.Barcode.Forms.Stock
                 return false;
             }
             return true;
+        }
+
+        private void gc_barcode_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

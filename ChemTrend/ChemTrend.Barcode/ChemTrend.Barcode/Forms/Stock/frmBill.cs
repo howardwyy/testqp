@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using BarcodeModel.API;
 using BarcodeModel.MODEL.Barcode.RW;
 using ChemTrend.Barcode.Utils;
+using ChemTrend.Barcode.Data;
 
 namespace ChemTrend.Barcode.Forms.Stock
 {
@@ -32,12 +33,17 @@ namespace ChemTrend.Barcode.Forms.Stock
         {
             de_start.Text = DateTimeUtil.GetFirstDayOfMonth();
             de_end.Text = DateTimeUtil.GetLastDayOfMonth();
+            List<ComboBoxEditData> status = AppConfig.GetBarcodeRemarkStatus();
+            foreach (ComboBoxEditData item in status)
+            {
+                cbox_remark.Properties.Items.Add(item.Text);
+            }
         }
 
         private void frmBill_Load(object sender, EventArgs e)
         {
             InitView();
-            InitData();
+            InitData(); 
         }
 
         private void InitData()

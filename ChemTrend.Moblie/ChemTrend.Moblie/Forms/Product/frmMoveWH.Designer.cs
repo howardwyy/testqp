@@ -56,7 +56,7 @@
             this.panel_warehouse.Controls.Add(this.pbox_query);
             this.panel_warehouse.Controls.Add(this.tbox_barcode);
             this.panel_warehouse.Controls.Add(this.label1);
-            this.panel_warehouse.Location = new System.Drawing.Point(0, 36);
+            this.panel_warehouse.Location = new System.Drawing.Point(0, 67);
             this.panel_warehouse.Name = "panel_warehouse";
             this.panel_warehouse.Size = new System.Drawing.Size(240, 30);
             // 
@@ -81,7 +81,7 @@
             // 
             this.tbox_barcode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbox_barcode.Location = new System.Drawing.Point(58, 5);
+            this.tbox_barcode.Location = new System.Drawing.Point(51, 5);
             this.tbox_barcode.Name = "tbox_barcode";
             this.tbox_barcode.Size = new System.Drawing.Size(120, 21);
             this.tbox_barcode.TabIndex = 1;
@@ -137,7 +137,7 @@
             this.panel_bcode.Controls.Add(this.tbox_bin);
             this.panel_bcode.Controls.Add(this.label2);
             this.panel_bcode.Controls.Add(this.tbox_warehouse);
-            this.panel_bcode.Location = new System.Drawing.Point(0, 66);
+            this.panel_bcode.Location = new System.Drawing.Point(0, 37);
             this.panel_bcode.Name = "panel_bcode";
             this.panel_bcode.Size = new System.Drawing.Size(240, 30);
             // 

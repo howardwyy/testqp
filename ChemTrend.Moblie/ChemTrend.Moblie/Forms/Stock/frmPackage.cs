@@ -34,6 +34,7 @@ namespace ChemTrend.Moblie.Forms.Stock
             base.ucAction.initString("提交");
             base.ucAction.Click += new EventHandler(ucAction_Click);
 
+            this.tbox_package.Focus();
             InitData();
 
         }
@@ -68,6 +69,7 @@ namespace ChemTrend.Moblie.Forms.Stock
                 };
                 apiPB.Insert(pbModel);
                 ResetData();
+                MessageBox.Show("装箱成功！");
 
             }
             catch (Exception ex)
@@ -92,15 +94,20 @@ namespace ChemTrend.Moblie.Forms.Stock
 
             dg_list.DataSource = dt;
 
-            dt.Columns.Add("条码", typeof(string));
-            dt.Columns.Add("物料", typeof(string));
-            dt.Columns.Add("负责人", typeof(string));
+
+            dt.Columns.Add("条码号", typeof(string));
+            dt.Columns.Add("物料号", typeof(string));
+            dt.Columns.Add("数量", typeof(string));
+            dt.Columns.Add("批次", typeof(string));
+            dt.Columns.Add("仓库库位", typeof(string));
+
+
             DataGridTableStyle ts = new DataGridTableStyle();
             ts.MappingName = dt.TableName;
 
             //分别对列进行渲染，其中前三列用for循环实现，对列宽进行设定，值为75
             int numColumns = dt.Columns.Count;
-            for (int i = 0; i < numColumns - 1; i++)
+            for (int i = 0; i < numColumns; i++)
             {
                 DataGridColumnStyle aColumnTextColumnStyle = new DataGridTextBoxColumn();//定义该列用textbox来进行渲染
                 aColumnTextColumnStyle.HeaderText = dt.Columns[i].ColumnName; ;  //列头
@@ -109,13 +116,6 @@ namespace ChemTrend.Moblie.Forms.Stock
                 ts.GridColumnStyles.Add(aColumnTextColumnStyle);
                 this.dg_list.TableStyles.Add(ts);
             }
-            //第四列进行列宽设定，这一列为单独设置，定义列宽为200
-            DataGridColumnStyle newStyle = new DataGridTextBoxColumn();
-            newStyle.HeaderText = dt.Columns[2].ColumnName; ;  //列头
-            newStyle.MappingName = dt.Columns[2].ColumnName;
-            newStyle.Width = 160;
-            ts.GridColumnStyles.Add(newStyle);
-            this.dg_list.TableStyles.Add(ts);
 
 
 
@@ -124,15 +124,29 @@ namespace ChemTrend.Moblie.Forms.Stock
 
         private void pbox_search_package_Click(object sender, EventArgs e)
         {
-            ModelAPI<PackingModel> apiPacking = new ModelAPI<PackingModel>();
-            PackingModel model = apiPacking.GetModelByID(this.tbox_package.Text, null);
-            if (model.Status == (int)AppConfig.Packing.使用完)
+            FindPackage();
+        }
+
+        private void FindPackage()
+        {
+            try
             {
-                MessageBox.Show("该装箱条码已经使用完！");
+                ModelAPI<PackingModel> apiPacking = new ModelAPI<PackingModel>();
+                PackingModel model = apiPacking.GetModelByID(this.tbox_package.Text, null);
+                if (model.Status == (int)AppConfig.Packing.使用完)
+                {
+                    MessageBox.Show("该装箱条码已经使用完！");
+                }
+                else
+                {
+                    this.PackingID = model.ID;
+                    tbox_barcode.Text = "";
+                    tbox_barcode.Focus();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                this.PackingID = model.ID;
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -146,6 +160,8 @@ namespace ChemTrend.Moblie.Forms.Stock
         {
             if (tbox_barcode.Text.Length >= 1)
             {
+                try
+                {
                 ModelAPI<RWBarcodeModel> apiBarcode = new ModelAPI<RWBarcodeModel>();
                 RWBarcodeModel searchModel = new RWBarcodeModel()
                 {
@@ -166,6 +182,12 @@ namespace ChemTrend.Moblie.Forms.Stock
                     tbox_barcode.Text = "";
                     tbox_barcode.Focus();
                 }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
 
@@ -175,9 +197,11 @@ namespace ChemTrend.Moblie.Forms.Stock
 
             //在做完了这些之后，我们对新建的datatable中的列分别加入数据，例如我们在项目中所添加的：
             DataRow newRow = dt.NewRow();
-            newRow["条码"] = model.ID;
-            newRow["物料"] = model.StockCode;
-            newRow["负责人"] = model.LastUserName;
+            newRow["条码号"] = model.ID;
+            newRow["物料号"] = model.StockCode;
+            newRow["数量"] = model.StockUnitQty + "";
+            newRow["批次"] = model.StockBatch;
+            newRow["仓库库位"] = model.Warehouse + "--" + model.Location;
             dt.Rows.Add(newRow);
 
             //加入到条码集合列表
@@ -187,8 +211,7 @@ namespace ChemTrend.Moblie.Forms.Stock
         private void tbox_package_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter) {
-                tbox_barcode.Text = "";
-                tbox_barcode.Focus();
+                FindPackage();
             }
         }
 

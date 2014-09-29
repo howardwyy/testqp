@@ -51,6 +51,8 @@
             this.col_createtime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbox_remark = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.te_username = new DevExpress.XtraEditors.TextEdit();
             this.te_bill = new DevExpress.XtraEditors.TextEdit();
             this.sbtn_query = new DevExpress.XtraEditors.SimpleButton();
@@ -61,8 +63,6 @@
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.cbox_remark = new DevExpress.XtraEditors.ComboBoxEdit();
             this.xtraScrollableControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
@@ -77,13 +77,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbox_remark.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_username.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_bill.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_end.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_end.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_start.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_start.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbox_remark.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // xtraScrollableControl1
@@ -312,6 +312,23 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "条码信息";
             // 
+            // cbox_remark
+            // 
+            this.cbox_remark.Location = new System.Drawing.Point(420, 54);
+            this.cbox_remark.Name = "cbox_remark";
+            this.cbox_remark.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbox_remark.Size = new System.Drawing.Size(100, 20);
+            this.cbox_remark.TabIndex = 27;
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(355, 57);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(60, 14);
+            this.labelControl5.TabIndex = 26;
+            this.labelControl5.Text = "操作说明：";
+            // 
             // te_username
             // 
             this.te_username.Location = new System.Drawing.Point(420, 21);
@@ -403,28 +420,6 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "单据日期：";
             // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(355, 57);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(60, 14);
-            this.labelControl5.TabIndex = 26;
-            this.labelControl5.Text = "操作说明：";
-            // 
-            // cbox_remark
-            // 
-            this.cbox_remark.Location = new System.Drawing.Point(420, 54);
-            this.cbox_remark.Name = "cbox_remark";
-            this.cbox_remark.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbox_remark.Properties.Items.AddRange(new object[] {
-            "创建条码",
-            "条码移库",
-            "条码出库 ",
-            "条码入库"});
-            this.cbox_remark.Size = new System.Drawing.Size(100, 20);
-            this.cbox_remark.TabIndex = 27;
-            // 
             // frmBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -449,13 +444,13 @@
             this.panelControl1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbox_remark.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_username.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_bill.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_end.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_end.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_start.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.de_start.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbox_remark.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

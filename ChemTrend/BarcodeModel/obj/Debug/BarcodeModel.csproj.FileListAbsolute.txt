@@ -22,4 +22,3 @@ F:\vs-workspace\ChemTrend.Barcode\ChemTrend\BarcodeModel\bin\Debug\BarcodeModel.
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\BarcodeModel\bin\Debug\BarcodeModel.pdb
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\BarcodeModel\obj\Debug\BarcodeModel.dll
 F:\vs-workspace\ChemTrend.Barcode\ChemTrend\BarcodeModel\obj\Debug\BarcodeModel.pdb
-F:\vs-workspace\ChemTrend.Barcode\ChemTrend\BarcodeModel\obj\Debug\BarcodeModel.csprojResolveAssemblyReference.cache

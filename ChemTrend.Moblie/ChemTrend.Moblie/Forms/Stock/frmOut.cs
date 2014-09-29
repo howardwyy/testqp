@@ -181,12 +181,7 @@ namespace ChemTrend.Moblie.Forms.Stock
                     ReceiveModel model = apiReceive.GetModel(searchModel);
                     if (model != null)
                     {
-
-                        curReceiveModel = model;
-                        apiReceiveDetails = new ModelAPI<ReceiveDetailModel>();
-                        searchReceiveDetail = new ReceiveDetailModel();
-                        searchReceiveDetail.ReceiveID = model.ID;
-                        listRDetails = apiReceiveDetails.GetList(searchReceiveDetail);
+                        listRDetails = BarcodeInfo.GetBarcodes(model.ID).ConvertAll<ReceiveDetailModel>(m => m as ReceiveDetailModel); ;
                         for (int i = 0; i < listRDetails.Count; i++)
                         {
                             AddDetailsItem(listRDetails[i]);
@@ -194,6 +189,11 @@ namespace ChemTrend.Moblie.Forms.Stock
                         if (model.Status == 3)
                         {
                             MessageBox.Show("该领料单已关闭！");
+                        }
+                        else {
+                            if (string.IsNullOrEmpty(tbox_warehouse.Text)) {
+                                this.tbox_warehouse.Focus();
+                            }
                         }
                     }
                     else

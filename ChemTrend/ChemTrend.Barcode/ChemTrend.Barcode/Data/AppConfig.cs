@@ -32,16 +32,6 @@ namespace ChemTrend.Barcode.Data
             报废 = 5
         }
 
-        //历史记录中条码状态值
-        public enum BarcodeRemark
-        {
-            创建条码 = 1,
-            条码移库 = 2,
-            条码出库 = 3,
-            条码入库 = 4,
-            条码销毁 = 5,
-            条码装箱 = 6
-        }
         //构建条码状态信息
         public static List<ComboBoxEditData> GetBarcodeStatus()
         {
@@ -60,6 +50,39 @@ namespace ChemTrend.Barcode.Data
             return list;
         }
 
+        //历史记录中条码状态值
+        public enum BarcodeRemark
+        {
+            创建条码 = 1,
+            条码移库 = 2,
+            条码出库 = 3,
+            条码入库 = 4,
+            条码销毁 = 5,
+            条码装箱 = 6,
+            领料出库 = 7,
+            发货出库 = 8
+        }
+
+        //构建条码状态信息
+        public static List<ComboBoxEditData> GetBarcodeRemarkStatus()
+        {
+            List<ComboBoxEditData> list = new List<ComboBoxEditData>();
+            Type enumType = typeof(BarcodeRemark);
+            foreach (string str in Enum.GetNames(enumType))
+            {
+                ComboBoxEditData item = new ComboBoxEditData()
+                {
+                    Value = Enum.Format(enumType, Enum.Parse(enumType, str), "d"),
+                    Text = str
+                };
+                list.Add(item);
+
+            }
+            return list;
+        }
+
+
+
         //装箱条码使用状态值
         public enum Packing //1.未使用；2.使用中；3，使用完
         {
@@ -68,7 +91,7 @@ namespace ChemTrend.Barcode.Data
             使用完 = 3
         }
 
-     
+
 
 
         //构建条码状态信息
@@ -135,6 +158,20 @@ namespace ChemTrend.Barcode.Data
             关闭 = 3
         }
 
+        public enum BarcodeType
+        {
+            RW = 1,//原材料、
+            FG = 2,//成品、
+            WO = 3,//工单号、
+            RT = 4,//工序号、
+            WH = 5,//仓库库位、
+            PL = 6,//领料单、
+            FB = 7,//成品装箱、
+            RB = 8,//原材料装箱、
+            SO = 9,//成品出库单(销售单)
+            WC = 10,//WorkCenter
+            ST = 11 //物料
+        }
 
         public static string IniFilePath { get { return ConfigurationManager.AppSettings["IniFilePath"]; } }
         public enum Section

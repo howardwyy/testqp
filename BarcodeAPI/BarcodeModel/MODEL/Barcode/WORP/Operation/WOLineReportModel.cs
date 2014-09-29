@@ -19,8 +19,8 @@ namespace BarcodeModel.MODEL.Barcode.WORP.Operation
             string sql = @"
 update RW01 set RW01006=RW01006-@deqty where RW01001=@bid
 
-insert into RW02(RW02002,RW02003,RW02004,RW02005,RW02010,RW02011)
-select RW01001,getdate(),@userid,@username,@dj,N'扣料 工单号'+@wo+' 数量'+convert(varchar(10),@deqty) from RW01 where RW01001=@bid
+insert into RW02(RW02002,RW02003,RW02004,RW02005,RW02011)
+select RW01001,getdate(),@userid,@username,N'扣料 工单号'+@wo+' 数量'+convert(varchar(10),@deqty) from RW01 where RW01001=@bid
 
 update WK02 set WK02009=WK02009+@deqty where WK02001=@rlid
 if not exists(select * from WK02 where WK02002=@wo and WK02009<WK02005)
@@ -29,7 +29,13 @@ else
 update WK01 set WK01008=2 where WK01001=@wo
 ";
             BaseAdo ba = new BaseAdo();
-            ba.ExecuteSql(sql, new SqlParameter("@wo", this.WorkOrder), new SqlParameter("@bid", this.RWID), new SqlParameter("@deqty", this.DeQTY), new SqlParameter("@rlid", this.ReportLineID));
+            ba.ExecuteSql(sql,
+                new SqlParameter("@userid", this.LoginUserID),
+                new SqlParameter("@username", this.LoginUserName),
+                new SqlParameter("@wo", this.WorkOrder),
+                new SqlParameter("@bid", this.RWID),
+                new SqlParameter("@deqty", this.DeQTY),
+                new SqlParameter("@rlid", this.ReportLineID));
             return this;
         }
     }

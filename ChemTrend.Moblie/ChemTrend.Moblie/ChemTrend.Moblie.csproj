@@ -78,6 +78,7 @@
       <DependentUpon>ucTitle.cs</DependentUpon>
     </Compile>
     <Compile Include="Data\AppConfig.cs" />
+    <Compile Include="Data\BarcodeInfo.cs" />
     <Compile Include="Forms\Base\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,11 +199,23 @@
     <Compile Include="Forms\Stock\frmStockMain.Designer.cs">
       <DependentUpon>frmStockMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Task\frmDeducting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Task\frmDeducting.Designer.cs">
+      <DependentUpon>frmDeducting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Task\frmTaskMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Task\frmTaskMain.Designer.cs">
       <DependentUpon>frmTaskMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Task\frmTaskReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Task\frmTaskReport.Designer.cs">
+      <DependentUpon>frmTaskReport.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -281,8 +294,14 @@
     <EmbeddedResource Include="Forms\Stock\frmStockMain.resx">
       <DependentUpon>frmStockMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Task\frmDeducting.resx">
+      <DependentUpon>frmDeducting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Task\frmTaskMain.resx">
       <DependentUpon>frmTaskMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Task\frmTaskReport.resx">
+      <DependentUpon>frmTaskReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

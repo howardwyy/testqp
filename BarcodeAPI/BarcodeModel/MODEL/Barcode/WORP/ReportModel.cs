@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BarcodeModel.MODEL.Barcode.WORP
 {
     [Tablename(TableName = "WK02", PrimaryKey = "WK02001")]
-    public class ReportModel
+    public class ReportModel:BaseSearchModel
     {
         [Columname(Name = "WK02001")]
         public int ID { get; set; }

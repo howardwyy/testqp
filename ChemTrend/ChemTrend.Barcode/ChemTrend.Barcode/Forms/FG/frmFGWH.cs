@@ -49,28 +49,46 @@ namespace ChemTrend.Barcode.Forms.FG
                 switch (Action)
                 {
                     case (int)AppConfig.BarcodeRemark.条码移库:
-                        ModelAPI<MoveWarehouseFGModel> apiWarehouse = new ModelAPI<MoveWarehouseFGModel>();
-
-                        MoveWarehouseFGModel moveWarehouse = new MoveWarehouseFGModel()
+                        try
                         {
-                            Barcodes = ids.ToArray(),
-                            Warehouse = model.Warehouse,
-                            Remark = AppConfig.BarcodeRemark.条码移库.ToString(),
-                            Bin = model.Location
-                        };
-                        apiWarehouse.Insert(moveWarehouse);
+                            ModelAPI<MoveWarehouseFGModel> apiWarehouse = new ModelAPI<MoveWarehouseFGModel>();
+
+                            MoveWarehouseFGModel moveWarehouse = new MoveWarehouseFGModel()
+                            {
+                                Barcodes = ids.ToArray(),
+                                Warehouse = model.Warehouse,
+                                Remark = AppConfig.BarcodeRemark.条码移库.ToString(),
+                                Bin = model.Location
+                            };
+                            apiWarehouse.Insert(moveWarehouse);
+
+                        }
+                        catch (Exception ex)
+                        {
+                            DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
+                        }
+                       
                         break;
                     default:
-                        ModelAPI<InWarehouseFGModel> apiInWarehouse = new ModelAPI<InWarehouseFGModel>();
-
-                        InWarehouseFGModel enterWarehouse = new InWarehouseFGModel()
+                        try
                         {
-                            Barcodes = ids.ToArray(),
-                            Warehouse = model.Warehouse,
-                            Remark = AppConfig.BarcodeRemark.条码入库.ToString(),
-                            Bin = model.Location
-                        };
-                        apiInWarehouse.Insert(enterWarehouse);
+                            ModelAPI<InWarehouseFGModel> apiInWarehouse = new ModelAPI<InWarehouseFGModel>();
+
+                            InWarehouseFGModel enterWarehouse = new InWarehouseFGModel()
+                            {
+                                Barcodes = ids.ToArray(),
+                                Warehouse = model.Warehouse,
+                                Remark = AppConfig.BarcodeRemark.条码入库.ToString(),
+                                Bin = model.Location
+                            };
+                            apiInWarehouse.Insert(enterWarehouse);
+                        }
+
+                        catch (Exception ex)
+                        {
+                            DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
+                        }
+                        
                         break;
                 }
 

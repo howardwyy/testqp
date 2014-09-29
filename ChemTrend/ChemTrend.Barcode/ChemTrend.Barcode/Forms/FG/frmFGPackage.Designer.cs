@@ -50,7 +50,6 @@
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.sbtn_packing_del = new DevExpress.XtraEditors.SimpleButton();
             this.sbtn_packing_add = new DevExpress.XtraEditors.SimpleButton();
@@ -222,8 +221,7 @@
             this.gridColumn10,
             this.gridColumn11,
             this.gridColumn12,
-            this.gridColumn13,
-            this.gridColumn14});
+            this.gridColumn13});
             this.gv_packing_details.GridControl = this.gc_packing_details;
             this.gv_packing_details.Name = "gv_packing_details";
             this.gv_packing_details.OptionsSelection.CheckBoxSelectorColumnWidth = 35;
@@ -242,6 +240,7 @@
             // gridColumn5
             // 
             this.gridColumn5.Caption = "批次";
+            this.gridColumn5.FieldName = "StockBatch";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 2;
@@ -257,7 +256,7 @@
             // gridColumn8
             // 
             this.gridColumn8.Caption = "数量";
-            this.gridColumn8.FieldName = "StockUnitQty";
+            this.gridColumn8.FieldName = "UnitQty";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 4;
@@ -265,7 +264,7 @@
             // gridColumn9
             // 
             this.gridColumn9.Caption = "单位";
-            this.gridColumn9.FieldName = "StockUnit";
+            this.gridColumn9.FieldName = "Unit";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 5;
@@ -273,6 +272,7 @@
             // gridColumn10
             // 
             this.gridColumn10.Caption = "单据号";
+            this.gridColumn10.FieldName = "LastBillID";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 6;
@@ -287,23 +287,18 @@
             // gridColumn12
             // 
             this.gridColumn12.Caption = "说明";
+            this.gridColumn12.FieldName = "Remark";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 8;
             // 
             // gridColumn13
             // 
-            this.gridColumn13.Caption = "交货单号";
+            this.gridColumn13.Caption = "工单号";
+            this.gridColumn13.FieldName = "WO";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
             this.gridColumn13.VisibleIndex = 9;
-            // 
-            // gridColumn14
-            // 
-            this.gridColumn14.Caption = "交货单";
-            this.gridColumn14.Name = "gridColumn14";
-            this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 10;
             // 
             // panelControl5
             // 
@@ -651,7 +646,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn14;
         private DevExpress.XtraEditors.PanelControl panelControl5;
         private DevExpress.XtraEditors.SimpleButton sbtn_packing_del;
         private DevExpress.XtraEditors.SimpleButton sbtn_packing_add;

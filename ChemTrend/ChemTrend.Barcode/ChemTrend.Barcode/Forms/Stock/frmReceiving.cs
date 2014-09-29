@@ -101,7 +101,7 @@ namespace ChemTrend.Barcode.Forms.Stock
             {
                 ModelAPI<ReceiveOutWarehouseModel> apiROW = new ModelAPI<ReceiveOutWarehouseModel>();
                 ReceiveOutWarehouseModel rowModel = new ReceiveOutWarehouseModel();
-                rowModel.Remark = AppConfig.BarcodeRemark.条码出库.ToString();
+                rowModel.Remark = AppConfig.BarcodeRemark.领料出库.ToString();
                 rowModel.ReceiveID = rdModel.ReceiveID;
                 rowModel.ReceiveLine = rdModel.ID.ToString();
                 rowModel.ReceivedCount = rdModel.ReceivedCount + ReceivingCount;

@@ -27,6 +27,10 @@ namespace BarcodeModel.MODEL.Barcode.RW
         [Columname(Name = "MP65003")]
         public string Number { get; set; }
 
+        [Columname(Name = "MP65042")]
+        public string OperationNO { get; set; }
+
+
         [Columname(Name = "MP65001")]
         public string WO { get; set; }
 

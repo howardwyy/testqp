@@ -61,7 +61,9 @@ namespace ChemTrend.Moblie.Data
             条码出库 = 3,
             条码入库 = 4,
             条码销毁 = 5,
-            条码装箱 = 6
+            条码装箱 = 6,
+            领料出库 = 7,
+            发货出库 = 8,
         }
         public enum Bill 
         {

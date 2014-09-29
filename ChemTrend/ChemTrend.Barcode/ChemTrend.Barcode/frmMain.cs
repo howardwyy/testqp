@@ -424,5 +424,17 @@ namespace ChemTrend.Barcode
 
         }
 
+        private void bbitem_wc_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+            OpenWindow(typeof(frmWorkCenter).ToString());
+        }
+
+        private void bbitem_stock_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            OpenWindow(typeof(frmStock).ToString());
+
+        }
+
     }
 }

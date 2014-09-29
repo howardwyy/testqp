@@ -4,6 +4,7 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using BarcodeModel.MODEL.Barcode;
+using ChemTrend.Barcode.Data;
 
 namespace ChemTrend.Barcode.Forms.Report
 {
@@ -20,7 +21,7 @@ namespace ChemTrend.Barcode.Forms.Report
             if (warehouse != null)
             {
                 xlbl_locationName.Text = warehouse.LocationName;
-                xbarcode.Text = warehouse.Warehouse + "--" + warehouse.Location;
+                xbarcode.Text =AppConfig.BarcodeType.WH.ToString() + warehouse.Warehouse + "--" + warehouse.Location;
             }
         }
 

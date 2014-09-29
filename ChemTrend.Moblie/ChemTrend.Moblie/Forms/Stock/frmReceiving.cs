@@ -53,16 +53,18 @@ namespace ChemTrend.Moblie.Forms.Stock
 
             InitData();
         }
-        
+
 
         private void InitData()
         {
             dg_list.DataSource = dt;
 
-            dt.Columns.Add("条码", typeof(string));
-            dt.Columns.Add("物料", typeof(string));
-            dt.Columns.Add("单位数量", typeof(string));
-            dt.Columns.Add("领料单位", typeof(string));
+            dt.Columns.Add("条码号", typeof(string));
+            dt.Columns.Add("物料号", typeof(string));
+            dt.Columns.Add("数量", typeof(string));
+            dt.Columns.Add("批次", typeof(string));
+            dt.Columns.Add("仓库库位", typeof(string));
+
             DataGridTableStyle ts = new DataGridTableStyle();
             ts.MappingName = dt.TableName;
 
@@ -95,6 +97,14 @@ namespace ChemTrend.Moblie.Forms.Stock
             ts.GridColumnStyles.Add(fourStyle);
             this.dg_list.TableStyles.Add(ts);
 
+
+            DataGridColumnStyle fiveStyle = new DataGridTextBoxColumn();
+            fiveStyle.HeaderText = dt.Columns[4].ColumnName; ;  //列头
+            fiveStyle.MappingName = dt.Columns[4].ColumnName;
+            fiveStyle.Width = 40;
+            ts.GridColumnStyles.Add(fiveStyle);
+            this.dg_list.TableStyles.Add(ts);
+
         }
 
 
@@ -118,7 +128,7 @@ namespace ChemTrend.Moblie.Forms.Stock
                 {
                     ModelAPI<ReceiveOutWarehouseModel> apiROW = new ModelAPI<ReceiveOutWarehouseModel>();
                     ReceiveOutWarehouseModel rowModel = new ReceiveOutWarehouseModel();
-                    rowModel.Remark = AppConfig.BarcodeRemark.条码出库.ToString();
+                    rowModel.Remark = AppConfig.BarcodeRemark.领料出库.ToString();
                     rowModel.ReceiveID = curReceiveDetailModel.ReceiveID;
                     rowModel.ReceiveLine = curReceiveDetailModel.ID.ToString();
                     rowModel.ReceivedCount = curReceiveDetailModel.ReceivedCount + ReceivingCount;
@@ -193,7 +203,8 @@ namespace ChemTrend.Moblie.Forms.Stock
                                 {
                                     MessageBox.Show("该条码已经尚未入库！");
                                 }
-                                else if (model.Status != 2) {
+                                else if (model.Status != 2)
+                                {
                                     MessageBox.Show("该条码非入库状态！");
                                 }
                                 else if (curReceiveDetailModel.StockCode != model.StockCode)
@@ -214,7 +225,7 @@ namespace ChemTrend.Moblie.Forms.Stock
                             tbox_barcode.Focus();
                             MessageBox.Show(ex.Message);
                         }
-                       
+
 
                     }
                     else
@@ -222,7 +233,7 @@ namespace ChemTrend.Moblie.Forms.Stock
                         MessageBox.Show("领料操作已经完成，不能再次领料！");
                     }
 
-                    
+
                 }
             }
         }
@@ -233,10 +244,12 @@ namespace ChemTrend.Moblie.Forms.Stock
 
             //在做完了这些之后，我们对新建的datatable中的列分别加入数据，例如我们在项目中所添加的：
             DataRow newRow = dt.NewRow();
-            newRow["条码"] = model.ID;
-            newRow["物料"] = model.StockCode;
-            newRow["单位数量"] = model.StockUnitQty+"";
-            newRow["领料单位"] = model.StockUnit;
+            newRow["条码号"] = model.ID;
+            newRow["物料号"] = model.StockCode;
+            newRow["数量"] = model.StockUnitQty + "";
+            newRow["批次"] = model.StockBatch;
+            newRow["仓库库位"] = model.Warehouse + "--" + model.Location;
+
             dt.Rows.Add(newRow);
 
             //加入到条码集合列表

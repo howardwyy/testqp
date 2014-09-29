@@ -89,7 +89,7 @@
     <Compile Include="MODEL\Barcode\RW\Operation\CleanCheckModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\DestroyBarcodeModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\EnterWarehouseModel.cs" />
-    <Compile Include="MODEL\Barcode\RW\Operation\GetWOTipsModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\GetPOTipsModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\MoveWarehouseModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\PackingBarcodeModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\PListCreateModel.cs" />
@@ -104,6 +104,8 @@
     <Compile Include="MODEL\Barcode\StockModel.cs" />
     <Compile Include="MODEL\Barcode\WorkCenterModel.cs" />
     <Compile Include="MODEL\Barcode\WORP\MappingModel.cs" />
+    <Compile Include="MODEL\Barcode\WORP\Operation\WOReportModel.cs" />
+    <Compile Include="MODEL\Barcode\WORP\ReportModel.cs" />
     <Compile Include="MODEL\BaseSearchModel.cs" />
     <Compile Include="MODEL\Sys\CompanyModel.cs" />
     <Compile Include="MODEL\User\LoginHistoryModel.cs" />

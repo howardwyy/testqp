@@ -67,50 +67,67 @@ namespace ChemTrend.Barcode.Forms.FG
 
         private void InitData()
         {
-            int status = 0;
-            if (!string.IsNullOrEmpty(cbox_status.Text))
+            try
             {
-                int.TryParse((cbox_status.SelectedItem as ComboBoxEditData).Value, out status);
-            }
-            searchModel = new FGPackageModel();
-            if (!String.IsNullOrEmpty(de_create_begin.Text) && !String.IsNullOrEmpty(de_create_end.Text))
-            {
-                DateTime beginTime = DateTime.MinValue;
-                DateTime.TryParse(de_create_begin.Text, out beginTime);
-                searchModel.BeginTime = beginTime;
 
-                DateTime endTime = DateTime.MaxValue;
-                DateTime.TryParse(de_create_end.Text, out endTime);
-                searchModel.EndTime = endTime;
-            }
-            if (!String.IsNullOrEmpty(te_packingcode.Text))
-            {
-                searchModel.ID = te_packingcode.Text.Trim();
-            }
-            if (status >= 1)
-            {
-                searchModel.Status = status;
-            }
 
-            listPacking = apiPacking.GetList(searchModel);
-            gc_packing.DataSource = listPacking;
+                int status = 0;
+                if (!string.IsNullOrEmpty(cbox_status.Text))
+                {
+                    int.TryParse((cbox_status.SelectedItem as ComboBoxEditData).Value, out status);
+                }
+                searchModel = new FGPackageModel();
+                if (!String.IsNullOrEmpty(de_create_begin.Text) && !String.IsNullOrEmpty(de_create_end.Text))
+                {
+                    DateTime beginTime = DateTime.MinValue;
+                    DateTime.TryParse(de_create_begin.Text, out beginTime);
+                    searchModel.BeginTime = beginTime;
 
-            gc_packing_status.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            BaseFormatter formatBase = new BaseFormatter();
-            gc_packing_status.DisplayFormat.Format = formatBase;
-            formatBase.EventHandler += new OverideFormat(formatBase_EventHandler);
+                    DateTime endTime = DateTime.MaxValue;
+                    DateTime.TryParse(de_create_end.Text, out endTime);
+                    searchModel.EndTime = endTime;
+                }
+                if (!String.IsNullOrEmpty(te_packingcode.Text))
+                {
+                    searchModel.ID = te_packingcode.Text.Trim();
+                }
+                if (status >= 1)
+                {
+                    searchModel.Status = status;
+                }
+
+                listPacking = apiPacking.GetList(searchModel);
+                gc_packing.DataSource = listPacking;
+
+                gc_packing_status.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
+                BaseFormatter formatBase = new BaseFormatter();
+                gc_packing_status.DisplayFormat.Format = formatBase;
+                formatBase.EventHandler += new OverideFormat(formatBase_EventHandler);
+            }
+            catch (Exception ex)
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
+            }
 
         }
         private void InitDetailsData()
         {
-            FGBarcodeModel searchModel = new FGBarcodeModel()
+            try
             {
-                doPager = false,
-                BoxID = curFGPackageModel.ID
-            };
 
-            listBarcode = apiBarcode.GetList(searchModel);
-            gc_packing_details.DataSource = listBarcode;
+                FGBarcodeModel searchModel = new FGBarcodeModel()
+                {
+                    doPager = false,
+                    BoxID = curFGPackageModel.ID
+                };
+
+                listBarcode = apiBarcode.GetList(searchModel);
+                gc_packing_details.DataSource = listBarcode;
+            }
+            catch (Exception ex)
+            {
+                DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
+            }
         }
 
         //状态（1，未使用；2.使用中；3，使用完）

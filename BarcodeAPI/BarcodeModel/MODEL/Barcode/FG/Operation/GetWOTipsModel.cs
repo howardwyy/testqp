@@ -10,23 +10,22 @@ using System.Threading.Tasks;
 namespace BarcodeModel.MODEL.Barcode.FG.Operation
 {
     /// <summary>
-    /// 获取WO数据
+    /// 获取WO数据【成品】
     /// </summary>
     public class GetWOTipsModel : BaseSearchModel
     {
         //提示效果，返回值
         public string[] WOS { get; set; }
 
-        /// <summary>
-        /// 通过录入数据，获取提示WO订单号码
-        /// </summary>
-        /// <returns></returns>
-        public override BaseSearchModel GetModelByID(string id)
+        public string company { set; get; }
+        public string tips;
+
+        public override BarcodeModel.MODEL.BaseSearchModel Insert()
         {
             ModelAdo<WOModel> ba = new ModelAdo<WOModel>();
             List<string> pos = new List<string>();
-            string strSql = "select top  10  T.MP64001 as PO   from (select distinct(MP64001) from view_WO where  charindex(@tips,MP64001)>0) T";
-            DataSet ds = ba.GetDataSet(strSql, new SqlParameter("@tips", id));
+            string strSql = "select top  10  T.MP64001 as PO   from (select distinct(MP64001) from view_WO where  Company=@company and charindex(@tips,MP64001)>0) T";
+            DataSet ds = ba.GetDataSet(strSql, new SqlParameter("@company", company), new SqlParameter("@tips", tips));
             if (ds != null && ds.Tables[0].Rows.Count > 0)
             {
                 string[] rs = new string[ds.Tables[0].Rows.Count];
@@ -38,5 +37,6 @@ namespace BarcodeModel.MODEL.Barcode.FG.Operation
             }
             return this;
         }
+
     }
 }

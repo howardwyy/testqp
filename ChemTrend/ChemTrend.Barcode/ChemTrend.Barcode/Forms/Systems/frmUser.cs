@@ -183,6 +183,7 @@ namespace ChemTrend.Barcode.Forms.Systems
                     ids = ids
                 };
                 resetApi.Insert(resetUserModel);
+                DevExpress.XtraEditors.XtraMessageBox.Show("重置成功！", "确认", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {
