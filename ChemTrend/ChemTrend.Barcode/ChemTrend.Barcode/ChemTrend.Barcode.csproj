@@ -342,6 +342,30 @@
     <Compile Include="Forms\Stock\frmReceiving.Designer.cs">
       <DependentUpon>frmReceiving.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Stock\frmRWImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Stock\frmRWImport.Designer.cs">
+      <DependentUpon>frmRWImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Stock\frmRWInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Stock\frmRWInvoice.Designer.cs">
+      <DependentUpon>frmRWInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Stock\frmRWInvoiceDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Stock\frmRWInvoiceDetails.Designer.cs">
+      <DependentUpon>frmRWInvoiceDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Stock\frmRWInvoiceNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Stock\frmRWInvoiceNew.Designer.cs">
+      <DependentUpon>frmRWInvoiceNew.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Stock\frmStocks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -500,6 +524,12 @@
     <Compile Include="Report\repFGSuggest.Designer.cs">
       <DependentUpon>repFGSuggest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report\repRWInvoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\repRWInvoice.Designer.cs">
+      <DependentUpon>repRWInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\repStock.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -635,6 +665,15 @@
     <EmbeddedResource Include="Forms\Stock\frmReceiving.resx">
       <DependentUpon>frmReceiving.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Stock\frmRWImport.resx">
+      <DependentUpon>frmRWImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Stock\frmRWInvoice.resx">
+      <DependentUpon>frmRWInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Stock\frmRWInvoiceNew.resx">
+      <DependentUpon>frmRWInvoiceNew.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Stock\frmStocks.resx">
       <DependentUpon>frmStocks.cs</DependentUpon>
     </EmbeddedResource>
@@ -712,6 +751,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report\repFGSuggest.resx">
       <DependentUpon>repFGSuggest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\repRWInvoice.resx">
+      <DependentUpon>repRWInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\repStock.resx">
       <DependentUpon>repStock.cs</DependentUpon>

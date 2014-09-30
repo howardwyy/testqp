@@ -37,7 +37,7 @@
       <HintPath>C:\hw\hw_1999\hwproj\hw\hw\bin\ADOHelper.dll</HintPath>
     </Reference>
     <Reference Include="Interop.Excel">
-      <HintPath>C:\hw\hw_1999\hwproj\hw\HWUDF\bin\Debug\Interop.Excel.DLL</HintPath>
+      <HintPath>..\..\..\..\Github\testqp\BarcodeAPI\BarcodeModel\bin\Debug\Interop.Excel.DLL</HintPath>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -103,6 +103,9 @@
     <Compile Include="MODEL\Barcode\RW\Operation\PListCreateModel.cs" />
     <Compile Include="MODEL\Barcode\RW\ReceiveModel.cs" />
     <Compile Include="MODEL\Barcode\RW\RWHistoryModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\RWInvoiceBarcodeModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\RWInvoiceDetailModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\RWInvoiceModel.cs" />
     <Compile Include="MODEL\Barcode\RW\WOLineModel.cs" />
     <Compile Include="MODEL\Barcode\RW\ReceiveDetailModel.cs" />
     <Compile Include="MODEL\Barcode\StockModel.cs" />

@@ -38,6 +38,8 @@
             this.col_unit = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_planqty = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_number = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_customercode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_customername = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_wo = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_company = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
@@ -57,8 +59,6 @@
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.sbtn_query = new DevExpress.XtraEditors.SimpleButton();
-            this.col_customername = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_customercode = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
@@ -178,6 +178,22 @@
             this.col_number.Visible = true;
             this.col_number.VisibleIndex = 2;
             this.col_number.Width = 86;
+            // 
+            // col_customercode
+            // 
+            this.col_customercode.Caption = "客户编号";
+            this.col_customercode.FieldName = "CustomerCode";
+            this.col_customercode.Name = "col_customercode";
+            this.col_customercode.Visible = true;
+            this.col_customercode.VisibleIndex = 7;
+            // 
+            // col_customername
+            // 
+            this.col_customername.Caption = "客户名称";
+            this.col_customername.FieldName = "CustomerName";
+            this.col_customername.Name = "col_customername";
+            this.col_customername.Visible = true;
+            this.col_customername.VisibleIndex = 8;
             // 
             // col_wo
             // 
@@ -368,22 +384,6 @@
             this.sbtn_query.Text = "查询";
             this.sbtn_query.Click += new System.EventHandler(this.sbtn_query_Click);
             // 
-            // col_customername
-            // 
-            this.col_customername.Caption = "客户名称";
-            this.col_customername.FieldName = "CustomerName";
-            this.col_customername.Name = "col_customername";
-            this.col_customername.Visible = true;
-            this.col_customername.VisibleIndex = 8;
-            // 
-            // col_customercode
-            // 
-            this.col_customercode.Caption = "客户编号";
-            this.col_customercode.FieldName = "CustomerCode";
-            this.col_customercode.Name = "col_customercode";
-            this.col_customercode.Visible = true;
-            this.col_customercode.VisibleIndex = 7;
-            // 
             // frmFGInvoiceNew
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -392,7 +392,7 @@
             this.Controls.Add(this.xtraScrollableControl2);
             this.Name = "frmFGInvoiceNew";
             this.ShowIcon = false;
-            this.Text = "新建发货清单";
+            this.Text = "新建成品发货清单";
             this.Load += new System.EventHandler(this.frmFGInvoiceNew_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);

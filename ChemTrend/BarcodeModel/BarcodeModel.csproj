@@ -80,7 +80,7 @@
     <Compile Include="MODEL\Barcode\FG\WOModel.cs" />
     <Compile Include="MODEL\Barcode\LocationModel.cs" />
     <Compile Include="MODEL\Barcode\RW\CheckModel.cs" />
-    <Compile Include="MODEL\Barcode\RW\Operation\BarcodeCreateExportModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\BarcodeCreateImportModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\BarcodeDestoryModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\BarcodePackingModel.cs" />
     <Compile Include="MODEL\Barcode\RW\BillDetailModel.cs" />
@@ -101,6 +101,9 @@
     <Compile Include="MODEL\Barcode\RW\ReceiveModel.cs" />
     <Compile Include="MODEL\Barcode\RW\RWBarcodeModel.cs" />
     <Compile Include="MODEL\Barcode\RW\RWHistoryModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\RWInvoiceBarcodeModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\RWInvoiceDetailModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\RWInvoiceModel.cs" />
     <Compile Include="MODEL\Barcode\RW\WOLineModel.cs" />
     <Compile Include="MODEL\Barcode\StockModel.cs" />
     <Compile Include="MODEL\Barcode\WorkCenterModel.cs" />

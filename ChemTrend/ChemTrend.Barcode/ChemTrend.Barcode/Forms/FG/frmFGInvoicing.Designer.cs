@@ -397,7 +397,8 @@
             this.ClientSize = new System.Drawing.Size(665, 464);
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmFGInvoicing";
-            this.Text = "发货";
+            this.ShowIcon = false;
+            this.Text = "成品发货";
             this.Load += new System.EventHandler(this.frmFGInvoicing_Load);
             ((System.ComponentModel.ISupportInitialize)(this.te_qty_cur.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_qty_surplus.Properties)).EndInit();

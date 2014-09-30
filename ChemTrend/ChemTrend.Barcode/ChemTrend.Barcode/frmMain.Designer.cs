@@ -67,7 +67,6 @@
             this.bbtn_item_suggest = new DevExpress.XtraBars.BarButtonItem();
             this.bbtn_item_mapping = new DevExpress.XtraBars.BarButtonItem();
             this.bbitem_wc = new DevExpress.XtraBars.BarButtonItem();
-            this.bbitem_stock = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -91,6 +90,7 @@
             this.barButtonItem_customer = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.bbitem_stock = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
@@ -298,7 +298,6 @@
             this.barButtonItem17.Id = 19;
             this.barButtonItem17.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem17.LargeGlyph")));
             this.barButtonItem17.Name = "barButtonItem17";
-            this.barButtonItem17.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem17_ItemClick);
             // 
             // barButtonItem18
             // 
@@ -461,15 +460,6 @@
             this.bbitem_wc.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbitem_wc.LargeGlyph")));
             this.bbitem_wc.Name = "bbitem_wc";
             this.bbitem_wc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbitem_wc_ItemClick);
-            // 
-            // bbitem_stock
-            // 
-            this.bbitem_stock.Caption = "原材料/包材";
-            this.bbitem_stock.Glyph = ((System.Drawing.Image)(resources.GetObject("bbitem_stock.Glyph")));
-            this.bbitem_stock.Id = 43;
-            this.bbitem_stock.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbitem_stock.LargeGlyph")));
-            this.bbitem_stock.Name = "bbitem_stock";
-            this.bbitem_stock.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbitem_stock_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -661,6 +651,15 @@
             this.barButtonItem6.Id = 32;
             this.barButtonItem6.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.LargeGlyph")));
             this.barButtonItem6.Name = "barButtonItem6";
+            // 
+            // bbitem_stock
+            // 
+            this.bbitem_stock.Caption = "原材料/包材";
+            this.bbitem_stock.Glyph = ((System.Drawing.Image)(resources.GetObject("bbitem_stock.Glyph")));
+            this.bbitem_stock.Id = 43;
+            this.bbitem_stock.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbitem_stock.LargeGlyph")));
+            this.bbitem_stock.Name = "bbitem_stock";
+            this.bbitem_stock.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbitem_stock_ItemClick);
             // 
             // frmMain
             // 

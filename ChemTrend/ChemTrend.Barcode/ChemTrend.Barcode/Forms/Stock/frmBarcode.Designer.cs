@@ -51,10 +51,13 @@
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_productionTtme = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_validitytime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.ucPager = new ChemTrend.Barcode.Controls.ucPager();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.sbtn_export = new DevExpress.XtraEditors.SimpleButton();
             this.te_batch = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.te_supplierbatch = new DevExpress.XtraEditors.TextEdit();
@@ -91,7 +94,7 @@
             this.nbitem_print = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarSeparatorItem1 = new DevExpress.XtraNavBar.NavBarSeparatorItem();
             this.nbi_destroy = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem7 = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbitem_import = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbitem_inwarehouse = new DevExpress.XtraNavBar.NavBarItem();
             this.nbitem_move = new DevExpress.XtraNavBar.NavBarItem();
@@ -204,7 +207,9 @@
             this.gridColumn14,
             this.gridColumn15,
             this.gridColumn16,
-            this.gridColumn3});
+            this.gridColumn3,
+            this.col_productionTtme,
+            this.col_validitytime});
             this.gv_barcode.GridControl = this.gc_barcode;
             this.gv_barcode.Name = "gv_barcode";
             this.gv_barcode.OptionsSelection.CheckBoxSelectorColumnWidth = 35;
@@ -317,7 +322,7 @@
             // gridColumn13
             // 
             this.gridColumn13.Caption = "订单号";
-            this.gridColumn13.FieldName = "SO";
+            this.gridColumn13.FieldName = "PO";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.OptionsColumn.AllowEdit = false;
             this.gridColumn13.Visible = true;
@@ -360,6 +365,22 @@
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 5;
             // 
+            // col_productionTtme
+            // 
+            this.col_productionTtme.Caption = "生产日期";
+            this.col_productionTtme.FieldName = "ProductionTime";
+            this.col_productionTtme.Name = "col_productionTtme";
+            this.col_productionTtme.Visible = true;
+            this.col_productionTtme.VisibleIndex = 16;
+            // 
+            // col_validitytime
+            // 
+            this.col_validitytime.Caption = "保质期";
+            this.col_validitytime.FieldName = "ValidityTime";
+            this.col_validitytime.Name = "col_validitytime";
+            this.col_validitytime.Visible = true;
+            this.col_validitytime.VisibleIndex = 17;
+            // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.ucPager);
@@ -395,6 +416,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.sbtn_export);
             this.groupBox1.Controls.Add(this.te_batch);
             this.groupBox1.Controls.Add(this.labelControl13);
             this.groupBox1.Controls.Add(this.te_supplierbatch);
@@ -430,6 +452,17 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询";
+            // 
+            // sbtn_export
+            // 
+            this.sbtn_export.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.sbtn_export.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_export.Image")));
+            this.sbtn_export.Location = new System.Drawing.Point(458, 152);
+            this.sbtn_export.Name = "sbtn_export";
+            this.sbtn_export.Size = new System.Drawing.Size(75, 23);
+            this.sbtn_export.TabIndex = 34;
+            this.sbtn_export.Text = "导出";
+            this.sbtn_export.Click += new System.EventHandler(this.sbtn_export_Click);
             // 
             // te_batch
             // 
@@ -718,7 +751,7 @@
             this.nbitem_move,
             this.nbi_customer,
             this.nbi_destroy,
-            this.navBarItem7,
+            this.nbitem_import,
             this.nbitem_packing});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
@@ -738,7 +771,7 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbitem_print),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarSeparatorItem1),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbi_destroy),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem7)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbitem_import)});
             this.navBarGroup1.Name = "navBarGroup1";
             this.navBarGroup1.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroup1.SmallImage")));
             // 
@@ -775,11 +808,12 @@
             this.nbi_destroy.Name = "nbi_destroy";
             this.nbi_destroy.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbi_destroy_LinkClicked);
             // 
-            // navBarItem7
+            // nbitem_import
             // 
-            this.navBarItem7.Caption = "打印历史";
-            this.navBarItem7.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem7.LargeImage")));
-            this.navBarItem7.Name = "navBarItem7";
+            this.nbitem_import.Caption = "导入条码";
+            this.nbitem_import.LargeImage = ((System.Drawing.Image)(resources.GetObject("nbitem_import.LargeImage")));
+            this.nbitem_import.Name = "nbitem_import";
+            this.nbitem_import.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbitem_import_LinkClicked);
             // 
             // navBarGroup2
             // 
@@ -921,7 +955,7 @@
         private DevExpress.XtraNavBar.NavBarItem nbitem_move;
         private DevExpress.XtraNavBar.NavBarItem nbi_customer;
         private DevExpress.XtraNavBar.NavBarItem nbi_destroy;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem7;
+        private DevExpress.XtraNavBar.NavBarItem nbitem_import;
         private DevExpress.XtraNavBar.NavBarItem nbitem_packing;
         private DevExpress.XtraEditors.TextEdit te_barcode;
         private DevExpress.XtraEditors.LabelControl labelControl7;
@@ -938,5 +972,8 @@
         private DevExpress.XtraEditors.TextEdit te_batch;
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraEditors.SimpleButton sbtn_export;
+        private DevExpress.XtraGrid.Columns.GridColumn col_productionTtme;
+        private DevExpress.XtraGrid.Columns.GridColumn col_validitytime;
     }
 }

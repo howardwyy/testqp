@@ -52,9 +52,9 @@
             this.col_isUrgent = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_remark = new DevExpress.XtraGrid.Columns.GridColumn();
             this.col_status = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_customername = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.col_customername = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -315,14 +315,6 @@
             this.col_status.VisibleIndex = 9;
             this.col_status.Width = 54;
             // 
-            // gridView1
-            // 
-            this.gridView1.Name = "gridView1";
-            // 
-            // gridView2
-            // 
-            this.gridView2.Name = "gridView2";
-            // 
             // col_customername
             // 
             this.col_customername.Caption = "客户名称";
@@ -331,6 +323,14 @@
             this.col_customername.Visible = true;
             this.col_customername.VisibleIndex = 7;
             // 
+            // gridView1
+            // 
+            this.gridView1.Name = "gridView1";
+            // 
+            // gridView2
+            // 
+            this.gridView2.Name = "gridView2";
+            // 
             // frmFGInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -338,7 +338,7 @@
             this.ClientSize = new System.Drawing.Size(813, 561);
             this.Controls.Add(this.xtraScrollableControl1);
             this.Name = "frmFGInvoice";
-            this.Text = "发货清单";
+            this.Text = "成品发货清单";
             this.Load += new System.EventHandler(this.frmFGInvoice_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

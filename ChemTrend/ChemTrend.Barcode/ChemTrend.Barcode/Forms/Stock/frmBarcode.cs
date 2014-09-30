@@ -73,6 +73,7 @@ namespace ChemTrend.Barcode.Forms.Stock
                 searchModel.doPager = true;
                 searchModel.PageIndex = ucPager.PageCurrent;
                 searchModel.PageSize = ucPager.PageSize;
+                searchModel.SearchOrderBy = "RW01037 desc";
                 listBarcode = apiBarcode.GetList(searchModel);
                 gc_barcode.DataSource = listBarcode;
                 this.gv_barcode.FocusedRowHandle = 0;
@@ -395,6 +396,37 @@ namespace ChemTrend.Barcode.Forms.Stock
         private void gc_barcode_Click(object sender, EventArgs e)
         {
 
+
+
+        }
+
+
+        private void sbtn_export_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog fileDialog = new SaveFileDialog();
+            fileDialog.Title = "导出Excel";
+            fileDialog.Filter = "Excel文件(*.xls)|*.xls";
+            DialogResult dialogResult = fileDialog.ShowDialog(this);
+            if (dialogResult == DialogResult.OK)
+            {
+                DevExpress.XtraPrinting.XlsExportOptions options = new DevExpress.XtraPrinting.XlsExportOptions();
+                options.TextExportMode = DevExpress.XtraPrinting.TextExportMode.Text;
+
+                gc_barcode.ExportToXls(fileDialog.FileName, options);
+                DevExpress.XtraEditors.XtraMessageBox.Show("保存成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+
+        }
+
+        private void nbitem_import_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmRWImport frmRWImport = new frmRWImport();
+            DialogResult result = frmRWImport.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                InitData();
+            }
         }
 
     }

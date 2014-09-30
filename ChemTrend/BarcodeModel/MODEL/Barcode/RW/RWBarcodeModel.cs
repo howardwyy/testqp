@@ -121,6 +121,15 @@ namespace BarcodeModel.MODEL.Barcode.RW
         [Columname(Name = "RW01036")]
         public string BatchID { get; set; }
 
+
+        //生产日期
+        [Columname(Name = "RW01037")]
+        public DateTime ProductionTime { set; get; }
+
+        //有效期
+        [Columname(Name = "RW01038")]
+        public DateTime ValidityTime { set; get; }
+
         //应用于查询，搜索功能，入库，开始时间；
         public DateTime BeginTimeInWH { get; set; }
         //应用于查询，搜索功能，入库，结束时间；

@@ -121,13 +121,13 @@ namespace BarcodeModel.MODEL.Barcode.RW
         [Columname(Name = "RW01036")]
         public string BatchID { get; set; }
 
-
+        //生产日期
         [Columname(Name = "RW01037")]
-        public DateTime ProductDate { get; set; }
-        //batch ID
-        [Columname(Name = "RW01038")]
-        public DateTime ExpirationDate { get; set; }
+        public DateTime ProductionTime { set; get; }
 
+        //有效期
+        [Columname(Name = "RW01038")]
+        public DateTime ValidityTime { set; get; }
 
         //应用于查询，搜索功能，入库，开始时间；
         public DateTime BeginTimeInWH { get; set; }
@@ -171,8 +171,7 @@ namespace BarcodeModel.MODEL.Barcode.RW
                 sbWhere.Append(" AND RW01002 = @StockCode");
                 listParam.Add(new SqlParameter("@StockCode", StockCode));
             }
-            if (!String.IsNullOrEmpty(this.StockName))
-            {
+            if (!String.IsNullOrEmpty(this.StockName)) {
                 sbWhere.Append(" AND RW01003 = @StockName");
                 listParam.Add(new SqlParameter("@StockName", StockName));
             }
@@ -181,10 +180,10 @@ namespace BarcodeModel.MODEL.Barcode.RW
                 sbWhere.Append(" AND RW01031 = @BoxID ");
                 listParam.Add(new SqlParameter("@BoxID", this.BoxID));
             }
-            if (!String.IsNullOrEmpty(this.SupplierBatch))
+            if (!String.IsNullOrEmpty(this.SupplierBatch)) 
             {
                 sbWhere.Append(" AND RW01035 = @SupplierBatch ");
-                listParam.Add(new SqlParameter("@SupplierBatch", this.SupplierBatch));
+                listParam.Add(new SqlParameter("@SupplierBatch", this.SupplierBatch));    
             }
             if (!String.IsNullOrEmpty(this.BatchID))
             {
@@ -206,12 +205,12 @@ namespace BarcodeModel.MODEL.Barcode.RW
             {
                 int count = 0;
                 adoBarcode.PageSize = this.PageSize;
-                models = adoBarcode.GetList(this.PageIndex, sbWhere.ToString(), SearchOrderBy, out count, "*", listParam.ToArray()).ConvertAll<BaseSearchModel>(m => m as BaseSearchModel);
+                models = adoBarcode.GetList(this.PageIndex, sbWhere.ToString(),SearchOrderBy , out count, "*", listParam.ToArray()).ConvertAll<BaseSearchModel>(m => m as BaseSearchModel);
                 base.totalCount = count;
             }
             else
             {
-                models = adoBarcode.GetList(sbWhere.ToString(), SearchOrderBy, "*", listParam.ToArray()).ConvertAll<BaseSearchModel>(m => m as BaseSearchModel);
+                models = adoBarcode.GetList(sbWhere.ToString(), SearchOrderBy , "*", listParam.ToArray()).ConvertAll<BaseSearchModel>(m => m as BaseSearchModel);
             }
             return models;
         }
