@@ -117,7 +117,11 @@ RW01030	varchar(50),
 RW01031	varchar(50),
 RW01032	int,
 RW01033	varchar(50),
-RW01034	varchar(50)
+RW01034	varchar(50),
+RW01035	varchar(255),
+RW01036	varchar(50),
+RW01037	datetime,
+RW01038	datetime
 )
 --drop table RW91
 create table RW91
@@ -155,7 +159,11 @@ RW91030	varchar(50),
 RW91031	varchar(50),
 RW91032	int,
 RW91033	varchar(50),
-RW91034	varchar(50)
+RW91034	varchar(50),
+RW01035	varchar(255),
+RW01036	varchar(50),
+RW01037	datetime,
+RW01038	datetime
 )
 create table RW02
 (

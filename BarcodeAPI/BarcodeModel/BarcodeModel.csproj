@@ -36,6 +36,10 @@
     <Reference Include="ADOHelper">
       <HintPath>C:\hw\hw_1999\hwproj\hw\hw\bin\ADOHelper.dll</HintPath>
     </Reference>
+    <Reference Include="Interop.Excel">
+      <HintPath>C:\hw\hw_1999\hwproj\hw\HWUDF\bin\Debug\Interop.Excel.DLL</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Newtonsoft.Json.dll</HintPath>
@@ -81,6 +85,7 @@
     <Compile Include="MODEL\Barcode\RW\BillDetailModel.cs" />
     <Compile Include="MODEL\Barcode\RW\BillModel.cs" />
     <Compile Include="MODEL\Barcode\RW\CheckModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\BarcodeCreateImportModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\BarcodeCreateModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\BarcodeDestoryModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\BarcodePackingModel.cs" />

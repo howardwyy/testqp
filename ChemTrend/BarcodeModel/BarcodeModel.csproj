@@ -80,6 +80,7 @@
     <Compile Include="MODEL\Barcode\FG\WOModel.cs" />
     <Compile Include="MODEL\Barcode\LocationModel.cs" />
     <Compile Include="MODEL\Barcode\RW\CheckModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\BarcodeCreateExportModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\BarcodeDestoryModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\BarcodePackingModel.cs" />
     <Compile Include="MODEL\Barcode\RW\BillDetailModel.cs" />
