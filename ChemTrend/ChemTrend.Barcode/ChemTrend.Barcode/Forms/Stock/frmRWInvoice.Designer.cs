@@ -176,6 +176,7 @@
             this.gv_invoice.OptionsSelection.MultiSelect = true;
             this.gv_invoice.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gv_invoice.OptionsView.ShowGroupPanel = false;
+            this.gv_invoice.DoubleClick += new System.EventHandler(this.gv_invoice_DoubleClick);
             // 
             // gc_invoice
             // 
@@ -247,6 +248,7 @@
             this.sbtn_invoice_create.Size = new System.Drawing.Size(103, 23);
             this.sbtn_invoice_create.TabIndex = 24;
             this.sbtn_invoice_create.Text = "创建发货单";
+            this.sbtn_invoice_create.Click += new System.EventHandler(this.sbtn_create_Click);
             // 
             // sbtn_query
             // 
@@ -257,6 +259,7 @@
             this.sbtn_query.Size = new System.Drawing.Size(75, 23);
             this.sbtn_query.TabIndex = 23;
             this.sbtn_query.Text = "查询";
+            this.sbtn_query.Click += new System.EventHandler(this.sbtn_query_Click);
             // 
             // de_end
             // 
@@ -299,6 +302,7 @@
             this.sbtn_print.Size = new System.Drawing.Size(103, 23);
             this.sbtn_print.TabIndex = 18;
             this.sbtn_print.Text = "打印领料单";
+            this.sbtn_print.Click += new System.EventHandler(this.sbtn_print_Click);
             // 
             // tbox_barcode
             // 

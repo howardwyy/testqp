@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBarcode));
             this.xtraScrollableControl1 = new DevExpress.XtraEditors.XtraScrollableControl();
             this.xtraScrollableControl2 = new DevExpress.XtraEditors.XtraScrollableControl();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.pc_query = new DevExpress.XtraEditors.PanelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.gc_barcode = new DevExpress.XtraGrid.GridControl();
             this.gv_barcode = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -51,10 +51,14 @@
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_productionTtme = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.col_validitytime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.ucPager = new ChemTrend.Barcode.Controls.ucPager();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel_query = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.sbtn_more = new DevExpress.XtraEditors.SimpleButton();
+            this.sbtn_export = new DevExpress.XtraEditors.SimpleButton();
             this.te_batch = new DevExpress.XtraEditors.TextEdit();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.te_supplierbatch = new DevExpress.XtraEditors.TextEdit();
@@ -91,7 +95,7 @@
             this.nbitem_print = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarSeparatorItem1 = new DevExpress.XtraNavBar.NavBarSeparatorItem();
             this.nbi_destroy = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem7 = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbitem_import = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.nbitem_inwarehouse = new DevExpress.XtraNavBar.NavBarItem();
             this.nbitem_move = new DevExpress.XtraNavBar.NavBarItem();
@@ -99,15 +103,15 @@
             this.nbitem_packing = new DevExpress.XtraNavBar.NavBarItem();
             this.xtraScrollableControl1.SuspendLayout();
             this.xtraScrollableControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pc_query)).BeginInit();
+            this.pc_query.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_barcode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_barcode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panel_query.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.te_batch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_supplierbatch.Properties)).BeginInit();
@@ -143,7 +147,7 @@
             // 
             // xtraScrollableControl2
             // 
-            this.xtraScrollableControl2.Controls.Add(this.panelControl1);
+            this.xtraScrollableControl2.Controls.Add(this.pc_query);
             this.xtraScrollableControl2.Controls.Add(this.panel1);
             this.xtraScrollableControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.xtraScrollableControl2.Location = new System.Drawing.Point(0, 0);
@@ -151,24 +155,24 @@
             this.xtraScrollableControl2.Size = new System.Drawing.Size(953, 547);
             this.xtraScrollableControl2.TabIndex = 0;
             // 
-            // panelControl1
+            // pc_query
             // 
-            this.panelControl1.Controls.Add(this.panelControl2);
-            this.panelControl1.Controls.Add(this.panel2);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(113, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(840, 547);
-            this.panelControl1.TabIndex = 1;
+            this.pc_query.Controls.Add(this.panelControl2);
+            this.pc_query.Controls.Add(this.panel_query);
+            this.pc_query.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pc_query.Location = new System.Drawing.Point(113, 0);
+            this.pc_query.Name = "pc_query";
+            this.pc_query.Size = new System.Drawing.Size(840, 547);
+            this.pc_query.TabIndex = 1;
             // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.gc_barcode);
             this.panelControl2.Controls.Add(this.panelControl3);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl2.Location = new System.Drawing.Point(2, 196);
+            this.panelControl2.Location = new System.Drawing.Point(2, 88);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(836, 349);
+            this.panelControl2.Size = new System.Drawing.Size(836, 457);
             this.panelControl2.TabIndex = 1;
             // 
             // gc_barcode
@@ -181,7 +185,7 @@
             this.gc_barcode.Location = new System.Drawing.Point(2, 2);
             this.gc_barcode.MainView = this.gv_barcode;
             this.gc_barcode.Name = "gc_barcode";
-            this.gc_barcode.Size = new System.Drawing.Size(832, 303);
+            this.gc_barcode.Size = new System.Drawing.Size(832, 411);
             this.gc_barcode.TabIndex = 1;
             this.gc_barcode.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_barcode});
@@ -204,7 +208,9 @@
             this.gridColumn14,
             this.gridColumn15,
             this.gridColumn16,
-            this.gridColumn3});
+            this.gridColumn3,
+            this.col_productionTtme,
+            this.col_validitytime});
             this.gv_barcode.GridControl = this.gc_barcode;
             this.gv_barcode.Name = "gv_barcode";
             this.gv_barcode.OptionsSelection.CheckBoxSelectorColumnWidth = 35;
@@ -317,7 +323,7 @@
             // gridColumn13
             // 
             this.gridColumn13.Caption = "订单号";
-            this.gridColumn13.FieldName = "SO";
+            this.gridColumn13.FieldName = "PO";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.OptionsColumn.AllowEdit = false;
             this.gridColumn13.Visible = true;
@@ -360,11 +366,27 @@
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 5;
             // 
+            // col_productionTtme
+            // 
+            this.col_productionTtme.Caption = "生产日期";
+            this.col_productionTtme.FieldName = "ProductionTime";
+            this.col_productionTtme.Name = "col_productionTtme";
+            this.col_productionTtme.Visible = true;
+            this.col_productionTtme.VisibleIndex = 16;
+            // 
+            // col_validitytime
+            // 
+            this.col_validitytime.Caption = "保质期";
+            this.col_validitytime.FieldName = "ValidityTime";
+            this.col_validitytime.Name = "col_validitytime";
+            this.col_validitytime.Visible = true;
+            this.col_validitytime.VisibleIndex = 17;
+            // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.ucPager);
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl3.Location = new System.Drawing.Point(2, 305);
+            this.panelControl3.Location = new System.Drawing.Point(2, 413);
             this.panelControl3.Name = "panelControl3";
             this.panelControl3.Size = new System.Drawing.Size(832, 42);
             this.panelControl3.TabIndex = 0;
@@ -381,20 +403,22 @@
             this.ucPager.Size = new System.Drawing.Size(828, 38);
             this.ucPager.TabIndex = 0;
             // 
-            // panel2
+            // panel_query
             // 
-            this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(2, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(836, 194);
-            this.panel2.TabIndex = 0;
+            this.panel_query.Controls.Add(this.groupBox1);
+            this.panel_query.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_query.Location = new System.Drawing.Point(2, 2);
+            this.panel_query.Name = "panel_query";
+            this.panel_query.Size = new System.Drawing.Size(836, 86);
+            this.panel_query.TabIndex = 0;
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.sbtn_more);
+            this.groupBox1.Controls.Add(this.sbtn_export);
             this.groupBox1.Controls.Add(this.te_batch);
             this.groupBox1.Controls.Add(this.labelControl13);
             this.groupBox1.Controls.Add(this.te_supplierbatch);
@@ -426,21 +450,42 @@
             this.groupBox1.Controls.Add(this.labelControl1);
             this.groupBox1.Location = new System.Drawing.Point(4, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(829, 181);
+            this.groupBox1.Size = new System.Drawing.Size(829, 71);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查询";
             // 
+            // sbtn_more
+            // 
+            this.sbtn_more.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.sbtn_more.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_more.Image")));
+            this.sbtn_more.Location = new System.Drawing.Point(791, 14);
+            this.sbtn_more.Name = "sbtn_more";
+            this.sbtn_more.Size = new System.Drawing.Size(23, 23);
+            this.sbtn_more.TabIndex = 35;
+            this.sbtn_more.Click += new System.EventHandler(this.sbtn_more_Click);
+            // 
+            // sbtn_export
+            // 
+            this.sbtn_export.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.sbtn_export.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_export.Image")));
+            this.sbtn_export.Location = new System.Drawing.Point(458, 42);
+            this.sbtn_export.Name = "sbtn_export";
+            this.sbtn_export.Size = new System.Drawing.Size(75, 23);
+            this.sbtn_export.TabIndex = 34;
+            this.sbtn_export.Text = "导出";
+            this.sbtn_export.Click += new System.EventHandler(this.sbtn_export_Click);
+            // 
             // te_batch
             // 
-            this.te_batch.Location = new System.Drawing.Point(600, 117);
+            this.te_batch.Location = new System.Drawing.Point(470, 103);
             this.te_batch.Name = "te_batch";
             this.te_batch.Size = new System.Drawing.Size(135, 20);
             this.te_batch.TabIndex = 33;
             // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(522, 120);
+            this.labelControl13.Location = new System.Drawing.Point(392, 106);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(36, 14);
             this.labelControl13.TabIndex = 32;
@@ -448,14 +493,14 @@
             // 
             // te_supplierbatch
             // 
-            this.te_supplierbatch.Location = new System.Drawing.Point(600, 86);
+            this.te_supplierbatch.Location = new System.Drawing.Point(470, 72);
             this.te_supplierbatch.Name = "te_supplierbatch";
             this.te_supplierbatch.Size = new System.Drawing.Size(135, 20);
             this.te_supplierbatch.TabIndex = 31;
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(522, 89);
+            this.labelControl12.Location = new System.Drawing.Point(392, 75);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(72, 14);
             this.labelControl12.TabIndex = 30;
@@ -463,14 +508,14 @@
             // 
             // te_po
             // 
-            this.te_po.Location = new System.Drawing.Point(329, 117);
+            this.te_po.Location = new System.Drawing.Point(74, 160);
             this.te_po.Name = "te_po";
             this.te_po.Size = new System.Drawing.Size(135, 20);
             this.te_po.TabIndex = 29;
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(264, 120);
+            this.labelControl11.Location = new System.Drawing.Point(9, 163);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(60, 14);
             this.labelControl11.TabIndex = 28;
@@ -478,14 +523,14 @@
             // 
             // te_stockname
             // 
-            this.te_stockname.Location = new System.Drawing.Point(329, 86);
+            this.te_stockname.Location = new System.Drawing.Point(329, 16);
             this.te_stockname.Name = "te_stockname";
             this.te_stockname.Size = new System.Drawing.Size(135, 20);
             this.te_stockname.TabIndex = 27;
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(264, 89);
+            this.labelControl10.Location = new System.Drawing.Point(264, 19);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(60, 14);
             this.labelControl10.TabIndex = 26;
@@ -493,14 +538,14 @@
             // 
             // te_stockcode
             // 
-            this.te_stockcode.Location = new System.Drawing.Point(74, 86);
+            this.te_stockcode.Location = new System.Drawing.Point(74, 16);
             this.te_stockcode.Name = "te_stockcode";
             this.te_stockcode.Size = new System.Drawing.Size(135, 20);
             this.te_stockcode.TabIndex = 25;
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(9, 89);
+            this.labelControl9.Location = new System.Drawing.Point(9, 19);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(48, 14);
             this.labelControl9.TabIndex = 24;
@@ -508,7 +553,7 @@
             // 
             // cbox_status
             // 
-            this.cbox_status.Location = new System.Drawing.Point(74, 149);
+            this.cbox_status.Location = new System.Drawing.Point(74, 41);
             this.cbox_status.Name = "cbox_status";
             this.cbox_status.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -517,7 +562,7 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(16, 152);
+            this.labelControl8.Location = new System.Drawing.Point(16, 44);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(36, 14);
             this.labelControl8.TabIndex = 22;
@@ -525,14 +570,14 @@
             // 
             // te_barcode
             // 
-            this.te_barcode.Location = new System.Drawing.Point(74, 117);
+            this.te_barcode.Location = new System.Drawing.Point(74, 133);
             this.te_barcode.Name = "te_barcode";
             this.te_barcode.Size = new System.Drawing.Size(135, 20);
             this.te_barcode.TabIndex = 21;
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(16, 120);
+            this.labelControl7.Location = new System.Drawing.Point(16, 136);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(36, 14);
             this.labelControl7.TabIndex = 20;
@@ -541,7 +586,7 @@
             // dateEdit5
             // 
             this.dateEdit5.EditValue = null;
-            this.dateEdit5.Location = new System.Drawing.Point(686, 18);
+            this.dateEdit5.Location = new System.Drawing.Point(458, 133);
             this.dateEdit5.Name = "dateEdit5";
             this.dateEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -553,7 +598,7 @@
             // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(675, 21);
+            this.labelControl5.Location = new System.Drawing.Point(447, 136);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(4, 14);
             this.labelControl5.TabIndex = 18;
@@ -563,7 +608,7 @@
             // dateEdit6
             // 
             this.dateEdit6.EditValue = null;
-            this.dateEdit6.Location = new System.Drawing.Point(540, 18);
+            this.dateEdit6.Location = new System.Drawing.Point(312, 133);
             this.dateEdit6.Name = "dateEdit6";
             this.dateEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -575,7 +620,7 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(473, 21);
+            this.labelControl6.Location = new System.Drawing.Point(245, 136);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(48, 14);
             this.labelControl6.TabIndex = 16;
@@ -585,18 +630,18 @@
             // de_outwh_end
             // 
             this.de_outwh_end.EditValue = null;
-            this.de_outwh_end.Location = new System.Drawing.Point(220, 50);
+            this.de_outwh_end.Location = new System.Drawing.Point(229, 102);
             this.de_outwh_end.Name = "de_outwh_end";
             this.de_outwh_end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.de_outwh_end.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.de_outwh_end.Size = new System.Drawing.Size(128, 20);
+            this.de_outwh_end.Size = new System.Drawing.Size(135, 20);
             this.de_outwh_end.TabIndex = 15;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(209, 53);
+            this.labelControl3.Location = new System.Drawing.Point(217, 105);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(4, 14);
             this.labelControl3.TabIndex = 14;
@@ -605,18 +650,18 @@
             // de_outwh_begin
             // 
             this.de_outwh_begin.EditValue = null;
-            this.de_outwh_begin.Location = new System.Drawing.Point(74, 50);
+            this.de_outwh_begin.Location = new System.Drawing.Point(74, 102);
             this.de_outwh_begin.Name = "de_outwh_begin";
             this.de_outwh_begin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.de_outwh_begin.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.de_outwh_begin.Size = new System.Drawing.Size(128, 20);
+            this.de_outwh_begin.Size = new System.Drawing.Size(135, 20);
             this.de_outwh_begin.TabIndex = 13;
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(7, 53);
+            this.labelControl4.Location = new System.Drawing.Point(7, 105);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(60, 14);
             this.labelControl4.TabIndex = 12;
@@ -625,18 +670,18 @@
             // de_inwh_end
             // 
             this.de_inwh_end.EditValue = null;
-            this.de_inwh_end.Location = new System.Drawing.Point(220, 21);
+            this.de_inwh_end.Location = new System.Drawing.Point(229, 73);
             this.de_inwh_end.Name = "de_inwh_end";
             this.de_inwh_end.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.de_inwh_end.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.de_inwh_end.Size = new System.Drawing.Size(128, 20);
+            this.de_inwh_end.Size = new System.Drawing.Size(135, 20);
             this.de_inwh_end.TabIndex = 11;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(209, 24);
+            this.labelControl2.Location = new System.Drawing.Point(216, 75);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(4, 14);
             this.labelControl2.TabIndex = 10;
@@ -645,20 +690,20 @@
             // de_inwh_begin
             // 
             this.de_inwh_begin.EditValue = null;
-            this.de_inwh_begin.Location = new System.Drawing.Point(74, 21);
+            this.de_inwh_begin.Location = new System.Drawing.Point(74, 73);
             this.de_inwh_begin.Name = "de_inwh_begin";
             this.de_inwh_begin.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.de_inwh_begin.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.de_inwh_begin.Size = new System.Drawing.Size(128, 20);
+            this.de_inwh_begin.Size = new System.Drawing.Size(135, 20);
             this.de_inwh_begin.TabIndex = 9;
             // 
             // sbtn_close
             // 
             this.sbtn_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.sbtn_close.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_close.Image")));
-            this.sbtn_close.Location = new System.Drawing.Point(739, 152);
+            this.sbtn_close.Location = new System.Drawing.Point(739, 42);
             this.sbtn_close.Name = "sbtn_close";
             this.sbtn_close.Size = new System.Drawing.Size(75, 23);
             this.sbtn_close.TabIndex = 8;
@@ -668,7 +713,7 @@
             // 
             this.sbtn_print.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.sbtn_print.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_print.Image")));
-            this.sbtn_print.Location = new System.Drawing.Point(647, 152);
+            this.sbtn_print.Location = new System.Drawing.Point(647, 42);
             this.sbtn_print.Name = "sbtn_print";
             this.sbtn_print.Size = new System.Drawing.Size(75, 23);
             this.sbtn_print.TabIndex = 7;
@@ -679,7 +724,7 @@
             // 
             this.sbtn_query.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.sbtn_query.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_query.Image")));
-            this.sbtn_query.Location = new System.Drawing.Point(555, 152);
+            this.sbtn_query.Location = new System.Drawing.Point(555, 42);
             this.sbtn_query.Name = "sbtn_query";
             this.sbtn_query.Size = new System.Drawing.Size(75, 23);
             this.sbtn_query.TabIndex = 6;
@@ -688,7 +733,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(7, 24);
+            this.labelControl1.Location = new System.Drawing.Point(7, 76);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(60, 14);
             this.labelControl1.TabIndex = 0;
@@ -718,7 +763,7 @@
             this.nbitem_move,
             this.nbi_customer,
             this.nbi_destroy,
-            this.navBarItem7,
+            this.nbitem_import,
             this.nbitem_packing});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
@@ -738,7 +783,7 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbitem_print),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarSeparatorItem1),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbi_destroy),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem7)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbitem_import)});
             this.navBarGroup1.Name = "navBarGroup1";
             this.navBarGroup1.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarGroup1.SmallImage")));
             // 
@@ -775,11 +820,12 @@
             this.nbi_destroy.Name = "nbi_destroy";
             this.nbi_destroy.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbi_destroy_LinkClicked);
             // 
-            // navBarItem7
+            // nbitem_import
             // 
-            this.navBarItem7.Caption = "打印历史";
-            this.navBarItem7.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem7.LargeImage")));
-            this.navBarItem7.Name = "navBarItem7";
+            this.nbitem_import.Caption = "导入条码";
+            this.nbitem_import.LargeImage = ((System.Drawing.Image)(resources.GetObject("nbitem_import.LargeImage")));
+            this.nbitem_import.Name = "nbitem_import";
+            this.nbitem_import.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbitem_import_LinkClicked);
             // 
             // navBarGroup2
             // 
@@ -833,15 +879,15 @@
             this.Load += new System.EventHandler(this.frmBarcode_Load);
             this.xtraScrollableControl1.ResumeLayout(false);
             this.xtraScrollableControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pc_query)).EndInit();
+            this.pc_query.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gc_barcode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gv_barcode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.panel_query.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.te_batch.Properties)).EndInit();
@@ -873,8 +919,8 @@
 
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl1;
         private DevExpress.XtraEditors.XtraScrollableControl xtraScrollableControl2;
-        private DevExpress.XtraEditors.PanelControl panelControl1;
-        private System.Windows.Forms.Panel panel2;
+        private DevExpress.XtraEditors.PanelControl pc_query;
+        private System.Windows.Forms.Panel panel_query;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.SimpleButton sbtn_close;
@@ -921,7 +967,7 @@
         private DevExpress.XtraNavBar.NavBarItem nbitem_move;
         private DevExpress.XtraNavBar.NavBarItem nbi_customer;
         private DevExpress.XtraNavBar.NavBarItem nbi_destroy;
-        private DevExpress.XtraNavBar.NavBarItem navBarItem7;
+        private DevExpress.XtraNavBar.NavBarItem nbitem_import;
         private DevExpress.XtraNavBar.NavBarItem nbitem_packing;
         private DevExpress.XtraEditors.TextEdit te_barcode;
         private DevExpress.XtraEditors.LabelControl labelControl7;
@@ -938,5 +984,9 @@
         private DevExpress.XtraEditors.TextEdit te_batch;
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn3;
+        private DevExpress.XtraEditors.SimpleButton sbtn_export;
+        private DevExpress.XtraGrid.Columns.GridColumn col_productionTtme;
+        private DevExpress.XtraGrid.Columns.GridColumn col_validitytime;
+        private DevExpress.XtraEditors.SimpleButton sbtn_more;
     }
 }

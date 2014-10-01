@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BarcodeModel.ADO;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace BarcodeModel.MODEL.Barcode.RW
 {
@@ -147,6 +148,78 @@ namespace BarcodeModel.MODEL.Barcode.RW
         public DateTime EndTimeOutWH { get; set; }
         //是否用分页
         public bool doPager { set; get; }
+
+        public override byte[] GetExcel(bool enableSearch = false)
+        {
+            ModelAdo<RWBarcodeModel> adoBarcode = new ModelAdo<RWBarcodeModel>();
+            List<SqlParameter> listParam = new List<SqlParameter>();
+            StringBuilder sbWhere = new StringBuilder();
+            sbWhere.Append(" 1=1 ");
+            if (!BeginTimeInWH.Equals(DateTime.MinValue) && !EndTimeInWH.Equals(DateTime.MinValue))
+            {
+                sbWhere.Append(" AND RW01010 BETWEEN  @BeginTimeInWH AND @EndTimeInWH ");
+                listParam.Add(new SqlParameter("@BeginTimeInWH", BeginTimeInWH));
+                listParam.Add(new SqlParameter("@EndTimeInWH", EndTimeInWH));
+
+            }
+            if (!BeginTimeOutWH.Equals(DateTime.MinValue) && !EndTimeOutWH.Equals(DateTime.MinValue))
+            {
+                sbWhere.Append(" AND RW01011 BETWEEN  @BeginTimeOutWH AND @EndTimeOutWH ");
+                listParam.Add(new SqlParameter("@BeginTimeOutWH", BeginTimeOutWH));
+                listParam.Add(new SqlParameter("@EndTimeOutWH", EndTimeOutWH));
+
+            }
+            if (!String.IsNullOrEmpty(this.ID))
+            {
+                sbWhere.Append(" AND RW01001 = @ID");
+                listParam.Add(new SqlParameter("@ID", ID));
+            }
+            if (!String.IsNullOrEmpty(this.StockCode))
+            {
+                sbWhere.Append(" AND RW01002 = @StockCode");
+                listParam.Add(new SqlParameter("@StockCode", StockCode));
+            }
+            if (!String.IsNullOrEmpty(this.StockName))
+            {
+                sbWhere.Append(" AND RW01003 = @StockName");
+                listParam.Add(new SqlParameter("@StockName", StockName));
+            }
+            if (!String.IsNullOrEmpty(this.BoxID))
+            {
+                sbWhere.Append(" AND RW01031 = @BoxID ");
+                listParam.Add(new SqlParameter("@BoxID", this.BoxID));
+            }
+            if (!String.IsNullOrEmpty(this.SupplierBatch))
+            {
+                sbWhere.Append(" AND RW01035 = @SupplierBatch ");
+                listParam.Add(new SqlParameter("@SupplierBatch", this.SupplierBatch));
+            }
+            if (!String.IsNullOrEmpty(this.BatchID))
+            {
+                sbWhere.Append(" AND RW01036 = @BatchID ");
+                listParam.Add(new SqlParameter("@BatchID", this.BatchID));
+            }
+            if (!String.IsNullOrEmpty(this.PO))
+            {
+                sbWhere.Append(" AND RW01014 = @PO ");
+                listParam.Add(new SqlParameter("@PO", this.PO));
+            }
+            if (Status >= 1)
+            {
+                sbWhere.Append(" AND RW01032 = @Status ");
+                listParam.Add(new SqlParameter("@Status", this.Status));
+            }
+            List<BaseSearchModel> models = null;
+            DataSet ds = null;
+            ds = adoBarcode.GetDataSet(sbWhere.ToString(), SearchOrderBy, "*", listParam.ToArray());
+            string path = AppDomain.CurrentDomain.BaseDirectory + "export\\excel\\" + DateTime.Now.ToString("yyyyMM");
+            if (!System.IO.Directory.Exists(path))
+                System.IO.Directory.CreateDirectory(path);
+            path = path + "\\" + System.DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx";
+            adoBarcode.ExportExcel(path, ds.Tables[0], this.ExcelMapping);
+            return System.IO.File.ReadAllBytes(path);
+
+        }
 
         public override List<BaseSearchModel> GetALL(bool enableSearch = false)
         {

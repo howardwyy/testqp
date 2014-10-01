@@ -23,7 +23,8 @@ namespace ChemTrend.Barcode
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmChangePwd());
-           
+
+            //Application.Run(new frmAbout());
 
             frmLogin Log = new frmLogin();
             Log.StartPosition = FormStartPosition.CenterScreen;

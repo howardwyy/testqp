@@ -436,18 +436,9 @@ namespace ChemTrend.Barcode
 
         }
 
-        private void barButtonItem17_ItemClick(object sender, ItemClickEventArgs e)
+        private void bnitem_invoice_ItemClick(object sender, ItemClickEventArgs e)
         {
-
-            BarcodeModel.MODEL.Barcode.RW.Operation.BarcodeCreateExportModel bcem = new BarcodeModel.MODEL.Barcode.RW.Operation.BarcodeCreateExportModel();
-            OpenFileDialog ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                bcem.FileName = ofd.FileName.Substring(ofd.FileName.LastIndexOf("\\") + 1);
-                bcem.Bytes = System.IO.File.ReadAllBytes(ofd.FileName);
-                ModelAPI<BarcodeModel.MODEL.Barcode.RW.Operation.BarcodeCreateExportModel> apiBCEM = new ModelAPI<BarcodeModel.MODEL.Barcode.RW.Operation.BarcodeCreateExportModel>();
-                apiBCEM.Insert(bcem);
-            }
+            OpenWindow(typeof(frmRWInvoice).ToString());
         }
 
     }

@@ -88,6 +88,7 @@
             this.sbtn_query.Size = new System.Drawing.Size(75, 23);
             this.sbtn_query.TabIndex = 23;
             this.sbtn_query.Text = "查询";
+            this.sbtn_query.Click += new System.EventHandler(this.sbtn_query_Click);
             // 
             // te_remark
             // 
@@ -133,6 +134,7 @@
             this.sbtn_create_print.Size = new System.Drawing.Size(115, 23);
             this.sbtn_create_print.TabIndex = 18;
             this.sbtn_create_print.Text = "创建并打印";
+            this.sbtn_create_print.Click += new System.EventHandler(this.sbtn_create_print_Click);
             // 
             // labelControl5
             // 
@@ -363,6 +365,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cbox_wo.Size = new System.Drawing.Size(129, 20);
             this.cbox_wo.TabIndex = 30;
+            this.cbox_wo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbox_wo_KeyUp);
             // 
             // sbtn_wo
             // 
@@ -371,6 +374,7 @@
             this.sbtn_wo.Name = "sbtn_wo";
             this.sbtn_wo.Size = new System.Drawing.Size(26, 23);
             this.sbtn_wo.TabIndex = 29;
+            this.sbtn_wo.Click += new System.EventHandler(this.sbtn_wo_Click);
             // 
             // labelControl2
             // 

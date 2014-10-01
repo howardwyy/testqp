@@ -24,7 +24,7 @@ namespace ChemTrend.Barcode.Forms.Report
             this.xlbl_count.Text = model.StockUnitQty+"";
             this.xlbl_supplier.Text = model.SupplierCode;
             this.xlbl_suppliername.Text = model.SupplierName;
-            this.xlbl_orderno.Text = model.SO;
+            this.xlbl_orderno.Text = model.PO;
             this.xbarcode.Text = model.ID;
         }
 

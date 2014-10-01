@@ -91,6 +91,7 @@
             this.barButtonItem_customer = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem13 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
+            this.bnitem_invoice = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
@@ -137,9 +138,10 @@
             this.bbtn_item_suggest,
             this.bbtn_item_mapping,
             this.bbitem_wc,
-            this.bbitem_stock});
+            this.bbitem_stock,
+            this.bnitem_invoice});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 44;
+            this.ribbon.MaxItemId = 45;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -298,7 +300,6 @@
             this.barButtonItem17.Id = 19;
             this.barButtonItem17.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem17.LargeGlyph")));
             this.barButtonItem17.Name = "barButtonItem17";
-            this.barButtonItem17.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem17_ItemClick);
             // 
             // barButtonItem18
             // 
@@ -486,6 +487,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.bbtn_stock_number);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbtn_stock_receiving);
+            this.ribbonPageGroup1.ItemLinks.Add(this.bnitem_invoice);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "原材料管理";
@@ -662,6 +664,15 @@
             this.barButtonItem6.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem6.LargeGlyph")));
             this.barButtonItem6.Name = "barButtonItem6";
             // 
+            // bnitem_invoice
+            // 
+            this.bnitem_invoice.Caption = "发货单";
+            this.bnitem_invoice.Glyph = ((System.Drawing.Image)(resources.GetObject("bnitem_invoice.Glyph")));
+            this.bnitem_invoice.Id = 44;
+            this.bnitem_invoice.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bnitem_invoice.LargeGlyph")));
+            this.bnitem_invoice.Name = "bnitem_invoice";
+            this.bnitem_invoice.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bnitem_invoice_ItemClick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -748,5 +759,6 @@
         private DevExpress.XtraBars.BarButtonItem bbtn_item_mapping;
         private DevExpress.XtraBars.BarButtonItem bbitem_wc;
         private DevExpress.XtraBars.BarButtonItem bbitem_stock;
+        private DevExpress.XtraBars.BarButtonItem bnitem_invoice;
     }
 }

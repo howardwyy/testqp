@@ -134,5 +134,62 @@ select @id ID
             else
                 return "";
         }
+        public void ExportExcel(string filename, DataTable dt, List<KeyValuePair<string, string>> columns)
+        {
+            Excel.Application app = null;
+            try
+            {
+                object missing = Type.Missing;
+                app = new Excel.ApplicationClass();
+                app.Visible = false;
+                app.DisplayAlerts = false;
+                app.Application.Workbooks.Add(true);
+                Excel.Worksheet ws = (Excel.Worksheet)app.ActiveSheet;
+                ws.Name = "data";
+                int line = 1;
+                if (columns != null)
+                {
+                    for (int i = 0; i < columns.Count; i++)
+                    {
+                        app.Cells[line, i + 1] = columns[i].Value;
+                        (app.Cells[line, i + 1] as Excel.Range).Font.Bold = true;
+                    }
+                    line++;
+                }
+                else
+                {
+                    for (int i = 0; i < dt.Columns.Count; i++)
+                    {
+                        app.Cells[line, i + 1] = dt.Columns[i].ColumnName;
+                        (app.Cells[line, i + 1] as Excel.Range).Font.Bold = true;
+                    }
+                    line++;
+                }
+                object[,] ss = new object[dt.Rows.Count, columns.Count];
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    for (int j = 0; j < columns.Count; j++)
+                    {
+                        ss[i, j] = "'" + dt.Rows[i][columns[j].Key];
+                    }
+                }
+                Excel.Range r = ws.get_Range(ws.Cells[line, 1], ws.Cells[line + dt.Rows.Count - 1, columns.Count]);
+                r.Value2 = ss;
+                app.ActiveWorkbook.SaveAs(filename, missing, missing, missing, missing, missing, Excel.XlSaveAsAccessMode.xlNoChange, missing, missing, missing, missing, missing);
+                app.ActiveWorkbook.Save();
+                app.ActiveWorkbook.Close(missing, missing, missing);
+                app.Quit();
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(app);
+                app = null;
+            }
+            catch (Exception ex)
+            {
+                if (app != null)
+                    app.Quit();
+                throw ex;
+            }
+            app = null;
+            GC.Collect();
+        }
     }
 }

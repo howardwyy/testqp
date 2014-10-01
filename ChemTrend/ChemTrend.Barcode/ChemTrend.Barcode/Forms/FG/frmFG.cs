@@ -396,5 +396,17 @@ namespace ChemTrend.Barcode.Forms.FG
 
         }
 
+        private void sbtn_more_Click(object sender, EventArgs e)
+        {
+            if (this.panel_query.Height <= 100)
+            {
+                this.panel_query.Height += 90;
+            }
+            else
+            {
+                this.panel_query.Height -= 90;
+            }  
+        }
+
     }
 }

@@ -17,5 +17,18 @@ namespace ChemTrend.Barcode
         {
             InitializeComponent();
         }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            if (this.panelControl1.Height < 120)
+            {
+                this.panelControl1.Height += 100;
+            }
+            else
+            {
+                this.Height -= 100;
+                this.panelControl1.Height -= 100;
+            }  
+        }
     }
 }

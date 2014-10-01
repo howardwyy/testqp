@@ -162,7 +162,7 @@ namespace ChemTrend.Barcode.Forms.Stock
 
                 frmRWInvoiceDetails frmIDetails = new frmRWInvoiceDetails();
                 frmIDetails.StartPosition = FormStartPosition.CenterParent;
-                //frmIDetails.curInvoiceModel = curInvoiceModel;
+                frmIDetails.curInvoiceModel = curInvoiceModel;
                 DialogResult result = frmIDetails.ShowDialog();
                 if (result == DialogResult.OK)
                 {

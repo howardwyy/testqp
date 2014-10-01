@@ -128,6 +128,14 @@ namespace BarcodeModel.MODEL.Barcode.RW
         [Columname(Name = "RW01036")]
         public string BatchID { get; set; }
 
+
+        [Columname(Name = "RW01037")]
+        public DateTime ProductDate { get; set; }
+        //batch ID
+        [Columname(Name = "RW01038")]
+        public DateTime ExpirationDate { get; set; }
+
+
         //应用于查询，搜索功能，入库，开始时间；
         public DateTime BeginTimeInWH { get; set; }
         //应用于查询，搜索功能，入库，结束时间；
@@ -139,6 +147,12 @@ namespace BarcodeModel.MODEL.Barcode.RW
         public DateTime EndTimeOutWH { get; set; }
         //是否用分页
         public bool doPager { set; get; }
+
+        public override byte[] GetExcel(bool enableSearch = true)
+        {
+            return base.GetExcel(enableSearch);
+        }
+
 
         public override List<BaseSearchModel> GetALL(bool enableSearch = false)
         {
@@ -165,10 +179,35 @@ namespace BarcodeModel.MODEL.Barcode.RW
                 sbWhere.Append(" AND RW01001 = @ID");
                 listParam.Add(new SqlParameter("@ID", ID));
             }
+            if (!String.IsNullOrEmpty(this.StockCode))
+            {
+                sbWhere.Append(" AND RW01002 = @StockCode");
+                listParam.Add(new SqlParameter("@StockCode", StockCode));
+            }
+            if (!String.IsNullOrEmpty(this.StockName))
+            {
+                sbWhere.Append(" AND RW01003 = @StockName");
+                listParam.Add(new SqlParameter("@StockName", StockName));
+            }
             if (!String.IsNullOrEmpty(this.BoxID))
             {
                 sbWhere.Append(" AND RW01031 = @BoxID ");
                 listParam.Add(new SqlParameter("@BoxID", this.BoxID));
+            }
+            if (!String.IsNullOrEmpty(this.SupplierBatch))
+            {
+                sbWhere.Append(" AND RW01035 = @SupplierBatch ");
+                listParam.Add(new SqlParameter("@SupplierBatch", this.SupplierBatch));
+            }
+            if (!String.IsNullOrEmpty(this.BatchID))
+            {
+                sbWhere.Append(" AND RW01036 = @BatchID ");
+                listParam.Add(new SqlParameter("@BatchID", this.BatchID));
+            }
+            if (!String.IsNullOrEmpty(this.PO))
+            {
+                sbWhere.Append(" AND RW01014 = @PO ");
+                listParam.Add(new SqlParameter("@PO", this.PO));
             }
             if (Status >= 1)
             {
@@ -180,12 +219,12 @@ namespace BarcodeModel.MODEL.Barcode.RW
             {
                 int count = 0;
                 adoBarcode.PageSize = this.PageSize;
-                models = adoBarcode.GetList(this.PageIndex, sbWhere.ToString(), " RW01001 DESC  ", out count, "*", listParam.ToArray()).ConvertAll<BaseSearchModel>(m => m as BaseSearchModel);
+                models = adoBarcode.GetList(this.PageIndex, sbWhere.ToString(), SearchOrderBy, out count, "*", listParam.ToArray()).ConvertAll<BaseSearchModel>(m => m as BaseSearchModel);
                 base.totalCount = count;
             }
             else
             {
-                models = adoBarcode.GetList(sbWhere.ToString(), " RW01001 DESC  ", "*", listParam.ToArray()).ConvertAll<BaseSearchModel>(m => m as BaseSearchModel);
+                models = adoBarcode.GetList(sbWhere.ToString(), SearchOrderBy, "*", listParam.ToArray()).ConvertAll<BaseSearchModel>(m => m as BaseSearchModel);
             }
             return models;
         }

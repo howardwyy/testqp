@@ -73,10 +73,8 @@ namespace ChemTrend.Barcode.Forms.Stock
                 searchModel.doPager = true;
                 searchModel.PageIndex = ucPager.PageCurrent;
                 searchModel.PageSize = ucPager.PageSize;
+                searchModel.SearchOrderBy = "RW01037 desc";
                 listBarcode = apiBarcode.GetList(searchModel);
-                searchModel.Datatype = "excel";
-                Byte[] b = apiBarcode.GetExcel(searchModel);
-                System.IO.File.WriteAllBytes("c:\\e.xlsx", b);
                 gc_barcode.DataSource = listBarcode;
                 this.gv_barcode.FocusedRowHandle = 0;
                 if (listBarcode != null && listBarcode.Count >= 1)
@@ -106,6 +104,14 @@ namespace ChemTrend.Barcode.Forms.Stock
 
         private void sbtn_query_Click(object sender, EventArgs e)
         {
+            initSearchModel();
+            InitData();
+        }
+
+
+        private void initSearchModel()
+        {
+
             int status = 0;
             if (!string.IsNullOrEmpty(cbox_status.Text))
             {
@@ -151,7 +157,6 @@ namespace ChemTrend.Barcode.Forms.Stock
             {
                 searchModel.Status = status;
             }
-            InitData();
         }
 
         private void sbtn_print_Click(object sender, EventArgs e)
@@ -399,6 +404,90 @@ namespace ChemTrend.Barcode.Forms.Stock
         private void gc_barcode_Click(object sender, EventArgs e)
         {
 
+
+
+        }
+
+
+        private void sbtn_export_Click(object sender, EventArgs e)
+        {
+            //SaveFileDialog fileDialog = new SaveFileDialog();
+            //fileDialog.Title = "导出Excel";
+            //fileDialog.Filter = "Excel文件(*.xls)|*.xls";
+            //DialogResult dialogResult = fileDialog.ShowDialog(this);
+            //if (dialogResult == DialogResult.OK)
+            //{
+            //    DevExpress.XtraPrinting.XlsExportOptions options = new DevExpress.XtraPrinting.XlsExportOptions();
+            //    options.TextExportMode = DevExpress.XtraPrinting.TextExportMode.Text;
+
+            //    gc_barcode.ExportToXls(fileDialog.FileName, options);
+            //    DevExpress.XtraEditors.XtraMessageBox.Show("保存成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
+
+
+            initSearchModel();
+            searchModel.doPager = false; 
+            searchModel.Datatype = "excel";
+            Byte[] b = apiBarcode.GetExcel(searchModel);
+
+
+            SaveFileDialog fileDialog = new SaveFileDialog();
+            fileDialog.Title = "导出Excel";
+            fileDialog.Filter = "Excel文件(*.xlsx)|*.xlsx";
+            fileDialog.OverwritePrompt = false; //已存在文件是否覆盖提示
+            if (fileDialog.ShowDialog() != DialogResult.OK)
+                return;
+            //已存在文件是否覆盖提示
+            while (System.IO.File.Exists(fileDialog.FileName) &&
+                DevExpress.XtraEditors.XtraMessageBox.Show("该文件名已存在，是否覆盖？",
+                "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            {
+                if (fileDialog.ShowDialog() != DialogResult.OK)
+                    return;
+            }
+            if (fileDialog.FileName != "")
+            {
+                try
+                {
+
+                    System.IO.File.WriteAllBytes(fileDialog.FileName, b);
+                    DevExpress.XtraEditors.XtraMessageBox.Show("数据导出成功！", "提示");
+
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("正由另一进程使用"))
+                    {
+                        DevExpress.XtraEditors.XtraMessageBox.Show("数据导出失败！文件正由另一个程序占用！", "提示");
+                    }
+                    else
+                        DevExpress.XtraEditors.XtraMessageBox.Show("数据导出失败！数据量过大，请分别统计再导出！", "提示");
+                }
+            }
+
+        }
+
+        private void nbitem_import_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmRWImport frmRWImport = new frmRWImport();
+            DialogResult result = frmRWImport.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                InitData();
+            }
+        }
+
+        private void sbtn_more_Click(object sender, EventArgs e)
+        {
+
+            if (this.panel_query.Height <= 100)
+            {
+                this.panel_query.Height += 120;
+            }
+            else
+            {
+                this.panel_query.Height -= 120;
+            }
         }
 
     }

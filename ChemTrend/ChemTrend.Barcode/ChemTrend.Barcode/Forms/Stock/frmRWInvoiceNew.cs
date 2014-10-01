@@ -16,6 +16,7 @@ using DevExpress.XtraReports.UI;
 using ChemTrend.Barcode.Forms.Print;
 using ChemTrend.Barcode.Report;
 using BarcodeModel.MODEL.Barcode.RW;
+using BarcodeModel.MODEL.Barcode.RW.Operation;
 
 namespace ChemTrend.Barcode.Forms.Stock
 {
@@ -63,8 +64,8 @@ namespace ChemTrend.Barcode.Forms.Stock
                     selectedSOLines.Add(item);
                 }
 
-                ModelAPI<CreateInvoiceModel> apiICreate = new ModelAPI<CreateInvoiceModel>();
-                CreateInvoiceModel createModel = new CreateInvoiceModel()
+                ModelAPI<CreateRWInvoiceModel> apiICreate = new ModelAPI<CreateRWInvoiceModel>();
+                CreateRWInvoiceModel createModel = new CreateRWInvoiceModel()
                 {
                     SOLines = selectedSOLines.ToArray(),
                     SONO = this.cbox_wo.Text,
@@ -72,7 +73,7 @@ namespace ChemTrend.Barcode.Forms.Stock
                     isUrgent = this.cke_isurgent.Checked ? 1 : 0,
                     HopeTime = de_hopetime.DateTime
                 };
-                CreateInvoiceModel ICreateModel = apiICreate.Insert(createModel);
+                CreateRWInvoiceModel ICreateModel = apiICreate.Insert(createModel);
 
                 this.DialogResult = DialogResult.OK;
                 if (DevExpress.XtraEditors.XtraMessageBox.Show("是否打印生成的条码信息？", "打印", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
