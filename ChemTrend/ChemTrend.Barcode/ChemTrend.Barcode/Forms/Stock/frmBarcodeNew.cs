@@ -93,6 +93,7 @@ namespace ChemTrend.Barcode.Forms.Stock
 
                 DevExpress.XtraEditors.XtraMessageBox.Show(ex.Message, "确认", MessageBoxButtons.OK);
             }
+            this.te_po.Text = "";
             this.te_suppliername.Text = "";
             this.te_supplier.Text = "";
         }
@@ -181,6 +182,7 @@ namespace ChemTrend.Barcode.Forms.Stock
         private void gv_poline_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             POLineModel focusedModel = gv_poline.GetFocusedRow() as POLineModel;
+            this.te_po.Text = focusedModel.PO;
             this.te_supplier.Text = focusedModel.SupplierCode;
             this.te_suppliername.Text = focusedModel.SupplierName;
         }

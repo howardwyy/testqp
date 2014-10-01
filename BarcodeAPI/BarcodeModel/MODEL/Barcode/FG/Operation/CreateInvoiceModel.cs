@@ -31,8 +31,8 @@ namespace BarcodeModel.MODEL.Barcode.FG.Operation
                 throw new Exception("请选择发货单项");
             string sql = @"
 declare @id varchar(30)
-exec PROC_GETID 'RW18',@id output
-insert into RW18(RW18001,RW18002,RW18003,RW18004,RW18005,RW18006,RW18007,RW18008,RW18011,RW18012)
+exec PROC_GETID 'FG08',@id output
+insert into FG08(FG08001,FG08002,FG08003,FG08004,FG08005,FG08006,FG08007,FG08008,FG08011,FG08012)
 values(@id,getdate(),@userid,@username,@HopeTime,@isUrgent,@Remark,1,@CustomerCode,@CustomerName)
 ";
             List<SqlParameter> list = new List<SqlParameter>();

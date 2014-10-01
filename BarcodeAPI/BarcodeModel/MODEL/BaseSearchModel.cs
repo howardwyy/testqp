@@ -18,6 +18,15 @@ namespace BarcodeModel.MODEL
         public int PageSize { get; set; }
         public string LoginUserName { get; set; }
         public string LoginUserID { get; set; }
+
+        private string _datatype = "data";
+
+        public string Datatype
+        {
+            get { return _datatype; }
+            set { _datatype = value; }
+        }
+        protected List<KeyValuePair<string, string>> ExcelMapping { get; set; }
         public BaseSearchModel()
         {
             SearchOrderBy = "";
@@ -96,6 +105,45 @@ namespace BarcodeModel.MODEL
                 }
             }
             return this.GetADO().GetList("", "").ConvertAll<BaseSearchModel>(m => m as BaseSearchModel);
+        }
+        public virtual Byte[] GetExcel(bool enableSearch = false)
+        {
+            DataSet ds = null;
+            if (enableSearch)
+            {
+                Hashtable colMapping = this.GetADO().GetColumnMapping();
+                if (colMapping.Keys.Count > 0)
+                {
+                    string where = "";
+                    List<SqlParameter> lstParams = new List<SqlParameter>();
+                    Type t = this.GetType();
+                    foreach (string item in colMapping.Keys)
+                    {
+                        string column = colMapping[item] + "";
+                        string searchformat = string.Format("{0}=@{0}", column);
+                        PropertyInfo pi = t.GetProperty(item);
+                        if (pi != null)
+                        {
+                            object value = pi.GetValue(this, null);
+                            if (this.CheckHasValue(value))
+                            {
+                                where += (where.Length > 0 ? " and " + searchformat : searchformat);
+                                lstParams.Add(new SqlParameter("@" + column, value));
+
+                            }
+                        }
+                    }
+                    ds = this.GetADO().GetDataSet(where, this.SearchOrderBy, "", lstParams.ToArray());
+                }
+            }
+            else
+                ds = this.GetADO().GetDataSet("", "");
+            string path = AppDomain.CurrentDomain.BaseDirectory + "export\\excel\\" + DateTime.Now.ToString("yyyyMM");
+            if (!System.IO.Directory.Exists(path))
+                System.IO.Directory.CreateDirectory(path);
+            path = path + "\\" + System.DateTime.Now.ToString("yyyyMMddHHmmss") + ".xlsx";
+            this.GetADO().ExportExcel(path, ds.Tables[0], this.ExcelMapping);
+            return System.IO.File.ReadAllBytes(path);
         }
         public virtual BaseSearchModel GetModelByID(string id)
         {

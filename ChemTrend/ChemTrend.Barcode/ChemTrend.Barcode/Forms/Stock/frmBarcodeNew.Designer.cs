@@ -52,15 +52,15 @@
             this.te_suppliername = new DevExpress.XtraEditors.TextEdit();
             this.sbtn_create = new DevExpress.XtraEditors.SimpleButton();
             this.te_supplier = new DevExpress.XtraEditors.TextEdit();
+            this.te_po = new DevExpress.XtraEditors.TextEdit();
             this.lue_company = new DevExpress.XtraEditors.LookUpEdit();
             this.sbtn_query = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.sbtn_warehousecode = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.col_procutiontime = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.col_validitytime = new DevExpress.XtraGrid.Columns.GridColumn();
             this.xtraScrollableControl1.SuspendLayout();
             this.xtraScrollableControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc_poline)).BeginInit();
@@ -70,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbox_orderno.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_suppliername.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_supplier.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_po.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_company.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,12 +99,12 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gc_poline.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gc_poline.Location = new System.Drawing.Point(12, 122);
+            this.gc_poline.Location = new System.Drawing.Point(12, 133);
             this.gc_poline.MainView = this.gv_poline;
             this.gc_poline.Name = "gc_poline";
             this.gc_poline.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gc_poline.Size = new System.Drawing.Size(976, 407);
+            this.gc_poline.Size = new System.Drawing.Size(976, 396);
             this.gc_poline.TabIndex = 3;
             this.gc_poline.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gv_poline});
@@ -123,9 +124,7 @@
             this.gridColumn10,
             this.gridColumn11,
             this.gridColumn13,
-            this.gridColumn15,
-            this.col_procutiontime,
-            this.col_validitytime});
+            this.gridColumn15});
             this.gv_poline.GridControl = this.gc_poline;
             this.gv_poline.Name = "gv_poline";
             this.gv_poline.OptionsSelection.CheckBoxSelectorColumnWidth = 35;
@@ -275,16 +274,18 @@
             this.groupBox1.Controls.Add(this.te_suppliername);
             this.groupBox1.Controls.Add(this.sbtn_create);
             this.groupBox1.Controls.Add(this.te_supplier);
+            this.groupBox1.Controls.Add(this.te_po);
             this.groupBox1.Controls.Add(this.lue_company);
             this.groupBox1.Controls.Add(this.sbtn_query);
             this.groupBox1.Controls.Add(this.labelControl5);
             this.groupBox1.Controls.Add(this.labelControl4);
             this.groupBox1.Controls.Add(this.labelControl3);
+            this.groupBox1.Controls.Add(this.labelControl2);
             this.groupBox1.Controls.Add(this.sbtn_warehousecode);
             this.groupBox1.Controls.Add(this.labelControl1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(976, 104);
+            this.groupBox1.Size = new System.Drawing.Size(976, 115);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "条码信息";
@@ -302,7 +303,7 @@
             // te_suppliername
             // 
             this.te_suppliername.Enabled = false;
-            this.te_suppliername.Location = new System.Drawing.Point(95, 75);
+            this.te_suppliername.Location = new System.Drawing.Point(95, 88);
             this.te_suppliername.Name = "te_suppliername";
             this.te_suppliername.Size = new System.Drawing.Size(238, 20);
             this.te_suppliername.TabIndex = 27;
@@ -311,7 +312,7 @@
             // 
             this.sbtn_create.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.sbtn_create.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_create.Image")));
-            this.sbtn_create.Location = new System.Drawing.Point(877, 78);
+            this.sbtn_create.Location = new System.Drawing.Point(877, 84);
             this.sbtn_create.Name = "sbtn_create";
             this.sbtn_create.Size = new System.Drawing.Size(75, 23);
             this.sbtn_create.TabIndex = 18;
@@ -321,10 +322,18 @@
             // te_supplier
             // 
             this.te_supplier.Enabled = false;
-            this.te_supplier.Location = new System.Drawing.Point(95, 47);
+            this.te_supplier.Location = new System.Drawing.Point(349, 53);
             this.te_supplier.Name = "te_supplier";
             this.te_supplier.Size = new System.Drawing.Size(129, 20);
             this.te_supplier.TabIndex = 26;
+            // 
+            // te_po
+            // 
+            this.te_po.Enabled = false;
+            this.te_po.Location = new System.Drawing.Point(95, 53);
+            this.te_po.Name = "te_po";
+            this.te_po.Size = new System.Drawing.Size(129, 20);
+            this.te_po.TabIndex = 25;
             // 
             // lue_company
             // 
@@ -339,7 +348,7 @@
             // 
             this.sbtn_query.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.sbtn_query.Image = ((System.Drawing.Image)(resources.GetObject("sbtn_query.Image")));
-            this.sbtn_query.Location = new System.Drawing.Point(779, 78);
+            this.sbtn_query.Location = new System.Drawing.Point(779, 84);
             this.sbtn_query.Name = "sbtn_query";
             this.sbtn_query.Size = new System.Drawing.Size(75, 23);
             this.sbtn_query.TabIndex = 22;
@@ -356,7 +365,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(16, 75);
+            this.labelControl4.Location = new System.Drawing.Point(16, 88);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(72, 14);
             this.labelControl4.TabIndex = 16;
@@ -364,11 +373,19 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(7, 50);
+            this.labelControl3.Location = new System.Drawing.Point(261, 56);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(72, 14);
             this.labelControl3.TabIndex = 14;
             this.labelControl3.Text = "供应商编号：";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(16, 56);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(60, 14);
+            this.labelControl2.TabIndex = 12;
+            this.labelControl2.Text = "已选订单：";
             // 
             // sbtn_warehousecode
             // 
@@ -386,26 +403,6 @@
             this.labelControl1.Size = new System.Drawing.Size(48, 14);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "订单号：";
-            // 
-            // col_procutiontime
-            // 
-            this.col_procutiontime.Caption = "生产日期";
-            this.col_procutiontime.DisplayFormat.FormatString = "yyyy-MM-dd";
-            this.col_procutiontime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.col_procutiontime.FieldName = "ProductionTime";
-            this.col_procutiontime.Name = "col_procutiontime";
-            this.col_procutiontime.Visible = true;
-            this.col_procutiontime.VisibleIndex = 14;
-            // 
-            // col_validitytime
-            // 
-            this.col_validitytime.Caption = "有效期";
-            this.col_validitytime.DisplayFormat.FormatString = "yyyy-MM-dd";
-            this.col_validitytime.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.col_validitytime.FieldName = "ValidityTime";
-            this.col_validitytime.Name = "col_validitytime";
-            this.col_validitytime.Visible = true;
-            this.col_validitytime.VisibleIndex = 15;
             // 
             // frmBarcodeNew
             // 
@@ -428,6 +425,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbox_orderno.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_suppliername.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.te_supplier.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.te_po.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lue_company.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -440,6 +438,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SimpleButton sbtn_warehousecode;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraGrid.GridControl gc_poline;
@@ -462,10 +461,9 @@
         private DevExpress.XtraEditors.LookUpEdit lue_company;
         private DevExpress.XtraEditors.TextEdit te_suppliername;
         private DevExpress.XtraEditors.TextEdit te_supplier;
+        private DevExpress.XtraEditors.TextEdit te_po;
         private DevExpress.XtraEditors.ComboBoxEdit cbox_orderno;
         private DevExpress.XtraEditors.SimpleButton sbtn_create;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
-        private DevExpress.XtraGrid.Columns.GridColumn col_procutiontime;
-        private DevExpress.XtraGrid.Columns.GridColumn col_validitytime;
     }
 }

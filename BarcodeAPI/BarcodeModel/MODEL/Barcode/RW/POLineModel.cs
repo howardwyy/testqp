@@ -61,13 +61,6 @@ namespace BarcodeModel.MODEL.Barcode.RW
 
         public string Remark { get; set; }
         public string Danju { get; set; }//单据号，创建时候用
-
-        //生产日期
-        public DateTime ProductionTime { set; get; }
-
-        //有效期
-        public DateTime ValidityTime { set; get; }
-
         //供应商的batch [Columname(Name = "RW01035")]
         public string SupplierBatch { get; set; }
 
@@ -222,8 +215,8 @@ exec PROC_GETID 'RW01',@bid output
 insert into RW02(RW02002,RW02003,RW02004,RW02005,RW02010,RW02011)
 values(@bid,getdate(),@userid,@username,@dj,N'创建条码标签')
 
-insert into RW01(RW01001,RW01002,RW01003,RW01004,RW01005,RW01006,RW01012,RW01013,RW01014,RW01015,RW01018,RW01024,RW01025,RW01027,RW01032,RW01034,RW01035,RW01037,RW01038)
-values(@bid,@stock,@stockname,@stockspec,@unit,@qty,@sup,@supname,@po,@poline,@remark,@userid,@username,@dj,1,@company,@SupplierBatch,@ProductionTime ,@ValidityTime)
+insert into RW01(RW01001,RW01002,RW01003,RW01004,RW01005,RW01006,RW01012,RW01013,RW01014,RW01015,RW01018,RW01024,RW01025,RW01027,RW01032,RW01034,RW01035)
+values(@bid,@stock,@stockname,@stockspec,@unit,@qty,@sup,@supname,@po,@poline,@remark,@userid,@username,@dj,1,@company,@SupplierBatch)
 
 insert into RW04(RW04002,RW04003,RW04004,RW04005) values(getdate(),@dj,@bid,N'创建条码')
 
@@ -246,8 +239,6 @@ end
                 new SqlParameter("@company", this.Company),
                 new SqlParameter("@SupplierBatch", this.SupplierBatch),
                 new SqlParameter("@printcount", this.BarcodeQTY),
-                new SqlParameter("@ProductionTime", this.ProductionTime),
-                new SqlParameter("@ValidityTime", this.ValidityTime),
                 new SqlParameter("@dj", this.Danju));
             return this;
         }

@@ -318,7 +318,7 @@
             this.xrLabel1.SizeF = new System.Drawing.SizeF(288.5417F, 45.91667F);
             this.xrLabel1.StylePriority.UseFont = false;
             this.xrLabel1.StylePriority.UseTextAlignment = false;
-            this.xrLabel1.Text = "成品发货清单表\r\n";
+            this.xrLabel1.Text = "仓库发货清单表\r\n";
             this.xrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // BottomMargin

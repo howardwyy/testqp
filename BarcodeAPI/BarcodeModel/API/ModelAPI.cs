@@ -51,6 +51,11 @@ namespace BarcodeModel.API
             string html = this.SendRequest(this.ApiURL, "GET", searchModel);
             return BaseAPI.DeserializeObject<List<T>>(html);
         }
+        public Byte[] GetExcel(T searchModel)
+        {
+            string html = this.SendRequest(this.ApiURL, "GET", searchModel);
+            return BaseAPI.DeserializeObject<Byte[]>(html);
+        }
         public List<T> GetList(string[] ids)
         {
             string html = this.SendRequest(this.ApiURL, "GET", ids);

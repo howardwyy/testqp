@@ -18,6 +18,14 @@ namespace BarcodeModel.MODEL
         public int PageSize { get; set; }
         public string LoginUserName { get; set; }
         public string LoginUserID { get; set; }
+        private string _datatype = "data";
+
+        public string Datatype
+        {
+            get { return _datatype; }
+            set { _datatype = value; }
+        }
+        protected List<KeyValuePair<string, string>> ExcelMapping { get; set; }
         public BaseSearchModel()
         {
             SearchOrderBy = "";

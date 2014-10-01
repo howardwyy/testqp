@@ -102,14 +102,21 @@ select UR01001,UR01005 from UR01 where UR01001 in (select UR05002 from UR05 wher
                 throw new Exception("无法访问，未登录系统");
         }
         // GET api/basemodel
-        public IEnumerable<BaseSearchModel> Get()
+        public Object Get()
         {
-            List<BaseSearchModel> lst = searchModel.GetALL(enableSearch);
-            if (searchModel.totalCount > 0 && lst.Count > 0)
+            if (searchModel.Datatype == "excel")
             {
-                lst[0].totalCount = searchModel.totalCount;
+                return searchModel.GetExcel(enableSearch);
             }
-            return lst;
+            else
+            {
+                List<BaseSearchModel> lst = searchModel.GetALL(enableSearch);
+                if (searchModel.totalCount > 0 && lst.Count > 0)
+                {
+                    lst[0].totalCount = searchModel.totalCount;
+                }
+                return lst;
+            }
         }
         // GET api/basemodel/5
         public BaseSearchModel Get(string id)
@@ -122,12 +129,19 @@ select UR01001,UR01005 from UR01 where UR01001 in (select UR05002 from UR05 wher
         {
             if (this.headmethod == "get")
             {
-                List<BaseSearchModel> lst = searchModel.GetALL(enableSearch);
-                if (searchModel.totalCount > 0 && lst.Count > 0)
+                if (searchModel.Datatype == "excel")
                 {
-                    lst[0].totalCount = searchModel.totalCount;
+                    return searchModel.GetExcel(enableSearch);
                 }
-                return lst;
+                else
+                {
+                    List<BaseSearchModel> lst = searchModel.GetALL(enableSearch);
+                    if (searchModel.totalCount > 0 && lst.Count > 0)
+                    {
+                        lst[0].totalCount = searchModel.totalCount;
+                    }
+                    return lst;
+                }
             }
             else if (this.headmethod == "getids")
             {

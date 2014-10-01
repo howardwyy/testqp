@@ -11,6 +11,13 @@ namespace BarcodeModel.MODEL.Barcode.RW
     [Tablename(TableName = "RW01", PrimaryKey = "RW01001")]
     public class RWBarcodeModel : BaseSearchModel
     {
+        public RWBarcodeModel()
+        {
+            this.ExcelMapping = new List<KeyValuePair<string, string>>();
+            this.ExcelMapping.Add(new KeyValuePair<string, string>("RW01001", "条码号"));
+            this.ExcelMapping.Add(new KeyValuePair<string, string>("RW01002", "物料号"));
+            this.ExcelMapping.Add(new KeyValuePair<string, string>("RW01003", "物料名称"));
+        }
         [Columname(Name = "RW01001")]
         public string ID { get; set; }
 
@@ -120,15 +127,6 @@ namespace BarcodeModel.MODEL.Barcode.RW
         //batch ID
         [Columname(Name = "RW01036")]
         public string BatchID { get; set; }
-
-
-        //生产日期
-        [Columname(Name = "RW01037")]
-        public DateTime ProductionTime { set; get; }
-
-        //有效期
-        [Columname(Name = "RW01038")]
-        public DateTime ValidityTime { set; get; }
 
         //应用于查询，搜索功能，入库，开始时间；
         public DateTime BeginTimeInWH { get; set; }
