@@ -30,7 +30,7 @@ namespace BarcodeModel.MODEL.Barcode.RW
         [Columname(Name = "UNITPUR")]
         public string UNITPO { get; set; }
 
-        [Columname(Name = "UNIT")]
+        [Columname(Name = "UNITSTC")]
         public string UNITWH { get; set; }
 
         [Columname(Name = "PL01001")]
@@ -51,11 +51,20 @@ namespace BarcodeModel.MODEL.Barcode.RW
         [Columname(Name = "PC03011")]
         public decimal QTYRECEIVED { get; set; }
 
+        [Columname(Name = "SC01035")]
+        public string Type { get; set; }
+
         [Columname(Name = "DH")]
         public decimal QTYRECEINING { get; set; }
 
         [Columname(Name = "UQTY")]
         public decimal UNITQTY { get; set; }
+
+        [Columname(Name = "SC01072")]
+        public decimal PODivisor { get; set; }
+
+        [Columname(Name = "SC01073")]
+        public decimal SODivisor { get; set; }
 
         public int BarcodeQTY { get; set; }
 
@@ -63,12 +72,14 @@ namespace BarcodeModel.MODEL.Barcode.RW
         public string Danju { get; set; }//单据号，创建时候用
 
         //生产日期
-        public DateTime ProductionTime { set; get; }
+        private DateTime _ProductionTime = DateTime.Now;
+        public DateTime ProductionTime { get { return _ProductionTime; } set { _ProductionTime = value; } }
 
         //有效期
         public DateTime ValidityTime { set; get; }
 
-        //供应商的batch [Columname(Name = "RW01035")]
+        //供应商的batch 
+        //[Columname(Name = "RW01035")]
         public string SupplierBatch { get; set; }
 
         //提示效果，返回值
@@ -91,7 +102,7 @@ namespace BarcodeModel.MODEL.Barcode.RW
                 if (item.UNITQTY <= 0)
                 {
                     item.BarcodeQTY = 0;
-                    lst.Add(item);
+                    //lst.Add(item);
                 }
                 else
                 {
@@ -105,7 +116,8 @@ namespace BarcodeModel.MODEL.Barcode.RW
                     {
                         POLineModel clone = item.MemberwiseClone() as POLineModel;
                         clone.BarcodeQTY = p;
-                        lst.Add(clone);
+                        if (p > 0)
+                            lst.Add(clone);
                         item.BarcodeQTY = 1;
                         item.UNITQTY = item.QTYRECEINING - p * item.UNITQTY;
                         lst.Add(item);
@@ -211,9 +223,6 @@ namespace BarcodeModel.MODEL.Barcode.RW
 declare @bid varchar(30)
 declare @hid int
 declare @i int
-	
-insert into RW03(RW03001,RW03002,RW03003,RW03004,RW03005,RW03006,RW03007,RW03008)
-values(@dj,getdate(),@userid,@username,'','','',N'创建条码')
 
 set @i=0
 while @i<@printcount
@@ -222,14 +231,16 @@ exec PROC_GETID 'RW01',@bid output
 insert into RW02(RW02002,RW02003,RW02004,RW02005,RW02010,RW02011)
 values(@bid,getdate(),@userid,@username,@dj,N'创建条码标签')
 
-insert into RW01(RW01001,RW01002,RW01003,RW01004,RW01005,RW01006,RW01012,RW01013,RW01014,RW01015,RW01018,RW01024,RW01025,RW01027,RW01032,RW01034,RW01035,RW01037,RW01038)
-values(@bid,@stock,@stockname,@stockspec,@unit,@qty,@sup,@supname,@po,@poline,@remark,@userid,@username,@dj,1,@company,@SupplierBatch,@ProductionTime ,@ValidityTime)
+insert into RW01(RW01001,RW01002,RW01003,RW01004,RW01005,RW01006,RW01012,RW01013,RW01014,RW01015,RW01018,RW01024,RW01025,RW01027,RW01032,RW01034,RW01035,RW01037,RW01038,RW01040,RW01041,RW01043,RW01044,RW01045)
+values(@bid,@stock,@stockname,@stockspec,@unit,@qty,@sup,@supname,@po,@poline,@remark,@userid,@username,@dj,1,@company,@SupplierBatch,@ProductionTime ,@ValidityTime,@tqty,@type,'PO',@unitpur,@unitsale)
 
 insert into RW04(RW04002,RW04003,RW04004,RW04005) values(getdate(),@dj,@bid,N'创建条码')
 
 set @i=@i+1
 end
 ";
+            ModelAdo<StockModel> adoStock = new ModelAdo<StockModel>();
+            StockModel sm = adoStock.GetModelByID(this.StockCode);
             BaseAdo ba = new BaseAdo();
             ba.ExecuteSql(sql, new SqlParameter("@userid", this.LoginUserID),
                 new SqlParameter("@username", this.LoginUserName),
@@ -238,6 +249,8 @@ end
                 new SqlParameter("@stockspec", this.StockSpec),
                 new SqlParameter("@unit", this.UNITWH),
                 new SqlParameter("@qty", this.UNITQTY),
+                new SqlParameter("@tqty", this.Type == "02" ? 1 : sm.UQTY),
+                new SqlParameter("@type", sm.StockType),
                 new SqlParameter("@po", this.PO),
                 new SqlParameter("@poline", this.LineNum),
                 new SqlParameter("@sup", this.SupplierCode),
@@ -248,7 +261,9 @@ end
                 new SqlParameter("@printcount", this.BarcodeQTY),
                 new SqlParameter("@ProductionTime", this.ProductionTime),
                 new SqlParameter("@ValidityTime", this.ValidityTime),
-                new SqlParameter("@dj", this.Danju));
+                new SqlParameter("@dj", this.Danju),
+                new SqlParameter("@unitpur", this.PODivisor),
+                new SqlParameter("@unitsale", this.SODivisor));
             return this;
         }
     }

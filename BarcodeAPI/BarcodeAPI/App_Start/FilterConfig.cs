@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using BarcodeAPI.App_Start;
+using System.Web;
 using System.Web.Mvc;
 
 namespace BarcodeAPI

@@ -56,6 +56,7 @@ namespace BarcodeModel.MODEL.Barcode.FG.Operation
 
                 string sql = @"
 declare @RC int
+declare @lineno varchar(10)
 declare @result nvarchar(200)
 declare @dj varchar(30)
 set @RC=0
@@ -71,6 +72,8 @@ begin
 
 
     Update FG09 set FG09005=@userid,FG09006=@username,FG09011=@InvoicedCount, FG09012=@InvoiceSurplusCount where FG09001=@InvoiceLine
+
+    select @lineno=FG09002 from FG09 where FG09001=@InvoiceLine    
 
     declare @calcstatus int
     set @calcstatus=2
@@ -99,7 +102,7 @@ begin
     insert into FG04(FG04002,FG04003,FG04004,FG04005)
     select getdate(),@dj,FG01001,N'发货单['+ @InvoiceID +']' from FG01 where FG01001 IN ([BIDS])
 	
-    update FG01 set FG01016 =FG01008 ,FG01017 = FG01009,FG01024=@userid,FG01025=@username,FG01027=@dj,FG01032=3 where FG01001 IN ([BIDS])	
+    update FG01 set FG01016 =FG01008 ,FG01017 = FG01009,FG01024=@userid,FG01025=@username,FG01027=@dj,FG01032=3,FG01030=@InvoiceID,FG01039=@lineno where FG01001 IN ([BIDS])	
 
 end
 select @result MSG
@@ -123,9 +126,71 @@ select @result MSG
                     string msg = ds.Tables[0].Rows[0][0] + "";
                     if (msg != "YES")
                         throw new Exception(msg);
+                    else
+                    {
+                        this.ExportXML(sb.ToString());
+                    }
                 }
                 ts.Complete();
                 return this;
+            }
+        }
+
+        private void ExportXML(string bids)
+        {
+            string sql = @"
+select FG01030,FG01039,FG01002,FG01007,sum(FG01006) FG01006,FG01037 from FG01 where FG01001 in ([BIDS]) GROUP BY FG01030,FG01039,FG01002,FG01007,FG01037";
+
+            BaseAdo ba = new BaseAdo();
+            DataSet ds = ba.GetDataSet(sql.Replace("[BIDS]", bids));
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                string company = ds.Tables[0].Rows[0]["FG01037"] + "";
+                string ordernum = ds.Tables[0].Rows[0]["FG01030"] + "";
+
+                StringBuilder export = new StringBuilder();
+                export.Append(@"
+<msg:Msg xsi:schemaLocation=""http://Epicor.com/Message/2.0 http://scshost/schemas/epicor/ScalaMessage.xsd"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:msg=""http://Epicor.com/Message/2.0"">
+	<msg:Hdr>
+		<msg:Sender>
+			<msg:Name>Generic Sender</msg:Name>
+			<msg:Subname>[COM]-Scala</msg:Subname>
+		</msg:Sender>
+	</msg:Hdr>
+	<msg:Body>
+		<msg:Req msg-type=""Sales Order Delivery"" action=""Process"">
+			<msg:Dta>
+				<dta:SalesOrderDelivery xsi:schemaLocation=""http://www.scala.net/SalesOrderDelivery/1.1 http://scshost/schemas/Scala/1.1/SalesOrderDelivery.xsd"" xmlns:msg=""http://Epicor.com/InternalMessage/1.1"" xmlns:dta=""http://www.scala.net/SalesOrderDelivery/1.1"">
+					<dta:OrderHeader>
+						<dta:OrdNum>[SO]</dta:OrdNum>
+					</dta:OrderHeader>
+					<dta:OrderLineList>");
+                export.Replace("[COM]", company);
+                export.Replace("[SO]", ordernum);
+                string delLine = @"
+						<dta:OrderLine>
+							<dta:LineNum>{0}</dta:LineNum>
+							<dta:StockCode>{1}</dta:StockCode>
+						        <dta:QtyDeliv>{2}</dta:QtyDeliv>
+							<dta:DelivDateAct>{3}</dta:DelivDateAct>
+						</dta:OrderLine>";
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    export.Append(string.Format(delLine, item["FG01039"], item["FG01002"], item["FG01006"], DateTime.Now.ToString("yyyy-MM-dd")));
+                }
+
+                export.Append(@"
+					</dta:OrderLineList>
+				</dta:SalesOrderDelivery>
+			</msg:Dta>
+		</msg:Req>
+	</msg:Body>
+</msg:Msg>
+");
+                string[] path = SysConfig.GetXMLExportPath(company);
+                string filename = DateTime.Now.ToString("yyyyMMddHHmmss") + new Random().Next(1000, 9999) + ".xml";
+                System.IO.File.WriteAllText(path[0] + filename, export.ToString(), Encoding.Unicode);
+                System.IO.File.WriteAllText(path[1] + "bak" + filename, export.ToString(), Encoding.Unicode);
             }
         }
     }

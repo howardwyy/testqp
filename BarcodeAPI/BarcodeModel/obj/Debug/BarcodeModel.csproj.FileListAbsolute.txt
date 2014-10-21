@@ -27,3 +27,17 @@ F:\vs-workspace\ChemTrend.Barcode\BarcodeAPI\BarcodeModel\obj\Debug\BarcodeModel
 F:\vs-workspace\ChemTrend.Barcode\BarcodeAPI\BarcodeModel\bin\Debug\Interop.Excel.DLL
 F:\vs-workspace\ChemTrend.Barcode\BarcodeAPI\BarcodeModel\bin\Debug\office.dll
 F:\vs-workspace\ChemTrend.Barcode\BarcodeAPI\BarcodeModel\bin\Debug\Microsoft.Vbe.Interop.dll
+E:\workgroup\qingpu\Chemtrend_2014_10_01\BarcodeAPI\BarcodeModel\bin\Debug\BarcodeModel.dll
+E:\workgroup\qingpu\Chemtrend_2014_10_01\BarcodeAPI\BarcodeModel\bin\Debug\BarcodeModel.pdb
+E:\workgroup\qingpu\Chemtrend_2014_10_01\BarcodeAPI\BarcodeModel\bin\Debug\ADOHelper.dll
+E:\workgroup\qingpu\Chemtrend_2014_10_01\BarcodeAPI\BarcodeModel\bin\Debug\ADOHelper.pdb
+E:\workgroup\qingpu\Chemtrend_2014_10_01\BarcodeAPI\BarcodeModel\obj\Debug\BarcodeModel.dll
+E:\workgroup\qingpu\Chemtrend_2014_10_01\BarcodeAPI\BarcodeModel\obj\Debug\BarcodeModel.pdb
+E:\workgroup\qingpu\Chemtrend_2014_10_01\BarcodeAPI\BarcodeModel\obj\Debug\BarcodeModel.csprojResolveAssemblyReference.cache
+E:\workgroup\qingpu\Chemtrend_2014_10_10\BarcodeAPI\BarcodeModel\bin\Debug\BarcodeModel.dll
+E:\workgroup\qingpu\Chemtrend_2014_10_10\BarcodeAPI\BarcodeModel\bin\Debug\BarcodeModel.pdb
+E:\workgroup\qingpu\Chemtrend_2014_10_10\BarcodeAPI\BarcodeModel\bin\Debug\ADOHelper.dll
+E:\workgroup\qingpu\Chemtrend_2014_10_10\BarcodeAPI\BarcodeModel\bin\Debug\ADOHelper.pdb
+E:\workgroup\qingpu\Chemtrend_2014_10_10\BarcodeAPI\BarcodeModel\obj\Debug\BarcodeModel.dll
+E:\workgroup\qingpu\Chemtrend_2014_10_10\BarcodeAPI\BarcodeModel\obj\Debug\BarcodeModel.pdb
+E:\workgroup\qingpu\Chemtrend_2014_10_10\BarcodeAPI\BarcodeModel\obj\Debug\BarcodeModel.csprojResolveAssemblyReference.cache

@@ -50,9 +50,14 @@ set @result=N'YES'
 select @RC=count(FG01001) from FG01 where FG01001 IN ([BIDS]) and FG01032>1
 if @RC>0
 begin
-	set @result=N'存在已入过库的料，不能再入库'
+	set @result=N'不能对已入库的料进行入库操作'
 end
-
+set @RC=0
+select @RC=count(distinct(FG01033)) from FG01 where FG01001 IN ([BIDS])
+if @RC>1
+begin
+	set @result=N'请对同一工单号进行入库操作'
+end
 if @result='YES'
 begin
     exec PROC_GETID 'FG03',@dj output
@@ -78,9 +83,82 @@ select @result MSG
                     string msg = ds.Tables[0].Rows[0][0] + "";
                     if (msg != "YES")
                         throw new Exception(msg);
+                    else
+                    {
+                        this.ExportXML(sb.ToString());
+                    }
                 }
                 ts.Complete();
                 return this;
+            }
+        }
+
+        private void ExportXML(string bids)
+        {
+            string sql = @"
+select FG01002,SUM(FG01006) FG01006,FG01033,FG01034,FG01008,FG01009,FG01037,FG01007 from FG01 where FG01001 IN ([BIDS]) 
+group by FG01002,FG01033,FG01034,FG01008,FG01009,FG01037,FG01007
+select SUM(FG01006) FG01006 from FG01 where FG01001 IN ([BIDS])";
+
+            BaseAdo ba = new BaseAdo();
+            DataSet ds = ba.GetDataSet(sql.Replace("[BIDS]", bids));
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                string company = ds.Tables[0].Rows[0]["FG01037"] + "";
+                string ordernum = ds.Tables[0].Rows[0]["FG01033"] + "";
+
+                StringBuilder export = new StringBuilder();
+                export.Append(@"
+<msg:Msg xsi:schemaLocation=""http://Epicor.com/Message/2.0 http://scshost/schemas/epicor/ScalaMessage.xsd"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:msg=""http://Epicor.com/Message/2.0"">
+	<msg:Hdr>
+		<msg:Sender>
+			<msg:Name>Generic Sender</msg:Name>
+			<msg:Subname>[COM]-Scala</msg:Subname>
+		</msg:Sender>
+	</msg:Hdr>
+	<msg:Body>
+		<msg:Req msg-type=""Work Order Receipt"" action=""Process"">
+			<msg:Dta>
+				<dta:WorkOrderReceiptRequest xsi:schemaLocation=""http://www.scala.net/WorkOrderReceiptRequest/1.1 http://scshost/schemas/Scala/1.1/WorkOrderReceiptRequest.xsd   "" xmlns:msg=""http://Epicor.com/InternalMessage/1.1"" xmlns:dta=""http://www.scala.net/WorkOrderReceiptRequest/1.1"">
+					<dta:WorkorderNumber>[WO]</dta:WorkorderNumber>
+					<dta:ReceiptDate>[DATE]</dta:ReceiptDate>
+					<dta:ReceiptWarehouse>[WH]</dta:ReceiptWarehouse>
+					<dta:ReceiptQuantity>[SUMQTY]</dta:ReceiptQuantity>
+					<dta:CloseWorkorder>1</dta:CloseWorkorder>
+					<dta:ReceiptLines>");
+                export.Replace("[COM]", company);
+                export.Replace("[WO]", ordernum);
+                export.Replace("[WH]", ds.Tables[0].Rows[0]["FG01008"] + "");
+                export.Replace("[SUMQTY]", ds.Tables[1].Rows[0]["FG01006"] + "");
+                export.Replace("[DATE]", DateTime.Now.ToString("yyyy-MM-dd"));
+                string receTemp = @"
+						<dta:ReceiptLine>
+							<dta:Batch>
+								<dta:BatchCode>{0}</dta:BatchCode>
+							</dta:Batch>
+							<dta:ReceiptWarehouse>{1}</dta:ReceiptWarehouse>
+							<dta:ReceiptDate>{2}</dta:ReceiptDate>
+							<dta:ReceiptQuantity>{3}</dta:ReceiptQuantity>
+							<dta:BinCode>{4}</dta:BinCode>
+						</dta:ReceiptLine>";
+                int i = 0;
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    export.Append(string.Format(receTemp, item["FG01007"], item["FG01008"], DateTime.Now.ToString("yyyy-MM-dd"), item["FG01006"], item["FG01009"]));
+                }
+
+                export.Append(@"
+					</dta:ReceiptLines>
+				</dta:WorkOrderReceiptRequest>
+			</msg:Dta>
+		</msg:Req>
+	</msg:Body>
+</msg:Msg>
+");
+                string[] path = SysConfig.GetXMLExportPath(company);
+                string filename = DateTime.Now.ToString("yyyyMMddHHmmss") + new Random().Next(1000, 9999) + ".xml";
+                System.IO.File.WriteAllText(path[0] + filename, export.ToString(), Encoding.Unicode);
+                System.IO.File.WriteAllText(path[1] + "bak" + filename, export.ToString(), Encoding.Unicode);
             }
         }
     }

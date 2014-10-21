@@ -1,5 +1,6 @@
 ﻿using BarcodeModel.ADO;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -48,7 +49,7 @@ set @result=N'YES'
 select @RC=count(RW01001) from RW01 where RW01001 IN ([BIDS]) and RW01032 <> 2
 if @RC>0
 begin
-	set @result=N'存在不能做移库操作的料，不能进行移库操作'
+	set @result=N'请仅对已入库的料进行移库操作'
 end
 
 if @result='YES'
@@ -76,9 +77,44 @@ select @result MSG
                     string msg = ds.Tables[0].Rows[0][0] + "";
                     if (msg != "YES")
                         throw new Exception(msg);
+                    else
+                    {
+                        this.ExportXML(sb.ToString());
+                    }
                 }
                 ts.Complete();
                 return this;
+            }
+        }
+
+
+
+        private void ExportXML(string bids)
+        {
+            string sql = @"
+select RW01016,RW01017,RW01008,RW01009,RW01002,SUM(RW01006/RW01040) RW01006,RW01007,RW01034,RW01035 from RW01 where RW01001 IN ([BIDS]) 
+group by RW01016,RW01017,RW01008,RW01009,RW01002,RW01007,RW01034,RW01035
+";
+
+            BaseAdo ba = new BaseAdo();
+            DataSet ds = ba.GetDataSet(sql.Replace("[BIDS]", bids));
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                List<Hashtable> list = new List<Hashtable>();
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    Hashtable h = new Hashtable();
+                    h["Qty"] = item["RW01006"];
+                    h["StockCode"] = item["RW01002"];
+                    h["WhCodeFrom"] = item["RW01016"];
+                    h["BinCodeFrom"] = item["RW01017"];
+                    h["WhCodeTo"] = item["RW01008"];
+                    h["BinCodeTo"] = item["RW01009"];
+                    h["Company"] = item["RW01034"];
+                    h["SupplierBatch"] = item["RW01035"];
+                    list.Add(h);
+                }
+                StockTransactionXml.ExportMoveXML(list);
             }
         }
     }

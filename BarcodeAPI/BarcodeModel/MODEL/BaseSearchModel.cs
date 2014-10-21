@@ -18,6 +18,7 @@ namespace BarcodeModel.MODEL
         public int PageSize { get; set; }
         public string LoginUserName { get; set; }
         public string LoginUserID { get; set; }
+        public string[] WarningCodes { get; set; }
 
         private string _datatype = "data";
 
@@ -33,7 +34,7 @@ namespace BarcodeModel.MODEL
             PageIndex = -1;
         }
         private ModelAdo mado = null;
-        private ModelAdo GetADO()
+        protected ModelAdo GetADO()
         {
             if (mado == null)
                 mado = new ModelAdo(this.GetType());

@@ -121,7 +121,14 @@ RW01034	varchar(50),
 RW01035	varchar(255),
 RW01036	varchar(50),
 RW01037	datetime,
-RW01038	datetime
+RW01038	datetime,
+RW01039	varchar(10),
+RW01040	numeric(15,3),
+RW01041	varchar(10),
+RW01042	varchar(30),
+RW01043	varchar(10)
+RW01044	numeric(15,3),
+RW01045	numeric(15,3)
 )
 --drop table RW91
 create table RW91
@@ -288,90 +295,76 @@ RW12004	nvarchar(50),
 RW12005	varchar(50),
 RW12006	varchar(50)
 )
+create table RW13
+(
+RW13001	int primary key identity(1000,1),
+RW13002	datetime,
+RW13003	varchar(50),
+RW13004	varchar(50),
+RW13005	varchar(50),
+RW13006	varchar(50),
+RW13007	varchar(50),
+RW13008	nvarchar(50),
+RW13009	nvarchar(50),
+RW13010	varchar(50),
+RW13011	varchar(50),
+RW13012	datetime,
+RW13013	datetime,
+RW13014	numeric(15,3),
+RW13015	nvarchar(5),
+RW13016	nvarchar(5),
+RW13017	varchar(50),
+RW13018	varchar(50),
+RW13019	nvarchar(50),
+RW13020	numeric(15,3),
+RW13021	numeric(15,3),
+RW13022	varchar(50)
+)
+--drop table RW18
+create table RW18
+(
+RW18001	varchar(30) primary key,
+RW18002	datetime,
+RW18003	varchar(50),
+RW18004	nvarchar(50),
+RW18005	int,
+RW18006	varchar(50),
+RW18007	nvarchar(50),
+RW18008	varchar(30),
+RW18009	varchar(30)
+)
+--drop table RW19
+create table RW19
+(
+RW19001	int primary key identity(1000,1),
+RW19002	varchar(10),
+RW19003	varchar(50),
+RW19004	datetime,
+RW19005	varchar(50),
+RW19006	nvarchar(50),
+RW19007	varchar(50),
+RW19008	nvarchar(50),
+RW19009	numeric(15,3),
+RW19010	nvarchar(10),
+RW19011	numeric(15,3),
+RW19012	numeric(15,3),
+RW19013	varchar(30),
+RW19014	varchar(30)
+)
+--drop table RW20
+create table RW20
+(
+RW20001	int primary key identity(1000,1),
+RW20002	datetime,
+RW20003	varchar(50),
+RW20004	nvarchar(50),
+RW20005	varchar(50),
+RW20006	varchar(50),
+RW20007	varchar(50)
+)
 
----------------------drop table FG01
-create table FG01
-(
-FG01001	varchar(30) primary key,
-FG01002	varchar(50),
-FG01003	nvarchar(100),
-FG01004	nvarchar(100),
-FG01005	nvarchar(10),
-FG01006	numeric(15,3),
-FG01007	varchar(50),
-FG01008	varchar(10),
-FG01009	varchar(10),
-FG01010	datetime,
-FG01011	datetime,
-FG01012	varchar(50),
-FG01013	nvarchar(100),
-FG01014	varchar(50),
-FG01015	varchar(10),
-FG01016	varchar(10),
-FG01017	varchar(10),
-FG01018	nvarchar(100),
-FG01019	nvarchar(100),
-FG01020	varchar(50),
-FG01021	nvarchar(100),
-FG01022	varchar(50),
-FG01023	nvarchar(100),
-FG01024	varchar(50),
-FG01025	nvarchar(100),
-FG01026	varchar(50),
-FG01027	varchar(50),
-FG01028	varchar(50),
-FG01029	nvarchar(100),
-FG01030	varchar(50),
-FG01031	varchar(50),
-FG01032	int,
-FG01033	varchar(50),
-FG01034	datetime,
-FG01035	datetime,
-FG01036	varchar(30),
-FG01037 varchar(3)
-)
---drop table FG91
-create table FG91
-(
-FG91001	varchar(30) primary key,
-FG91002	varchar(50),
-FG91003	nvarchar(100),
-FG91004	nvarchar(100),
-FG91005	nvarchar(10),
-FG91006	numeric(15,3),
-FG91007	varchar(50),
-FG91008	varchar(10),
-FG91009	varchar(10),
-FG91010	datetime,
-FG91011	datetime,
-FG91012	varchar(50),
-FG91013	nvarchar(100),
-FG91014	varchar(50),
-FG91015	varchar(10),
-FG91016	varchar(10),
-FG91017	varchar(10),
-FG91018	nvarchar(100),
-FG91019	nvarchar(100),
-FG91020	varchar(50),
-FG91021	nvarchar(100),
-FG91022	varchar(50),
-FG91023	nvarchar(100),
-FG91024	varchar(50),
-FG91025	nvarchar(100),
-FG91026	varchar(50),
-FG91027	varchar(50),
-FG91028	varchar(50),
-FG91029	nvarchar(100),
-FG91030	varchar(50),
-FG91031	varchar(50),
-FG91032	int,
-FG91033	varchar(50),
-FG91034	datetime,
-FG91035	datetime,
-FG91036	varchar(30),
-FG91037 varchar(3)
-)
---------------------
+
+--drop table WK01
 create table WK01
 (
 WK01001	varchar(30) primary key,
@@ -396,7 +389,10 @@ WK02007	varchar(5),
 WK02008	datetime,
 WK02009	numeric(15,3),
 WK02010	varchar(30),
-WK02011	int
+WK02011	int,
+WK02012	varchar(30),
+WK02013	varchar(30),
+WK02014	varchar(10)
 )
 --drop table WK03
 create table WK03
@@ -410,12 +406,38 @@ WK03006	varchar(5),
 WK03007	varchar(5),
 WK03008	varchar(5),
 WK03009	int,
-WK03010	float
+WK03010	numeric(15,3)
+)
+--drop table WK04
+create table WK04
+(
+WK04001	varchar(30),
+WK04002	varchar(30),
+WK04003	datetime,
+WK04004	datetime
+)
+--drop table WK05
+create table WK05
+(
+WK05001	int primary key identity(1000,1),
+WK05002	varchar(50),
+WK05003	varchar(50),
+WK05004	varchar(50),
+WK05005	varchar(50),
+WK05006	numeric(15,3),
+WK05007	varchar(10),
+WK05008	datetime,
+WK05009	int,
+WK05010 int
 )
 
 
+select * from 
+
+
+
 -----------------------
-create proc [dbo].[PROC_GETID]
+alter proc [dbo].[PROC_GETID]
 @TABLE VARCHAR(50),
 @NEWID VARCHAR(50) OUTPUT
 AS
@@ -462,200 +484,23 @@ SELECT * FROM RW04 inner join RW01 ON RW04004=RW01001
 
 
 
+create view view_RW_pandian
+as
+select RW12002,RW12003,RW12004,RW12006,RW01001,RW01002,RW01003,RW01012,RW01013,RW01014,RW01015,RW01006,RW01035,RW01008,RW01009,RW01034,
+case when RW01001 is not null and RW12001 is not null then N'¡Ì' when RW01001 is null then N'-' when RW12001 is null then N'¡Á' end pdstatus
+from RW01
+full outer join RW12 on RW12006=RW01001 where RW01032=2 OR RW01032 is null
+
+
+create view view_USBarcodeGroup
+as
+select RW13003,RW13005,RW13006,RW13007,RW13008,RW13009,RW13011,RW13015,RW13016,RW13018,RW13019,SUM(RW13014) RW13014 from RW13
+group by RW13003,RW13005,RW13006,RW13007,RW13008,RW13009,RW13011,RW13015,RW13016,RW13018,RW13019
+
+select * from FG09
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-/****** Object:  Table [dbo].[FG12]    Script Date: 09/07/2014 12:20:14 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
-CREATE TABLE [dbo].[FG12](
-	[FG12001] [int] NULL,
-	[FG12002] [datetime] NULL,
-	[FG12003] [varchar](50) NULL,
-	[FG12004] [nvarchar](50) NULL,
-	[FG12005] [varchar](50) NULL,
-	[FG12006] [varchar](50) NULL
-) ON [PRIMARY]
-GO
-SET ANSI_PADDING OFF
-GO
-/****** Object:  Table [dbo].[FG11]    Script Date: 09/07/2014 12:20:14 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
-CREATE TABLE [dbo].[FG11](
-	[FG11001] [varchar](30) NULL,
-	[FG11002] [datetime] NULL,
-	[FG11003] [varchar](50) NULL,
-	[FG11004] [nvarchar](50) NULL,
-	[FG11005] [int] NULL
-) ON [PRIMARY]
-GO
-SET ANSI_PADDING OFF
-GO
-/****** Object:  Table [dbo].[FG10]    Script Date: 09/07/2014 12:20:14 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
-CREATE TABLE [dbo].[FG10](
-	[FG10001] [int] NULL,
-	[FG10002] [datetime] NULL,
-	[FG10003] [varchar](50) NULL,
-	[FG10004] [nvarchar](50) NULL,
-	[FG10005] [varchar](50) NULL,
-	[FG10006] [varchar](50) NULL,
-	[FG10007] [varchar](50) NULL
-) ON [PRIMARY]
-GO
-SET ANSI_PADDING OFF
-GO
-/****** Object:  Table [dbo].[FG09]    Script Date: 09/07/2014 12:20:14 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
-CREATE TABLE [dbo].[FG09](
-	[FG09001] [int] NULL,
-	[FG09002] [int] NULL,
-	[FG09003] [varchar](50) NULL,
-	[FG09004] [datetime] NULL,
-	[FG09005] [varchar](50) NULL,
-	[FG09006] [nvarchar](50) NULL,
-	[FG09007] [varchar](50) NULL,
-	[FG09008] [nvarchar](50) NULL,
-	[FG09009] [numeric](15, 3) NULL,
-	[FG09010] [nvarchar](10) NULL,
-	[FG09011] [numeric](15, 3) NULL,
-	[FG09012] [numeric](15, 3) NULL,
-	[FG09013] [numeric](15, 3) NULL,
-	[FG09014] [numeric](15, 3) NULL
-) ON [PRIMARY]
-GO
-SET ANSI_PADDING OFF
-GO
-/****** Object:  Table [dbo].[FG08]    Script Date: 09/07/2014 12:20:14 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
-CREATE TABLE [dbo].[FG08](
-	[FG08001] [varchar](30) NULL,
-	[FG08002] [datetime] NULL,
-	[FG08003] [varchar](50) NULL,
-	[FG08004] [nvarchar](50) NULL,
-	[FG08005] [datetime] NULL,
-	[FG08006] [int] NULL,
-	[FG08007] [nvarchar](100) NULL,
-	[FG08008] [int] NULL,
-	[FG08009] [varchar](50) NULL,
-	[FG08010] [nvarchar](50) NULL,
-	[FG08011] [varchar](50) NULL,
-	[FG08012] [nvarchar](50) NULL
-) ON [PRIMARY]
-GO
-SET ANSI_PADDING OFF
-GO
-/****** Object:  Table [dbo].[FG07]    Script Date: 09/07/2014 12:20:14 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
-CREATE TABLE [dbo].[FG07](
-	[FG07001] [varchar](30) NULL,
-	[FG07002] [datetime] NULL,
-	[FG07003] [varchar](50) NULL,
-	[FG07004] [nvarchar](50) NULL,
-	[FG07005] [int] NULL,
-	[FG07006] [varchar](50) NULL,
-	[FG07007] [int] NULL
-) ON [PRIMARY]
-GO
-SET ANSI_PADDING OFF
-GO
-/****** Object:  Table [dbo].[FG04]    Script Date: 09/07/2014 12:20:14 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
-CREATE TABLE [dbo].[FG04](
-	[FG04001] [int] NULL,
-	[FG04002] [datetime] NULL,
-	[FG04003] [varchar](50) NULL,
-	[FG04004] [varchar](50) NULL
-) ON [PRIMARY]
-GO
-SET ANSI_PADDING OFF
-GO
-/****** Object:  Table [dbo].[FG03]    Script Date: 09/07/2014 12:20:14 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
-CREATE TABLE [dbo].[FG03](
-	[FG03001] [varchar](30) NULL,
-	[FG03002] [datetime] NULL,
-	[FG03003] [varchar](50) NULL,
-	[FG03004] [nvarchar](50) NULL,
-	[FG03005] [varchar](50) NULL,
-	[FG03006] [nvarchar](50) NULL
-) ON [PRIMARY]
-GO
-SET ANSI_PADDING OFF
-GO
-/****** Object:  Table [dbo].[FG02]    Script Date: 09/07/2014 12:20:14 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-SET ANSI_PADDING ON
-GO
-CREATE TABLE [dbo].[FG02](
-	[FG02001] [int] NULL,
-	[FG02002] [varchar](50) NULL,
-	[FG02003] [datetime] NULL,
-	[FG02004] [varchar](50) NULL,
-	[FG02005] [nvarchar](50) NULL,
-	[FG02006] [varchar](50) NULL,
-	[FG02007] [nvarchar](50) NULL,
-	[FG02008] [varchar](50) NULL,
-	[FG02009] [nvarchar](50) NULL,
-	[FG02010] [varchar](50) NULL,
-	[FG02011] [nvarchar](100) NULL
-) ON [PRIMARY]
-GO
-SET ANSI_PADDING OFF
-GO
 
 
 select * from WK01

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BarcodeModel</RootNamespace>
     <AssemblyName>BarcodeModel</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -48,6 +48,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +79,7 @@
     <Compile Include="MODEL\Barcode\FG\Operation\PackingFGModel.cs" />
     <Compile Include="MODEL\Barcode\FG\Operation\SOOutWarehouseModel.cs" />
     <Compile Include="MODEL\Barcode\FG\FGHistoryModel.cs" />
+    <Compile Include="MODEL\Barcode\FG\SODeliveryLineModel.cs" />
     <Compile Include="MODEL\Barcode\FG\SOLineModel.cs" />
     <Compile Include="MODEL\Barcode\FG\SuggestModel.cs" />
     <Compile Include="MODEL\Barcode\FG\WOModel.cs" />
@@ -101,6 +103,10 @@
     <Compile Include="MODEL\Barcode\RW\Operation\PackingBarcodeModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\ReceiveOutWarehouseModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\RWReceiveModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\RWSandRModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\RWStockReceiveModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\RWStockTakenModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\Operation\USBarcodeImportModel.cs" />
     <Compile Include="MODEL\Barcode\RW\PackingModel.cs" />
     <Compile Include="MODEL\Barcode\RW\Operation\PListCreateModel.cs" />
     <Compile Include="MODEL\Barcode\RW\ReceiveModel.cs" />
@@ -108,17 +114,26 @@
     <Compile Include="MODEL\Barcode\RW\RWInvoiceBarcodeModel.cs" />
     <Compile Include="MODEL\Barcode\RW\RWInvoiceDetailModel.cs" />
     <Compile Include="MODEL\Barcode\RW\RWInvoiceModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\RWPandianReport.cs" />
+    <Compile Include="MODEL\Barcode\RW\RWStockReportModel.cs" />
     <Compile Include="MODEL\Barcode\RW\WOLineModel.cs" />
     <Compile Include="MODEL\Barcode\RW\ReceiveDetailModel.cs" />
+    <Compile Include="MODEL\Barcode\RW\WOLineNoGroupModel.cs" />
     <Compile Include="MODEL\Barcode\StockModel.cs" />
     <Compile Include="MODEL\Barcode\WorkCenterModel.cs" />
     <Compile Include="MODEL\Barcode\WORP\MappingModel.cs" />
+    <Compile Include="MODEL\Barcode\WORP\Operation\WK05ReportModel.cs" />
     <Compile Include="MODEL\Barcode\WORP\Operation\WOLineReportModel.cs" />
     <Compile Include="MODEL\Barcode\WORP\Operation\WOReportModel.cs" />
+    <Compile Include="MODEL\Barcode\WORP\Operation\WorkcenterCloseModel.cs" />
     <Compile Include="MODEL\Barcode\WORP\ReportModel.cs" />
+    <Compile Include="MODEL\Barcode\WORP\WCTimeModel.cs" />
+    <Compile Include="MODEL\Barcode\WORP\WOWK01Model.cs" />
+    <Compile Include="MODEL\Barcode\WORP\WOWK05Model.cs" />
     <Compile Include="MODEL\BaseSearchModel.cs" />
     <Compile Include="MODEL\Barcode\RW\POLineModel.cs" />
     <Compile Include="MODEL\Barcode\RW\RWBarcodeModel.cs" />
+    <Compile Include="MODEL\StockTransactionXml.cs" />
     <Compile Include="MODEL\Sys\CompanyModel.cs" />
     <Compile Include="MODEL\User\LoginHistoryModel.cs" />
     <Compile Include="MODEL\User\LoginModel.cs" />

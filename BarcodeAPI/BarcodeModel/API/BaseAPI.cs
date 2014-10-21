@@ -108,15 +108,14 @@ namespace BarcodeModel.API
             }
             catch (WebException ex)
             {
+                HttpWebResponse response = (HttpWebResponse)ex.Response;
                 string html = "";
-                using (Stream stream = ex.Response.GetResponseStream())
+                using (Stream stream = response.GetResponseStream())
                 {
                     StreamReader sr = new StreamReader(stream);
                     html = sr.ReadToEnd();
                 }
-                ApiExceptionMessage aem = BaseAPI.DeserializeObject<ApiExceptionMessage>(html);
-                //throw new ApiException() { ApiExceptionMessage = aem };
-                throw new Exception(aem.ExceptionMessage);
+                throw new Exception(html);
             }
             catch (Exception ex)
             {

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using System.Transactions;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace BarcodeModel.MODEL.Barcode.RW.Operation
 {
@@ -21,36 +22,6 @@ namespace BarcodeModel.MODEL.Barcode.RW.Operation
         //应用于返回结果，处理打印功能
         //public RWBarcodeModel[] RWBarcodeModels { get; set; }
         public string[] ReturnIDS { get; set; }
-        //public override BaseSearchModel Insert()
-        //{
-        //    using (TransactionScope ts = new TransactionScope())
-        //    {
-        //        //创建单据号
-        //        ModelAdo<BillModel> adoBill = new ModelAdo<BillModel>();
-        //        BillModel billModel = new BillModel()
-        //        {
-        //            CreateTime = DateTime.Now,
-        //            UserId = "",
-        //            UserName = "",
-        //            Flowkey = "",
-        //            FlowName = "",
-        //            RequisitionId = "",
-        //            Remark = BillRemark
-        //        };
-        //        adoBill.Insert(billModel);
-
-        //        List<RWBarcodeModel> listBarcode = new List<RWBarcodeModel>();
-        //        foreach (POLineModel item in POLineModels)
-        //        {
-        //            item.billModel = billModel;
-        //            item.Insert();
-        //            listBarcode.AddRange(item.RWBarcodeModels);
-        //        }
-        //        this.RWBarcodeModels = listBarcode.ToArray();
-        //        ts.Complete();
-        //    }
-        //    return this;
-        //}
         public override BarcodeModel.MODEL.BaseSearchModel Insert()
         {
             lock (lockobj)
@@ -63,8 +34,10 @@ namespace BarcodeModel.MODEL.Barcode.RW.Operation
                         string sql = @"
 declare @dj varchar(30)
 exec PROC_GETID 'RW03',@dj output
+insert into RW03(RW03001,RW03002,RW03003,RW03004,RW03005,RW03006,RW03007,RW03008)
+values(@dj,getdate(),@userid,@username,'','','',N'创建条码')
 select @dj t";
-                        DataSet dsdj = ba.GetDataSet(sql);
+                        DataSet dsdj = ba.GetDataSet(sql, new SqlParameter("@userid", this.LoginUserID), new SqlParameter("@username", this.LoginUserName));
                         string dj = "";
                         if (dsdj != null && dsdj.Tables[0].Rows.Count > 0)
                             dj = dsdj.Tables[0].Rows[0][0] + "";

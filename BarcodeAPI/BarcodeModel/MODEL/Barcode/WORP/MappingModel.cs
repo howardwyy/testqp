@@ -27,16 +27,16 @@ namespace BarcodeModel.MODEL.Barcode.WORP
         public string WorkCenter { get; set; }
         //WK03005	int		BEGIN BOM OP
         [Columname(Name = "WK03005")]
-        public int BeginBom { get; set; }
+        public string BeginBom { get; set; }
         //WK03006	int		BEGIN BOM OP INDEX
         [Columname(Name = "WK03006")]
-        public int BeginBomIndex { get; set; }
+        public string BeginBomIndex { get; set; }
         //WK03007	int		END BOM OP
         [Columname(Name = "WK03007")]
-        public int EndBom { get; set; }
+        public string EndBom { get; set; }
         //WK03008	int		END BOM OP INDEX
         [Columname(Name = "WK03008")]
-        public int EndBomIndex { get; set; }
+        public string EndBomIndex { get; set; }
         //WK03009	int		计算类型(1、计算 2固定)
         [Columname(Name = "WK03009")]
         public int Type { get; set; }

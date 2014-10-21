@@ -91,24 +91,26 @@ select @billid t";
                             PackageId = strImprotLineItem[5];
                             BarcodeId = strImprotLineItem[6];
                             SupplierBatch = strImprotLineItem[7];
-                            StockUnitQty = decimal.Parse(strImprotLineItem[8]);
+                            StockUnitQty = decimal.Parse(strImprotLineItem[10]);
                             DateTime.TryParse(strImprotLineItem[15], out ProductionTime);
                             DateTime.TryParse(strImprotLineItem[16], out ValidityTime);
 
                             ModelAdo<RWBarcodeModel> adoBarcode = new ModelAdo<RWBarcodeModel>();
                             RWBarcodeModel rwModel = adoBarcode.GetModelByID(BarcodeId);
-                            if (rwModel != null && rwModel.ID.Length>=1 )
+                            if (rwModel != null && rwModel.ID.Length >= 1)
                             {
                                 throw new Exception(BarcodeId + "已存在于条码系统中！");
                             }
-                            if (!string.IsNullOrEmpty(PackageId)) {
+                            if (!string.IsNullOrEmpty(PackageId))
+                            {
                                 ModelAdo<PackingModel> adoPackage = new ModelAdo<PackingModel>();
                                 PackingModel packageModel = adoPackage.GetModelByID(PackageId);
                                 if (packageModel != null)
                                 {
 
                                 }
-                                else {
+                                else
+                                {
                                     string sqlPackage = @" 
 --装箱单
 insert into RW07(RW07001,RW07002,RW07003,RW07004,RW07005,RW07006,RW07007,RW07008)
@@ -118,7 +120,7 @@ values(@packageid,getdate(),@userid,@username,0,'',0,2)";
                                             new SqlParameter("@username", this.LoginUserName));
                                 }
                             }
-                            
+
 
 
 
@@ -129,10 +131,12 @@ values(@packageid,getdate(),@userid,@username,0,'',0,2)";
                                 StockCode = Stocks[0].StockCode;
                                 StockName = Stocks[0].StockName;
                                 StockUnit = Stocks[0].Unit;
+                                StockUnitQty = Stocks[0].UQTY;
                             }
                             else
                             {
-                                throw new Exception("未找到相对应的物料信息！");
+                                //throw new Exception("未找到相对应的物料信息！");
+                                continue;
                             }
 
 
@@ -145,8 +149,8 @@ insert into RW04(RW04002,RW04003,RW04004,RW04005) values(getdate(),@billid,@barc
 insert into RW02(RW02002,RW02003,RW02004,RW02005,RW02010,RW02011) 
 values(@barcodeid,getdate(),@userid,@username,@billid,N'创建条码标签')
 --原材料
-insert into RW01(RW01001,RW01002,RW01003,RW01004,RW01005,RW01006,RW01014,RW01024,RW01025,RW01027,RW01031,RW01032,RW01034,RW01035,RW01037,RW01038)
-values(@barcodeid,@stock,@stockname,@stockspec,@unit,@qty,@po,@userid,@username,@billid,@packageid,1,@company,@supplierbatch,@productiontime ,@validitytime)
+insert into RW01(RW01001,RW01002,RW01003,RW01004,RW01005,RW01006,RW01014,RW01024,RW01025,RW01027,RW01031,RW01032,RW01034,RW01035,RW01037,RW01038,RW01040,RW01041,RW01043)
+values(@barcodeid,@stock,@stockname,@stockspec,@unit,@qty,@po,@userid,@username,@billid,@packageid,1,@company,@supplierbatch,@productiontime ,@validitytime,@tqty,@stype,'PO')
 ";
 
                             ba.ExecuteSql(barcodeSql, new SqlParameter("@userid", this.LoginUserID),
@@ -158,7 +162,9 @@ values(@barcodeid,@stock,@stockname,@stockspec,@unit,@qty,@po,@userid,@username,
                                 new SqlParameter("@packageid", PackageId),
                                 new SqlParameter("@unit", StockUnit),
                                 new SqlParameter("@qty", StockUnitQty),
+                                new SqlParameter("@tqty", Stocks[0].UQTY),
                                 new SqlParameter("@po", PO),
+                                new SqlParameter("@stype", Stocks[0].StockType),
                                 new SqlParameter("@company", Company),
                                 new SqlParameter("@supplierbatch", SupplierBatch),
                                 new SqlParameter("@productiontime", ProductionTime),
@@ -166,7 +172,7 @@ values(@barcodeid,@stock,@stockname,@stockspec,@unit,@qty,@po,@userid,@username,
                                 new SqlParameter("@billid", BillId));
                         }
                         ts.Complete();
-                    } 
+                    }
                     catch (Exception ex)
                     {
                         throw ex;

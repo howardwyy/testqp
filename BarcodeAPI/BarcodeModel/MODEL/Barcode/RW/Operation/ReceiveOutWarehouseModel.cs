@@ -1,5 +1,6 @@
 ﻿using BarcodeModel.ADO;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -122,11 +123,11 @@ select @result MSG
                 parameters.Add(new SqlParameter("@ReceiveLine", this.ReceiveLine));
                 parameters.Add(new SqlParameter("@ReceivedCount", this.ReceivedCount));
                 parameters.Add(new SqlParameter("@ReceiveSurplusCount", this.ReceiveSurplusCount));
-                
+
                 parameters.Add(new SqlParameter("@wh", this.Warehouse));
                 parameters.Add(new SqlParameter("@sh", this.Bin));
                 parameters.Add(new SqlParameter("@whstr", this.Warehouse + "[" + this.Bin + "]"));
-                    
+
 
                 sql = sql.Replace("[BIDS]", sb.ToString());
                 DataSet ds = adoRW.GetDataSet(sql, parameters.ToArray());
@@ -135,9 +136,84 @@ select @result MSG
                     string msg = ds.Tables[0].Rows[0][0] + "";
                     if (msg != "YES")
                         throw new Exception(msg);
+                    else
+                    {
+                        this.ExportXML(sb.ToString());
+                    }
                 }
                 ts.Complete();
                 return this;
+            }
+        }
+        private void ExportXML(string bids)
+        {
+            string sql = @"
+select RW01016,RW01017,RW01008,RW01009,RW01002,SUM(RW01006/RW01040) RW01006,RW01007,RW01034,RW01035 from RW01 where RW01001 IN ([BIDS]) 
+group by RW01016,RW01017,RW01008,RW01009,RW01002,RW01007,RW01034,RW01035
+";
+
+            BaseAdo ba = new BaseAdo();
+            DataSet ds = ba.GetDataSet(sql.Replace("[BIDS]", bids));
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                List<Hashtable> list = new List<Hashtable>();
+                foreach (DataRow item in ds.Tables[0].Rows)
+                {
+                    Hashtable h = new Hashtable();
+                    h["Qty"] = item["RW01006"];
+                    h["StockCode"] = item["RW01002"];
+                    h["WhCodeFrom"] = item["RW01016"];
+                    h["BinCodeFrom"] = item["RW01017"];
+                    h["WhCodeTo"] = item["RW01008"];
+                    h["BinCodeTo"] = item["RW01009"];
+                    h["Company"] = item["RW01034"];
+                    h["SupplierBatch"] = item["RW01035"];
+                    list.Add(h);
+                }
+                StockTransactionXml.ExportMoveXML(list);
+                //                string company = ds.Tables[0].Rows[0]["RW01034"] + "";
+
+                //                StringBuilder export = new StringBuilder();
+                //                export.Append(@"
+                //<msg:Msg xsi:schemaLocation=""http://Epicor.com/Message/2.0 http://scshost/schemas/epicor/ScalaMessage.xsd"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:msg=""http://Epicor.com/Message/2.0"">
+                //	<msg:Hdr>
+                //		<msg:Sender>
+                //			<msg:Name>Generic Sender</msg:Name>
+                //			<msg:Subname>[COM]-Scala</msg:Subname>
+                //		</msg:Sender>
+                //	</msg:Hdr>
+                //	<msg:Body>
+                //		<msg:Req msg-type=""Stock Transaction"" action=""Process"">
+                //			<msg:Dta>
+                //				<dta:StockTransaction xsi:schemaLocation=""http://www.scala.net/StockTransaction/1.1 http://scshost/schemas/Scala/1.1/StockTransaction.xsd"" xmlns:msg=""http://Epicor.com/InternalMessage/1.1"" xmlns:dta=""http://www.scala.net/StockTransaction/1.1"">");
+                //                export.Replace("[COM]", company);
+                //                string transTemp = @"
+                //					<dta:Movement>
+                //						<dta:TransDate>{0}</dta:TransDate>
+                //						<dta:Qty>{1}</dta:Qty>
+                //						<dta:StockCode>{2}</dta:StockCode>
+                //						<dta:WhCodeFrom>{3}</dta:WhCodeFrom>
+                //						<dta:BinCodeTo>{4}</dta:BinCodeTo>
+                //						<dta:WhCodeTo>{5}</dta:WhCodeTo>
+                //						<dta:BinCodeFrom>{6}</dta:BinCodeFrom>
+                //						<dta:BatchCode BatchHandlingMethod=""1"">{7}</dta:BatchCode>
+                //					</dta:Movement>";
+                //                foreach (DataRow item in ds.Tables[0].Rows)
+                //                {
+                //                    export.Append(string.Format(transTemp, DateTime.Now.ToString("yyyy-MM-dd"), item["RW01006"], item["RW01002"], item["RW01016"], item["RW01009"], item["RW01008"], item["RW01017"], item["RW01007"]));
+                //                }
+
+                //                export.Append(@"
+                //				</dta:StockTransaction>
+                //			</msg:Dta>
+                //		</msg:Req>
+                //	</msg:Body>
+                //</msg:Msg>
+                //");
+                //                string[] path = SysConfig.GetXMLExportPath(company);
+                //                string filename = DateTime.Now.ToString("yyyyMMddHHmmss") + new Random().Next(1000, 9999) + ".xml";
+                //                System.IO.File.WriteAllText(path[0] + filename, export.ToString(), Encoding.Unicode);
+                //                System.IO.File.WriteAllText(path[1] + "bak" + filename, export.ToString(), Encoding.Unicode);
             }
         }
     }

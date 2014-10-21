@@ -12,6 +12,20 @@ namespace BarcodeModel.MODEL.Barcode.FG
     [Tablename(TableName = "FG01", PrimaryKey = "FG01001")]
     public class FGBarcodeModel : BaseSearchModel
     {
+        public FGBarcodeModel()
+        {
+            this.ExcelMapping = new List<KeyValuePair<string, string>>();
+            this.ExcelMapping.Add(new KeyValuePair<string, string>("FG01001", "条码号"));
+            this.ExcelMapping.Add(new KeyValuePair<string, string>("FG01002", "物料号"));
+            this.ExcelMapping.Add(new KeyValuePair<string, string>("FG01003", "物料名称"));
+            this.ExcelMapping.Add(new KeyValuePair<string, string>("FG01004", "物料规格"));
+            this.ExcelMapping.Add(new KeyValuePair<string, string>("FG01005", "单位"));
+            this.ExcelMapping.Add(new KeyValuePair<string, string>("FG01006", "包装量"));
+            this.ExcelMapping.Add(new KeyValuePair<string, string>("FG01007", "仓库"));
+            this.ExcelMapping.Add(new KeyValuePair<string, string>("FG01008", "库位"));
+            this.ExcelMapping.Add(new KeyValuePair<string, string>("FG01031", "装箱单"));
+        }
+
         //FG01001	varchar(30)	主键	主键
         [Columname(Name = "FG01001")]
         public string ID { get; set; }
@@ -179,12 +193,6 @@ namespace BarcodeModel.MODEL.Barcode.FG
             {
                 sbWhere.Append(" AND FG01033 = @WO");
                 listParam.Add(new SqlParameter("@WO", WO));
-            }
-            if (!String.IsNullOrEmpty(this.StockCode))
-            {
-                sbWhere.Append(" AND FG01002 = @StockCode");
-                listParam.Add(new SqlParameter("@StockCode", StockCode));
-                
             }
             if (!String.IsNullOrEmpty(this.StockBatch))
             {

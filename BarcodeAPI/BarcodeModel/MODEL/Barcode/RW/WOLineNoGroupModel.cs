@@ -1,16 +1,15 @@
-﻿using System;
+﻿using BarcodeModel.ADO;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BarcodeModel.ADO;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
 
 namespace BarcodeModel.MODEL.Barcode.RW
 {
-    [Tablename(TableName = "view_WOLine", PrimaryKey = "MP65001", IsScalaDB = true, ViewName = "view_WOLine")]
-    public class WOLineModel : BaseSearchModel
+    [Tablename(TableName = "view_WOLine", PrimaryKey = "MP65001", IsScalaDB = true, ViewName = "view_WOLine_NOGROUP")]
+    public class WOLineNoGroupModel : BaseSearchModel
     {
         [Columname(Name = "StockCode")]
         public string StockCode { get; set; }
@@ -27,6 +26,9 @@ namespace BarcodeModel.MODEL.Barcode.RW
         [Columname(Name = "MP65003")]
         public string Number { get; set; }
 
+        [Columname(Name = "MP65002")]
+        public string ReportNumber { get; set; }
+
         [Columname(Name = "MP65001")]
         public string WO { get; set; }
 
@@ -36,6 +38,8 @@ namespace BarcodeModel.MODEL.Barcode.RW
         [Columname(Name = "Company")]
         public string Company { get; set; }
 
+        [Columname(Name = "MP65011")]
+        public string Warehouse { get; set; }
 
 
         //提示效果，返回值

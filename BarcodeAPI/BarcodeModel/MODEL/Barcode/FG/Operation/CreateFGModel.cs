@@ -38,7 +38,7 @@ namespace BarcodeModel.MODEL.Barcode.FG.Operation
                         BaseAdo ba = new BaseAdo();
                         string sql = @"
 declare @dj varchar(30)
-exec PROC_GETID 'FG03',@dj output
+exec PROC_GETID 'RW03',@dj output
 select @dj t";
                         DataSet dsdj = ba.GetDataSet(sql);
                         string dj = "";
@@ -54,7 +54,7 @@ select @dj t";
                             item.Insert();
                             count += item.BarcodeQty;
                         }
-                        DataSet ds = ba.GetDataSet("select top " + count + " FG01001 from FG01 order by FG01001 desc");
+                        DataSet ds = ba.GetDataSet("select top " + count + " RW01001 from RW01 order by RW01001 desc");
                         if (ds != null && ds.Tables[0].Rows.Count > 0)
                         {
                             string[] ids = new string[ds.Tables[0].Rows.Count];

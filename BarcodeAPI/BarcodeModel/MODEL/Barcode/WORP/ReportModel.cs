@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BarcodeModel.MODEL.Barcode.WORP
 {
     [Tablename(TableName = "WK02", PrimaryKey = "WK02001")]
-    public class ReportModel:BaseSearchModel
+    public class ReportModel : BaseSearchModel
     {
         [Columname(Name = "WK02001")]
         public int ID { get; set; }
@@ -34,7 +34,7 @@ namespace BarcodeModel.MODEL.Barcode.WORP
         [Columname(Name = "WK02005")]
         public decimal DeQTY { get; set; }//需扣料数量
 
-        [Columname(Name = "WK02008")]
+        [Columname(Name = "WK02008", canUpdate = false, canInsert = false)]
         public DateTime DeDate { get; set; }//上次扣料时间
 
         [Columname(Name = "WK02009")]
@@ -42,5 +42,14 @@ namespace BarcodeModel.MODEL.Barcode.WORP
 
         [Columname(Name = "WK02011")]
         public int HadDe { get; set; }
+
+        [Columname(Name = "WK02012")]
+        public string LineNumber { get; set; }
+
+        [Columname(Name = "WK02013")]
+        public string ReportNumber { get; set; }
+
+        [Columname(Name = "WK02014")]
+        public string Warehouse { get; set; }
     }
 }
